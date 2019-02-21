@@ -1,0 +1,22 @@
+{
+  "id": "farlands",
+  "name": "FarLands",
+  "description": "Brings back the far lands",
+  "version": "${version}",
+  "side": "client",
+  "authors": [
+    {
+      "name": "geni",
+      "website": "https://geni.site",
+      "email": "me@geni.site"
+    }
+  ],
+  "links": {
+    "homepage": "https://polgarian.life",
+    "issues": "https://github.com/polgaria/FarLands/issues",
+    "sources": "https://github.com/polgaria/FarLands"
+  },
+  "mixins": {
+    "common": "farlands.common.json"
+  }
+}

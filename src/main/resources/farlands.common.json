@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "site.geni.farlands.mixins.common",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "OctavePerlinNoiseSamplerMixin",
+    "SurfaceChunkGeneratorMixin"
+  ],
+  "minVersion": "0.7.11",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
