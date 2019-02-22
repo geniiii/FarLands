@@ -3,8 +3,15 @@
   "package": "site.geni.farlands.mixins.common",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityMixin",
+    "MinecraftServerMixin",
     "OctavePerlinNoiseSamplerMixin",
-    "SurfaceChunkGeneratorMixin"
+    "PlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin",
+    "SurfaceChunkGeneratorMixin",
+    "WorldBorderCommandMixin",
+    "WorldMixin",
+    "ForceLoadCommandMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {
