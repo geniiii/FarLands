@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "site.geni.farlands.mixins.common",
+  "package": "site.geni.FarLands.mixins.common",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "EntityMixin",
