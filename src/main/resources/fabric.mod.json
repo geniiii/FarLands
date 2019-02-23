@@ -3,7 +3,10 @@
   "name": "FarLands",
   "description": "Brings back the far lands",
   "version": "${version}",
-  "side": "client",
+  "side": "universal",
+  "initializers": [
+    "site.geni.FarLands.FarLandsMod"
+  ],
   "authors": [
     {
       "name": "geni",

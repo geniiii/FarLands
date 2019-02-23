@@ -29,20 +29,6 @@ public abstract class WorldMixin {
 	@Final
 	private WorldBorder border;
 
-	@Shadow
-	public abstract WorldBorder getWorldBorder();
-
-	@Shadow
-	public abstract World getWorld();
-
-
-	@Inject(at = @At(value = "RETURN"), method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V")
-	private void setSizeAndMaxRadius(LevelProperties levelProperties_1, DimensionType dimensionType_1, BiFunction<World, Dimension, ChunkManager> biFunction_1, Profiler profiler_1, boolean boolean_1, CallbackInfo ci) {
-		this.getWorldBorder().setMaxWorldBorderRadius(Integer.MAX_VALUE);
-		this.getWorldBorder().setSize(Double.MAX_VALUE);
-	}
-
-
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
 	private static int validUpToNegativeIntegerMaxValue(int original) {
 		return -Integer.MAX_VALUE;
@@ -52,7 +38,6 @@ public abstract class WorldMixin {
 	private static int validUpToPositiveIntegerMaxValue(int original) {
 		return Integer.MAX_VALUE;
 	}
-
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
 	private static int lightLevelUpToNegativeIntegerMaxValue(int original) {
@@ -64,7 +49,6 @@ public abstract class WorldMixin {
 		return Integer.MAX_VALUE;
 	}
 
-
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getTop")
 	private static int topUpToNegativeIntegerMaxValue(int original) {
 		return -Integer.MAX_VALUE;
@@ -73,5 +57,17 @@ public abstract class WorldMixin {
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getTop")
 	private static int topUpToPositiveIntegerMaxValue(int original) {
 		return Integer.MAX_VALUE;
+	}
+
+	@Shadow
+	public abstract WorldBorder getWorldBorder();
+
+	@Shadow
+	public abstract World getWorld();
+
+	@Inject(at = @At(value = "RETURN"), method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V")
+	private void setSizeAndMaxRadius(LevelProperties levelProperties_1, DimensionType dimensionType_1, BiFunction<World, Dimension, ChunkManager> biFunction_1, Profiler profiler_1, boolean boolean_1, CallbackInfo ci) {
+		this.getWorldBorder().setMaxWorldBorderRadius(Integer.MAX_VALUE);
+		this.getWorldBorder().setSize(Double.MAX_VALUE);
 	}
 }

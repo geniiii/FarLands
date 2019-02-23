@@ -8,10 +8,14 @@
     "OctavePerlinNoiseSamplerMixin",
     "PlayerEntityMixin",
     "ServerPlayNetworkHandlerMixin",
-    "SurfaceChunkGeneratorMixin",
     "WorldBorderCommandMixin",
     "WorldMixin",
-    "ForceLoadCommandMixin"
+    "ForceLoadCommandMixin",
+    "FallingBlockEntityMixin",
+    "SurfaceChunkGeneratorMixin",
+    "FloatingIslandsChunkGeneratorMixin",
+    "CavesChunkGeneratorMixin",
+    "OverworldChunkGeneratorMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {
