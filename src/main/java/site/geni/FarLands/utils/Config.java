@@ -21,6 +21,7 @@ public class Config {
 			}
 
 			config = new Gson().fromJson(new FileReader(file), ConfigSpec.class);
+			Files.write(file.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.WRITE);
 		} catch (IOException e) {
 			LogManager.getLogger("FarLands").error("[FarLands] Failed to generate config!");
 			throw new RuntimeException(e);
@@ -37,6 +38,7 @@ public class Config {
 		public double coordinateScaleMultiplier = 1;
 		public double heightScaleMultiplier = 1;
 		public boolean killFallingBlockEntitiesInFarLands = false;
+		public boolean farLandsEnabled = true;
 	}
 
 }
