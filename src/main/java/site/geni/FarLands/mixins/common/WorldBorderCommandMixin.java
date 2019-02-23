@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(WorldBorderCommand.class)
 public abstract class WorldBorderCommandMixin {
 	@ModifyConstant(constant = @Constant(floatValue = -6.0E7F), method = "register")
-	private static float radiusArgumentOverNegative60Mil(float i) {
+	private static float radiusArgumentUnderNegative60Mil(float i) {
 		return -Float.MAX_VALUE;
 	}
 

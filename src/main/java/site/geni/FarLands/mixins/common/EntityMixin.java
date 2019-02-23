@@ -4,8 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @SuppressWarnings("unused")
 @Mixin(Entity.class)
@@ -17,26 +17,26 @@ public abstract class EntityMixin {
 	@Shadow
 	public double z;
 
+	@ModifyConstant(constant = @Constant(doubleValue = -3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
+	private static double clampPositionToNegativeDoubleMaxValueXZ(double original) {
+		return -Double.MAX_VALUE;
+	}
+
+	@ModifyConstant(constant = @Constant(doubleValue = 3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
+	private static double clampPositionToPositiveDoubleMaxValueXZ(double original) {
+		return Double.MAX_VALUE;
+	}
+
+	@ModifyConstant(constant = @Constant(doubleValue = -2.9999872E7D), method = "changeDimension")
+	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
+		return -Double.MAX_VALUE;
+	}
+
+	@ModifyConstant(constant = @Constant(doubleValue = 2.9999872E7D), method = "changeDimension")
+	private static double clampTeleportToPositiveDoubleMaxValueXZ(double original) {
+		return Double.MAX_VALUE;
+	}
+
 	@Shadow
 	public abstract void kill();
-
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 0), method = "setPositionAnglesAndUpdate(DDDFF)V", index = 1)
-	private double clampToNegativeDoubleMaxValueX(double original) {
-		return -Double.MAX_VALUE;
-	}
-
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 0), method = "setPositionAnglesAndUpdate(DDDFF)V", index = 2)
-	private double clampToPositiveDoubleMaxValueX(double original) {
-		return Double.MAX_VALUE;
-	}
-
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 1), method = "setPositionAnglesAndUpdate(DDDFF)V", index = 1)
-	private double clampToNegativeDoubleMaxValueZ(double original) {
-		return -Double.MAX_VALUE;
-	}
-
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 1), method = "setPositionAnglesAndUpdate(DDDFF)V", index = 2)
-	private double clampToPositiveDoubleMaxValueZ(double original) {
-		return Double.MAX_VALUE;
-	}
 }

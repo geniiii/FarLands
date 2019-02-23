@@ -1,6 +1,5 @@
 package site.geni.FarLands.mixins.common;
 
-import net.minecraft.world.gen.chunk.CavesChunkGenerator;
 import net.minecraft.world.gen.chunk.FloatingIslandsChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

@@ -30,32 +30,32 @@ public abstract class WorldMixin {
 	private WorldBorder border;
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
-	private static int validUpToNegativeIntegerMaxValue(int original) {
+	private static int validUpToNegativeIntegerMaxValueXZ(int original) {
 		return -Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
-	private static int validUpToPositiveIntegerMaxValue(int original) {
+	private static int validUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
-	private static int lightLevelUpToNegativeIntegerMaxValue(int original) {
+	private static int lightLevelUpToNegativeIntegerMaxValueXZ(int original) {
 		return -Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
-	private static int lightLevelUpToPositiveIntegerMaxValue(int original) {
+	private static int lightLevelUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getTop")
-	private static int topUpToNegativeIntegerMaxValue(int original) {
+	private static int topUpToNegativeIntegerMaxValueXZ(int original) {
 		return -Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getTop")
-	private static int topUpToPositiveIntegerMaxValue(int original) {
+	private static int topUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 

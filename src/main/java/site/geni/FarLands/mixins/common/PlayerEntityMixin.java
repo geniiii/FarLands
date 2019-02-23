@@ -2,19 +2,19 @@ package site.geni.FarLands.mixins.common;
 
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @SuppressWarnings("unused")
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 0), method = "update", index = 1)
-	private double clampToNegativeDoubleMaxValue(double original) {
+	@ModifyConstant(constant = @Constant(doubleValue = -2.9999999E7D), method = "update")
+	private static double clampToNegativeDoubleMaxValueXZ(double original) {
 		return -Double.MAX_VALUE;
 	}
 
-	@ModifyArg(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(DDD)D", ordinal = 0), method = "update", index = 2)
-	private double clampToPositiveDoubleMaxValue(double original) {
+	@ModifyConstant(constant = @Constant(doubleValue = 2.9999999E7D), method = "update")
+	private static double clampToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;
 	}
 }
