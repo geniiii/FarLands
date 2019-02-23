@@ -14,7 +14,7 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 
 	@Inject(at = @At("RETURN"), method = "update")
 	private void killFallingBlockEntities(CallbackInfo ci) {
-		if (this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation && Config.getConfig().killFallingBlockEntitiesInFarLands) {
+		if (Config.getConfig().killFallingBlockEntitiesInFarLands && this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation) {
 			this.kill();
 		}
 	}
