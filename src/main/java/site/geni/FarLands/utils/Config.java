@@ -31,7 +31,7 @@ public class Config {
 		return config;
 	}
 
-	private static class ConfigSpec {
+	public static class ConfigSpec {
 		public double coordinateScale = 684.4119873046875D;
 		public double heightScale = 684.4119873046875D;
 		public double coordinateScaleMultiplier = 1;
