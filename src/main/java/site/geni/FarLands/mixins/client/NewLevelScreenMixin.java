@@ -2,7 +2,6 @@ package site.geni.FarLands.mixins.client;
 
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.menu.NewLevelScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.world.level.LevelGeneratorType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,8 +16,6 @@ public abstract class NewLevelScreenMixin extends Screen {
 	@Shadow
 	private int generatorType;
 
-	@Shadow
-	private ButtonWidget buttonCommandsAllowed;
 	private final CustomizeFarLandsButton customizeFarLandsButton = new CustomizeFarLandsButton(this, 0, 120, 150, 20, "Customize FarLands");
 
 
@@ -32,11 +29,7 @@ public abstract class NewLevelScreenMixin extends Screen {
 
 	@Inject(at = @At("RETURN"), method = "method_2710")
 	private void showOrHideCustomizeFarLandsButton(boolean boolean_1, CallbackInfo ci) {
-		if (LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.FLAT && LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.BUFFET) {
-			this.customizeFarLandsButton.visible = boolean_1;
-		} else {
-			this.customizeFarLandsButton.visible = false;
-		}
+		this.customizeFarLandsButton.visible = LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.FLAT && LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.BUFFET && boolean_1;
 	}
 }
 

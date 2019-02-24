@@ -14,6 +14,16 @@ public class Config {
 	private static ConfigSpec config = new ConfigSpec();
 	private static File configFile;
 
+	public static class ConfigSpec {
+		public double coordinateScale = 684.4119873046875D;
+		public double heightScale = 684.4119873046875D;
+		public double coordinateScaleMultiplier = 1;
+		public double heightScaleMultiplier = 1;
+		public boolean killFallingBlockEntitiesInFarLands = false;
+		public boolean farLandsEnabled = true;
+	}
+
+
 	public static void createConfig(File file) {
 		configFile = file;
 		try {
@@ -23,7 +33,7 @@ public class Config {
 			}
 
 			config = new Gson().fromJson(new FileReader(file), ConfigSpec.class);
-			Files.write(file.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.WRITE);
+			Files.write(file.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			LogManager.getLogger("FarLands").error("[FarLands] Failed to generate config!");
 			throw new RuntimeException(e);
@@ -40,20 +50,10 @@ public class Config {
 
 	public static void saveConfig() {
 		try {
-			Files.write(configFile.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.WRITE);
+			Files.write(configFile.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			LogManager.getLogger("FarLands").error("[FarLands] Failed to save config!");
 			throw new RuntimeException(e);
 		}
 	}
-
-	public static class ConfigSpec {
-		public double coordinateScale = 684.4119873046875D;
-		public double heightScale = 684.4119873046875D;
-		public double coordinateScaleMultiplier = 1;
-		public double heightScaleMultiplier = 1;
-		public boolean killFallingBlockEntitiesInFarLands = false;
-		public boolean farLandsEnabled = true;
-	}
-
 }

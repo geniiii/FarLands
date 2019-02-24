@@ -65,9 +65,11 @@ public abstract class WorldMixin {
 	@Shadow
 	public abstract World getWorld();
 
-	@Shadow public abstract Dimension getDimension();
+	@Shadow
+	public abstract Dimension getDimension();
 
-	@Shadow public abstract LevelProperties getLevelProperties();
+	@Shadow
+	public abstract LevelProperties getLevelProperties();
 
 	@Inject(at = @At(value = "RETURN"), method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V")
 	private void setSizeAndMaxRadius(LevelProperties levelProperties_1, DimensionType dimensionType_1, BiFunction<World, Dimension, ChunkManager> biFunction_1, Profiler profiler_1, boolean boolean_1, CallbackInfo ci) {

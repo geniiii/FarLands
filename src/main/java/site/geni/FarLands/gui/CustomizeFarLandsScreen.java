@@ -1,25 +1,21 @@
 package site.geni.FarLands.gui;
 
-import com.google.common.base.Predicate;
 import com.google.common.primitives.Doubles;
-import com.sun.istack.internal.Nullable;
-import io.netty.util.internal.AppendableCharSequence;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.gui.widget.ToggleButtonWidget;
 import net.minecraft.client.resource.language.I18n;
 import site.geni.FarLands.utils.Config;
 import site.geni.FarLands.utils.Config.ConfigSpec;
 
 @Environment(EnvType.CLIENT)
 public class CustomizeFarLandsScreen extends Screen {
+	private final Screen parent;
 	private MinecraftClient client = MinecraftClient.getInstance();
 	private ConfigSpec tempConfig = Config.getConfig();
-	private final Screen parent;
 	private TextFieldWidget coordinateScale;
 	private TextFieldWidget heightScale;
 	private TextFieldWidget coordinateScaleMultiplier;
@@ -32,8 +28,11 @@ public class CustomizeFarLandsScreen extends Screen {
 		this.parent = screen_1;
 	}
 
+	@Override
 	public boolean charTyped(char char_1, int int_1) {
-		if (this.coordinateScale.isFocused()) {
+		if (Character.toLowerCase(char_1) == 'd' || Character.toLowerCase(char_1) == 'f') {
+			return false;
+		} else if (this.coordinateScale.isFocused()) {
 			if (Doubles.tryParse(this.coordinateScale.getText() + char_1) != null) {
 				this.coordinateScale.charTyped(char_1, int_1);
 				this.tempConfig.coordinateScale = Double.parseDouble(this.coordinateScale.getText());
@@ -47,6 +46,20 @@ public class CustomizeFarLandsScreen extends Screen {
 				return true;
 			}
 			return false;
+		} else if (this.heightScale.isFocused()) {
+			if (Doubles.tryParse(this.heightScale.getText() + char_1) != null) {
+				this.heightScale.charTyped(char_1, int_1);
+				this.tempConfig.heightScale = Double.parseDouble(this.heightScale.getText());
+				return true;
+			}
+			return false;
+		} else if (this.heightScaleMultiplier.isFocused()) {
+			if (Doubles.tryParse(this.heightScaleMultiplier.getText() + char_1) != null) {
+				this.heightScaleMultiplier.charTyped(char_1, int_1);
+				this.tempConfig.heightScaleMultiplier = Double.parseDouble(this.heightScaleMultiplier.getText());
+				return true;
+			}
+			return false;
 		} else {
 			return super.charTyped(char_1, int_1);
 		}
@@ -55,6 +68,13 @@ public class CustomizeFarLandsScreen extends Screen {
 	@Override
 	protected void onInitialized() {
 		this.client.keyboard.enableRepeatEvents(true);
+
+		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.width / 2 - 155, 20, 310, 20, "") {
+			public void onPressed(double double_1, double double_2) {
+				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
+				CustomizeFarLandsScreen.this.updateButtons();
+			}
+		});
 
 		this.farLandsEnabled = this.addButton(new ButtonWidget(this.width / 2 - 155, 55, 100, 20, "") {
 			public void onPressed(double double_1, double double_2) {
@@ -77,21 +97,22 @@ public class CustomizeFarLandsScreen extends Screen {
 			}
 		});
 
-		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.width / 2 - 155, 20, 310, 20, "") {
-			public void onPressed(double double_1, double double_2) {
-				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
-
 		this.coordinateScale = new TextFieldWidget(this.fontRenderer, this.width / 2 - 50, 55, 204, 18);
 		this.coordinateScale.setText(String.valueOf(this.tempConfig.coordinateScale));
 		this.coordinateScale.setFocused(true);
 		this.listeners.add(this.coordinateScale);
 
-		this.coordinateScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.width / 2 - 50, 90, 204, 18);
+		this.coordinateScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 90, 310, 18);
 		this.coordinateScaleMultiplier.setText(String.valueOf(this.tempConfig.coordinateScaleMultiplier));
 		this.listeners.add(this.coordinateScaleMultiplier);
+
+		this.heightScale = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 125, 310, 18);
+		this.heightScale.setText(String.valueOf(this.tempConfig.heightScale));
+		this.listeners.add(this.heightScale);
+
+		this.heightScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 160, 310, 18);
+		this.heightScaleMultiplier.setText(String.valueOf(this.tempConfig.heightScaleMultiplier));
+		this.listeners.add(this.heightScaleMultiplier);
 
 		this.updateButtons();
 	}
@@ -102,11 +123,15 @@ public class CustomizeFarLandsScreen extends Screen {
 
 		this.drawStringCentered(this.fontRenderer, "FarLands configuration", this.width / 2, 5, 16777215);
 		this.drawString(this.fontRenderer, "Coordinate scale", this.width / 2 - 50, 45, -6250336);
-		this.drawString(this.fontRenderer, "Coordinate scale multiplier", this.width / 2 - 50, 80, -6250336);
+		this.drawString(this.fontRenderer, "Coordinate scale multiplier", this.width / 2 - 155, 80, -6250336);
+		this.drawString(this.fontRenderer, "Height scale", this.width / 2 - 155, 115, -6250336);
+		this.drawString(this.fontRenderer, "Height scale multiplier", this.width / 2 - 155, 150, -6250336);
 
 
 		this.coordinateScale.draw(int_1, int_2, float_1);
 		this.coordinateScaleMultiplier.draw(int_1, int_2, float_1);
+		this.heightScale.draw(int_1, int_2, float_1);
+		this.heightScaleMultiplier.draw(int_1, int_2, float_1);
 
 		super.draw(int_1, int_2, float_1);
 	}
