@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "site.geni.FarLands.mixins.client",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "NewLevelScreenMixin"
+  ],
+  "minVersion": "0.7.11",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

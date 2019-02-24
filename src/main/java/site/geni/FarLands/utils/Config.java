@@ -12,8 +12,10 @@ import java.nio.file.StandardOpenOption;
 
 public class Config {
 	private static ConfigSpec config = new ConfigSpec();
+	private static File configFile;
 
 	public static void createConfig(File file) {
+		configFile = file;
 		try {
 			if (!file.isFile() || !file.getParentFile().isDirectory()) {
 				file.getParentFile().mkdirs();
@@ -30,6 +32,19 @@ public class Config {
 
 	public static ConfigSpec getConfig() {
 		return config;
+	}
+
+	public static void setConfig(ConfigSpec configSet) {
+		config = configSet;
+	}
+
+	public static void saveConfig() {
+		try {
+			Files.write(configFile.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes(), StandardOpenOption.WRITE);
+		} catch (IOException e) {
+			LogManager.getLogger("FarLands").error("[FarLands] Failed to save config!");
+			throw new RuntimeException(e);
+		}
 	}
 
 	public static class ConfigSpec {
