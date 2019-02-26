@@ -2,6 +2,7 @@ package site.geni.FarLands.mixins.client;
 
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.menu.NewLevelScreen;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.world.level.LevelGeneratorType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,7 +17,7 @@ public abstract class NewLevelScreenMixin extends Screen {
 	@Shadow
 	private int generatorType;
 
-	private final CustomizeFarLandsButton customizeFarLandsButton = new CustomizeFarLandsButton(this, 0, 120, 150, 20, "Customize FarLands");
+	private final CustomizeFarLandsButton customizeFarLandsButton = new CustomizeFarLandsButton(this, 0, 120, 150, 20, I18n.translate("config.farlands.customize"));
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V", shift = At.Shift.BEFORE), method = "onInitialized")
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
