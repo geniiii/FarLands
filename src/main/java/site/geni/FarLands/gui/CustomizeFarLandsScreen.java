@@ -83,7 +83,7 @@ public class CustomizeFarLandsScreen extends Screen {
 			}
 		});
 
-		this.addButton(new ButtonWidget(this.width / 2, this.height - 28, 150, 20, "Cancel") {
+		this.addButton(new ButtonWidget(this.width / 2 + 5, this.height - 28, 150, 20, "Cancel") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent);
 			}
@@ -121,11 +121,11 @@ public class CustomizeFarLandsScreen extends Screen {
 	public void draw(int int_1, int int_2, float float_1) {
 		this.drawBackground();
 
-		this.drawStringCentered(this.fontRenderer, "FarLands configuration", this.width / 2, 5, 16777215);
-		this.drawString(this.fontRenderer, "Coordinate scale", this.width / 2 - 50, 45, -6250336);
-		this.drawString(this.fontRenderer, "Coordinate scale multiplier", this.width / 2 - 155, 80, -6250336);
-		this.drawString(this.fontRenderer, "Height scale", this.width / 2 - 155, 115, -6250336);
-		this.drawString(this.fontRenderer, "Height scale multiplier", this.width / 2 - 155, 150, -6250336);
+		this.drawStringCentered(this.fontRenderer, I18n.translate("config.farlands.title"), this.width / 2, 5, 16777215);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScale"), this.width / 2 - 50, 45, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScaleMultiplier"), this.width / 2 - 155, 80, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScale"), this.width / 2 - 155, 115, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScaleMultiplier"), this.width / 2 - 155, 150, -6250336);
 
 
 		this.coordinateScale.draw(int_1, int_2, float_1);
@@ -139,8 +139,8 @@ public class CustomizeFarLandsScreen extends Screen {
 	private void updateButtons() {
 		CustomizeFarLandsScreen.this.killFallingBlockEntitiesInFarLands.enabled = CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
 
-		this.farLandsEnabled.setText("Far Lands: " + I18n.translate(tempConfig.farLandsEnabled ? "options.on" : "options.off"));
-		this.killFallingBlockEntitiesInFarLands.setText("Kill falling block entities in Far Lands: " + I18n.translate(tempConfig.killFallingBlockEntitiesInFarLands ? "options.on" : "options.off"));
+		this.farLandsEnabled.setText(I18n.translate("config.farlands.farLandsEnabled", I18n.translate(tempConfig.farLandsEnabled ? "options.on" : "options.off")));
+		this.killFallingBlockEntitiesInFarLands.setText(I18n.translate("config.farlands.killEntities", I18n.translate(tempConfig.killFallingBlockEntitiesInFarLands ? "options.on" : "options.off")));
 	}
 
 }

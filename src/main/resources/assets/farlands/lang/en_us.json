@@ -1,0 +1,9 @@
+{
+  "gui.farlands.title": "FarLands configuration",
+  "gui.farlands.killEntities": "Kill falling block entities in Far Lands: %s",
+  "gui.farlands.FarLandsEnabled": "Far Lands: %s",
+  "gui.farlands.coordinateScale": "Coordinate scale",
+  "gui.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
+  "gui.farlands.heightScale": "Height scale",
+  "gui.farlands.heightScaleMultiplier": "Height scale multiplier"
+}

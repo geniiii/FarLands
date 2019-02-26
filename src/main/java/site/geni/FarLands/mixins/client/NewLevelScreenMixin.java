@@ -18,18 +18,22 @@ public abstract class NewLevelScreenMixin extends Screen {
 
 	private final CustomizeFarLandsButton customizeFarLandsButton = new CustomizeFarLandsButton(this, 0, 120, 150, 20, "Customize FarLands");
 
-
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V", shift = At.Shift.BEFORE), method = "onInitialized")
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
-		this.customizeFarLandsButton.x = this.width / 2 + 5;
+		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
+
+		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.width / 2 - 155 : this.width / 2 + 5;
 		this.customizeFarLandsButton.visible = false;
 
 		this.addButton(customizeFarLandsButton);
 	}
 
-	@Inject(at = @At("RETURN"), method = "method_2710")
+	@Inject(at = @At("HEAD"), method = "method_2710")
 	private void showOrHideCustomizeFarLandsButton(boolean boolean_1, CallbackInfo ci) {
-		this.customizeFarLandsButton.visible = LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.FLAT && LevelGeneratorType.TYPES[this.generatorType] != LevelGeneratorType.BUFFET && boolean_1;
+		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
+
+		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.width / 2 - 155 : this.width / 2 + 5;
+		this.customizeFarLandsButton.visible = boolean_1;
 	}
 }
 
