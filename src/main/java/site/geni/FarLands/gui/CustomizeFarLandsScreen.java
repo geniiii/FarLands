@@ -69,27 +69,27 @@ public class CustomizeFarLandsScreen extends Screen {
 	protected void onInitialized() {
 		this.client.keyboard.enableRepeatEvents(true);
 
-		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.width / 2 - 155, 20, 310, 20, "") {
+		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 20, 310, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
 				CustomizeFarLandsScreen.this.updateButtons();
 			}
 		});
 
-		this.farLandsEnabled = this.addButton(new ButtonWidget(this.width / 2 - 155, 55, 100, 20, "") {
+		this.farLandsEnabled = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 55, 100, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled = !CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
 				CustomizeFarLandsScreen.this.updateButtons();
 			}
 		});
 
-		this.addButton(new ButtonWidget(this.width / 2 + 5, this.height - 28, 150, 20, "Cancel") {
+		this.addButton(new ButtonWidget(this.screenWidth / 2 + 5, this.screenHeight - 28, 150, 20, "Cancel") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent);
 			}
 		});
 
-		this.addButton(new ButtonWidget(this.width / 2 - 155, this.height - 28, 150, 20, "Done") {
+		this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, this.screenHeight - 28, 150, 20, "Done") {
 			public void onPressed(double double_1, double double_2) {
 				Config.setConfig(CustomizeFarLandsScreen.this.tempConfig);
 				Config.saveConfig();
@@ -97,20 +97,20 @@ public class CustomizeFarLandsScreen extends Screen {
 			}
 		});
 
-		this.coordinateScale = new TextFieldWidget(this.fontRenderer, this.width / 2 - 50, 55, 204, 18);
+		this.coordinateScale = new TextFieldWidget(this.fontRenderer, this.screenWidth / 2 - 50, 55, 204, 18);
 		this.coordinateScale.setText(String.valueOf(this.tempConfig.coordinateScale));
 		this.coordinateScale.setFocused(true);
 		this.listeners.add(this.coordinateScale);
 
-		this.coordinateScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 90, 310, 18);
+		this.coordinateScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.screenWidth / 2 - 155, 90, 310, 18);
 		this.coordinateScaleMultiplier.setText(String.valueOf(this.tempConfig.coordinateScaleMultiplier));
 		this.listeners.add(this.coordinateScaleMultiplier);
 
-		this.heightScale = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 125, 310, 18);
+		this.heightScale = new TextFieldWidget(this.fontRenderer, this.screenWidth / 2 - 155, 125, 310, 18);
 		this.heightScale.setText(String.valueOf(this.tempConfig.heightScale));
 		this.listeners.add(this.heightScale);
 
-		this.heightScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.width / 2 - 155, 160, 310, 18);
+		this.heightScaleMultiplier = new TextFieldWidget(this.fontRenderer, this.screenWidth / 2 - 155, 160, 310, 18);
 		this.heightScaleMultiplier.setText(String.valueOf(this.tempConfig.heightScaleMultiplier));
 		this.listeners.add(this.heightScaleMultiplier);
 
@@ -121,11 +121,11 @@ public class CustomizeFarLandsScreen extends Screen {
 	public void draw(int int_1, int int_2, float float_1) {
 		this.drawBackground();
 
-		this.drawStringCentered(this.fontRenderer, I18n.translate("config.farlands.title"), this.width / 2, 5, 16777215);
-		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScale"), this.width / 2 - 50, 45, -6250336);
-		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScaleMultiplier"), this.width / 2 - 155, 80, -6250336);
-		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScale"), this.width / 2 - 155, 115, -6250336);
-		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScaleMultiplier"), this.width / 2 - 155, 150, -6250336);
+		this.drawStringCentered(this.fontRenderer, I18n.translate("config.farlands.title"), this.screenWidth / 2, 5, 16777215);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScale"), this.screenWidth / 2 - 50, 45, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScaleMultiplier"), this.screenWidth / 2 - 155, 80, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScale"), this.screenWidth / 2 - 155, 115, -6250336);
+		this.drawString(this.fontRenderer, I18n.translate("config.farlands.heightScaleMultiplier"), this.screenWidth / 2 - 155, 150, -6250336);
 
 
 		this.coordinateScale.draw(int_1, int_2, float_1);
