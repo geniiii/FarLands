@@ -25,7 +25,16 @@ public class CustomizeFarLandsScreen extends Screen {
 
 
 	public CustomizeFarLandsScreen(Screen screen_1) {
+		super();
+
 		this.parent = screen_1;
+	}
+
+	public void update() {
+		this.coordinateScale.tick();
+		this.heightScale.tick();
+		this.coordinateScaleMultiplier.tick();
+		this.heightScaleMultiplier.tick();
 	}
 
 	@Override
@@ -63,6 +72,26 @@ public class CustomizeFarLandsScreen extends Screen {
 		} else {
 			return super.charTyped(char_1, int_1);
 		}
+	}
+
+	public boolean keyPressed(int int_1, int int_2, int int_3) {
+		if (this.coordinateScale.isFocused()) {
+				this.coordinateScale.keyPressed(int_1, int_2, int_3);
+				this.tempConfig.coordinateScale = Double.parseDouble(this.coordinateScale.getText());
+		} else if (this.coordinateScaleMultiplier.isFocused()) {
+				this.coordinateScaleMultiplier.keyPressed(int_1, int_2, int_3);;
+				this.tempConfig.coordinateScaleMultiplier = Double.parseDouble(this.coordinateScaleMultiplier.getText());
+		} else if (this.heightScale.isFocused()) {
+				this.heightScale.keyPressed(int_1, int_2, int_3);;
+				this.tempConfig.heightScale = Double.parseDouble(this.heightScale.getText());
+		} else if (this.heightScaleMultiplier.isFocused()) {
+				this.heightScaleMultiplier.keyPressed(int_1, int_2, int_3);;
+				this.tempConfig.heightScaleMultiplier = Double.parseDouble(this.heightScaleMultiplier.getText());
+		} else {
+			super.keyPressed(int_1, int_2, int_3);
+		}
+
+		return true;
 	}
 
 	@Override
