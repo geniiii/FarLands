@@ -75,20 +75,24 @@ public class CustomizeFarLandsScreen extends Screen {
 	}
 
 	public boolean keyPressed(int int_1, int int_2, int int_3) {
-		if (this.coordinateScale.isFocused()) {
+		try {
+			if (this.coordinateScale.isFocused()) {
 				this.coordinateScale.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.coordinateScale = Double.parseDouble(this.coordinateScale.getText());
 		} else if (this.coordinateScaleMultiplier.isFocused()) {
-				this.coordinateScaleMultiplier.keyPressed(int_1, int_2, int_3);;
+				this.coordinateScaleMultiplier.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.coordinateScaleMultiplier = Double.parseDouble(this.coordinateScaleMultiplier.getText());
-		} else if (this.heightScale.isFocused()) {
-				this.heightScale.keyPressed(int_1, int_2, int_3);;
+			} else if (this.heightScale.isFocused()) {
+				this.heightScale.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.heightScale = Double.parseDouble(this.heightScale.getText());
-		} else if (this.heightScaleMultiplier.isFocused()) {
-				this.heightScaleMultiplier.keyPressed(int_1, int_2, int_3);;
+			} else if (this.heightScaleMultiplier.isFocused()) {
+				this.heightScaleMultiplier.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.heightScaleMultiplier = Double.parseDouble(this.heightScaleMultiplier.getText());
-		} else {
-			super.keyPressed(int_1, int_2, int_3);
+			} else {
+				super.keyPressed(int_1, int_2, int_3);
+			}
+		} catch (NumberFormatException e) {
+			return false;
 		}
 
 		return true;
