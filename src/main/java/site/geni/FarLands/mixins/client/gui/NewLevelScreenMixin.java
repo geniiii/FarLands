@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client;
+package site.geni.FarLands.mixins.client.gui;
 
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.menu.NewLevelScreen;
@@ -19,7 +19,12 @@ public abstract class NewLevelScreenMixin extends Screen {
 
 	private final CustomizeFarLandsButton customizeFarLandsButton = new CustomizeFarLandsButton(this, 0, 120, 150, 20, I18n.translate("config.farlands.customize"));
 
-	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V", shift = At.Shift.BEFORE), method = "onInitialized")
+	@Inject(at = @At(
+				value = "INVOKE",
+				target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V",
+				shift = At.Shift.BEFORE
+			),
+			method = "onInitialized")
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
 
@@ -29,7 +34,10 @@ public abstract class NewLevelScreenMixin extends Screen {
 		this.addButton(customizeFarLandsButton);
 	}
 
-	@Inject(at = @At("HEAD"), method = "method_2710")
+	@Inject(at = @At(
+					"HEAD"
+			),
+			method = "method_2710")
 	private void showOrHideCustomizeFarLandsButton(boolean boolean_1, CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
 

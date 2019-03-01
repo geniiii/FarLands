@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.noise;
 
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;

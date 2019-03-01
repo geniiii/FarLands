@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.commands;
 
 import net.minecraft.server.command.ForceLoadCommand;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.generators;
 
 import net.minecraft.world.gen.chunk.FloatingIslandsChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;

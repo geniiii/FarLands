@@ -74,6 +74,7 @@ public class CustomizeFarLandsScreen extends Screen {
 		}
 	}
 
+	@Override
 	public boolean keyPressed(int int_1, int int_2, int int_3) {
 		try {
 			if (this.coordinateScale.isFocused()) {

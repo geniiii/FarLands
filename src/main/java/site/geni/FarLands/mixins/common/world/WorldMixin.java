@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.world;
 
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.World;
@@ -31,7 +31,7 @@ public abstract class WorldMixin {
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
 	private static int validUpToNegativeIntegerMaxValueXZ(int original) {
-		return -Integer.MAX_VALUE;
+		return Integer.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
@@ -40,22 +40,22 @@ public abstract class WorldMixin {
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
-	private static int lightLevelUpToNegativeIntegerMaxValueXZ(int original) {
-		return -Integer.MAX_VALUE;
+	private static int getLightLevelUpToNegativeIntegerMaxValueXZ(int original) {
+		return Integer.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
-	private static int lightLevelUpToPositiveIntegerMaxValueXZ(int original) {
+	private static int getLightLevelUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getTop")
-	private static int topUpToNegativeIntegerMaxValueXZ(int original) {
-		return -Integer.MAX_VALUE;
+	private static int getTopUpToNegativeIntegerMaxValueXZ(int original) {
+		return Integer.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getTop")
-	private static int topUpToPositiveIntegerMaxValueXZ(int original) {
+	private static int getTopUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 

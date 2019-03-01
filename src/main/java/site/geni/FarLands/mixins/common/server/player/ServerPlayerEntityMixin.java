@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.server.player;
 
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,8 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public abstract class ServerPlayerEntityMixin {
 	@ModifyConstant(constant = @Constant(doubleValue = -2.9999872E7D), method = "changeDimension")
 	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
-		System.out.println(original);
-		return -Double.MAX_VALUE;
+		return Double.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(doubleValue = 2.9999872E7D), method = "changeDimension")

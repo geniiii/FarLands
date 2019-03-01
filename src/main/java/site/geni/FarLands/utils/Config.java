@@ -44,8 +44,8 @@ public class Config {
 		return config;
 	}
 
-	public static void setConfig(ConfigSpec configSet) {
-		config = configSet;
+	public static void setConfig(ConfigSpec configToSetTo) {
+		config = configToSetTo;
 	}
 
 	public static void saveConfig() {

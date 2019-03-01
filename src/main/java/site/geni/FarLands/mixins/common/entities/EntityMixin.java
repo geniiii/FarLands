@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
@@ -19,7 +19,7 @@ public abstract class EntityMixin {
 
 	@ModifyConstant(constant = @Constant(doubleValue = -3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
 	private static double clampPositionToNegativeDoubleMaxValueXZ(double original) {
-		return -Double.MAX_VALUE;
+		return Double.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(doubleValue = 3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
@@ -29,7 +29,7 @@ public abstract class EntityMixin {
 
 	@ModifyConstant(constant = @Constant(doubleValue = -2.9999872E7D), method = "changeDimension")
 	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
-		return -Double.MAX_VALUE;
+		return Double.MIN_VALUE;
 	}
 
 	@ModifyConstant(constant = @Constant(doubleValue = 2.9999872E7D), method = "changeDimension")
