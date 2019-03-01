@@ -29,32 +29,62 @@ public abstract class WorldMixin {
 	@Final
 	private WorldBorder border;
 
-	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = -30000000
+			),
+			method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z"
+	)
 	private static int validUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = 30000000
+			),
+			method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z"
+	)
 	private static int validUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = -30000000
+			),
+			method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I"
+	)
 	private static int getLightLevelUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = 30000000
+			),
+			method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I"
+	)
 	private static int getLightLevelUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(intValue = -30000000), method = "getTop")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = -30000000
+			),
+			method = "getTop"
+	)
 	private static int getTopUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(intValue = 30000000), method = "getTop")
+	@ModifyConstant(
+			constant = @Constant(
+					intValue = 30000000
+			),
+			method = "getTop"
+	)
 	private static int getTopUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
@@ -71,8 +101,13 @@ public abstract class WorldMixin {
 	@Shadow
 	public abstract LevelProperties getLevelProperties();
 
-	@Inject(at = @At(value = "RETURN"), method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V")
-	private void setSizeAndMaxRadius(LevelProperties levelProperties_1, DimensionType dimensionType_1, BiFunction<World, Dimension, ChunkManager> biFunction_1, Profiler profiler_1, boolean boolean_1, CallbackInfo ci) {
+	@Inject(
+			at = @At(
+					value = "RETURN"
+			),
+			method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V"
+	)
+	private void setSizeAndMaxRadius(LevelProperties levelProperties, DimensionType dimensionType, BiFunction<World, Dimension, ChunkManager> biFunction, Profiler profiler, boolean isClient, CallbackInfo ci) {
 		this.getWorldBorder().setMaxWorldBorderRadius(Integer.MAX_VALUE);
 		this.getWorldBorder().setSize(Double.MAX_VALUE);
 		this.getLevelProperties().setBorderSize(Double.MAX_VALUE);

@@ -18,6 +18,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 	@Override
 	public void onPressed(double double_1, double double_2) {
 		super.onPressed(double_1, double_2);
+
 		MinecraftClient.getInstance().openScreen(new CustomizeFarLandsScreen(this.parent));
 	}
 }

@@ -8,12 +8,22 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @SuppressWarnings("unused")
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin {
-	@ModifyConstant(constant = @Constant(doubleValue = -2.9999872E7D), method = "changeDimension")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = -2.9999872E7D
+			),
+			method = "changeDimension"
+	)
 	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
 		return Double.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(doubleValue = 2.9999872E7D), method = "changeDimension")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = 2.9999872E7D
+			),
+			method = "changeDimension"
+	)
 	private static double clampTeleportToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;
 	}

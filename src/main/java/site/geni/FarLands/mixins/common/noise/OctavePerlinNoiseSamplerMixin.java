@@ -12,7 +12,13 @@ import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPre
 @SuppressWarnings("unused")
 @Mixin(OctavePerlinNoiseSampler.class)
 public abstract class OctavePerlinNoiseSamplerMixin {
-	@Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"), method = "sample(DDDDDZ)D")
+	@Redirect(
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"
+			),
+			method = "sample(DDDDDZ)D"
+	)
 	private double dontMaintainPrecision(double double_1) {
 		if (Config.getConfig().farLandsEnabled) {
 			return double_1;

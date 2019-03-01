@@ -17,22 +17,42 @@ public abstract class EntityMixin {
 	@Shadow
 	public double z;
 
-	@ModifyConstant(constant = @Constant(doubleValue = -3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = -3.0E7D
+			),
+			method = "setPositionAnglesAndUpdate(DDDFF)V"
+	)
 	private static double clampPositionToNegativeDoubleMaxValueXZ(double original) {
 		return Double.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(doubleValue = 3.0E7D), method = "setPositionAnglesAndUpdate(DDDFF)V")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = 3.0E7D
+			),
+			method = "setPositionAnglesAndUpdate(DDDFF)V"
+	)
 	private static double clampPositionToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(doubleValue = -2.9999872E7D), method = "changeDimension")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = -2.9999872E7D
+			),
+			method = "changeDimension"
+	)
 	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
 		return Double.MIN_VALUE;
 	}
 
-	@ModifyConstant(constant = @Constant(doubleValue = 2.9999872E7D), method = "changeDimension")
+	@ModifyConstant(
+			constant = @Constant(
+					doubleValue = 2.9999872E7D
+			),
+			method = "changeDimension"
+	)
 	private static double clampTeleportToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;
 	}

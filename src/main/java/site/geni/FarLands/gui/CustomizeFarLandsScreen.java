@@ -80,7 +80,7 @@ public class CustomizeFarLandsScreen extends Screen {
 			if (this.coordinateScale.isFocused()) {
 				this.coordinateScale.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.coordinateScale = Double.parseDouble(this.coordinateScale.getText());
-		} else if (this.coordinateScaleMultiplier.isFocused()) {
+			} else if (this.coordinateScaleMultiplier.isFocused()) {
 				this.coordinateScaleMultiplier.keyPressed(int_1, int_2, int_3);
 				this.tempConfig.coordinateScaleMultiplier = Double.parseDouble(this.coordinateScaleMultiplier.getText());
 			} else if (this.heightScale.isFocused()) {

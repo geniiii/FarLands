@@ -11,7 +11,13 @@ import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPre
 @SuppressWarnings("unused")
 @Mixin(SurfaceChunkGenerator.class)
 public abstract class SurfaceChunkGeneratorMixin {
-	@Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"), method = "sampleNoise")
+	@Redirect(
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"
+			),
+			method = "sampleNoise"
+	)
 	private double dontMaintainPrecision(double double_1) {
 		if (Config.getConfig().farLandsEnabled) {
 			return double_1;

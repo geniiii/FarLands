@@ -12,7 +12,12 @@ import site.geni.FarLands.utils.Config;
 public abstract class FallingBlockEntityMixin extends EntityMixin {
 	private final static double farLandsLocation = Integer.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4);
 
-	@Inject(at = @At("RETURN"), method = "update")
+	@Inject(
+			at = @At(
+					value = "RETURN"
+			),
+			method = "update"
+	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
 		if (Config.getConfig().killFallingBlockEntitiesInFarLands && this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation) {
 			this.kill();
