@@ -12,6 +12,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 
 	public CustomizeFarLandsButton(Screen parent, int x, int y, int width, int height, String text) {
 		super(x, y, width, height, text);
+
 		this.parent = parent;
 	}
 

@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.entities;
+package site.geni.FarLands.mixins.common.entity;
 
 import net.minecraft.entity.FallingBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

@@ -15,7 +15,7 @@ public abstract class ServerPlayerEntityMixin {
 			method = "changeDimension"
 	)
 	private static double clampTeleportToNegativeDoubleMaxValueXZ(double original) {
-		return Double.MIN_VALUE;
+		return -Double.MAX_VALUE;
 	}
 
 	@ModifyConstant(

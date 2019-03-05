@@ -15,7 +15,7 @@ public abstract class PlayerEntityMixin {
 			method = "update"
 	)
 	private static double clampToNegativeDoubleMaxValueXZ(double original) {
-		return Double.MIN_VALUE;
+		return -Double.MAX_VALUE;
 	}
 
 	@ModifyConstant(

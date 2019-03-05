@@ -105,11 +105,12 @@ public abstract class WorldMixin {
 			at = @At(
 					value = "RETURN"
 			),
-			method = "<init>(Lnet/minecraft/world/level/LevelProperties;Lnet/minecraft/world/dimension/DimensionType;Ljava/util/function/BiFunction;Lnet/minecraft/util/profiler/Profiler;Z)V"
+			method = "<init>"
 	)
 	private void setSizeAndMaxRadius(LevelProperties levelProperties, DimensionType dimensionType, BiFunction<World, Dimension, ChunkManager> biFunction, Profiler profiler, boolean isClient, CallbackInfo ci) {
 		this.getWorldBorder().setMaxWorldBorderRadius(Integer.MAX_VALUE);
 		this.getWorldBorder().setSize(Double.MAX_VALUE);
+
 		this.getLevelProperties().setBorderSize(Double.MAX_VALUE);
 	}
 }

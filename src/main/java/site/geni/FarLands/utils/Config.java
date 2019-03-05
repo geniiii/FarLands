@@ -57,5 +57,7 @@ public class Config {
 		public double heightScaleMultiplier = 1;
 		public boolean killFallingBlockEntitiesInFarLands = false;
 		public boolean farLandsEnabled = true;
+		public boolean fixOreGeneration = true;
+		public boolean fixParticles = true;
 	}
 }

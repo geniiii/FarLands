@@ -5,8 +5,8 @@
   "mixins": [
     "commands.ForceLoadCommandMixin",
     "commands.WorldBorderCommandMixin",
-    "entities.EntityMixin",
-    "entities.FallingBlockEntityMixin",
+    "entity.EntityMixin",
+    "entity.FallingBlockEntityMixin",
     "generators.CavesChunkGeneratorMixin",
     "generators.FloatingIslandsChunkGeneratorMixin",
     "generators.OverworldChunkGeneratorMixin",
@@ -16,7 +16,8 @@
     "server.MinecraftServerMixin",
     "server.player.ServerPlayNetworkHandlerMixin",
     "server.player.ServerPlayerEntityMixin",
-    "world.WorldMixin"
+    "world.WorldMixin",
+    "world.gen.feature.OreFeatureMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {

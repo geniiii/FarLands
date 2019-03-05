@@ -33,7 +33,7 @@ public abstract class NewLevelScreenMixin extends Screen {
 		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.screenWidth / 2 - 155 : this.screenWidth / 2 + 5;
 		this.customizeFarLandsButton.visible = false;
 
-		this.addButton(customizeFarLandsButton);
+		this.addButton(this.customizeFarLandsButton);
 	}
 
 	@Inject(
@@ -42,11 +42,11 @@ public abstract class NewLevelScreenMixin extends Screen {
 			),
 			method = "method_2710"
 	)
-	private void showOrHideCustomizeFarLandsButton(boolean boolean_1, CallbackInfo ci) {
+	private void showOrHideCustomizeFarLandsButton(boolean toggle, CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
 
 		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.screenWidth / 2 - 155 : this.screenWidth / 2 + 5;
-		this.customizeFarLandsButton.visible = boolean_1;
+		this.customizeFarLandsButton.visible = toggle;
 	}
 }
 
