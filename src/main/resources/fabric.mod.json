@@ -20,7 +20,7 @@
     "sources": "https://github.com/polgaria/FarLands"
   },
   "mixins": {
-    "common": "FarLands.common.json",
-    "client": "FarLands.client.json"
+    "common": "farlands.common.json",
+    "client": "farlands.client.json"
   }
 }
