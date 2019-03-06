@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "package": "site.geni.FarLands.mixins.client",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "gui.NewLevelScreenMixin",
+    "gui.SettingsScreenMixin",
+    "block.PortalBlockMixin",
+    "block.LeavesBlockMixin",
+    "block.EndPortalBlockMixin",
+    "block.RepeaterBlockMixin",
+    "block.HorizontalFacingBlockMixin",
+    "block.FallingBlockMixin",
+    "block.MyceliumBlockMixin",
+    "fluid.WaterFluidMixin",
+    "fluid.LavaFluidMixin",
+    "item.ItemMixin",
+    "item.BoneMealItemMixin",
+    "MobSpawnerLogicMixin"
+  ],
+  "minVersion": "0.7.11",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
