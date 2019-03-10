@@ -110,28 +110,28 @@ public class CustomizeFarLandsScreen extends Screen {
 	protected void onInitialized() {
 		this.client.keyboard.enableRepeatEvents(true);
 
-		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 20, 310, 20, "") {
+		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.screenWidth / 2 - 70, 20, 226, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
 				CustomizeFarLandsScreen.this.updateButtons();
 			}
 		});
 
-		this.farLandsEnabled = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 50, 85, 20, "") {
+		this.farLandsEnabled = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 20, 82, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled = !CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
 				CustomizeFarLandsScreen.this.updateButtons();
 			}
 		});
 
-		this.fixOreGeneration = this.addButton(new ButtonWidget(this.screenWidth / 2 - 66, 50, 125, 20, "") {
+		this.fixOreGeneration = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 50, 155, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration = !CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration;
 				CustomizeFarLandsScreen.this.updateButtons();
 			}
 		});
 
-		this.fixParticles = this.addButton(new ButtonWidget(this.screenWidth / 2 + 63, 50, 92, 20, "") {
+		this.fixParticles = this.addButton(new ButtonWidget(this.screenWidth / 2 + 2, 50, 154, 20, "") {
 			public void onPressed(double double_1, double double_2) {
 				CustomizeFarLandsScreen.this.tempConfig.fixParticles = !CustomizeFarLandsScreen.this.tempConfig.fixParticles;
 				CustomizeFarLandsScreen.this.updateButtons();

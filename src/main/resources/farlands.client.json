@@ -12,6 +12,7 @@
     "block.HorizontalFacingBlockMixin",
     "block.FallingBlockMixin",
     "block.MyceliumBlockMixin",
+    "block.TntBlockMixin",
     "fluid.WaterFluidMixin",
     "fluid.LavaFluidMixin",
     "item.ItemMixin",

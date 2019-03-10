@@ -4,7 +4,7 @@
   "config.farlands.killEntities": "Kill falling block entities in Far Lands: %s",
   "config.farlands.farLandsEnabled": "Far Lands: %s",
   "config.farlands.fixOreGeneration": "Fix ore generation: %s",
-  "config.farlands.fixParticles": "Fix particles: %s",
+  "config.farlands.fixParticles": "Fix particles/TNT: %s",
 
   "config.farlands.coordinateScale": "Coordinate scale",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
