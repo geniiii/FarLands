@@ -56,5 +56,5 @@ public abstract class EntityMixin {
 
 	/* used by the FallingBlockEntity mixin */
 	@Shadow
-	public abstract void kill();
+	public abstract void invalidate();
 }

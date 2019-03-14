@@ -14,13 +14,13 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 
 	@Inject(
 			at = @At(
-					value = "RETURN"
+					value = "HEAD"
 			),
 			method = "update"
 	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
-		if (Config.getConfig().killFallingBlockEntitiesInFarLands && this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation) {
-			this.kill();
+		if (Config.getConfig().killFallingBlockEntitiesInFarLands && (this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation)) {
+			this.invalidate();
 		}
 	}
 }
