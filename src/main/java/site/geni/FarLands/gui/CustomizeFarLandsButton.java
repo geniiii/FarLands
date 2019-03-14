@@ -2,12 +2,12 @@ package site.geni.FarLands.gui;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.class_4185;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 
 @Environment(EnvType.CLIENT)
-public class CustomizeFarLandsButton extends ButtonWidget {
+public class CustomizeFarLandsButton extends class_4185 {
 	private Screen parent;
 
 	public CustomizeFarLandsButton(Screen parent, int x, int y, int width, int height, String text) {
@@ -17,9 +17,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 	}
 
 	@Override
-	public void onPressed(double double_1, double double_2) {
-		super.onPressed(double_1, double_2);
-
+	public void method_1826() {
 		MinecraftClient.getInstance().openScreen(new CustomizeFarLandsScreen(this.parent));
 	}
 }
