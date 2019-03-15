@@ -17,7 +17,7 @@
     "server.player.ServerPlayNetworkHandlerMixin",
     "server.player.ServerPlayerEntityMixin",
     "util.math.BlockPosMixin",
-    "util.math.ChunKSectionPosMixin",
+    "util.math.ChunkSectionPosMixin",
     "world.WorldMixin",
     "world.gen.feature.OreFeatureMixin"
   ],
