@@ -18,38 +18,57 @@ import java.util.Random;
 @SuppressWarnings("unused")
 @Mixin(PortalBlock.class)
 public abstract class PortalBlockMixin {
-	private static final ThreadLocal<BlockPos> blockPosThreadLocal = new ThreadLocal<>();
-	private static final ThreadLocal<Random> randomThreadLocal = new ThreadLocal<>();
+	private static BlockPos pos;
+	private static Random random;
 
-
+	/**
+	 * Sets {@link #pos} and {@link #random} to the block's {@link BlockPos} and the block's world's {@link Random} instance respectively
+	 *
+	 * @param ci          {@link CallbackInfo} required for {@link Inject}
+	 * @param blockState  {@link BlockState} of the block
+	 * @param world       {@link World} of the block
+	 * @param blockPos    {@link BlockPos} of the block
+	 * @param worldRandom {@code world}'s {@link Random} instance
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "HEAD"
-			),
-			method = "randomDisplayTick"
+		at = @At(
+			value = "HEAD"
+		),
+		method = "randomDisplayTick"
 	)
-	private void setThreadLocals(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			blockPosThreadLocal.set(blockPos);
-			randomThreadLocal.set(random);
+	private void setVariables(BlockState blockState, World world, BlockPos blockPos, Random worldRandom, CallbackInfo ci) {
+		if (Config.getConfig().fixParticles) {
+			random = worldRandom;
+			pos = blockPos;
 		}
 	}
 
+	/**
+	 * Adds particles created by Nether portal blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 *
+	 * @param world              {@link World} of the block
+	 * @param particleParameters {@link ParticleParameters} to use when adding particle
+	 * @param xOrig              The particle's original X position
+	 * @param yOrig              The particle's original Y position
+	 * @param zOrig              The particle's original Z position
+	 * @param velocityXOrig      The particle's original X velocity
+	 * @param velocityYOrig      The particle's original Y velocity
+	 * @param velocityZOrig      The particle's original Z velocity
+	 * @author geni
+	 */
 	@Redirect(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
-			),
-			method = "randomDisplayTick"
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+		),
+		method = "randomDisplayTick"
 	)
 	private void addParticlesProperly(World world, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			final Random random = randomThreadLocal.get();
-			final BlockPos blockPos = blockPosThreadLocal.get();
-
-			double x = blockPos.getX() + random.nextDouble();
-			final double y = blockPos.getY() + random.nextDouble();
-			double z = blockPos.getZ() + random.nextDouble();
+		if (Config.getConfig().fixParticles) {
+			double x = pos.getX() + random.nextDouble();
+			final double y = pos.getY() + random.nextDouble();
+			double z = pos.getZ() + random.nextDouble();
 
 			double velocityX = (random.nextDouble() - 0.5D) * 0.5D;
 			final double velocityY = (random.nextDouble() - 0.5D) * 0.5D;
@@ -57,30 +76,17 @@ public abstract class PortalBlockMixin {
 
 			int int_2 = random.nextInt(2) * 2 - 1;
 
-			if (!(world.getBlockState(blockPos.west()).getBlock() instanceof PortalBlock) && !(world.getBlockState(blockPos.east()).getBlock() instanceof PortalBlock)) {
-				x = blockPos.getX() + 0.5D + 0.25D * (double) int_2;
+			if (!(world.getBlockState(pos.west()).getBlock() instanceof PortalBlock) && !(world.getBlockState(pos.east()).getBlock() instanceof PortalBlock)) {
+				x = pos.getX() + 0.5D + 0.25D * (double) int_2;
 				velocityX = random.nextDouble() * 2.0D * (double) int_2;
 			} else {
-				z = blockPos.getZ() + 0.5D + 0.25D * (double) int_2;
+				z = pos.getZ() + 0.5D + 0.25D * (double) int_2;
 				velocityZ = random.nextDouble() * 2.0D * (double) int_2;
 			}
 
 			world.addParticle(particleParameters, x, y, z, velocityX, velocityY, velocityZ);
 		} else {
 			world.addParticle(particleParameters, xOrig, yOrig, zOrig, velocityXOrig, velocityYOrig, velocityZOrig);
-		}
-	}
-
-	@Inject(
-			at = @At(
-					value = "RETURN"
-			),
-			method = "randomDisplayTick"
-	)
-	private void removeThreadLocals(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			blockPosThreadLocal.remove();
-			randomThreadLocal.remove();
 		}
 	}
 }

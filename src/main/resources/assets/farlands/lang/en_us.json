@@ -3,10 +3,12 @@
 
   "config.farlands.killEntities": "Kill falling block entities in Far Lands: %s",
   "config.farlands.farLandsEnabled": "Far Lands: %s",
-  "config.farlands.fixOreGeneration": "Fix ore generation: %s",
+  "config.farlands.fixOreGeneration": "Fix ore gen: %s",
   "config.farlands.fixParticles": "Fix particles/TNT: %s",
+  "config.farlands.fixLighting": "Fix lighting: %s",
 
   "config.farlands.coordinateScale": "Coordinate scale",
+  "config.farlands.estimatedPosition": "Estimated Far Lands X/Z: ±%d",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
   "config.farlands.heightScale": "Height scale",
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",

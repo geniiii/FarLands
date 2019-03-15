@@ -16,16 +16,26 @@ import java.util.Random;
 @SuppressWarnings("unused")
 @Mixin(LeavesBlock.class)
 public abstract class LeavesBlockMixin {
+	/**
+	 * Adds particles created by leaves blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 *
+	 * @param ci         {@link CallbackInfo} required for {@link Inject}
+	 * @param blockState {@link BlockState} of the block
+	 * @param world      {@link World} of the block
+	 * @param blockPos   {@link BlockPos} of the block
+	 * @param random     {@code world}'s {@link Random} instance
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
-			),
-			method = "randomDisplayTick",
-			cancellable = true
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+		),
+		method = "randomDisplayTick",
+		cancellable = true
 	)
 	private void addRainParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
+		if (Config.getConfig().fixParticles) {
 			final double x = blockPos.getX() + random.nextDouble();
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + random.nextDouble();

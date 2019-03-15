@@ -24,17 +24,26 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 	@Final
 	public static IntegerProperty field_11451;
 
-
+	/**
+	 * Adds particles created by repeater blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 *
+	 * @param ci         {@link CallbackInfo} required for {@link Inject}
+	 * @param blockState {@link BlockState} of the block
+	 * @param world      {@link World} of the block
+	 * @param blockPos   {@link BlockPos} of the block
+	 * @param random     {@code world}'s {@link Random} instance
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
-			),
-			method = "randomDisplayTick",
-			cancellable = true
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+		),
+		method = "randomDisplayTick",
+		cancellable = true
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
+		if (Config.getConfig().fixParticles) {
 			Direction direction = blockState.get(field_11177);
 			final double x = (blockPos.getX() + 0.5D) + (random.nextDouble() - 0.5D) * 0.2D;
 			final double y = (blockPos.getY() + 0.4D) + (random.nextDouble() - 0.5D) * 0.2D;

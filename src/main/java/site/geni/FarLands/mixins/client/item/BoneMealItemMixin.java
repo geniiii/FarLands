@@ -18,65 +18,53 @@ import site.geni.FarLands.utils.Config;
 @SuppressWarnings("unused")
 @Mixin(BoneMealItem.class)
 public abstract class BoneMealItemMixin extends ItemMixin {
-	private static final ThreadLocal<BlockPos> blockPosThreadLocal = new ThreadLocal<>();
+	private static BlockPos pos;
 
-	private static final ThreadLocal<Double> velocityXThreadLocal = new ThreadLocal<>();
-	private static final ThreadLocal<Double> velocityYThreadLocal = new ThreadLocal<>();
-	private static final ThreadLocal<Double> velocityZThreadLocal = new ThreadLocal<>();
-
+	/**
+	 * Sets {@link #pos} to the block the item is being used on's {@link BlockPos} <br>
+	 *
+	 * @param iWorld            {@link IWorld} of the item
+	 * @param blockPos          {@link BlockPos} of the block
+	 * @param unknown           Unknown
+	 * @param ci                {@link CallbackInfo} required for {@link Inject}
+	 * @param blockState        {@link BlockState} of the block
+	 * @param forInt            Integer used in a {@code for} loop
+	 * @param particleVelocityX The particle's X velocity
+	 * @param particleVelocityY The particle's Y velocity
+	 * @param particleVelocityZ The particle's Z velocity
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
-					shift = At.Shift.BEFORE
-			),
-			method = "method_7721",
-			locals = LocalCapture.CAPTURE_FAILHARD
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
+			shift = At.Shift.BEFORE
+		),
+		method = "method_7721",
+		locals = LocalCapture.CAPTURE_FAILHARD
 	)
-	private static void setThreadLocals(IWorld iWorld, BlockPos blockPos, int int_1, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			blockPosThreadLocal.set(blockPos);
-
-			velocityXThreadLocal.set(velocityX);
-			velocityYThreadLocal.set(velocityY);
-			velocityZThreadLocal.set(velocityZ);
+	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double particleVelocityX, double particleVelocityY, double particleVelocityZ) {
+		if (Config.getConfig().fixParticles) {
+			pos = blockPos;
 		}
 	}
 
 	@Redirect(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
-			),
-			method = "method_7721"
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+		),
+		method = "method_7721"
 	)
-	private static void addParticlesProperly(IWorld iWorld, ParticleParameters var1, double var2, double var4, double var6, double var8, double var10, double var12) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			final BlockPos blockPos = blockPosThreadLocal.get();
+	private static void addParticlesProperly(IWorld iWorld, ParticleParameters var1, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
+		if (Config.getConfig().fixParticles) {
+			final double x = pos.getX() + random.nextDouble();
+			final double y = pos.getY() + random.nextDouble();
+			final double z = pos.getZ() + random.nextDouble();
 
-			final double x = blockPos.getX() + random.nextDouble();
-			final double y = blockPos.getY() + random.nextDouble();
-			final double z = blockPos.getZ() + random.nextDouble();
-
-			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, x, y, z, velocityXThreadLocal.get(), velocityYThreadLocal.get(), velocityZThreadLocal.get());
+			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, x, y, z, velocityX, velocityY, velocityZ);
 		} else {
-			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, var2, var4, var6, var8, var10, var12);
-		}
-	}
-
-	@Inject(
-			at = @At(
-					value = "RETURN"
-			),
-			method = "method_7721"
-	)
-	private static void removeThreadLocals(IWorld iWorld_1, BlockPos blockPos_1, int int_1, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
-			blockPosThreadLocal.remove();
-
-			velocityXThreadLocal.remove();
-			velocityYThreadLocal.remove();
-			velocityZThreadLocal.remove();
+			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);
 		}
 	}
 }

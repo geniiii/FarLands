@@ -18,16 +18,26 @@ import java.util.Random;
 @SuppressWarnings("unused")
 @Mixin(LavaFluid.class)
 public abstract class LavaFluidMixin {
+	/**
+	 * Adds particles and sounds created by lava fluids using {@link Double} for positions instead of {@link Float} in order to have precise particle and sound positions
+	 *
+	 * @param ci         {@link CallbackInfo} required for {@link Inject}
+	 * @param fluidState {@link FluidState} of the block
+	 * @param world      {@link World} of the block
+	 * @param blockPos   {@link BlockPos} of the block
+	 * @param random     {@code world}'s {@link Random} instance
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
-			),
-			method = "randomDisplayTick",
-			cancellable = true
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+		),
+		method = "randomDisplayTick",
+		cancellable = true
 	)
 	private void addParticlesProperly(World world, BlockPos blockPos, FluidState fluidState, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
+		if (Config.getConfig().fixParticles) {
 
 			double x = blockPos.getX() + random.nextDouble();
 			double y = blockPos.getY() + 1;

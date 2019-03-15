@@ -30,17 +30,24 @@ public abstract class MobSpawnerLogicMixin {
 	public abstract World getWorld();
 
 
+	/**
+	 * If {@link Config.ConfigSpec#fixParticles} is true, adds particles created by mob spawners using {@link Double} for positions <br>
+	 * instead of {@link Float} in order to have precise particle positions
+	 *
+	 * @param ci {@link CallbackInfo} required for {@link Inject}
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
-					ordinal = 0
-			),
-			method = "update",
-			cancellable = true
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
+			ordinal = 0
+		),
+		method = "update",
+		cancellable = true
 	)
 	private void addParticlesProperly(CallbackInfo ci) {
-		if (Config.getConfig().fixParticles && Config.getConfig().farLandsEnabled) {
+		if (Config.getConfig().fixParticles) {
 			BlockPos blockPos = this.getPos();
 			World world = this.getWorld();
 

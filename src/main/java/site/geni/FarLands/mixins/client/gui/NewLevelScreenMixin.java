@@ -19,13 +19,19 @@ public abstract class NewLevelScreenMixin extends Screen {
 	@Shadow
 	private int generatorType;
 
+	/**
+	 * Adds the "Customize FarLands" button to the "Create New World" screen's "More World Options..."
+	 *
+	 * @param ci {@link CallbackInfo} required for {@link Inject}
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V",
-					shift = At.Shift.BEFORE
-			),
-			method = "onInitialized"
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V",
+			shift = At.Shift.BEFORE
+		),
+		method = "onInitialized"
 	)
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
@@ -36,11 +42,18 @@ public abstract class NewLevelScreenMixin extends Screen {
 		this.addButton(this.customizeFarLandsButton);
 	}
 
+	/**
+	 * Shows or hides the "Customize FarLands" button depending on which part of "Create New World" is open
+	 *
+	 * @param ci     {@link CallbackInfo} required for {@link Inject}
+	 * @param toggle If the "More World Options..." are open or not
+	 * @author geni
+	 */
 	@Inject(
-			at = @At(
-					value = "HEAD"
-			),
-			method = "method_2710"
+		at = @At(
+			value = "HEAD"
+		),
+		method = "method_2710"
 	)
 	private void showOrHideCustomizeFarLandsButton(boolean toggle, CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];

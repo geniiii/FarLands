@@ -11,18 +11,21 @@ import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPre
 @SuppressWarnings("unused")
 @Mixin(SurfaceChunkGenerator.class)
 public abstract class SurfaceChunkGeneratorMixin {
+	/**
+	 * Maintains precision based on the mod's configuration
+	 *
+	 * @param coordinate A coordinate (X/Y/Z, does not matter)
+	 * @return If the Far Lands are enabled, the coordinate without maintaining precision; if not, vanilla behaviour
+	 * @author geni
+	 */
 	@Redirect(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"
-			),
-			method = "sampleNoise"
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/util/math/noise/OctavePerlinNoiseSampler;maintainPrecision(D)D"
+		),
+		method = "sampleNoise"
 	)
-	private double dontMaintainPrecision(double double_1) {
-		if (Config.getConfig().farLandsEnabled) {
-			return double_1;
-		} else {
-			return maintainPrecision(double_1);
-		}
+	private double dontMaintainPrecision(double coordinate) {
+		return Config.getConfig().farLandsEnabled ? coordinate : maintainPrecision(coordinate);
 	}
 }

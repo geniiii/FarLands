@@ -17,6 +17,12 @@ public class Config {
 
 	private static Logger logger = LogManager.getLogger("FarLands");
 
+	/**
+	 * Creates config if it doesn't exist; if it does exist, it loads it
+	 *
+	 * @param file Path to config file
+	 * @author geni
+	 */
 	public static void createConfig(File file) {
 		configFile = file;
 		try {
@@ -33,14 +39,31 @@ public class Config {
 		}
 	}
 
+	/**
+	 * Gets the config
+	 *
+	 * @return value of config
+	 * @author geni
+	 */
 	public static ConfigSpec getConfig() {
 		return config;
 	}
 
+	/**
+	 * Sets the config
+	 *
+	 * @param configToSetTo {@link ConfigSpec} to set the config to
+	 * @author geni
+	 */
 	public static void setConfig(ConfigSpec configToSetTo) {
 		config = configToSetTo;
 	}
 
+	/**
+	 * Saves the config to a JSON file, overwriting any already existing one
+	 *
+	 * @author geni
+	 */
 	public static void saveConfig() {
 		try {
 			Files.write(configFile.toPath(), new GsonBuilder().setPrettyPrinting().create().toJson(config).getBytes());
@@ -50,6 +73,11 @@ public class Config {
 		}
 	}
 
+	/**
+	 * The default configuration
+	 *
+	 * @author geni
+	 */
 	public static class ConfigSpec {
 		public double coordinateScale = 684.4119873046875D;
 		public double heightScale = 684.4119873046875D;
@@ -59,5 +87,6 @@ public class Config {
 		public boolean farLandsEnabled = true;
 		public boolean fixOreGeneration = true;
 		public boolean fixParticles = true;
+		public boolean fixLighting = true;
 	}
 }

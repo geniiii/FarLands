@@ -10,7 +10,10 @@ import java.util.Random;
 @SuppressWarnings("unused")
 @Mixin(Item.class)
 public abstract class ItemMixin {
-	/* used by the BoneMealItem mixin */
+	/**
+	 * The {@link Item}'s {@link Random} instance <br>
+	 * Used by {@link BoneMealItemMixin#addParticlesProperly}
+	 */
 	@Shadow
 	@Final
 	protected static Random random;

@@ -25,23 +25,23 @@ public abstract class OreFeatureMixin {
 
 	/* TODO: clean up later, this is just a PoC for now */
 	@Inject(
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/gen/feature/OreFeature;generateVeinPart(Lnet/minecraft/world/IWorld;Ljava/util/Random;Lnet/minecraft/world/gen/feature/OreFeatureConfig;DDDDDDIIIII)Z",
-					shift = At.Shift.BEFORE
-			),
-			method = "method_13628",
-			locals = LocalCapture.CAPTURE_FAILHARD,
-			cancellable = true
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/gen/feature/OreFeature;generateVeinPart(Lnet/minecraft/world/IWorld;Ljava/util/Random;Lnet/minecraft/world/gen/feature/OreFeatureConfig;DDDDDDIIIII)Z",
+			shift = At.Shift.BEFORE
+		),
+		method = "method_13628",
+		locals = LocalCapture.CAPTURE_FAILHARD,
+		cancellable = true
 	)
-	private void generateOresProperly(IWorld iWorld_1, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator_1, Random random_1, BlockPos blockPos_1, OreFeatureConfig oreFeatureConfig_1, CallbackInfoReturnable<Boolean> cir, float float_1, float float_2, int int_1, double double_1, double double_2, double double_3, double double_4, int int_2, double double_5, double double_6, int int_3, int int_4, int int_5, int int_6, int int_7, int int_8, int int_9) {
+	private void generateOresProperly(IWorld iWorld, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random random, BlockPos blockPos, OreFeatureConfig oreFeatureConfig, CallbackInfoReturnable<Boolean> cir, float float_1, float float_2, int int_1, double double_1, double double_2, double double_3, double double_4, int int_2, double double_5, double double_6, int int_3, int int_4, int int_5, int int_6, int int_7, int int_8, int int_9) {
 		if (Config.getConfig().fixOreGeneration && Config.getConfig().farLandsEnabled) {
-			double_1 = blockPos_1.getX() + (double) (MathHelper.sin(float_1) * float_2);
-			double_2 = blockPos_1.getX() - (double) (MathHelper.sin(float_1) * float_2);
-			double_3 = blockPos_1.getZ() + (double) (MathHelper.cos(float_1) * float_2);
-			double_4 = blockPos_1.getZ() - (double) (MathHelper.cos(float_1) * float_2);
+			double_1 = blockPos.getX() + (double) (MathHelper.sin(float_1) * float_2);
+			double_2 = blockPos.getX() - (double) (MathHelper.sin(float_1) * float_2);
+			double_3 = blockPos.getZ() + (double) (MathHelper.cos(float_1) * float_2);
+			double_4 = blockPos.getZ() - (double) (MathHelper.cos(float_1) * float_2);
 
-			cir.setReturnValue(this.generateVeinPart(iWorld_1, random_1, oreFeatureConfig_1, double_1, double_2, double_3, double_4, double_5, double_6, int_3, int_4, int_5, int_6, int_7));
+			cir.setReturnValue(this.generateVeinPart(iWorld, random, oreFeatureConfig, double_1, double_2, double_3, double_4, double_5, double_6, int_3, int_4, int_5, int_6, int_7));
 		}
 	}
 }

@@ -16,6 +16,8 @@
     "server.MinecraftServerMixin",
     "server.player.ServerPlayNetworkHandlerMixin",
     "server.player.ServerPlayerEntityMixin",
+    "util.math.BlockPosMixin",
+    "util.math.ChunKSectionPosMixin",
     "world.WorldMixin",
     "world.gen.feature.OreFeatureMixin"
   ],
