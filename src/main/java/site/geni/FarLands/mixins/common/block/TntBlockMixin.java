@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.block;
+package site.geni.FarLands.mixins.common.block;
 
 import net.minecraft.block.TntBlock;
 import net.minecraft.entity.LivingEntity;

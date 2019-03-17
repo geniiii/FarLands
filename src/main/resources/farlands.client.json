@@ -12,12 +12,12 @@
     "block.HorizontalFacingBlockMixin",
     "block.FallingBlockMixin",
     "block.MyceliumBlockMixin",
-    "block.TntBlockMixin",
     "fluid.WaterFluidMixin",
     "fluid.LavaFluidMixin",
     "item.ItemMixin",
     "item.BoneMealItemMixin",
-    "MobSpawnerLogicMixin"
+    "MobSpawnerLogicMixin",
+    "world.explosion.ExplosionMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {
