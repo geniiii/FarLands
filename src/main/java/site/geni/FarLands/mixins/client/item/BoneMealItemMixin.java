@@ -23,15 +23,15 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 	/**
 	 * Sets {@link #pos} to the block the item is being used on's {@link BlockPos} <br>
 	 *
-	 * @param iWorld            {@link IWorld} of the item
-	 * @param blockPos          {@link BlockPos} of the block
-	 * @param unknown           Unknown
-	 * @param ci                {@link CallbackInfo} required for {@link Inject}
-	 * @param blockState        {@link BlockState} of the block
-	 * @param forInt            Integer used in a {@code for} loop
-	 * @param particleVelocityX The particle's X velocity
-	 * @param particleVelocityY The particle's Y velocity
-	 * @param particleVelocityZ The particle's Z velocity
+	 * @param iWorld     {@link IWorld} of the item
+	 * @param blockPos   {@link BlockPos} of the block
+	 * @param unknown    Unknown
+	 * @param ci         {@link CallbackInfo} required for {@link Inject}
+	 * @param blockState {@link BlockState} of the block
+	 * @param forInt     Integer used in a {@code for} loop
+	 * @param velocityX  The particle's X velocity
+	 * @param velocityY  The particle's Y velocity
+	 * @param velocityZ  The particle's Z velocity
 	 * @author geni
 	 */
 	@Inject(
@@ -43,12 +43,25 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		method = "method_7721",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
-	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double particleVelocityX, double particleVelocityY, double particleVelocityZ) {
+	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
 		if (Config.getConfig().fixParticles) {
 			pos = blockPos;
 		}
 	}
 
+	/**
+	 * Adds particles created by bone meal using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 *
+	 * @param iWorld             {@link IWorld} of the item
+	 * @param particleParameters {@link ParticleParameters} to use when adding particle
+	 * @param xOrig              The particle's original X position
+	 * @param yOrig              The particle's original Y position
+	 * @param zOrig              The particle's original Z position
+	 * @param velocityX          The particle's X velocity
+	 * @param velocityY          The particle's Y velocity
+	 * @param velocityZ          The particle's Z velocity
+	 * @author geni
+	 */
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
@@ -56,7 +69,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		),
 		method = "method_7721"
 	)
-	private static void addParticlesProperly(IWorld iWorld, ParticleParameters var1, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
+	private static void addParticlesProperly(IWorld iWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
 		if (Config.getConfig().fixParticles) {
 			final double x = pos.getX() + random.nextDouble();
 			final double y = pos.getY() + random.nextDouble();

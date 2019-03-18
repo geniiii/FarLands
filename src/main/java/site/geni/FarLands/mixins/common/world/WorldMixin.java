@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Random;
 import java.util.function.BiFunction;
 
 @SuppressWarnings("unused")
@@ -138,6 +139,8 @@ public abstract class WorldMixin {
 
 	@Shadow
 	public abstract LevelProperties getLevelProperties();
+
+	@Shadow @Final public Random random;
 
 	/**
 	 * Sets world border maximum radius to {@link Integer#MAX_VALUE} and size to {@link Double#MAX_VALUE}
