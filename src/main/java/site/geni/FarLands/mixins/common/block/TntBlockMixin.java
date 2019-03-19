@@ -36,7 +36,7 @@ public abstract class TntBlockMixin {
 	)
 	private static void primeTntProperly(World world, BlockPos blockPos, LivingEntity livingEntity, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, livingEntity);
+			final PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, livingEntity);
 
 			world.spawnEntity(primedTntEntity);
 			world.playSound(null, primedTntEntity.x, primedTntEntity.y, primedTntEntity.z, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCK, 1.0F, 1.0F);
@@ -64,7 +64,7 @@ public abstract class TntBlockMixin {
 	)
 	private void primeTntPrimedByExplosionProperly(World world, BlockPos blockPos, Explosion explosion, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, explosion.getCausingEntity());
+			final PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, explosion.getCausingEntity());
 			primedTntEntity.setFuse((short)(world.random.nextInt(primedTntEntity.getFuseTimer() / 4) + primedTntEntity.getFuseTimer() / 8));
 
 			world.spawnEntity(primedTntEntity);

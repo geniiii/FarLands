@@ -50,14 +50,13 @@ public abstract class ExplosionMixin {
 		at = @At(
 			value = "INVOKE",
 			target = "Lnet/minecraft/util/math/BlockPos;getY()I",
-			ordinal = 0,
 			shift = At.Shift.BEFORE
 		),
 		index = 7,
 		method = "affectWorld"
 	)
 	private double setX(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getX() + this.world.random.nextFloat() : original;
+		return Config.getConfig().fixParticles ? blockPos.getX() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -70,14 +69,13 @@ public abstract class ExplosionMixin {
 		at = @At(
 			value = "INVOKE",
 			target = "Lnet/minecraft/util/math/BlockPos;getZ()I",
-			ordinal = 0,
 			shift = At.Shift.BEFORE
 		),
 		index = 9,
 		method = "affectWorld"
 	)
 	private double setY(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getY() + this.world.random.nextFloat() : original;
+		return Config.getConfig().fixParticles ? blockPos.getY() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -95,10 +93,9 @@ public abstract class ExplosionMixin {
 			shift = At.Shift.BEFORE
 		),
 		index = 11,
-		method = "affectWorld",
-		print = true
+		method = "affectWorld"
 	)
 	private double setZ(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getZ() + this.world.random.nextFloat() : original;
+		return Config.getConfig().fixParticles ? blockPos.getZ() + (double) this.world.random.nextFloat() : original;
 	}
 }

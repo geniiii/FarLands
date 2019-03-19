@@ -35,7 +35,7 @@ public abstract class MyceliumBlockMixin {
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			world.addParticle(ParticleTypes.MYCELIUM, blockPos.getX() + random.nextDouble(), blockPos.getY() + 1.1D, blockPos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.MYCELIUM, blockPos.getX() + (double) random.nextFloat(), blockPos.getY() + 1.1D, blockPos.getZ() + (double) random.nextFloat(), 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}

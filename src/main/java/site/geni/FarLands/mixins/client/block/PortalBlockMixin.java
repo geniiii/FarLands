@@ -66,11 +66,11 @@ public abstract class PortalBlockMixin {
 	)
 	private void addParticlesProperly(World world, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
 		if (Config.getConfig().fixParticles) {
-			double x = pos.getX() + random.nextDouble();
-			final double y = pos.getY() + random.nextDouble();
-			double z = pos.getZ() + random.nextDouble();
+			double x = pos.getX() + (double) random.nextFloat();
+			final double y = pos.getY() + (double) random.nextFloat();
+			double z = pos.getZ() + (double) random.nextFloat();
 
-			double velocityX = (random.nextDouble() - 0.5D) * 0.5D;
+			double velocityX = ((double) random.nextFloat() - 0.5D) * 0.5D;
 			final double velocityY = (random.nextDouble() - 0.5D) * 0.5D;
 			double velocityZ = (random.nextDouble() - 0.5D) * 0.5D;
 
@@ -78,10 +78,10 @@ public abstract class PortalBlockMixin {
 
 			if (!(world.getBlockState(pos.west()).getBlock() instanceof PortalBlock) && !(world.getBlockState(pos.east()).getBlock() instanceof PortalBlock)) {
 				x = pos.getX() + 0.5D + 0.25D * (double) int_2;
-				velocityX = random.nextDouble() * 2.0D * (double) int_2;
+				velocityX = (double) random.nextFloat() * 2.0D * (double) int_2;
 			} else {
 				z = pos.getZ() + 0.5D + 0.25D * (double) int_2;
-				velocityZ = random.nextDouble() * 2.0D * (double) int_2;
+				velocityZ = (double) random.nextFloat() * 2.0D * (double) int_2;
 			}
 
 			world.addParticle(particleParameters, x, y, z, velocityX, velocityY, velocityZ);

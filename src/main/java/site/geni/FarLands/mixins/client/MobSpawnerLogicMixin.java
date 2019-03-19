@@ -51,9 +51,9 @@ public abstract class MobSpawnerLogicMixin {
 			BlockPos blockPos = this.getPos();
 			World world = this.getWorld();
 
-			double x = blockPos.getX() + world.random.nextDouble();
-			double y = blockPos.getY() + world.random.nextDouble();
-			double z = blockPos.getZ() + world.random.nextDouble();
+			double x = blockPos.getX() + (double) world.random.nextFloat();
+			double y = blockPos.getY() + (double) world.random.nextFloat();
+			double z = blockPos.getZ() + (double) world.random.nextFloat();
 
 			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
 			world.addParticle(ParticleTypes.FLAME, x, y, z, 0.0D, 0.0D, 0.0D);

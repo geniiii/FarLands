@@ -36,9 +36,9 @@ public abstract class EndPortalBlockMixin {
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			final double x = blockPos.getX() + random.nextDouble();
+			final double x = blockPos.getX() + (double) random.nextFloat();
 			final double y = blockPos.getY() + 0.08D;
-			final double z = blockPos.getZ() + random.nextDouble();
+			final double z = blockPos.getZ() + (double) random.nextFloat();
 
 			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
 
