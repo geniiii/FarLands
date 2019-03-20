@@ -36,7 +36,7 @@ public abstract class WaterFluidMixin {
 	)
 	private void addParticlesProperly(World world, BlockPos blockPos, FluidState fluidState, Random random, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			world.addParticle(ParticleTypes.UNDERWATER, blockPos.getX() + (double) random.nextFloat(), blockPos.getY() + (double) random.nextFloat(), blockPos.getZ() + (double) random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.field_11210, blockPos.getX() + (double) random.nextFloat(), blockPos.getY() + (double) random.nextFloat(), blockPos.getZ() + (double) random.nextFloat(), 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}

@@ -75,9 +75,9 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 			final double y = pos.getY() + random.nextDouble();
 			final double z = pos.getZ() + random.nextDouble();
 
-			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, x, y, z, velocityX, velocityY, velocityZ);
+			iWorld.addParticle(ParticleTypes.field_11211, x, y, z, velocityX, velocityY, velocityZ);
 		} else {
-			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);
+			iWorld.addParticle(ParticleTypes.field_11211, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);
 		}
 	}
 }

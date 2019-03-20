@@ -40,7 +40,7 @@ public abstract class EndPortalBlockMixin {
 			final double y = blockPos.getY() + 0.08D;
 			final double z = blockPos.getZ() + (double) random.nextFloat();
 
-			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.field_11251, x, y, z, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}

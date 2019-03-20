@@ -41,7 +41,7 @@ public abstract class FallingBlockMixin {
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + (double)random.nextFloat();
 
-			world.addParticle(new BlockStateParticleParameters(ParticleTypes.FALLING_DUST, blockState), x, y, z, 0.0D, 0.0D, 0.0D);
+			world.addParticle(new BlockStateParticleParameters(ParticleTypes.field_11206, blockState), x, y, z, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}
