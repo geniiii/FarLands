@@ -31,7 +31,8 @@ public abstract class MyceliumBlockMixin {
 			value = "INVOKE",
 			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
 		),
-		method = "randomDisplayTick", cancellable = true
+		method = "randomDisplayTick",
+		cancellable = true
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
