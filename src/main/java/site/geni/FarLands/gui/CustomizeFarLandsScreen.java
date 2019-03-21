@@ -8,6 +8,7 @@ import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.TranslatableTextComponent;
 import site.geni.FarLands.utils.Config;
 import site.geni.FarLands.utils.Config.ConfigSpec;
 
@@ -34,7 +35,7 @@ public class CustomizeFarLandsScreen extends Screen {
 
 
 	CustomizeFarLandsScreen(Screen parent) {
-		super();
+		super(new TranslatableTextComponent("config.farlands.title"));
 
 		this.parent = parent;
 	}
@@ -133,57 +134,44 @@ public class CustomizeFarLandsScreen extends Screen {
 	protected void onInitialized() {
 		this.client.keyboard.enableRepeatEvents(true);
 
-		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.screenWidth / 2 - 70, 20, 226, 20, "") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
+		this.killFallingBlockEntitiesInFarLands = this.addButton(new ButtonWidget(this.screenWidth / 2 - 70, 20, 226, 20, "", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = !CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands;
+			CustomizeFarLandsScreen.this.updateButtons();
+		}));
 
-		this.farLandsEnabled = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 20, 82, 20, "") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled = !CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
+		this.farLandsEnabled = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 20, 82, 20, "", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled = !CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
+			CustomizeFarLandsScreen.this.updateButtons();
+		}));
 
-		this.fixOreGeneration = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 50, 92, 20, "") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration = !CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
+		this.fixOreGeneration = this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, 50, 92, 20, "", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration = !CustomizeFarLandsScreen.this.tempConfig.fixOreGeneration;
+			CustomizeFarLandsScreen.this.updateButtons();
+		}));
 
-		this.fixLighting = this.addButton(new ButtonWidget(this.screenWidth / 2 - 58, 50, 90, 20, "") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.fixLighting = !CustomizeFarLandsScreen.this.tempConfig.fixLighting;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
+		this.fixLighting = this.addButton(new ButtonWidget(this.screenWidth / 2 - 58, 50, 90, 20, "", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.fixLighting = !CustomizeFarLandsScreen.this.tempConfig.fixLighting;
+			CustomizeFarLandsScreen.this.updateButtons();
+		}));
 
-		this.fixParticles = this.addButton(new ButtonWidget(this.screenWidth / 2 + 38, 50, 118, 20, "") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.fixParticles = !CustomizeFarLandsScreen.this.tempConfig.fixParticles;
-				CustomizeFarLandsScreen.this.updateButtons();
-			}
-		});
+		this.fixParticles = this.addButton(new ButtonWidget(this.screenWidth / 2 + 38, 50, 118, 20, "", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.fixParticles = !CustomizeFarLandsScreen.this.tempConfig.fixParticles;
+			CustomizeFarLandsScreen.this.updateButtons();
+		}));
 
-		this.addButton(new ButtonWidget(this.screenWidth / 2 + 5, this.screenHeight - 28, 150, 20, "Cancel") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent);
-			}
-		});
+		this.addButton(new ButtonWidget(this.screenWidth / 2 + 5, this.screenHeight - 28, 150, 20, "Cancel", (buttonWidget) ->
+			CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent)
+		));
 
-		this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, this.screenHeight - 28, 150, 20, "Done") {
-			public void onPressed() {
-				CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands && CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
 
-				Config.setConfig(CustomizeFarLandsScreen.this.tempConfig);
-				Config.saveConfig();
+		this.addButton(new ButtonWidget(this.screenWidth / 2 - 155, this.screenHeight - 28, 150, 20, "Done", (buttonWidget) -> {
+			CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands = CustomizeFarLandsScreen.this.tempConfig.killFallingBlockEntitiesInFarLands && CustomizeFarLandsScreen.this.tempConfig.farLandsEnabled;
 
-				CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent);
-			}
-		});
+			Config.setConfig(CustomizeFarLandsScreen.this.tempConfig);
+			Config.saveConfig();
+
+			CustomizeFarLandsScreen.this.client.openScreen(CustomizeFarLandsScreen.this.parent);
+		}));
 
 		this.coordinateScale = new TextFieldWidget(this.fontRenderer, this.screenWidth / 2 - 155, 85, 310, 18);
 		this.coordinateScale.setText(String.valueOf(this.tempConfig.coordinateScale));
@@ -204,6 +192,7 @@ public class CustomizeFarLandsScreen extends Screen {
 		this.focusOn(this.coordinateScale);
 
 		this.updateButtons();
+
 	}
 
 
@@ -214,10 +203,10 @@ public class CustomizeFarLandsScreen extends Screen {
 	 * @author geni
 	 */
 	@Override
-	public void draw(int mouseX, int mouseY, float partialTicks) {
+	public void render(int mouseX, int mouseY, float partialTicks) {
 		this.drawBackground();
 
-		this.drawStringCentered(this.fontRenderer, I18n.translate("config.farlands.title"), this.screenWidth / 2, 5, 16777215);
+		this.drawStringCentered(this.fontRenderer, this.title.getFormattedText(), this.screenWidth / 2, 5, 16777215);
 
 		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScale"), this.screenWidth / 2 - 155, 75, -6250336);
 		this.drawString(this.fontRenderer, I18n.translate("config.farlands.coordinateScaleMultiplier"), this.screenWidth / 2 - 155, 110, -6250336);
@@ -232,28 +221,28 @@ public class CustomizeFarLandsScreen extends Screen {
 			this.drawString(this.fontRenderer, estimatedPosition, this.screenWidth / 2 - estimatedPosition.length(), 75, -6250336);
 		}
 
-		this.coordinateScale.draw(mouseX, mouseY, partialTicks);
-		this.coordinateScaleMultiplier.draw(mouseX, mouseY, partialTicks);
-		this.heightScale.draw(mouseX, mouseY, partialTicks);
-		this.heightScaleMultiplier.draw(mouseX, mouseY, partialTicks);
+		this.coordinateScale.render(mouseX, mouseY, partialTicks);
+		this.coordinateScaleMultiplier.render(mouseX, mouseY, partialTicks);
+		this.heightScale.render(mouseX, mouseY, partialTicks);
+		this.heightScaleMultiplier.render(mouseX, mouseY, partialTicks);
 
-		super.draw(mouseX, mouseY, partialTicks);
+		super.render(mouseX, mouseY, partialTicks);
 	}
 
 	/**
-	 * Updates button text and enabled status
+	 * Updates button text and active status
 	 *
 	 * @author geni
 	 */
 	private void updateButtons() {
-		this.killFallingBlockEntitiesInFarLands.enabled = this.tempConfig.farLandsEnabled;
+		this.killFallingBlockEntitiesInFarLands.active = this.tempConfig.farLandsEnabled;
 
-		this.farLandsEnabled.setText(I18n.translate("config.farlands.farLandsEnabled", I18n.translate(this.tempConfig.farLandsEnabled ? "options.on" : "options.off")));
-		this.killFallingBlockEntitiesInFarLands.setText(I18n.translate("config.farlands.killEntities", I18n.translate(this.tempConfig.killFallingBlockEntitiesInFarLands && this.tempConfig.farLandsEnabled ? "options.on" : "options.off")));
+		this.farLandsEnabled.setMessage(I18n.translate("config.farlands.farLandsEnabled", I18n.translate(this.tempConfig.farLandsEnabled ? "options.on" : "options.off")));
+		this.killFallingBlockEntitiesInFarLands.setMessage(I18n.translate("config.farlands.killEntities", I18n.translate(this.tempConfig.killFallingBlockEntitiesInFarLands && this.tempConfig.farLandsEnabled ? "options.on" : "options.off")));
 
-		this.fixOreGeneration.setText(I18n.translate("config.farlands.fixOreGeneration", I18n.translate(this.tempConfig.fixOreGeneration ? "options.on" : "options.off")));
-		this.fixLighting.setText(I18n.translate("config.farlands.fixLighting", I18n.translate(this.tempConfig.fixLighting ? "options.on" : "options.off")));
-		this.fixParticles.setText(I18n.translate("config.farlands.fixParticles", I18n.translate(this.tempConfig.fixParticles ? "options.on" : "options.off")));
+		this.fixOreGeneration.setMessage(I18n.translate("config.farlands.fixOreGeneration", I18n.translate(this.tempConfig.fixOreGeneration ? "options.on" : "options.off")));
+		this.fixLighting.setMessage(I18n.translate("config.farlands.fixLighting", I18n.translate(this.tempConfig.fixLighting ? "options.on" : "options.off")));
+		this.fixParticles.setMessage(I18n.translate("config.farlands.fixParticles", I18n.translate(this.tempConfig.fixParticles ? "options.on" : "options.off")));
 	}
 
 	/**

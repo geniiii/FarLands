@@ -19,7 +19,7 @@ public abstract class PlayerEntityMixin {
 		constant = @Constant(
 			doubleValue = -2.9999999E7D
 		),
-		method = "update"
+		method = "tick"
 	)
 	private static double clampToNegativeDoubleMaxValueXZ(double original) {
 		return -Double.MAX_VALUE;
@@ -36,7 +36,7 @@ public abstract class PlayerEntityMixin {
 		constant = @Constant(
 			doubleValue = 2.9999999E7D
 		),
-		method = "update"
+		method = "tick"
 	)
 	private static double clampToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;

@@ -18,14 +18,14 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 	/**
 	 * Kills falling block entities located in the Far Lands depending on the mod's configuration
 	 *
-	 * @param ci Mixin {@link CallbackInfo} (required for {@link Inject})
+	 * @param ci {@link CallbackInfo} required by {@link Inject}
 	 * @author geni
 	 */
 	@Inject(
 		at = @At(
 			value = "HEAD"
 		),
-		method = "update"
+		method = "tick"
 	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
 		if (Config.getConfig().killFallingBlockEntitiesInFarLands && (this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation)) {

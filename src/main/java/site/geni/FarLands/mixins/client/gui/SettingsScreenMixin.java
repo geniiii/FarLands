@@ -11,7 +11,7 @@ import site.geni.FarLands.gui.CustomizeFarLandsButton;
 
 @SuppressWarnings("unused")
 @Mixin(SettingsScreen.class)
-public abstract class SettingsScreenMixin extends Screen {
+public abstract class SettingsScreenMixin extends ScreenMixin {
 	/**
 	 * Adds the "Customize FarLands" button to the "Settings" screen
 	 *
@@ -25,6 +25,6 @@ public abstract class SettingsScreenMixin extends Screen {
 		method = "onInitialized"
 	)
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
-		this.addButton(new CustomizeFarLandsButton(this, this.screenWidth / 2 - 75, this.screenHeight / 6 + 18, 150, 20, I18n.translate("config.farlands.customize")));
+		this.addButton(new CustomizeFarLandsButton((Screen)(Object)this, this.screenWidth / 2 - 75, this.screenHeight / 6 + 18, 150, 20, I18n.translate("config.farlands.customize")));
 	}
 }

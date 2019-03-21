@@ -67,9 +67,9 @@ public abstract class ClientWorldMixin extends WorldMixin {
 	)
 	private void addParticlesProperly(ClientWorld clientWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityZ, double velocityY) {
 		if (Config.getConfig().fixParticles) {
-			this.addParticle(ParticleTypes.field_11235, x + 0.5D, y + 0.5D, z + 0.5D, velocityX, velocityY, velocityZ);
+			this.addParticle(ParticleTypes.BARRIER, x + 0.5D, y + 0.5D, z + 0.5D, velocityX, velocityY, velocityZ);
 		} else {
-			this.addParticle(ParticleTypes.field_11235, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);
+			this.addParticle(ParticleTypes.BARRIER, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);
 		}
 	}
 }

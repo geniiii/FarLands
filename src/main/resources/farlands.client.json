@@ -18,7 +18,8 @@
     "item.BoneMealItemMixin",
     "MobSpawnerLogicMixin",
     "world.explosion.ExplosionMixin",
-    "world.ClientWorldMixin"
+    "world.ClientWorldMixin",
+    "gui.ScreenMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {

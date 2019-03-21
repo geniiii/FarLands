@@ -40,7 +40,7 @@ public abstract class LeavesBlockMixin {
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + (double) random.nextFloat();
 
-			world.addParticle(ParticleTypes.field_11232, x, y, z, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.DRIPPING_WATER, x, y, z, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}
