@@ -19,12 +19,12 @@ import java.util.Random;
 @SuppressWarnings("unused")
 @Mixin(ClientWorld.class)
 public abstract class ClientWorldMixin extends WorldMixin {
-	@Shadow
-	public abstract void addParticle(ParticleParameters particleParameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ);
-
 	private static int x;
 	private static int y;
 	private static int z;
+
+	@Shadow
+	public abstract void addParticle(ParticleParameters particleParameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ);
 
 	/**
 	 * Adds particles created by barrier blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions

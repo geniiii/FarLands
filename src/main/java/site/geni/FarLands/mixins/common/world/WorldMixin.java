@@ -25,14 +25,18 @@ public abstract class WorldMixin {
 	@Shadow
 	@Final
 	public Dimension dimension;
-
+	@Shadow
+	@Final
+	public Random random;
 	@Shadow
 	@Final
 	private WorldBorder border;
 
 	/**
+	 * Make anything down to X/Z: {@link Integer#MIN_VALUE} a valid position
+	 *
 	 * @param original Original integer of -30000000
-	 * @return
+	 * @return {@link Integer#MIN_VALUE}
 	 * @author geni
 	 */
 	@ModifyConstant(
@@ -49,7 +53,7 @@ public abstract class WorldMixin {
 	 * Make anything up to X/Z: {@link Integer#MAX_VALUE} a valid position
 	 *
 	 * @param original Original integer of 30000000
-	 * @return
+	 * @return {@link Integer#MAX_VALUE}
 	 * @author geni
 	 */
 	@ModifyConstant(
@@ -139,8 +143,6 @@ public abstract class WorldMixin {
 
 	@Shadow
 	public abstract LevelProperties getLevelProperties();
-
-	@Shadow @Final public Random random;
 
 	/**
 	 * Sets world border maximum radius to {@link Integer#MAX_VALUE} and size to {@link Double#MAX_VALUE}

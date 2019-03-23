@@ -19,7 +19,10 @@
     "MobSpawnerLogicMixin",
     "world.explosion.ExplosionMixin",
     "world.ClientWorldMixin",
-    "gui.ScreenMixin"
+    "gui.ScreenMixin",
+    "block.entity.BlockEntityMixin",
+    "block.entity.EnchantingTableBlockEntityMixin",
+    "block.entity.EnchantingTableBlockEntityRendererMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {

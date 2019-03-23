@@ -65,7 +65,7 @@ public abstract class TntBlockMixin {
 	private void primeTntPrimedByExplosionProperly(World world, BlockPos blockPos, Explosion explosion, CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
 			final PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, explosion.getCausingEntity());
-			primedTntEntity.setFuse((short)(world.random.nextInt(primedTntEntity.getFuseTimer() / 4) + primedTntEntity.getFuseTimer() / 8));
+			primedTntEntity.setFuse((short) (world.random.nextInt(primedTntEntity.getFuseTimer() / 4) + primedTntEntity.getFuseTimer() / 8));
 
 			world.spawnEntity(primedTntEntity);
 

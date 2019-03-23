@@ -22,7 +22,8 @@ public abstract class ExplosionMixin {
 	/**
 	 * Sets {@link #blockPos} to the block which triggered the explosion's {@link BlockPos}
 	 *
-	 * @param original {@link BlockPos} of the block which triggered the explosion
+	 * @param orig {@link BlockPos} of the block which triggered the explosion
+	 * @return {@code orig}
 	 * @author geni
 	 */
 	@ModifyVariable(
@@ -33,17 +34,19 @@ public abstract class ExplosionMixin {
 		),
 		method = "affectWorld"
 	)
-	private BlockPos setBlockPos(BlockPos original) {
+	private BlockPos setBlockPos(BlockPos orig) {
 		if (Config.getConfig().fixParticles) {
-			blockPos = original;
+			blockPos = orig;
 		}
-		return original;
+
+		return orig;
 	}
 
 	/**
 	 * Sets the X position of the explosion particles using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise spawn positions
 	 *
 	 * @param original Original X position of the explosion particle
+	 * @return Depending on the configuration of the mod, either proper position or original position
 	 * @author geni
 	 */
 	@ModifyVariable(
@@ -63,6 +66,7 @@ public abstract class ExplosionMixin {
 	 * Sets the Y position of the explosion particles using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise spawn positions
 	 *
 	 * @param original Original Y position of the explosion particle
+	 * @return Depending on the configuration of the mod, either proper position or original position
 	 * @author geni
 	 */
 	@ModifyVariable(
@@ -82,6 +86,7 @@ public abstract class ExplosionMixin {
 	 * Sets the Z position of the explosion particles using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise spawn positions
 	 *
 	 * @param original Original Z position of the explosion particle
+	 * @return Depending on the configuration of the mod, either proper position or original position
 	 * @author geni
 	 */
 	@ModifyVariable(

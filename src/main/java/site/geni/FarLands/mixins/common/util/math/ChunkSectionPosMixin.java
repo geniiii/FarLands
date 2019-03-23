@@ -15,11 +15,10 @@ public abstract class ChunkSectionPosMixin {
 	 * Converts X/Y/Z from integer form to a single long <br>
 	 * Returns X/Y/Z combined in one long
 	 *
-	 * @param cir {@link CallbackInfoReturnable<Long>} required by {@link Inject}
+	 * @param cir {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param x   X coordinate
 	 * @param y   Y coordinate
 	 * @param z   Z coordinate
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 */
 	@Inject(
@@ -39,9 +38,8 @@ public abstract class ChunkSectionPosMixin {
 	/**
 	 * Unpacks and returns X coordinate from long value returned by {@link #asLongFixed}
 	 *
-	 * @param cir    {@link CallbackInfoReturnable<Integer>} required by {@link Inject}
+	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 * @see #asLongFixed
 	 */
@@ -61,9 +59,8 @@ public abstract class ChunkSectionPosMixin {
 	/**
 	 * Unpacks and returns Y coordinate from long value returned by {@link #asLongFixed}
 	 *
-	 * @param cir    {@link CallbackInfoReturnable<Integer>} required by {@link Inject}
+	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 * @see #asLongFixed
 	 */
@@ -83,9 +80,8 @@ public abstract class ChunkSectionPosMixin {
 	/**
 	 * Unpacks and returns Z coordinate from long value returned by {@link #asLongFixed}
 	 *
-	 * @param cir    {@link CallbackInfoReturnable<Integer>} required by {@link Inject}
+	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 * @see #asLongFixed
 	 */
@@ -106,9 +102,8 @@ public abstract class ChunkSectionPosMixin {
 	/**
 	 * Returns given long value returned by {@link #asLongFixed} with its Y coordinate set to 0
 	 *
-	 * @param cir    {@link CallbackInfoReturnable<Long>} required by {@link Inject}
+	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 * @see #asLongFixed
 	 */

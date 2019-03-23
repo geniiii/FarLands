@@ -22,7 +22,7 @@ import java.util.Random;
 public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 	@Shadow
 	@Final
-	public static IntegerProperty field_11451;
+	public static IntegerProperty DELAY;
 
 	/**
 	 * Adds particles created by repeater blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
@@ -51,7 +51,7 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 
 			float float_1 = -5.0F;
 			if (random.nextBoolean()) {
-				float_1 = (float) (blockState.get(field_11451) * 2 - 1);
+				float_1 = (float) (blockState.get(DELAY) * 2 - 1);
 			}
 			float_1 /= 16.0F;
 

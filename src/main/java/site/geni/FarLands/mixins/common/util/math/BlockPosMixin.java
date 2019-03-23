@@ -57,7 +57,6 @@ public abstract class BlockPosMixin {
 	 * Overwrites bit masks, bit shifts and bit sizes of coordinates depending on the mod's configuration
 	 *
 	 * @param ci {@link CallbackInfo} required for {@link Inject}
-	 * @reason Use 27-bit X/Z and 10-bit Y
 	 * @author geni
 	 */
 	@Inject(
