@@ -91,5 +91,5 @@ public abstract class EntityMixin {
 	 * @see FallingBlockEntityMixin#killFallingBlockEntities(CallbackInfo ci)
 	 */
 	@Shadow
-	public abstract void invalidate();
+	public abstract void remove();
 }

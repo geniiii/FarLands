@@ -29,7 +29,7 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
 		if (Config.getConfig().killFallingBlockEntitiesInFarLands && (this.x >= farLandsLocation || this.x <= -farLandsLocation || this.z >= farLandsLocation || this.z <= -farLandsLocation)) {
-			this.invalidate();
+			this.remove();
 		}
 	}
 }

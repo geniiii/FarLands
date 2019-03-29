@@ -31,12 +31,12 @@ public abstract class NewLevelScreenMixin extends ScreenMixin {
 			target = "Lnet/minecraft/client/gui/menu/NewLevelScreen;method_2710(Z)V",
 			shift = At.Shift.BEFORE
 		),
-		method = "onInitialized"
+		method = "init"
 	)
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
 
-		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.screenWidth / 2 - 155 : this.screenWidth / 2 + 5;
+		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.width / 2 - 155 : this.width / 2 + 5;
 		this.customizeFarLandsButton.visible = false;
 
 		this.addButton(this.customizeFarLandsButton);
@@ -58,7 +58,7 @@ public abstract class NewLevelScreenMixin extends ScreenMixin {
 	private void showOrHideCustomizeFarLandsButton(boolean toggle, CallbackInfo ci) {
 		final LevelGeneratorType levelGenType = LevelGeneratorType.TYPES[this.generatorType];
 
-		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.screenWidth / 2 - 155 : this.screenWidth / 2 + 5;
+		this.customizeFarLandsButton.x = levelGenType.hasInfo() || levelGenType.isCustomizable() ? this.width / 2 - 155 : this.width / 2 + 5;
 		this.customizeFarLandsButton.visible = toggle;
 	}
 }

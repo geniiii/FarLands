@@ -9,10 +9,10 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(Screen.class)
 public abstract class ScreenMixin {
 	@Shadow
-	public int screenWidth;
+	public int width;
 
 	@Shadow
-	public int screenHeight;
+	public int height;
 
 	/**
 	 * Adds a {@link AbstractButtonWidget} to the {@link Screen} <br>

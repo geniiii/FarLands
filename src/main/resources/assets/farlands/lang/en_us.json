@@ -1,17 +1,24 @@
 {
   "config.farlands.title": "FarLands configuration",
 
-  "config.farlands.killEntities": "Kill falling block entities in Far Lands: %s",
-  "config.farlands.farLandsEnabled": "Far Lands: %s",
-  "config.farlands.fixOreGeneration": "Fix ore gen: %s",
-  "config.farlands.fixParticles": "Fix particles/TNT: %s",
-  "config.farlands.fixLighting": "Fix lighting: %s",
+  "config.farlands.category.general": "General",
+  "config.farlands.category.fixes": "Fixes",
+  "config.farlands.category.estimates": "Estimates",
+
+  "config.farlands.farLandsEnabled": "Enable Far Lands",
+  "config.farlands.killEntities": "Kill falling block entities in Far Lands",
+  "config.farlands.fixOreGeneration": "Fix ore gen",
+  "config.farlands.fixParticles": "Fix particles/entities",
+  "config.farlands.fixLighting": "Fix lighting",
 
   "config.farlands.coordinateScale": "Coordinate scale",
-  "config.farlands.estimatedPosition": "Estimated Far Lands X/Z: ±%d",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
   "config.farlands.heightScale": "Height scale",
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",
+
+  "config.farlands.estimatedPosition": "Estimated Far Lands X/Z",
+  "config.farlands.estimatedFurtherPosition": "Estimated Further Lands X/Z",
+  "config.farlands.estimatedFarthestPosition": "Estimated Farthest Lands X/Z",
 
   "config.farlands.customize": "Customize FarLands"
 }

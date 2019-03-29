@@ -22,9 +22,9 @@ public abstract class SettingsScreenMixin extends ScreenMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "onInitialized"
+		method = "init"
 	)
 	private void addCustomizeFarLandsButton(CallbackInfo ci) {
-		this.addButton(new CustomizeFarLandsButton((Screen) (Object) this, this.screenWidth / 2 - 75, this.screenHeight / 6 + 18, 150, 20, I18n.translate("config.farlands.customize")));
+		this.addButton(new CustomizeFarLandsButton((Screen) (Object) this, this.width / 2 - 75, this.height / 6 + 18, 150, 20, I18n.translate("config.farlands.customize")));
 	}
 }

@@ -32,6 +32,7 @@ public class Config {
 			}
 
 			config = new Gson().fromJson(new FileReader(file), ConfigSpec.class);
+
 			saveConfig();
 		} catch (IOException e) {
 			logger.error("[FarLands] Failed to generate config!");
