@@ -187,7 +187,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 			// Adds the estimate for the Farthest Lands' location
 			world.addOption(new EstimateEntry(
 				"config.farlands.estimatedFarthestPosition",
-				farthestLandsLocation >= 0 ? "±" + farthestLandsLocation : "Invalid!"
+				farthestLandsLocation > 0 && farthestLandsLocation / 80 == farthererLandsLocation ? "±" + farthestLandsLocation : "Invalid!"
 			));
 
 
@@ -238,7 +238,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 				String name = option.getKey();
 
 				farLandsLocation = (int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
-				fartherLandsLocation = farLandsLocation * 80;
+				fartherLandsLocation = (long) farLandsLocation * 80;
 
 				farthererLandsLocation = (long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
 				farthestLandsLocation = farthererLandsLocation * 80;
@@ -265,7 +265,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 					case "config.farlands.estimatedFarthestPosition":
 						TextFieldWidget farthestLandsLocationWidget = (TextFieldWidget) entry.children().get(0);
 
-						farthestLandsLocationWidget.setText(farthestLandsLocation >= 0 ? "±" + farthestLandsLocation : "Invalid!");
+						farthestLandsLocationWidget.setText(farthestLandsLocation >= 0 && farthestLandsLocation / 80 == farthererLandsLocation ? "±" + farthestLandsLocation : "Invalid!");
 
 						break;
 				}
