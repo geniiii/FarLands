@@ -3,7 +3,7 @@
 
   "config.farlands.category.general": "General",
   "config.farlands.category.fixes": "Fixes",
-  "config.farlands.category.estimates": "Estimates",
+  "config.farlands.category.world": "World",
 
   "config.farlands.farLandsEnabled": "Enable Far Lands",
   "config.farlands.killEntities": "Kill falling block entities in Far Lands",
@@ -17,8 +17,11 @@
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",
 
   "config.farlands.estimatedPosition": "Estimated Far Lands X/Z",
-  "config.farlands.estimatedFurtherPosition": "Estimated Further Lands X/Z",
+  "config.farlands.estimatedFartherPosition": "Estimated Farther Lands X/Z",
+  "config.farlands.estimatedFarthererPosition": "Estimated Fartherer Lands X/Z",
   "config.farlands.estimatedFarthestPosition": "Estimated Farthest Lands X/Z",
+
+  "config.farlands.error.invalid_coordinate_scale": "Invalid coordinate scale!",
 
   "config.farlands.customize": "Customize FarLands"
 }
