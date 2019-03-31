@@ -20,7 +20,8 @@
     "util.math.ChunkSectionPosMixin",
     "world.WorldMixin",
     "world.gen.feature.OreFeatureMixin",
-    "block.TntBlockMixin"
+    "block.TntBlockMixin",
+    "SpawnHelperMixin"
   ],
   "minVersion": "0.7.11",
   "injectors": {

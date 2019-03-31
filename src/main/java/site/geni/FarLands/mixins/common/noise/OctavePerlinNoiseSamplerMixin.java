@@ -4,7 +4,7 @@ import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import site.geni.FarLands.utils.Config;
+import site.geni.FarLands.util.Config;
 
 import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPrecision;
 

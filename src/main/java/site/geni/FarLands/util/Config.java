@@ -1,4 +1,4 @@
-package site.geni.FarLands.utils;
+package site.geni.FarLands.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -88,6 +88,7 @@ public class Config {
 		public boolean farLandsEnabled = true;
 		public boolean fixOreGeneration = true;
 		public boolean fixParticles = true;
-		public boolean fixLighting = true;
+		public boolean fixLighting = false; // Causes problems on vanilla client + modded server
+		public boolean fixMobSpawning = true;
 	}
 }

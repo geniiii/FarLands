@@ -4,7 +4,7 @@ import net.minecraft.world.gen.chunk.OverworldChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import site.geni.FarLands.utils.Config;
+import site.geni.FarLands.util.Config;
 
 @SuppressWarnings("unused")
 @Mixin(OverworldChunkGenerator.class)

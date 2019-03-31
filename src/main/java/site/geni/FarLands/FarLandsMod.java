@@ -2,7 +2,7 @@ package site.geni.FarLands;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import site.geni.FarLands.utils.Config;
+import site.geni.FarLands.util.Config;
 
 import java.nio.file.Paths;
 

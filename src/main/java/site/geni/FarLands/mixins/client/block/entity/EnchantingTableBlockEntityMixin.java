@@ -6,7 +6,7 @@ import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import site.geni.FarLands.utils.Config;
+import site.geni.FarLands.util.Config;
 
 @SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntity.class)
