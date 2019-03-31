@@ -13,7 +13,7 @@ import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
-import site.geni.FarLands.utils.Config;
+import site.geni.FarLands.util.Config;
 
 @Environment(EnvType.CLIENT)
 public class CustomizeFarLandsButton extends ButtonWidget {
@@ -196,7 +196,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 				"config.farlands.fixOreGeneration",
 				Config.getConfig().fixOreGeneration,
 				"text.cloth.reset_value",
-				() -> false,
+				() -> true,
 				bool -> Config.getConfig().fixOreGeneration = bool
 			));
 
@@ -205,7 +205,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 				"config.farlands.fixParticles",
 				Config.getConfig().fixParticles,
 				"text.cloth.reset_value",
-				() -> false,
+				() -> true,
 				bool -> Config.getConfig().fixParticles = bool
 			));
 
@@ -216,6 +216,15 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 				"text.cloth.reset_value",
 				() -> false,
 				bool -> Config.getConfig().fixLighting = bool
+			));
+
+			// Adds the option for fixing mob spawning in the "Fixes" category
+			fixes.addOption(new BooleanListEntry(
+				"config.farlands.fixMobSpawning",
+				Config.getConfig().fixMobSpawning,
+				"text.cloth.reset_value",
+				() -> true,
+				bool -> Config.getConfig().fixMobSpawning = bool
 			));
 
 
@@ -229,7 +238,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 	 * Updates the estimates in the World category
 	 *
 	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
-	 * @param config {@link site.geni.FarLands.utils.Config.ConfigSpec} to use
+	 * @param config   {@link site.geni.FarLands.util.Config.ConfigSpec} to use
 	 */
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
 		for (Pair<String, Object> option : category.getOptions()) {
