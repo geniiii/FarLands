@@ -16,7 +16,7 @@ public abstract class BlockPosMixin {
 	@Shadow
 	@Final
 	@Mutable
-	private static int SIZE_BITS_X = 27;
+	private static int SIZE_BITS_X;
 
 	@Shadow
 	@Final
@@ -60,11 +60,15 @@ public abstract class BlockPosMixin {
 	 * @author geni
 	 */
 	@Inject(
-		at = @At("RETURN"),
-		method = "<clinit>"
+		at = @At(
+			"HEAD"
+		),
+		method = "<clinit>",
+		cancellable = true
 	)
 	private static void overwriteBits(CallbackInfo ci) {
 		if (Config.getConfig().fixLighting) {
+			SIZE_BITS_X = 27;
 			SIZE_BITS_Z = SIZE_BITS_X; // 27
 			SIZE_BITS_Y = 64 - SIZE_BITS_X - SIZE_BITS_Z; // 10
 			BITS_X = (1L << SIZE_BITS_X) - 1L; // 0x7FFFFFF
@@ -72,6 +76,8 @@ public abstract class BlockPosMixin {
 			BITS_Z = (1L << SIZE_BITS_Z) - 1L; // 0x7FFFFFF
 			BIT_SHIFT_Z = SIZE_BITS_Y; // 10
 			BIT_SHIFT_X = SIZE_BITS_Y + SIZE_BITS_Z; // 37
+
+			ci.cancel();
 		}
 	}
 }
