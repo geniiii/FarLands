@@ -28,6 +28,7 @@ import site.geni.FarLands.util.Config;
 public abstract class SpawnHelperMixin {
 	private static double x;
 	private static double z;
+
 	/**
 	 * Sets {@link #x} and {@link #z} to the mob to be spawned's X and Z position, respectively
 	 *
@@ -49,7 +50,7 @@ public abstract class SpawnHelperMixin {
 	 * @param unknown_1        Unknown
 	 * @param biomeSpawnEntry  The {@link Biome.SpawnEntry} where the mob group is located at (?)
 	 * @param mobEntityData    The mob's {@link EntityData}
-	 * @param mobGroupSize        The size of the mob group
+	 * @param mobGroupSize     The size of the mob group
 	 * @param unknown_2        Unknown
 	 * @param unknown_3        Unknown
 	 * @param mobXF            {@code mobX} casted to a float + 0.5F

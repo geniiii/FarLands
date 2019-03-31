@@ -7,9 +7,11 @@
 
   "config.farlands.farLandsEnabled": "Enable Far Lands",
   "config.farlands.killEntities": "Kill falling block entities in Far Lands",
+
   "config.farlands.fixOreGeneration": "Fix ore gen",
   "config.farlands.fixParticles": "Fix particles/entities",
   "config.farlands.fixLighting": "Fix lighting",
+  "config.farlands.fixMobSpawning": "Partially fix mob spawning",
 
   "config.farlands.coordinateScale": "Coordinate scale",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
@@ -20,8 +22,6 @@
   "config.farlands.estimatedFartherPosition": "Estimated Farther Lands X/Z",
   "config.farlands.estimatedFarthererPosition": "Estimated Fartherer Lands X/Z",
   "config.farlands.estimatedFarthestPosition": "Estimated Farthest Lands X/Z",
-
-  "config.farlands.error.invalid_coordinate_scale": "Invalid coordinate scale!",
 
   "config.farlands.customize": "Customize FarLands"
 }
