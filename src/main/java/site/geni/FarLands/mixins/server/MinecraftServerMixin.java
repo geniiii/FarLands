@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.server;
+package site.geni.FarLands.mixins.server;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

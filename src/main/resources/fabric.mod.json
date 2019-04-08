@@ -1,26 +1,34 @@
 {
+  "schemaVersion": 1,
   "id": "farlands",
+  "version": "${version}",
+
   "name": "FarLands",
   "description": "Brings back the far lands",
-  "version": "${version}",
-  "side": "universal",
-  "initializers": [
-    "site.geni.FarLands.FarLandsMod"
-  ],
   "authors": [
-    {
-      "name": "geni",
-      "website": "https://geni.site",
-      "email": "me@geni.site"
-    }
+    "geni"
   ],
-  "links": {
+  "contact": {
     "homepage": "https://polgarian.life",
-    "issues": "https://github.com/polgaria/FarLands/issues",
     "sources": "https://github.com/polgaria/FarLands"
   },
-  "mixins": {
-    "common": "farlands.common.json",
-    "client": "farlands.client.json"
-  }
+
+  "license": "MIT",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "site.geni.FarLands.FarLandsMod"
+    ]
+  },
+  "mixins": [
+    "farlands.mixins.json"
+  ],
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*",
+    "cloth-config": ">=0.1.0"
+  },
 }

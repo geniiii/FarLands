@@ -60,7 +60,7 @@ public abstract class SpawnHelperMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;method_18457(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
+			target = "Lnet/minecraft/world/World;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
 		),
 		method = "spawnEntitiesInChunk",
 		locals = LocalCapture.CAPTURE_FAILHARD
@@ -75,12 +75,12 @@ public abstract class SpawnHelperMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;method_18457(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
+			target = "Lnet/minecraft/world/World;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
 		),
 		method = "spawnEntitiesInChunk"
 	)
 	private static PlayerEntity getPlayerEntityClosestToCoordinatesProperly(World world, double origX, double y, double origZ) {
-		return Config.getConfig().fixMobSpawning ? world.method_18457(x, y, z) : world.method_18457(origX, y, origZ);
+		return Config.getConfig().fixMobSpawning ? world.getClosestPlayer(x, y, z) : world.getClosestPlayer(origX, y, origZ);
 	}
 
 	@Redirect(
