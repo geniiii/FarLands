@@ -39,7 +39,7 @@ public abstract class TntBlockMixin {
 			final PrimedTntEntity primedTntEntity = new PrimedTntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, livingEntity);
 
 			world.spawnEntity(primedTntEntity);
-			world.playSound(null, primedTntEntity.x, primedTntEntity.y, primedTntEntity.z, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCK, 1.0F, 1.0F);
+			world.playSound(null, primedTntEntity.x, primedTntEntity.y, primedTntEntity.z, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
 			ci.cancel();
 		}

@@ -14,7 +14,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/farlands/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -29,6 +29,6 @@
   "requires": {
     "fabricloader": ">=0.4.0",
     "fabric": "*",
-    "cloth-config": ">=0.1.0"
-  },
+    "cloth-config": ">=0.1.0.4"
+  }
 }

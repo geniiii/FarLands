@@ -44,7 +44,7 @@ public abstract class LavaFluidMixin {
 			double z = blockPos.getZ() + (double) random.nextFloat();
 
 			world.addParticle(ParticleTypes.LAVA, x, y, z, 0.0D, 0.0D, 0.0D);
-			world.playSound(x, y, z, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCK, 0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);
+			world.playSound(x, y, z, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS, 0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);
 
 			ci.cancel();
 		}

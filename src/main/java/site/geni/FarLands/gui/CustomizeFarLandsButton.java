@@ -1,6 +1,5 @@
 package site.geni.FarLands.gui;
 
-import javafx.util.Pair;
 import me.shedaniel.cloth.api.ConfigScreenBuilder;
 import me.shedaniel.cloth.gui.ClothConfigScreen;
 import me.shedaniel.cloth.gui.entries.BooleanListEntry;
@@ -9,10 +8,12 @@ import me.shedaniel.cloth.gui.entries.StringListEntry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.util.Pair;
 import site.geni.FarLands.util.Config;
 
 @Environment(EnvType.CLIENT)
@@ -25,7 +26,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 
 	public CustomizeFarLandsButton(Screen parent, int x, int y, int width, int height, String text) {
 		super(x, y, width, height, text, (buttonWidget) -> {
-			ClothConfigScreen.Builder builder = new ClothConfigScreen.Builder(parent, I18n.translate("config.farlands.title"), null);
+			ConfigScreenBuilder builder = ConfigScreenBuilder.create(parent, I18n.translate("config.farlands.title"), null);
 
 			ConfigScreenBuilder.CategoryBuilder general = builder.addCategory("config.farlands.category.general");
 			ConfigScreenBuilder.CategoryBuilder fixes = builder.addCategory("config.farlands.category.fixes");
@@ -242,9 +243,9 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 	 */
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
 		for (Pair<String, Object> option : category.getOptions()) {
-			if (option.getValue() instanceof StringListEntry) {
-				StringListEntry entry = (StringListEntry) (option.getValue());
-				String name = option.getKey();
+			if (option.getRight() instanceof StringListEntry) {
+				StringListEntry entry = (StringListEntry) (option.getRight());
+				String name = option.getLeft();
 
 				farLandsLocation = (int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
 				fartherLandsLocation = (long) farLandsLocation * 80;
