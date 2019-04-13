@@ -4,6 +4,24 @@
   "package": "site.geni.FarLands.mixins",
   "compatibilityLevel": "JAVA_8",
 
+  "mixins": [
+    "common.world.WorldMixin",
+    "common.commands.ForceLoadCommandMixin",
+    "common.commands.WorldBorderCommandMixin",
+    "common.entity.EntityMixin",
+    "common.entity.FallingBlockEntityMixin",
+    "common.generators.CavesChunkGeneratorMixin",
+    "common.generators.OverworldChunkGeneratorMixin",
+    "common.generators.SurfaceChunkGeneratorMixin",
+    "common.noise.OctavePerlinNoiseSamplerMixin",
+    "common.player.PlayerEntityMixin",
+    "common.util.math.BlockPosMixin",
+    "common.util.math.ChunkSectionPosMixin",
+    "common.world.gen.feature.OreFeatureMixin",
+    "common.block.TntBlockMixin",
+    "common.SpawnHelperMixin"
+  ],
+
   "client": [
     "client.gui.NewLevelScreenMixin",
     "client.gui.SettingsScreenMixin",
@@ -25,24 +43,6 @@
     "client.block.entity.BlockEntityMixin",
     "client.block.entity.EnchantingTableBlockEntityMixin",
     "client.block.entity.EnchantingTableBlockEntityRendererMixin"
-  ],
-
-  "common": [
-    "common.commands.ForceLoadCommandMixin",
-    "common.commands.WorldBorderCommandMixin",
-    "common.entity.EntityMixin",
-    "common.entity.FallingBlockEntityMixin",
-    "common.generators.CavesChunkGeneratorMixin",
-    "common.generators.OverworldChunkGeneratorMixin",
-    "common.generators.SurfaceChunkGeneratorMixin",
-    "common.noise.OctavePerlinNoiseSamplerMixin",
-    "common.player.PlayerEntityMixin",
-    "common.util.math.BlockPosMixin",
-    "common.util.math.ChunkSectionPosMixin",
-    "common.world.WorldMixin",
-    "common.world.gen.feature.OreFeatureMixin",
-    "common.block.TntBlockMixin",
-    "common.SpawnHelperMixin"
   ],
 
   "server": [
