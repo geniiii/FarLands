@@ -53,7 +53,7 @@ public abstract class WorldBorderCommandMixin {
 		constant = @Constant(
 			doubleValue = 6.0E7D
 		),
-		method = "method_13854(Lnet/minecraft/server/command/ServerCommandSource;DJ)I"
+		method = "executeSet"
 	)
 	private static double ableToSetRadiusOver60Mil(double original) {
 		return Double.MAX_VALUE;

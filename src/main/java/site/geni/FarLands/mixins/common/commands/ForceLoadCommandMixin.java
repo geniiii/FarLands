@@ -19,7 +19,7 @@ public abstract class ForceLoadCommandMixin {
 		constant = @Constant(
 			intValue = 30000000
 		),
-		method = "setForceLoaded"
+		method = "executeChange"
 	)
 	private static int forceLoadUpToPositiveIntegerMaxValue(int original) {
 		return Integer.MAX_VALUE;
@@ -36,7 +36,7 @@ public abstract class ForceLoadCommandMixin {
 		constant = @Constant(
 			intValue = -30000000
 		),
-		method = "setForceLoaded"
+		method = "executeChange"
 	)
 	private static int forceLoadUpToNegativeIntegerMaxValue(int original) {
 		return Integer.MIN_VALUE;

@@ -1,0 +1,27 @@
+{
+  "config.farlands.title": "Конфигурация на FarLands",
+
+  "config.farlands.category.general": "Общи",
+  "config.farlands.category.fixes": "Поправки",
+  "config.farlands.category.world": "Свят",
+
+  "config.farlands.farLandsEnabled": "Включи Far Lands",
+  "config.farlands.killEntities": "Убии падащи блокове в Far Lands",
+
+  "config.farlands.fixOreGeneration": "Поправи генерацията на руди",
+  "config.farlands.fixParticles": "Поправи частици/същества",
+  "config.farlands.fixLighting": "Поправи светлина",
+  "config.farlands.fixMobSpawning": "Частично поправи разпространяването на чудовища",
+
+  "config.farlands.coordinateScale": "Координатна скала",
+  "config.farlands.coordinateScaleMultiplier": "Умножител на координатната скала",
+  "config.farlands.heightScale": "Скала на височина",
+  "config.farlands.heightScaleMultiplier": "Умножител на скалата на височината",
+
+  "config.farlands.estimatedPosition": "Презенени Far Lands X/Z",
+  "config.farlands.estimatedFartherPosition": "Презенени Farther Lands X/Z",
+  "config.farlands.estimatedFarthererPosition": "Презенени Fartherer Lands X/Z",
+  "config.farlands.estimatedFarthestPosition": "Презенени Farthest Lands X/Z",
+
+  "config.farlands.customize": "Персонализирай FarLands"
+}

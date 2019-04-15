@@ -8,8 +8,8 @@
   "config.farlands.farLandsEnabled": "Enable Far Lands",
   "config.farlands.killEntities": "Kill falling block entities in Far Lands",
 
-  "config.farlands.fixOreGeneration": "Fix ore gen",
-  "config.farlands.fixParticles": "Fix particles/entities",
+  "config.farlands.fixOreGeneration": "Fix ore generation",
+  "config.farlands.fixParticles": "Fix particles and entities",
   "config.farlands.fixLighting": "Fix lighting",
   "config.farlands.fixMobSpawning": "Partially fix mob spawning",
 
