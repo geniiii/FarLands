@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common;
+package site.geni.FarLands.mixins.common.world;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityCategory;
@@ -6,11 +6,11 @@ import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.sortme.SpawnHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BoundingBox;
 import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.SpawnHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.WorldChunk;

@@ -1,8 +1,8 @@
-package site.geni.FarLands.mixins.client;
+package site.geni.FarLands.mixins.client.world;
 
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sortme.MobSpawnerLogic;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.MobSpawnerLogic;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

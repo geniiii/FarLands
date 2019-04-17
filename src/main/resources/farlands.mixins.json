@@ -19,7 +19,7 @@
     "common.util.math.ChunkSectionPosMixin",
     "common.world.gen.feature.OreFeatureMixin",
     "common.block.TntBlockMixin",
-    "common.SpawnHelperMixin"
+    "common.world.SpawnHelperMixin"
   ],
 
   "client": [
@@ -36,7 +36,7 @@
     "client.fluid.LavaFluidMixin",
     "client.item.ItemMixin",
     "client.item.BoneMealItemMixin",
-    "client.MobSpawnerLogicMixin",
+    "client.world.MobSpawnerLogicMixin",
     "client.world.explosion.ExplosionMixin",
     "client.world.ClientWorldMixin",
     "client.gui.ScreenMixin",
