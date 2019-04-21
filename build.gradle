@@ -29,6 +29,8 @@ dependencies {
 
     modCompile "cloth-config:ClothConfig:${project.clothconfig_version}"
 	include "cloth-config:ClothConfig:${project.clothconfig_version}"
+
+    modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
 }
 
 processResources {

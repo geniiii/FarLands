@@ -5,6 +5,9 @@
   "config.farlands.category.fixes": "Fixes",
   "config.farlands.category.world": "World",
 
+  "config.farlands.category.fixes.subcategory.experimental": "Experimental",
+  "config.farlands.category.world.subcategory.estimates": "Estimates",
+
   "config.farlands.farLandsEnabled": "Enable Far Lands",
   "config.farlands.killEntities": "Kill falling block entities in Far Lands",
 
@@ -12,6 +15,30 @@
   "config.farlands.fixParticles": "Fix particles and entities",
   "config.farlands.fixLighting": "Partially fix lighting",
   "config.farlands.fixMobSpawning": "Partially fix mob spawning",
+
+  "config.farlands.category.fixes.subcategory.experimental.warning": "These options are experimental! They could break your world or cause any given set of problems, you have been warned!",
+
+  "config.farlands.fixLighting.tooltip.description": "This fixes lighting up to X/Z: ±2^26 / ±67108864.",
+  "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server.",
+
+  "config.farlands.fixParticles.tooltip.description": "This fixes precision loss with the following particles:",
+  "config.farlands.fixParticles.tooltip.description.end_portal": "End Portal particles",
+  "config.farlands.fixParticles.tooltip.description.falling_block": "Sand/Soul Sand/Gravel particles",
+  "config.farlands.fixParticles.tooltip.description.leaves": "Water particles dripping from leaves",
+  "config.farlands.fixParticles.tooltip.description.mycelium": "Mycelium particles",
+  "config.farlands.fixParticles.tooltip.description.repeater": "Redstone Repeater particles",
+  "config.farlands.fixParticles.tooltip.description.nether_portal": "Nether Portal particles",
+  "config.farlands.fixParticles.tooltip.description.lava": "Lava particles",
+  "config.farlands.fixParticles.tooltip.description.water": "Water particles",
+  "config.farlands.fixParticles.tooltip.description.tnt": "TNT particles",
+
+  "config.farlands.fixParticles.tooltip.description.entities": "This fixes precision loss with the following entities:",
+  "config.farlands.fixParticles.tooltip.description.entities.tnt": "TNT",
+
+  "config.farlands.fixOreGeneration.tooltip": "This fixes precision loss with ore generation, causing ores to be always X blocks apart from each other at far X/Z positions",
+  "config.farlands.fixMobSpawning.tooltip": "This fixes mob spawning, however mobs don't spawn past the default world border diameter.",
+
+  "config.farlands.invalid": "Invalid!",
 
   "config.farlands.coordinateScale": "Coordinate scale",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",

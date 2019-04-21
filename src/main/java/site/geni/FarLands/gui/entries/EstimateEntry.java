@@ -1,9 +1,9 @@
-package site.geni.FarLands.gui;
+package site.geni.FarLands.gui.entries;
 
 import me.shedaniel.cloth.gui.entries.StringListEntry;
 
-class EstimateEntry extends StringListEntry {
-	EstimateEntry(String fieldName, String value) {
+public class EstimateEntry extends StringListEntry {
+	public EstimateEntry(String fieldName, String value) {
 		super(fieldName, value, null);
 	}
 
