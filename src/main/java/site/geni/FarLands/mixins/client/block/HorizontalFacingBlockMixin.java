@@ -11,5 +11,5 @@ import org.spongepowered.asm.mixin.Shadow;
 public abstract class HorizontalFacingBlockMixin {
 	@Shadow
 	@Final
-	public static DirectionProperty field_11177;
+	public static DirectionProperty FACING;
 }

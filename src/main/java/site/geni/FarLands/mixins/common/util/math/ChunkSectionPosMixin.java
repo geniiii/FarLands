@@ -100,21 +100,22 @@ public abstract class ChunkSectionPosMixin {
 
 
 	/**
-	 * Returns given long value returned by {@link #asLongFixed} with its Y coordinate set to 0
+	 * Coordinates -> light storage index
 	 *
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
 	 * @author geni
+	 * @returns coordinates -> light storage index
 	 * @see #asLongFixed
 	 */
 	@Inject(
 		at = @At(
 			value = "HEAD"
 		),
-		method = "method_18693",
+		method = "toLightStorageIndex",
 		cancellable = true
 	)
-	private static void setYToZeroFixed(long coords, CallbackInfoReturnable<Long> cir) {
+	private static void toLightStorageIndexFixed(long coords, CallbackInfoReturnable<Long> cir) {
 		if (Config.getConfig().fixLighting) {
 			cir.setReturnValue(coords & -0x40000L);
 		}

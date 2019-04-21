@@ -1,14 +1,12 @@
 package site.geni.FarLands.gui;
 
 import me.shedaniel.cloth.api.ConfigScreenBuilder;
-import me.shedaniel.cloth.gui.ClothConfigScreen;
 import me.shedaniel.cloth.gui.entries.BooleanListEntry;
 import me.shedaniel.cloth.gui.entries.DoubleListEntry;
 import me.shedaniel.cloth.gui.entries.StringListEntry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -67,6 +65,8 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 
 							Config.ConfigSpec config = Config.getConfig();
 							config.coordinateScale = coordinateScale;
+
+
 
 							CustomizeFarLandsButton.updateOptions(world, config);
 						} catch (ArithmeticException | NumberFormatException ignore) {
@@ -241,6 +241,7 @@ public class CustomizeFarLandsButton extends ButtonWidget {
 	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
 	 * @param config   {@link site.geni.FarLands.util.Config.ConfigSpec} to use
 	 */
+	@SuppressWarnings("deprecation")
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
 		for (Pair<String, Object> option : category.getOptions()) {
 			if (option.getRight() instanceof StringListEntry) {

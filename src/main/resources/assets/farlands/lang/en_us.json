@@ -10,7 +10,7 @@
 
   "config.farlands.fixOreGeneration": "Fix ore generation",
   "config.farlands.fixParticles": "Fix particles and entities",
-  "config.farlands.fixLighting": "Fix lighting",
+  "config.farlands.fixLighting": "Partially fix lighting",
   "config.farlands.fixMobSpawning": "Partially fix mob spawning",
 
   "config.farlands.coordinateScale": "Coordinate scale",
