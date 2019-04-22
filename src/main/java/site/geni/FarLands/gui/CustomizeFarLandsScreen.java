@@ -25,6 +25,10 @@ public class CustomizeFarLandsScreen {
 		"water", "lava", "tnt", "end_portal", "falling_block", "mycelium", "leaves", "repeater", "nether_portal"
 	};
 
+	private static final String[] ENTITIES = new String[]{
+		"tnt", "enchanting_table"
+	};
+
 	private static int farLandsLocation = (int) (Integer.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4));
 	private static long fartherLandsLocation = farLandsLocation * 80;
 
@@ -61,6 +65,11 @@ public class CustomizeFarLandsScreen {
 			bool -> Config.getConfig().killFallingBlockEntitiesInFarLands = bool
 		));
 
+		// Adds the warning in the "World" category
+		world.addOption(new TextListEntry(
+			"",
+			TextFormat.RED + I18n.translate("config.farlands.category.world.warning")
+		));
 
 		// Adds the option for setting the coordinate scale in the "General" category
 		world.addOption(new DoubleListEntry(
@@ -226,15 +235,18 @@ public class CustomizeFarLandsScreen {
 		));
 
 
-		List<String> tooltip = new ArrayList<>();
-		tooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description"));
+		List<String> particleTooltip = new ArrayList<>();
 
+		particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description"));
 		for (String particle : PARTICLES) {
-			tooltip.add(TextFormat.RED + I18n.translate("config.farlands.fixParticles.tooltip.description." + particle));
+			particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description." + particle));
 		}
 
-		tooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description.entities"));
-		tooltip.add(TextFormat.RED + I18n.translate("config.farlands.fixParticles.tooltip.description.entities.tnt"));
+		particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description.entities"));
+		for (String entity : ENTITIES) {
+			particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description.entities.") + entity);
+		}
+
 
 		// Adds the option for fixing particles/entities in the "Fixes" category
 		fixes.addOption(new BooleanListEntry(
@@ -243,7 +255,7 @@ public class CustomizeFarLandsScreen {
 			"text.cloth.reset_value",
 			() -> true,
 			bool -> Config.getConfig().fixParticles = bool,
-			() -> Optional.of(tooltip.toArray(new String[0]))
+			() -> Optional.of(particleTooltip.toArray(new String[0]))
 		));
 
 

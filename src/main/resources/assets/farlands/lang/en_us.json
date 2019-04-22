@@ -16,9 +16,10 @@
   "config.farlands.fixLighting": "Partially fix lighting",
   "config.farlands.fixMobSpawning": "Partially fix mob spawning",
 
+  "config.farlands.category.world.warning": "These options are global! They will affect any chunks generated with this mod enabled, you have been warned!",
   "config.farlands.category.fixes.subcategory.experimental.warning": "These options are experimental! They could break your world or cause any given set of problems, you have been warned!",
 
-  "config.farlands.fixLighting.tooltip.description": "This fixes lighting up to X/Z: ±2^26 / ±67108864.",
+  "config.farlands.fixLighting.tooltip.description": "This fixes lighting issues up to X/Z: ±2^26 / ±67108864.",
   "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server.",
 
   "config.farlands.fixParticles.tooltip.description": "This fixes precision loss with the following particles:",
@@ -34,9 +35,10 @@
 
   "config.farlands.fixParticles.tooltip.description.entities": "This fixes precision loss with the following entities:",
   "config.farlands.fixParticles.tooltip.description.entities.tnt": "TNT",
+  "config.farlands.fixParticles.tooltip.description.entities.enchanting_table": "Enchanting Table book",
 
   "config.farlands.fixOreGeneration.tooltip": "This fixes precision loss with ore generation, causing ores to be always X blocks apart from each other at far X/Z positions",
-  "config.farlands.fixMobSpawning.tooltip": "This fixes mob spawning, however mobs don't spawn past the default world border diameter.",
+  "config.farlands.fixMobSpawning.tooltip": "This fixes precision loss with mob spawning, however mobs don't spawn past the default world border diameter.",
 
   "config.farlands.invalid": "Invalid!",
 

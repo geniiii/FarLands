@@ -9,7 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://polgarian.life",
-		"sources": "https://github.com/polgaria/FarLands"
+		"sources": "https://github.com/polgaria/FarLands",
+		"issues": "https://github.com/polgaria/FarLands/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/farlands/icon.png",

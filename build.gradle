@@ -37,8 +37,8 @@ dependencies {
 
     modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
 
-    modCompile "io.github.cottonmc:client-commands:${clientcommmands_version}"
-    include "io.github.cottonmc:client-commands:${clientcommmands_version}"
+    modCompile "io.github.cottonmc:client-commands:${clientcommands_version}"
+    include "io.github.cottonmc:client-commands:${clientcommands_version}"
 }
 
 processResources {
