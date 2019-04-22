@@ -31,7 +31,7 @@ public class CustomizeFarLandsScreen {
 	private static long farthererLandsLocation = (long) (Long.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4));
 	private static long farthestLandsLocation = farthererLandsLocation * 80;
 
-	static void openAndCreateConfigScreen(Screen parent) {
+	public static void openAndCreateConfigScreen(Screen parent) {
 		MinecraftClient.getInstance().openScreen(createConfigScreen(parent));
 	}
 
@@ -42,7 +42,6 @@ public class CustomizeFarLandsScreen {
 		ConfigScreenBuilder.CategoryBuilder fixes = builder.addCategory("config.farlands.category.fixes");
 		ConfigScreenBuilder.CategoryBuilder world = builder.addCategory("config.farlands.category.world");
 
-		ConfigScreenBuilder.CategoryBuilder estimates;
 
 		// Adds the option for enabling the Far Lands in the "General" category
 		general.addOption(new BooleanListEntry(

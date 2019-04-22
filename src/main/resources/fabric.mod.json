@@ -18,6 +18,9 @@
 		"main": [
 			"site.geni.FarLands.FarLandsMod"
 		],
+		"client": [
+			"site.geni.FarLands.FarLandsClientMod"
+		],
 		"modmenu": [
 			"site.geni.FarLands.FarLandsModMenuApiImpl"
 		]
@@ -28,6 +31,6 @@
 	"requires": {
 		"fabricloader": ">=0.4.0",
 		"fabric": "*",
-		"cloth-config": ">=0.1.2.6"
+		"cloth-config": ">=0.2.0.12"
 	}
 }

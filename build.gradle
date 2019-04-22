@@ -14,7 +14,12 @@ minecraft {
 
 repositories {
     maven {
+        name "Curseforge"
         url "https://minecraft.curseforge.com/api/maven"
+    }
+    maven {
+        name "CottonMC"
+        url "http://server.bbkr.space:8081/artifactory/libs-snapshot"
     }
 }
 
@@ -31,6 +36,9 @@ dependencies {
 	include "cloth-config:ClothConfig:${project.clothconfig_version}"
 
     modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
+
+    modCompile "io.github.cottonmc:client-commands:${clientcommmands_version}"
+    include "io.github.cottonmc:client-commands:${clientcommmands_version}"
 }
 
 processResources {

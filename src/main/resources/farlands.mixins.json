@@ -19,12 +19,13 @@
     "common.util.math.ChunkSectionPosMixin",
     "common.world.gen.feature.OreFeatureMixin",
     "common.block.TntBlockMixin",
-    "common.world.SpawnHelperMixin"
+    "common.world.SpawnHelperMixin",
+    "server.MinecraftServerMixin",
+    "server.player.ServerPlayNetworkHandlerMixin",
+    "server.player.ServerPlayerEntityMixin"
   ],
 
   "client": [
-    "client.gui.NewLevelScreenMixin",
-    "client.gui.SettingsScreenMixin",
     "client.block.PortalBlockMixin",
     "client.block.LeavesBlockMixin",
     "client.block.EndPortalBlockMixin",
@@ -40,15 +41,10 @@
     "client.world.explosion.ExplosionMixin",
     "client.world.ClientWorldMixin",
     "client.gui.ScreenMixin",
+    "client.gui.ChatScreenMixin",
     "client.block.entity.BlockEntityMixin",
     "client.block.entity.EnchantingTableBlockEntityMixin",
-    "client.block.entity.EnchantingTableBlockEntityRendererMixin"
-  ],
-
-  "server": [
-    "server.MinecraftServerMixin",
-    "server.player.ServerPlayNetworkHandlerMixin",
-    "server.player.ServerPlayerEntityMixin"
+    "client.block.entity.EnchantingTableBlockEntityRendererMixin",
   ],
 
   "minVersion": "0.7.11",
