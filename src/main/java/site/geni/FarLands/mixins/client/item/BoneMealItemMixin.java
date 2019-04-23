@@ -40,7 +40,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
 			shift = At.Shift.BEFORE
 		),
-		method = "method_7721",
+		method = "playEffects",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
@@ -67,7 +67,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 			value = "INVOKE",
 			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
 		),
-		method = "method_7721"
+		method = "playEffects"
 	)
 	private static void addParticlesProperly(IWorld iWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
 		if (Config.getConfig().fixParticles) {

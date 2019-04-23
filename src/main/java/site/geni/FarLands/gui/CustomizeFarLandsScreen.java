@@ -11,6 +11,7 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
 import net.minecraft.util.Pair;
 import site.geni.FarLands.gui.entries.EstimateEntry;
+import site.geni.FarLands.gui.entries.ScaleEntry;
 import site.geni.FarLands.util.Config;
 
 import java.util.ArrayList;
@@ -72,103 +73,24 @@ public class CustomizeFarLandsScreen {
 		));
 
 		// Adds the option for setting the coordinate scale in the "General" category
-		world.addOption(new DoubleListEntry(
+		world.addOption(new ScaleEntry(
 			"config.farlands.coordinateScale",
 			Config.getConfig().coordinateScale,
 			"text.cloth.reset_value",
 			() -> 684.4119873046875,
-			scale -> Config.getConfig().coordinateScale = scale
-		) {
-			@Override
-			public boolean charTyped(char character, int charCode) {
-				if (super.charTyped(character, charCode)) {
-					try {
-						double coordinateScale = this.getObject();
-
-						Config.ConfigSpec config = Config.getConfig();
-						config.coordinateScale = coordinateScale;
-
-
-						CustomizeFarLandsScreen.updateOptions(world, config);
-					} catch (ArithmeticException | NumberFormatException ignore) {
-
-					}
-
-					return true;
-				}
-
-				return false;
-			}
-
-			@Override
-			public boolean keyPressed(int charCode, int int_1, int int_2) {
-				if (super.keyPressed(charCode, int_1, int_2)) {
-					try {
-						double coordinateScale = this.getObject();
-
-						Config.ConfigSpec config = Config.getConfig();
-						config.coordinateScale = coordinateScale;
-
-						CustomizeFarLandsScreen.updateOptions(world, config);
-
-						return true;
-					} catch (ArithmeticException | NumberFormatException ignore) {
-
-					}
-				}
-
-				return false;
-			}
-		});
+			scale -> Config.getConfig().coordinateScale = scale,
+			world
+		));
 
 		// Adds the option for setting the coordinate scale multiplier in the "General" category
-		world.addOption(new DoubleListEntry(
+		world.addOption(new ScaleEntry(
 			"config.farlands.coordinateScaleMultiplier",
 			Config.getConfig().coordinateScaleMultiplier,
 			"text.cloth.reset_value",
 			() -> 1.0,
-			scale -> Config.getConfig().coordinateScaleMultiplier = scale
-		) {
-			@Override
-			public boolean charTyped(char character, int charCode) {
-				if (super.charTyped(character, charCode)) {
-					try {
-						Double coordinateScaleMultiplier = Double.parseDouble(this.getObject() + String.valueOf(character));
-
-						Config.ConfigSpec config = Config.getConfig();
-						config.coordinateScaleMultiplier = coordinateScaleMultiplier;
-
-						CustomizeFarLandsScreen.updateOptions(world, config);
-					} catch (ArithmeticException | NumberFormatException ignore) {
-
-					}
-
-					return true;
-				}
-
-				return false;
-			}
-
-			@Override
-			public boolean keyPressed(int charCode, int int_1, int int_2) {
-				if (super.keyPressed(charCode, int_1, int_2)) {
-					try {
-						double coordinateScaleMultiplier = this.getObject();
-
-						Config.ConfigSpec config = Config.getConfig();
-						config.coordinateScaleMultiplier = coordinateScaleMultiplier;
-
-						CustomizeFarLandsScreen.updateOptions(world, config);
-					} catch (ArithmeticException | NumberFormatException ignore) {
-
-					}
-
-					return true;
-				}
-
-				return false;
-			}
-		});
+			scale -> Config.getConfig().coordinateScaleMultiplier = scale,
+			world
+		));
 
 		// Adds the option for setting the height scale in the "General" category
 		world.addOption(new DoubleListEntry(
@@ -304,59 +226,37 @@ public class CustomizeFarLandsScreen {
 		return builder.build();
 	}
 
-	/**
-	 * Updates the estimates in the World category
-	 *
-	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
-	 * @param config   {@link site.geni.FarLands.util.Config.ConfigSpec} to use
-	 */
-	@SuppressWarnings("deprecation")
-	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
-		for (Pair<String, Object> option : category.getOptions()) {
-			if (option.getRight() instanceof SubCategoryListEntry) {
-				List<? extends Element> entries = ((SubCategoryListEntry) option.getRight()).children();
 
-				farLandsLocation = (int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
-				fartherLandsLocation = (long) farLandsLocation * 80;
+	public static void setFarLandsLocation(int location) {
+		CustomizeFarLandsScreen.farLandsLocation = location;
+	}
 
-				farthererLandsLocation = (long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
-				farthestLandsLocation = farthererLandsLocation * 80;
+	public static void setFartherLandsLocation(long location) {
+		CustomizeFarLandsScreen.fartherLandsLocation = location;
+	}
 
-				for (Element element : entries) {
-					if (!(element instanceof TextFieldListEntry)) {
-						continue;
-					}
+	public static void setFarthererLandsLocation(long farthererLandsLocation) {
+		CustomizeFarLandsScreen.farthererLandsLocation = farthererLandsLocation;
+	}
 
-					String name = ((TextFieldListEntry) element).getFieldName();
+	public static void setFarthestLandsLocation(long farthestLandsLocation) {
+		CustomizeFarLandsScreen.farthestLandsLocation = farthestLandsLocation;
+	}
 
-					switch (name) {
-						case "config.farlands.estimatedPosition":
-							TextFieldWidget farLandsLocationWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
 
-							farLandsLocationWidget.setText(farLandsLocation >= 0 && farLandsLocation != Integer.MAX_VALUE ? "±" + farLandsLocation : INVALID);
+	public static int getFarLandsLocation() {
+		return farLandsLocation;
+	}
 
-							break;
-						case "config.farlands.estimatedFartherPosition":
-							TextFieldWidget fartherLandsLocationWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
+	public static long getFartherLandsLocation() {
+		return fartherLandsLocation;
+	}
 
-							fartherLandsLocationWidget.setText(fartherLandsLocation >= 0 && fartherLandsLocation / 80 == farLandsLocation ? "±" + fartherLandsLocation : INVALID);
+	public static long getFarthererLandsLocation() {
+		return farthererLandsLocation;
+	}
 
-							break;
-						case "config.farlands.estimatedFarthererPosition":
-							TextFieldWidget farthererLandsLocationWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
-
-							farthererLandsLocationWidget.setText(farthererLandsLocation >= 0 && farthererLandsLocation != Long.MAX_VALUE ? "±" + farthererLandsLocation : INVALID);
-
-							break;
-						case "config.farlands.estimatedFarthestPosition":
-							TextFieldWidget farthestLandsLocationWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
-
-							farthestLandsLocationWidget.setText(farthestLandsLocation >= 0 && farthestLandsLocation / 80 == farthererLandsLocation ? "±" + farthestLandsLocation : INVALID);
-
-							break;
-					}
-				}
-			}
-		}
+	public static long getFarthestLandsLocation() {
+		return farthestLandsLocation;
 	}
 }
