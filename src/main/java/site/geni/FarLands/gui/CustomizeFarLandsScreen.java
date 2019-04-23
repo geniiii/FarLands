@@ -283,7 +283,7 @@ public class CustomizeFarLandsScreen {
 				"config.farlands.fixMobSpawning",
 				Config.getConfig().fixMobSpawning,
 				"text.cloth.reset_value",
-				() -> true,
+				() -> false,
 				bool -> Config.getConfig().fixMobSpawning = bool,
 				() -> Optional.of(new String[]{
 					I18n.translate("config.farlands.fixMobSpawning.tooltip")

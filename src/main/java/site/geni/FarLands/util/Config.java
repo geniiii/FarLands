@@ -89,6 +89,6 @@ public class Config {
 		public boolean fixOreGeneration = true;
 		public boolean fixParticles = true;
 		public boolean fixLighting = false; // Causes problems on vanilla client + modded server
-		public boolean fixMobSpawning = true;
+		public boolean fixMobSpawning = false;
 	}
 }
