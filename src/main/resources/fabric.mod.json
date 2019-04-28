@@ -32,6 +32,6 @@
 	"requires": {
 		"fabricloader": ">=0.4.0",
 		"fabric": "*",
-		"cloth-config": ">=0.2.0.12"
+		"cloth-config": ">=0.2.1.14"
 	}
 }

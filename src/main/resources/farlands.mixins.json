@@ -1,54 +1,50 @@
 {
-  "required": true,
-
-  "package": "site.geni.FarLands.mixins",
-  "compatibilityLevel": "JAVA_8",
-
-  "mixins": [
-    "common.world.WorldMixin",
-    "common.commands.ForceLoadCommandMixin",
-    "common.commands.WorldBorderCommandMixin",
-    "common.entity.EntityMixin",
-    "common.entity.FallingBlockEntityMixin",
-    "common.generators.CavesChunkGeneratorMixin",
-    "common.generators.OverworldChunkGeneratorMixin",
-    "common.generators.SurfaceChunkGeneratorMixin",
-    "common.noise.OctavePerlinNoiseSamplerMixin",
-    "common.player.PlayerEntityMixin",
-    "common.util.math.BlockPosMixin",
-    "common.util.math.ChunkSectionPosMixin",
-    "common.world.gen.feature.OreFeatureMixin",
-    "common.block.TntBlockMixin",
-    "common.world.SpawnHelperMixin",
-    "server.MinecraftServerMixin",
-    "server.player.ServerPlayNetworkHandlerMixin",
-    "server.player.ServerPlayerEntityMixin"
-  ],
-
-  "client": [
-    "client.block.PortalBlockMixin",
-    "client.block.LeavesBlockMixin",
-    "client.block.EndPortalBlockMixin",
-    "client.block.RepeaterBlockMixin",
-    "client.block.HorizontalFacingBlockMixin",
-    "client.block.FallingBlockMixin",
-    "client.block.MyceliumBlockMixin",
-    "client.fluid.WaterFluidMixin",
-    "client.fluid.LavaFluidMixin",
-    "client.item.ItemMixin",
-    "client.item.BoneMealItemMixin",
-    "client.world.MobSpawnerLogicMixin",
-    "client.world.explosion.ExplosionMixin",
-    "client.world.ClientWorldMixin",
-    "client.gui.ScreenMixin",
-    "client.gui.ChatScreenMixin",
-    "client.block.entity.BlockEntityMixin",
-    "client.block.entity.EnchantingTableBlockEntityMixin",
-    "client.block.entity.EnchantingTableBlockEntityRendererMixin"
-  ],
-
-  "minVersion": "0.7.11",
-  "injectors": {
-    "defaultRequire": 1
-  }
+	"required": true,
+	"package": "site.geni.FarLands.mixins",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"common.world.WorldMixin",
+		"common.commands.ForceLoadCommandMixin",
+		"common.commands.WorldBorderCommandMixin",
+		"common.entity.EntityMixin",
+		"common.entity.FallingBlockEntityMixin",
+		"common.generators.CavesChunkGeneratorMixin",
+		"common.generators.OverworldChunkGeneratorMixin",
+		"common.generators.SurfaceChunkGeneratorMixin",
+		"common.noise.OctavePerlinNoiseSamplerMixin",
+		"common.player.PlayerEntityMixin",
+		"common.util.math.BlockPosMixin",
+		"common.util.math.ChunkSectionPosMixin",
+		"common.world.gen.feature.OreFeatureMixin",
+		"common.block.TntBlockMixin",
+		"common.world.SpawnHelperMixin",
+		"server.MinecraftServerMixin",
+		"server.player.ServerPlayNetworkHandlerMixin",
+		"server.player.ServerPlayerEntityMixin"
+	],
+	"client": [
+		"client.block.PortalBlockMixin",
+		"client.block.LeavesBlockMixin",
+		"client.block.EndPortalBlockMixin",
+		"client.block.RepeaterBlockMixin",
+		"client.block.HorizontalFacingBlockMixin",
+		"client.block.FallingBlockMixin",
+		"client.block.MyceliumBlockMixin",
+		"client.fluid.WaterFluidMixin",
+		"client.fluid.LavaFluidMixin",
+		"client.item.ItemMixin",
+		"client.item.BoneMealItemMixin",
+		"client.world.MobSpawnerLogicMixin",
+		"client.world.explosion.ExplosionMixin",
+		"client.world.ClientWorldMixin",
+		"client.gui.ScreenMixin",
+		"client.gui.ChatScreenMixin",
+		"client.block.entity.BlockEntityMixin",
+		"client.block.entity.EnchantingTableBlockEntityMixin",
+		"client.block.entity.EnchantingTableBlockEntityRendererMixin"
+	],
+	"minVersion": "0.7.11",
+	"injectors": {
+		"defaultRequire": 1
+	}
 }

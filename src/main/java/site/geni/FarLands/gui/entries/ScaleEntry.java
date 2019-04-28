@@ -39,9 +39,9 @@ public class ScaleEntry extends DoubleListEntry {
 
 	private boolean updateScales() {
 		try {
-			double scale = this.getObject();
+			final double scale = this.getObject();
 
-			Config.ConfigSpec config = Config.getConfig();
+			final Config.ConfigSpec config = Config.getConfig();
 			switch (this.getFieldName()) {
 				case "config.farlands.coordinateScale":
 					config.coordinateScale = scale;
@@ -62,7 +62,7 @@ public class ScaleEntry extends DoubleListEntry {
 	}
 
 	/**
-	 * Updates the estimates in the World category
+	 * Updates the estimates in the "World" category
 	 *
 	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
 	 * @param config   {@link site.geni.FarLands.util.Config.ConfigSpec} to use
@@ -71,7 +71,7 @@ public class ScaleEntry extends DoubleListEntry {
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
 		for (Pair<String, Object> option : category.getOptions()) {
 			if (option.getRight() instanceof SubCategoryListEntry) {
-				List<? extends Element> entries = ((SubCategoryListEntry) option.getRight()).children();
+				final List<? extends Element> entries = ((SubCategoryListEntry) option.getRight()).children();
 
 				CustomizeFarLandsScreen.setFarLandsLocation((int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4)));
 				CustomizeFarLandsScreen.setFartherLandsLocation((long) CustomizeFarLandsScreen.getFarLandsLocation() * 80);
@@ -79,13 +79,13 @@ public class ScaleEntry extends DoubleListEntry {
 				CustomizeFarLandsScreen.setFarthererLandsLocation((long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4)));
 				CustomizeFarLandsScreen.setFarthestLandsLocation(CustomizeFarLandsScreen.getFarthererLandsLocation() * 80);
 
-				for (Element element : entries) {
+				for (final Element element : entries) {
 					if (!(element instanceof TextFieldListEntry)) {
 						continue;
 					}
 
-					String name = ((TextFieldListEntry) element).getFieldName();
-					TextFieldWidget widget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
+					final String name = ((TextFieldListEntry) element).getFieldName();
+					final TextFieldWidget widget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
 
 					switch (name) {
 						case "config.farlands.estimatedPosition":

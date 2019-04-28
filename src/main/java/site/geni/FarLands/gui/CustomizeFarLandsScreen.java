@@ -2,14 +2,14 @@ package site.geni.FarLands.gui;
 
 import me.shedaniel.cloth.api.ConfigScreenBuilder;
 import me.shedaniel.cloth.gui.ClothConfigScreen;
-import me.shedaniel.cloth.gui.entries.*;
+import me.shedaniel.cloth.gui.entries.BooleanListEntry;
+import me.shedaniel.cloth.gui.entries.DoubleListEntry;
+import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
+import me.shedaniel.cloth.gui.entries.TextListEntry;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Screen;
-import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
-import net.minecraft.util.Pair;
 import site.geni.FarLands.gui.entries.EstimateEntry;
 import site.geni.FarLands.gui.entries.ScaleEntry;
 import site.geni.FarLands.util.Config;
@@ -36,16 +36,13 @@ public class CustomizeFarLandsScreen {
 	private static long farthererLandsLocation = (long) (Long.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4));
 	private static long farthestLandsLocation = farthererLandsLocation * 80;
 
-	public static void openAndCreateConfigScreen(Screen parent) {
-		MinecraftClient.getInstance().openScreen(createConfigScreen(parent));
-	}
 
 	public static Screen createConfigScreen(Screen parent) {
-		ConfigScreenBuilder builder = ConfigScreenBuilder.create(parent, I18n.translate("config.farlands.title"), null);
+		final ConfigScreenBuilder builder = ConfigScreenBuilder.create(parent, I18n.translate("config.farlands.title"), null);
 
-		ConfigScreenBuilder.CategoryBuilder general = builder.addCategory("config.farlands.category.general");
-		ConfigScreenBuilder.CategoryBuilder fixes = builder.addCategory("config.farlands.category.fixes");
-		ConfigScreenBuilder.CategoryBuilder world = builder.addCategory("config.farlands.category.world");
+		final ConfigScreenBuilder.CategoryBuilder general = builder.addCategory("config.farlands.category.general");
+		final ConfigScreenBuilder.CategoryBuilder fixes = builder.addCategory("config.farlands.category.fixes");
+		final ConfigScreenBuilder.CategoryBuilder world = builder.addCategory("config.farlands.category.world");
 
 
 		// Adds the option for enabling the Far Lands in the "General" category
@@ -137,6 +134,7 @@ public class CustomizeFarLandsScreen {
 			)
 		);
 
+		// Adds the "World" category's "Estimates" sub-category
 		world.addOption(new SubCategoryListEntry(
 			"config.farlands.category.world.subcategory.estimates",
 			estimatesEntries,
@@ -157,15 +155,18 @@ public class CustomizeFarLandsScreen {
 		));
 
 
-		List<String> particleTooltip = new ArrayList<>();
+		// "Fix particles/entities" option's tooltip
+		final List<String> particleTooltip = new ArrayList<>();
 
+		// Add particles to tooltip
 		particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description"));
-		for (String particle : PARTICLES) {
+		for (final String particle : PARTICLES) {
 			particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description." + particle));
 		}
 
+		// Add entities to tooltip
 		particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description.entities"));
-		for (String entity : ENTITIES) {
+		for (final String entity : ENTITIES) {
 			particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description.entities.") + entity);
 		}
 
@@ -188,6 +189,7 @@ public class CustomizeFarLandsScreen {
 				I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning"),
 				16733525
 			),
+
 			// Lighting
 			new BooleanListEntry(
 				"config.farlands.fixLighting",
@@ -224,6 +226,10 @@ public class CustomizeFarLandsScreen {
 		builder.setOnSave(savedConfig -> Config.saveConfig());
 
 		return builder.build();
+	}
+
+	public static void openAndCreateConfigScreen(Screen parent) {
+		MinecraftClient.getInstance().openScreen(createConfigScreen(parent));
 	}
 
 

@@ -48,12 +48,12 @@ public abstract class MobSpawnerLogicMixin {
 	)
 	private void addParticlesProperly(CallbackInfo ci) {
 		if (Config.getConfig().fixParticles) {
-			BlockPos blockPos = this.getPos();
-			World world = this.getWorld();
+			final BlockPos blockPos = this.getPos();
+			final World world = this.getWorld();
 
-			double x = blockPos.getX() + (double) world.random.nextFloat();
-			double y = blockPos.getY() + (double) world.random.nextFloat();
-			double z = blockPos.getZ() + (double) world.random.nextFloat();
+			final double x = blockPos.getX() + (double) world.random.nextFloat();
+			final double y = blockPos.getY() + (double) world.random.nextFloat();
+			final double z = blockPos.getZ() + (double) world.random.nextFloat();
 
 			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
 			world.addParticle(ParticleTypes.FLAME, x, y, z, 0.0D, 0.0D, 0.0D);
