@@ -17,7 +17,7 @@ public class CustomizeFarLandsCommand {
 			dispatcher -> dispatcher.register(
 				ArgumentBuilders.literal("farlands").executes(
 					source -> {
-						CustomizeFarLandsScreen.openAndCreateConfigScreen(MinecraftClient.getInstance().currentScreen instanceof ChatScreen ? null : MinecraftClient.getInstance().currentScreen);
+						CustomizeFarLandsScreen.createAndOpenConfigScreen(MinecraftClient.getInstance().currentScreen instanceof ChatScreen ? null : MinecraftClient.getInstance().currentScreen);
 
 						return 1;
 					}

@@ -21,6 +21,7 @@
 
   "config.farlands.fixLighting.tooltip.description": "This fixes lighting issues up to X/Z: ±2^26 / ±67108864.",
   "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server.",
+	"config.farlands.fixLighting.tooltip.world": "This option cannot be toggled while in a world!",
 
   "config.farlands.fixParticles.tooltip.description": "This fixes precision loss with the following particles:",
   "config.farlands.fixParticles.tooltip.description.end_portal": "End Portal particles",

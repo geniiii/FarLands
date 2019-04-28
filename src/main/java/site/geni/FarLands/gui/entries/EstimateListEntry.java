@@ -2,19 +2,17 @@ package site.geni.FarLands.gui.entries;
 
 import me.shedaniel.cloth.gui.entries.StringListEntry;
 
-import java.util.function.Function;
-
 import static org.lwjgl.glfw.GLFW.*;
 
-public class EstimateEntry extends StringListEntry {
+public class EstimateListEntry extends StringListEntry {
 
-	public EstimateEntry(String fieldName, String value) {
+	public EstimateListEntry(String fieldName, String value) {
 		super(fieldName, value, null);
 	}
 
 	@Override
 	public boolean charTyped(char character, int charCode) {
-		if (EstimateEntry.handlePress(charCode)) {
+		if (EstimateListEntry.handlePress(charCode)) {
 			return true;
 		}
 
@@ -23,7 +21,7 @@ public class EstimateEntry extends StringListEntry {
 
 	@Override
 	public boolean keyPressed(int charCode, int int_1, int int_2) {
-		if (EstimateEntry.handlePress(charCode)) {
+		if (EstimateListEntry.handlePress(charCode)) {
 			return true;
 		}
 

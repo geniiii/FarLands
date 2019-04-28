@@ -29,7 +29,7 @@ public abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntit
 	private BookModel book;
 
 	/**
-	 * Sets X/Y/Z to {@link EnchantingTableBlockEntity}'s X/Y/Z (relative to the enchanting table)
+	 * Sets X/Y/Z to {@link EnchantingTableBlockEntity}'s X/Y/Z (relative to the enchanting table) (?)
 	 *
 	 * @param enchantingTableBlockEntity {@link EnchantingTableBlockEntity} to render
 	 * @param x                          {@link EnchantingTableBlockEntity}'s X (relative to the enchanting table) (?)

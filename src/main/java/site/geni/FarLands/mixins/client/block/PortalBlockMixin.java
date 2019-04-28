@@ -71,8 +71,8 @@ public abstract class PortalBlockMixin {
 			double z = pos.getZ() + (double) random.nextFloat();
 
 			double velocityX = ((double) random.nextFloat() - 0.5D) * 0.5D;
-			final double velocityY = (random.nextDouble() - 0.5D) * 0.5D;
-			double velocityZ = (random.nextDouble() - 0.5D) * 0.5D;
+			final double velocityY = ((double) random.nextFloat() - 0.5D) * 0.5D;
+			double velocityZ = ((double) random.nextFloat() - 0.5D) * 0.5D;
 
 			int int_2 = random.nextInt(2) * 2 - 1;
 

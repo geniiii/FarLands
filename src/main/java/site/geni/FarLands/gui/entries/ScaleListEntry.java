@@ -9,19 +9,19 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
 import net.minecraft.util.Pair;
-import site.geni.FarLands.gui.CustomizeFarLandsScreen;
 import site.geni.FarLands.util.Config;
+import site.geni.FarLands.util.LocationUtil;
 
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class ScaleEntry extends DoubleListEntry {
+public class ScaleListEntry extends DoubleListEntry {
 	private static final String INVALID = TextFormat.RED + I18n.translate("config.farlands.invalid");
 
 	private final ConfigScreenBuilder.CategoryBuilder category;
 
-	public ScaleEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigScreenBuilder.CategoryBuilder category) {
+	public ScaleListEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigScreenBuilder.CategoryBuilder category) {
 		super(fieldName, value, resetButtonKey, defaultValue, saveConsumer);
 
 		this.category = category;
@@ -51,7 +51,7 @@ public class ScaleEntry extends DoubleListEntry {
 					break;
 			}
 
-			ScaleEntry.updateOptions(this.category, config);
+			ScaleListEntry.updateOptions(this.category, config);
 
 			return true;
 		} catch (ArithmeticException | NumberFormatException ignored) {
@@ -69,7 +69,7 @@ public class ScaleEntry extends DoubleListEntry {
 	 */
 	@SuppressWarnings("deprecation")
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
-		ScaleEntry.updateLocations(config);
+		LocationUtil.updateLocations(config);
 
 		for (Pair<String, Object> option : category.getOptions()) {
 			if (option.getRight() instanceof SubCategoryListEntry) {
@@ -85,34 +85,27 @@ public class ScaleEntry extends DoubleListEntry {
 
 					switch (entryName) {
 						case "config.farlands.estimatedPosition":
-							entryWidget.setText(CustomizeFarLandsScreen.getFarLandsLocation() >= 0 && CustomizeFarLandsScreen.getFarLandsLocation() != Integer.MAX_VALUE ? "±" + CustomizeFarLandsScreen.getFarLandsLocation() : INVALID);
+							entryWidget.setText(LocationUtil.getFarlandsLocationString());
 
 							break;
 						case "config.farlands.estimatedFartherPosition":
-							entryWidget.setText(CustomizeFarLandsScreen.getFartherLandsLocation() >= 0 && CustomizeFarLandsScreen.getFartherLandsLocation() / 80 != Integer.MAX_VALUE ? "±" + CustomizeFarLandsScreen.getFartherLandsLocation() : INVALID);
+							entryWidget.setText(LocationUtil.getFartherLandsLocationString());
 
 							break;
 						case "config.farlands.estimatedFarthererPosition":
-							entryWidget.setText(CustomizeFarLandsScreen.getFarthererLandsLocation() >= 0 && CustomizeFarLandsScreen.getFarthererLandsLocation() != Long.MAX_VALUE ? "±" + CustomizeFarLandsScreen.getFarthererLandsLocation() : INVALID);
+							entryWidget.setText(LocationUtil.getFarthererLandsLocationString());
 
 							break;
 						case "config.farlands.estimatedFarthestPosition":
-							entryWidget.setText(CustomizeFarLandsScreen.getFarthestLandsLocation() >= 0 && CustomizeFarLandsScreen.getFarthestLandsLocation() / 80 == CustomizeFarLandsScreen.getFarthererLandsLocation() ? "±" + CustomizeFarLandsScreen.getFarthestLandsLocation() : INVALID);
+							entryWidget.setText(LocationUtil.getFarthestLandsLocationString());
 
 							break;
 					}
 
+					// Moves cursor back to the start in order to avoid cutting off text
 					entryWidget.method_1870();
 				}
 			}
 		}
-	}
-
-	private static void updateLocations(Config.ConfigSpec config) {
-		CustomizeFarLandsScreen.setFarLandsLocation((int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4)));
-		CustomizeFarLandsScreen.setFartherLandsLocation((long) CustomizeFarLandsScreen.getFarLandsLocation() * 80);
-
-		CustomizeFarLandsScreen.setFarthererLandsLocation((long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4)));
-		CustomizeFarLandsScreen.setFarthestLandsLocation(CustomizeFarLandsScreen.getFarthererLandsLocation() * 80);
 	}
 }

@@ -21,6 +21,7 @@
 
 	"config.farlands.fixLighting.tooltip.description": "Това поправя проблеми със светлината до X/Z: ±2^26 / ±67108864.",
 	"config.farlands.fixLighting.tooltip.warning": "Не е препоръчано да се включва в сървъри.",
+	"config.farlands.fixLighting.tooltip.world": "Тази настройка не може да бъде променена докато сте в свят!",
 
 	"config.farlands.fixчастици.tooltip.description": "Това поправя загубата на прецизност с тези частици:",
 	"config.farlands.fixчастици.tooltip.description.end_portal": "End портални частици",
