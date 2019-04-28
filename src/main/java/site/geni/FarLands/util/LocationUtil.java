@@ -13,25 +13,23 @@ public class LocationUtil {
 	private static long farthestLandsLocation = farthererLandsLocation * 80;
 
 
-	// Validators
-	public static boolean isFarLandsLocationValid() {
+	private static boolean isFarLandsLocationValid() {
 		return farLandsLocation >= 0 && farLandsLocation != Integer.MAX_VALUE;
 	}
 
-	public static boolean isFartherLandsLocationValid() {
+	private static boolean isFartherLandsLocationValid() {
 		return fartherLandsLocation >= 0 && LocationUtil.isFarLandsLocationValid();
 	}
 
-	public static boolean isFarthererLandsLocationValid() {
+	private static boolean isFarthererLandsLocationValid() {
 		return farthererLandsLocation >= 0 && farthererLandsLocation != Long.MAX_VALUE;
 	}
 
-	public static boolean isFarthestLandsLocationValid() {
+	private static boolean isFarthestLandsLocationValid() {
 		return farthestLandsLocation >= 0 && LocationUtil.isFarthererLandsLocationValid();
 	}
 
 
-	// Getters
 	public static String getFarlandsLocationString() {
 		return LocationUtil.isFarLandsLocationValid() ? "±" + farLandsLocation : INVALID;
 	}
