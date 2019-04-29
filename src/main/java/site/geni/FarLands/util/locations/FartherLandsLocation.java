@@ -6,11 +6,11 @@ import site.geni.FarLands.util.Locations;
 public class FartherLandsLocation extends Location {
 	@Override
 	public boolean isValid() {
-		return super.isValid() && Locations.FAR_LANDS.isValid();
+		return super.isValid() && Locations.getFarLands().isValid();
 	}
 
 	@Override
 	public void update(Config config) {
-		this.value = Locations.FAR_LANDS.getValue() * 80;
+		this.value = Locations.getFarLands().getValue() * 80;
 	}
 }
