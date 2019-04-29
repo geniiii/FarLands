@@ -59,6 +59,7 @@ public abstract class BlockPosMixin {
 	 * @param ci {@link CallbackInfo} required for {@link Inject}
 	 * @author geni
 	 */
+	@SuppressWarnings("UnresolvedMixinReference")
 	@Inject(
 		at = @At(
 			"HEAD"
