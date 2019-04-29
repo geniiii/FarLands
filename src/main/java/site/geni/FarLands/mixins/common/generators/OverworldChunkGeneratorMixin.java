@@ -4,7 +4,7 @@ import net.minecraft.world.gen.chunk.OverworldChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(OverworldChunkGenerator.class)
@@ -24,7 +24,7 @@ public abstract class OverworldChunkGeneratorMixin {
 		method = "sampleNoiseColumn"
 	)
 	private static double setCoordinateScale(double original) {
-		return Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier;
+		return FarLands.getConfig().coordinateScale * FarLands.getConfig().coordinateScaleMultiplier;
 	}
 
 	/**
@@ -42,6 +42,6 @@ public abstract class OverworldChunkGeneratorMixin {
 		method = "sampleNoiseColumn"
 	)
 	private static double setHeightScale(double original) {
-		return Config.getConfig().heightScale * Config.getConfig().heightScaleMultiplier;
+		return FarLands.getConfig().heightScale * FarLands.getConfig().heightScaleMultiplier;
 	}
 }

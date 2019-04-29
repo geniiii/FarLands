@@ -2,14 +2,15 @@ package site.geni.FarLands.util;
 
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
+import site.geni.FarLands.FarLands;
 
 public class LocationUtil {
 	private static final String INVALID = TextFormat.RED + I18n.translate("config.farlands.invalid");
 
 	// Locations
-	private static int farLandsLocation = (int) (Integer.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4));
+	private static int farLandsLocation = (int) (Integer.MAX_VALUE / ((FarLands.getConfig().coordinateScale * FarLands.getConfig().coordinateScaleMultiplier) / 4));
 	private static long fartherLandsLocation = farLandsLocation * 80;
-	private static long farthererLandsLocation = (long) (Long.MAX_VALUE / ((Config.getConfig().coordinateScale * Config.getConfig().coordinateScaleMultiplier) / 4));
+	private static long farthererLandsLocation = (long) (Long.MAX_VALUE / ((FarLands.getConfig().coordinateScale * FarLands.getConfig().coordinateScaleMultiplier) / 4));
 	private static long farthestLandsLocation = farthererLandsLocation * 80;
 
 
@@ -50,12 +51,12 @@ public class LocationUtil {
 	/**
 	 * Updates {@link #farLandsLocation}, {@link #fartherLandsLocation}, {@link #farthererLandsLocation} and {@link #farthestLandsLocation}
 	 *
-	 * @param config {@link site.geni.FarLands.util.Config.ConfigSpec} to take values from
+	 * @param config {@link Config} to take values from
 	 * @author geni
 	 */
-	public static void updateLocations(Config.ConfigSpec config) {
+	public static void updateLocations(Config config) {
 		farLandsLocation = (int) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
-		fartherLandsLocation = (long) farLandsLocation  * 80;
+		fartherLandsLocation = (long) farLandsLocation * 80;
 
 		farthererLandsLocation = (long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4));
 		farthestLandsLocation = fartherLandsLocation * 80;

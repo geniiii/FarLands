@@ -6,11 +6,11 @@ import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntity.class)
-public abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
+abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 	private static PlayerEntity playerEntity;
 
 	/**
@@ -30,7 +30,7 @@ public abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 		method = "tick"
 	)
 	private PlayerEntity setPlayerEntity(PlayerEntity orig) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			playerEntity = orig;
 		}
 
@@ -53,7 +53,7 @@ public abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 		method = "tick"
 	)
 	private double setX(double orig) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			return playerEntity.x - (this.pos.getX() + 0.5D);
 		}
 
@@ -77,7 +77,7 @@ public abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 		method = "tick"
 	)
 	private double setZ(double orig) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			return playerEntity.z - (this.pos.getZ() + 0.5D);
 		}
 

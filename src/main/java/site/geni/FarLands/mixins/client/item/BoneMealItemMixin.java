@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 
 @SuppressWarnings("unused")
@@ -44,7 +44,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			pos = blockPos;
 		}
 	}
@@ -70,7 +70,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		method = "playEffects"
 	)
 	private static void addParticlesProperly(IWorld iWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			final double x = pos.getX() + random.nextDouble();
 			final double y = pos.getY() + random.nextDouble();
 			final double z = pos.getZ() + random.nextDouble();

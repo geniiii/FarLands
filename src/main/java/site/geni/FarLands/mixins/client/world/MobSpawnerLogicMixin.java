@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import site.geni.FarLands.FarLands;
 import site.geni.FarLands.util.Config;
 
 @SuppressWarnings("unused")
@@ -31,7 +32,7 @@ public abstract class MobSpawnerLogicMixin {
 
 
 	/**
-	 * If {@link Config.ConfigSpec#fixParticles} is true, adds particles created by mob spawners using {@link Double} for positions <br>
+	 * If {@link Config#fixParticlesEntities} is true, adds particles created by mob spawners using {@link Double} for positions <br>
 	 * instead of {@link Float} in order to have precise particle positions
 	 *
 	 * @param ci {@link CallbackInfo} required for {@link Inject}
@@ -47,7 +48,7 @@ public abstract class MobSpawnerLogicMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(CallbackInfo ci) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			final BlockPos blockPos = this.getPos();
 			final World world = this.getWorld();
 

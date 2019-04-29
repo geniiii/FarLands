@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(ChunkSectionPos.class)
@@ -29,7 +29,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void asLongFixed(int x, int y, int z, CallbackInfoReturnable<Long> cir) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			cir.setReturnValue((((long) x & 0x7FFFFFL) << 41 | ((long) y & 0x3FFFFL) | ((long) z & 0x7FFFFFL) << 18));
 		}
 	}
@@ -51,7 +51,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void unpackLongXFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			cir.setReturnValue((int) (coords >> 41));
 		}
 	}
@@ -72,7 +72,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void unpackLongYFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			cir.setReturnValue((int) (coords << 48 >> 48));
 		}
 	}
@@ -93,7 +93,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void unpackLongZFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			cir.setReturnValue((int) (coords << 23 >> 41));
 		}
 	}
@@ -116,7 +116,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void toLightStorageIndexFixed(long coords, CallbackInfoReturnable<Long> cir) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			cir.setReturnValue(coords & -0x40000L);
 		}
 	}

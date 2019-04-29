@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 import java.util.Random;
 
@@ -43,7 +43,7 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			Direction direction = blockState.get(FACING);
 			final double x = (blockPos.getX() + 0.5D) + ((double) random.nextFloat() - 0.5D) * 0.2D;
 			final double y = (blockPos.getY() + 0.4D) + ((double) random.nextFloat() - 0.5D) * 0.2D;

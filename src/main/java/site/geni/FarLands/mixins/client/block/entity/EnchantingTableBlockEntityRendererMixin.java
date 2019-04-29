@@ -13,11 +13,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntityRenderer.class)
-public abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRenderer<EnchantingTableBlockEntity> {
+abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRenderer<EnchantingTableBlockEntity> {
 	@Shadow
 	@Final
 	private static Identifier BOOK_TEX;
@@ -47,7 +47,7 @@ public abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntit
 		method = "method_3571"
 	)
 	private void setXYZ(EnchantingTableBlockEntity enchantingTableBlockEntity, double x, double y, double z, float float_1, int int_1, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			EnchantingTableBlockEntityRendererMixin.x = x;
 			EnchantingTableBlockEntityRendererMixin.y = y;
 			EnchantingTableBlockEntityRendererMixin.z = z;
@@ -71,7 +71,7 @@ public abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntit
 		method = "method_3571"
 	)
 	private void renderBookProperly(float origX, float origY, float origZ) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			GlStateManager.translated(x + 0.5D, y + 0.75D, z + 0.5D);
 		} else {
 			GlStateManager.translatef(origX, origY, origZ);

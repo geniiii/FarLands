@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(BlockPos.class)
@@ -67,7 +67,7 @@ public abstract class BlockPosMixin {
 		cancellable = true
 	)
 	private static void overwriteBits(CallbackInfo ci) {
-		if (Config.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting) {
 			SIZE_BITS_X = 27;
 			SIZE_BITS_Z = SIZE_BITS_X; // 27
 			SIZE_BITS_Y = 64 - SIZE_BITS_X - SIZE_BITS_Z; // 10

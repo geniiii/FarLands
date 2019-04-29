@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(Explosion.class)
@@ -35,7 +35,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private BlockPos setBlockPos(BlockPos orig) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			blockPos = orig;
 		}
 
@@ -59,7 +59,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setX(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getX() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities ? blockPos.getX() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setY(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getY() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities ? blockPos.getY() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -101,6 +101,6 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setZ(double original) {
-		return Config.getConfig().fixParticles ? blockPos.getZ() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities ? blockPos.getZ() + (double) this.world.random.nextFloat() : original;
 	}
 }

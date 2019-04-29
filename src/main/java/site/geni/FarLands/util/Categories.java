@@ -8,6 +8,7 @@ import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
 import me.shedaniel.cloth.gui.entries.TextListEntry;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
+import site.geni.FarLands.FarLands;
 import site.geni.FarLands.gui.entries.EstimateListEntry;
 import site.geni.FarLands.gui.entries.OutsideWorldListEntry;
 import site.geni.FarLands.gui.entries.ScaleListEntry;
@@ -29,27 +30,25 @@ public class Categories {
 			// Adds the option for enabling the Far Lands
 			general.addOption(new BooleanListEntry(
 				"config.farlands.farLandsEnabled",
-				Config.getConfig().farLandsEnabled,
+				FarLands.getConfig().farLandsEnabled,
 				"text.cloth.reset_value",
 				() -> true,
-				bool -> Config.getConfig().farLandsEnabled = bool
+				bool -> FarLands.getConfig().farLandsEnabled = bool
 			));
 
 			// Adds the option for killing entities in the Far Lands
 			general.addOption(new BooleanListEntry(
 				"config.farlands.killEntities",
-				Config.getConfig().killFallingBlockEntitiesInFarLands,
+				FarLands.getConfig().killFallingBlockEntitiesInFarLands,
 				"text.cloth.reset_value",
 				() -> false,
-				bool -> Config.getConfig().killFallingBlockEntitiesInFarLands = bool
+				bool -> FarLands.getConfig().killFallingBlockEntitiesInFarLands = bool
 			));
 		}
 	}
 
 
 	public static class World {
-		private static final String INVALID = TextFormat.RED + I18n.translate("config.farlands.invalid");
-
 		/**
 		 * Creates all options of the "World" category
 		 *
@@ -66,39 +65,39 @@ public class Categories {
 			// Adds the option for setting the coordinate scale
 			world.addOption(new ScaleListEntry(
 				"config.farlands.coordinateScale",
-				Config.getConfig().coordinateScale,
+				FarLands.getConfig().coordinateScale,
 				"text.cloth.reset_value",
 				() -> 684.4119873046875,
-				scale -> Config.getConfig().coordinateScale = scale,
+				scale -> FarLands.getConfig().coordinateScale = scale,
 				world
 			));
 
 			// Adds the option for setting the coordinate scale multiplier
 			world.addOption(new ScaleListEntry(
 				"config.farlands.coordinateScaleMultiplier",
-				Config.getConfig().coordinateScaleMultiplier,
+				FarLands.getConfig().coordinateScaleMultiplier,
 				"text.cloth.reset_value",
 				() -> 1.0,
-				scale -> Config.getConfig().coordinateScaleMultiplier = scale,
+				scale -> FarLands.getConfig().coordinateScaleMultiplier = scale,
 				world
 			));
 
 			// Adds the option for setting the height scale
 			world.addOption(new DoubleListEntry(
 				"config.farlands.heightScale",
-				Config.getConfig().heightScale,
+				FarLands.getConfig().heightScale,
 				"text.cloth.reset_value",
 				() -> 684.4119873046875,
-				scale -> Config.getConfig().heightScale = scale
+				scale -> FarLands.getConfig().heightScale = scale
 			));
 
 			// Adds the option for setting the height scale multiplier
 			world.addOption(new DoubleListEntry(
 				"config.farlands.heightScaleMultiplier",
-				Config.getConfig().heightScaleMultiplier,
+				FarLands.getConfig().heightScaleMultiplier,
 				"text.cloth.reset_value",
 				() -> 1.0,
-				scale -> Config.getConfig().heightScaleMultiplier = scale
+				scale -> FarLands.getConfig().heightScaleMultiplier = scale
 			));
 
 			World.createEstimatesSubCategory(world);
@@ -168,10 +167,10 @@ public class Categories {
 			// Adds the option for fixing ore generation
 			fixes.addOption(new BooleanListEntry(
 				"config.farlands.fixOreGeneration",
-				Config.getConfig().fixOreGeneration,
+				FarLands.getConfig().fixOreGeneration,
 				"text.cloth.reset_value",
 				() -> true,
-				bool -> Config.getConfig().fixOreGeneration = bool,
+				bool -> FarLands.getConfig().fixOreGeneration = bool,
 				() -> Optional.of(new String[]{
 					I18n.translate("config.farlands.fixOreGeneration.tooltip")
 				})
@@ -179,11 +178,11 @@ public class Categories {
 
 			// Adds the option for fixing particles/entities
 			fixes.addOption(new BooleanListEntry(
-				"config.farlands.fixParticles",
-				Config.getConfig().fixParticles,
+				"config.farlands.fixParticlesEntities",
+				FarLands.getConfig().fixParticlesEntities,
 				"text.cloth.reset_value",
 				() -> true,
-				bool -> Config.getConfig().fixParticles = bool,
+				bool -> FarLands.getConfig().fixParticlesEntities = bool,
 				() -> Optional.of(
 					Fixes.createParticlesTooltip()
 				)
@@ -203,15 +202,15 @@ public class Categories {
 			final List<String> particleTooltip = new ArrayList<>();
 
 			// Add particles to tooltip
-			particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description"));
+			particleTooltip.add(I18n.translate("config.farlands.fixParticlesEntities.tooltip.description"));
 			for (final String particle : PARTICLES) {
-				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description." + particle));
+				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description." + particle));
 			}
 
 			// Add entities to tooltip
-			particleTooltip.add(I18n.translate("config.farlands.fixParticles.tooltip.description.entities"));
+			particleTooltip.add(I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities"));
 			for (final String entity : ENTITIES) {
-				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticles.tooltip.description.entities.") + entity);
+				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities.") + entity);
 			}
 
 			return particleTooltip.toArray(new String[0]);
@@ -235,10 +234,10 @@ public class Categories {
 				// Lighting
 				new OutsideWorldListEntry(
 					"config.farlands.fixLighting",
-					Config.getConfig().fixLighting,
+					FarLands.getConfig().fixLighting,
 					"text.cloth.reset_value",
 					() -> false,
-					bool -> Config.getConfig().fixLighting = bool,
+					bool -> FarLands.getConfig().fixLighting = bool,
 					() -> Optional.of(new String[]{
 						I18n.translate("config.farlands.fixLighting.tooltip.description"),
 						TextFormat.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
@@ -249,10 +248,10 @@ public class Categories {
 				// Mob spawning
 				new BooleanListEntry(
 					"config.farlands.fixMobSpawning",
-					Config.getConfig().fixMobSpawning,
+					FarLands.getConfig().fixMobSpawning,
 					"text.cloth.reset_value",
 					() -> false,
-					bool -> Config.getConfig().fixMobSpawning = bool,
+					bool -> FarLands.getConfig().fixMobSpawning = bool,
 					() -> Optional.of(new String[]{
 						I18n.translate("config.farlands.fixMobSpawning.tooltip")
 					})

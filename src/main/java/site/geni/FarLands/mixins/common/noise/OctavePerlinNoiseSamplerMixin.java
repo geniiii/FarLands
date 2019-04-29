@@ -4,7 +4,7 @@ import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPrecision;
 
@@ -27,6 +27,6 @@ public abstract class OctavePerlinNoiseSamplerMixin {
 		method = "sample(DDDDDZ)D"
 	)
 	private double dontMaintainPrecision(double coordinate) {
-		return Config.getConfig().farLandsEnabled ? coordinate : maintainPrecision(coordinate);
+		return FarLands.getConfig().farLandsEnabled ? coordinate : maintainPrecision(coordinate);
 	}
 }

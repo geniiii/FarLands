@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import site.geni.FarLands.FarLands;
 import site.geni.FarLands.mixins.common.world.WorldMixin;
-import site.geni.FarLands.util.Config;
 
 import java.util.Random;
 
@@ -51,7 +51,7 @@ public abstract class ClientWorldMixin extends WorldMixin {
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private void setXYZ(int x, int y, int z, int maxOffset, Random random, boolean ifHoldingBarrierBlock, BlockPos.Mutable blockPos, CallbackInfo ci, int xRandom, int yRandom, int zRandom) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			ClientWorldMixin.x = xRandom;
 			ClientWorldMixin.y = yRandom;
 			ClientWorldMixin.z = zRandom;
@@ -66,7 +66,7 @@ public abstract class ClientWorldMixin extends WorldMixin {
 		method = "randomBlockDisplayTick"
 	)
 	private void addParticlesProperly(ClientWorld clientWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityZ, double velocityY) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			this.addParticle(ParticleTypes.BARRIER, x + 0.5D, y + 0.5D, z + 0.5D, velocityX, velocityY, velocityZ);
 		} else {
 			this.addParticle(ParticleTypes.BARRIER, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);

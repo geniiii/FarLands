@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 import java.util.Random;
 
@@ -38,7 +38,7 @@ public abstract class PortalBlockMixin {
 		method = "randomDisplayTick"
 	)
 	private void setVariables(BlockState blockState, World world, BlockPos blockPos, Random worldRandom, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			random = worldRandom;
 			pos = blockPos;
 		}
@@ -65,7 +65,7 @@ public abstract class PortalBlockMixin {
 		method = "randomDisplayTick"
 	)
 	private void addParticlesProperly(World world, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			double x = pos.getX() + (double) random.nextFloat();
 			final double y = pos.getY() + (double) random.nextFloat();
 			double z = pos.getZ() + (double) random.nextFloat();

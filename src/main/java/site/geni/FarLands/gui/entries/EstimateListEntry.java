@@ -10,6 +10,18 @@ public class EstimateListEntry extends StringListEntry {
 		super(fieldName, value, null);
 	}
 
+	private static boolean handlePress(int charCode) {
+		switch (charCode) {
+			case GLFW_KEY_RIGHT:
+			case GLFW_KEY_LEFT:
+			case GLFW_KEY_UP:
+			case GLFW_KEY_DOWN:
+				return true;
+		}
+
+		return false;
+	}
+
 	@Override
 	public boolean charTyped(char character, int charCode) {
 		if (EstimateListEntry.handlePress(charCode)) {
@@ -26,17 +38,5 @@ public class EstimateListEntry extends StringListEntry {
 		}
 
 		return super.keyPressed(charCode, int_1, int_2);
-	}
-
-	private static boolean handlePress(int charCode) {
-		switch (charCode) {
-			case GLFW_KEY_RIGHT:
-			case GLFW_KEY_LEFT:
-			case GLFW_KEY_UP:
-			case GLFW_KEY_DOWN:
-				return true;
-		}
-
-		return false;
 	}
 }

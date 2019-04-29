@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.FarLands;
 
 import java.util.Random;
 
@@ -36,7 +36,7 @@ public abstract class FallingBlockMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (Config.getConfig().fixParticles) {
+		if (FarLands.getConfig().fixParticlesEntities) {
 			final double x = blockPos.getX() + (double) random.nextFloat();
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + (double) random.nextFloat();

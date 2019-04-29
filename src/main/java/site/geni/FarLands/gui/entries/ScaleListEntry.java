@@ -9,6 +9,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.TextFormat;
 import net.minecraft.util.Pair;
+import site.geni.FarLands.FarLands;
 import site.geni.FarLands.util.Config;
 import site.geni.FarLands.util.LocationUtil;
 
@@ -17,8 +18,6 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ScaleListEntry extends DoubleListEntry {
-	private static final String INVALID = TextFormat.RED + I18n.translate("config.farlands.invalid");
-
 	private final ConfigScreenBuilder.CategoryBuilder category;
 
 	public ScaleListEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigScreenBuilder.CategoryBuilder category) {
@@ -27,48 +26,14 @@ public class ScaleListEntry extends DoubleListEntry {
 		this.category = category;
 	}
 
-	@Override
-	public boolean keyPressed(int charCode, int int_1, int int_2) {
-		return super.keyPressed(charCode, int_1, int_2) && updateScales();
-	}
-
-	@Override
-	public boolean charTyped(char character, int charcode) {
-		return super.charTyped(character, charcode) && updateScales();
-	}
-
-	private boolean updateScales() {
-		try {
-			final double scale = this.getObject();
-
-			final Config.ConfigSpec config = Config.getConfig();
-			switch (this.getFieldName()) {
-				case "config.farlands.coordinateScale":
-					config.coordinateScale = scale;
-					break;
-				case "config.farlands.coordinateScaleMultiplier":
-					config.coordinateScaleMultiplier = scale;
-					break;
-			}
-
-			ScaleListEntry.updateOptions(this.category, config);
-
-			return true;
-		} catch (ArithmeticException | NumberFormatException ignored) {
-
-		}
-
-		return false;
-	}
-
 	/**
 	 * Updates the estimates in the "World" category
 	 *
 	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
-	 * @param config   {@link site.geni.FarLands.util.Config.ConfigSpec} to use
+	 * @param config   {@link Config} to use
 	 */
 	@SuppressWarnings("deprecation")
-	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config.ConfigSpec config) {
+	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config config) {
 		LocationUtil.updateLocations(config);
 
 		for (Pair<String, Object> option : category.getOptions()) {
@@ -107,5 +72,39 @@ public class ScaleListEntry extends DoubleListEntry {
 				}
 			}
 		}
+	}
+
+	@Override
+	public boolean keyPressed(int charCode, int int_1, int int_2) {
+		return super.keyPressed(charCode, int_1, int_2) && updateScales();
+	}
+
+	@Override
+	public boolean charTyped(char character, int charcode) {
+		return super.charTyped(character, charcode) && updateScales();
+	}
+
+	private boolean updateScales() {
+		try {
+			final double scale = this.getObject();
+
+			final Config config = FarLands.getConfig();
+			switch (this.getFieldName()) {
+				case "config.farlands.coordinateScale":
+					config.coordinateScale = scale;
+					break;
+				case "config.farlands.coordinateScaleMultiplier":
+					config.coordinateScaleMultiplier = scale;
+					break;
+			}
+
+			ScaleListEntry.updateOptions(this.category, config);
+
+			return true;
+		} catch (ArithmeticException | NumberFormatException ignored) {
+
+		}
+
+		return false;
 	}
 }
