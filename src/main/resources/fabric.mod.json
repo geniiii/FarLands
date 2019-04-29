@@ -19,9 +19,6 @@
 				"main": [
 						"site.geni.FarLands.FarLands"
 				],
-				"client": [
-						"site.geni.FarLands.FarLandsClient"
-				],
 				"modmenu": [
 						"site.geni.FarLands.FarLandsModMenuApiImpl"
 				],

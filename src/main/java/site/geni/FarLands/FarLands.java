@@ -6,7 +6,7 @@ import site.geni.FarLands.config.Config;
 
 @SuppressWarnings("unused")
 public class FarLands implements ModInitializer {
-	private static Config config;
+	private static final Config config = ConfigManager.loadConfig(Config.class);;
 
 	public static Config getConfig() {
 		return config;
@@ -14,6 +14,5 @@ public class FarLands implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ConfigManager.loadConfig(Config.class);
 	}
 }

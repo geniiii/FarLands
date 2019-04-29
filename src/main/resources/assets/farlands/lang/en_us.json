@@ -39,7 +39,7 @@
   "config.farlands.fixParticles.tooltip.description.entities.enchanting_table": "Enchanting Table book",
 
   "config.farlands.fixOreGeneration.tooltip": "This fixes precision loss with ore generation, causing ores to be always X blocks apart from each other at far X/Z positions",
-  "config.farlands.fixMobSpawning.tooltip": "This fixes precision loss with mob spawning, however mobs don't spawn past the default world border diameter.",
+  "config.farlands.fixMobSpawning.tooltip": "This fixes precision loss with mob spawning, however mobs don't spawn past the default world border.",
 
   "config.farlands.invalid": "Invalid!",
 
