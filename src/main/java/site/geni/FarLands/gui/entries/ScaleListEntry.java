@@ -6,12 +6,10 @@ import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
 import me.shedaniel.cloth.gui.entries.TextFieldListEntry;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.resource.language.I18n;
-import net.minecraft.text.TextFormat;
 import net.minecraft.util.Pair;
 import site.geni.FarLands.FarLands;
-import site.geni.FarLands.util.Config;
-import site.geni.FarLands.util.LocationUtil;
+import site.geni.FarLands.config.Config;
+import site.geni.FarLands.util.Locations;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -34,7 +32,7 @@ public class ScaleListEntry extends DoubleListEntry {
 	 */
 	@SuppressWarnings("deprecation")
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config config) {
-		LocationUtil.updateLocations(config);
+		Locations.update(config);
 
 		for (Pair<String, Object> option : category.getOptions()) {
 			if (option.getRight() instanceof SubCategoryListEntry) {
@@ -50,19 +48,19 @@ public class ScaleListEntry extends DoubleListEntry {
 
 					switch (entryName) {
 						case "config.farlands.estimatedPosition":
-							entryWidget.setText(LocationUtil.getFarlandsLocationString());
+							entryWidget.setText(Locations.getFarLands().getText());
 
 							break;
 						case "config.farlands.estimatedFartherPosition":
-							entryWidget.setText(LocationUtil.getFartherLandsLocationString());
+							entryWidget.setText(Locations.getFartherLands().getText());
 
 							break;
 						case "config.farlands.estimatedFarthererPosition":
-							entryWidget.setText(LocationUtil.getFarthererLandsLocationString());
+							entryWidget.setText(Locations.getFarthererLands().getText());
 
 							break;
 						case "config.farlands.estimatedFarthestPosition":
-							entryWidget.setText(LocationUtil.getFarthestLandsLocationString());
+							entryWidget.setText(Locations.getFarthestLands().getText());
 
 							break;
 					}

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import site.geni.FarLands.FarLands;
-import site.geni.FarLands.util.Config;
+import site.geni.FarLands.config.Config;
 
 @SuppressWarnings("unused")
 @Mixin(MobSpawnerLogic.class)

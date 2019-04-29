@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.2.2-SNAPSHOT'
+    id 'fabric-loom' version '0.2.2-SNAPSHOT'
 }
 
 
@@ -30,15 +30,18 @@ dependencies {
     modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modCompile "net.fabricmc:fabric:${project.fabric_version}"
-	include "net.fabricmc:fabric:${project.fabric_version}"
+    include "net.fabricmc:fabric:${project.fabric_version}"
 
     modCompile "cloth-config:ClothConfig:${project.clothconfig_version}"
-	include "cloth-config:ClothConfig:${project.clothconfig_version}"
+    include "cloth-config:ClothConfig:${project.clothconfig_version}"
+	
+    modCompile "io.github.cottonmc:cotton:${cotton_version}"
+    include "io.github.cottonmc:cotton:${cotton_version}"
 
-    modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
-
-    modCompile "io.github.cottonmc:client-commands:${clientcommands_version}"
-    include "io.github.cottonmc:client-commands:${clientcommands_version}"
+    modCompile "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
+    include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
+	
+	modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
 }
 
 processResources {

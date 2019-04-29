@@ -113,25 +113,25 @@ public class Categories {
 				// Adds the estimate for the Far Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedPosition",
-					LocationUtil.getFarlandsLocationString()
+					Locations.getFarLands().getText()
 				),
 
 				// Adds the estimate for the Farther Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFartherPosition",
-					LocationUtil.getFartherLandsLocationString()
+					Locations.getFartherLands().getText()
 				),
 
 				// Adds the estimate for the Fartherer Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFarthererPosition",
-					LocationUtil.getFarthererLandsLocationString()
+					Locations.getFarthererLands().getText()
 				),
 
 				// Adds the estimate for the Farthest Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFarthestPosition",
-					LocationUtil.getFartherLandsLocationString()
+					Locations.getFarthestLands().getText()
 				)
 			);
 
