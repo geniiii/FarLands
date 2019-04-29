@@ -8,8 +8,6 @@ import net.minecraft.client.gui.Screen;
 import net.minecraft.client.resource.language.I18n;
 import site.geni.FarLands.util.Categories;
 
-import javax.annotation.Nullable;
-
 public class CustomizeFarLandsScreen {
 	/**
 	 * Creates the mod's {@link ClothConfigScreen}
@@ -17,7 +15,7 @@ public class CustomizeFarLandsScreen {
 	 * @param parent The parent {@link Screen}
 	 * @return The mod's {@link ClothConfigScreen}
 	 */
-	public static ClothConfigScreen createConfigScreen(@Nullable Screen parent) {
+	public static ClothConfigScreen createConfigScreen(Screen parent) {
 		final ConfigScreenBuilder builder = ConfigScreenBuilder.create(parent, I18n.translate("config.farlands.title"), null);
 
 		Categories.General.createCategory(builder.addCategory("config.farlands.category.general"));
