@@ -105,7 +105,6 @@ public abstract class ChunkSectionPosMixin {
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
 	 * @author geni
-	 * @returns coordinates -> light storage index
 	 * @see #asLongFixed
 	 */
 	@Inject(

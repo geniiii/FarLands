@@ -12,6 +12,7 @@ public class OutsideWorldListEntry extends BooleanListEntry {
 	public OutsideWorldListEntry(String fieldName, boolean bool, String resetButtonKey, Supplier<Boolean> defaultValue, Consumer<Boolean> saveConsumer, Supplier<Optional<String[]>> tooltipSupplier) {
 		super(fieldName, bool, resetButtonKey, defaultValue, saveConsumer, tooltipSupplier);
 
+		// The button itself
 		((AbstractButtonWidget) this.children().get(0)).active = MinecraftClient.getInstance().world == null;
 	}
 }
