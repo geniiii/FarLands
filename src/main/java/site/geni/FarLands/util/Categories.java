@@ -210,7 +210,7 @@ public class Categories {
 			// Add entities to tooltip
 			particleTooltip.add(I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities"));
 			for (final String entity : ENTITIES) {
-				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities.") + entity);
+				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities." + entity));
 			}
 
 			return particleTooltip.toArray(new String[0]);
