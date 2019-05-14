@@ -37,7 +37,6 @@ dependencies {
     include "cloth-config:ClothConfig:${project.clothconfig_version}"
 
     modCompile "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
-
     include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
 
     modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"

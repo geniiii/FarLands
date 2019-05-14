@@ -31,8 +31,7 @@
 		],
 		"requires": {
 				"fabricloader": ">=0.4.0",
-				"fabric-api-base": ">=0.1.0",
-				"fabric-resource-loader-v0": ">=0.1.0",
+				"fabric-resource-loader-v0": "*",
 				"cloth-config": ">=0.2.1.14",
 				"cotton": ">=0.6.6",
 				"cotton-client-commands": ">=0.3.1"
