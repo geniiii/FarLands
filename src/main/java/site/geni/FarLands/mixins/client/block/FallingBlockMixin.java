@@ -2,7 +2,7 @@ package site.geni.FarLands.mixins.client.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
-import net.minecraft.particle.BlockStateParticleParameters;
+import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -30,7 +30,7 @@ public abstract class FallingBlockMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
 		method = "randomDisplayTick",
 		cancellable = true
@@ -41,7 +41,7 @@ public abstract class FallingBlockMixin {
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + (double) random.nextFloat();
 
-			world.addParticle(new BlockStateParticleParameters(ParticleTypes.FALLING_DUST, blockState), x, y, z, 0.0D, 0.0D, 0.0D);
+			world.addParticle(new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, blockState), x, y, z, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}

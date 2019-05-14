@@ -2,7 +2,7 @@ package site.geni.FarLands.mixins.client.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PortalBlock;
-import net.minecraft.particle.ParticleParameters;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -48,7 +48,7 @@ public abstract class PortalBlockMixin {
 	 * Adds particles created by Nether portal blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
 	 * @param world              {@link World} of the block
-	 * @param particleParameters {@link ParticleParameters} to use when adding particle
+	 * @param ParticleEffect {@link ParticleEffect} to use when adding particle
 	 * @param xOrig              The particle's original X position
 	 * @param yOrig              The particle's original Y position
 	 * @param zOrig              The particle's original Z position
@@ -60,11 +60,11 @@ public abstract class PortalBlockMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
 		method = "randomDisplayTick"
 	)
-	private void addParticlesProperly(World world, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
+	private void addParticlesProperly(World world, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
 		if (FarLands.getConfig().fixParticlesEntities) {
 			double x = pos.getX() + (double) random.nextFloat();
 			final double y = pos.getY() + (double) random.nextFloat();
@@ -84,9 +84,9 @@ public abstract class PortalBlockMixin {
 				velocityZ = (double) random.nextFloat() * 2.0D * (double) int_2;
 			}
 
-			world.addParticle(particleParameters, x, y, z, velocityX, velocityY, velocityZ);
+			world.addParticle(ParticleEffect, x, y, z, velocityX, velocityY, velocityZ);
 		} else {
-			world.addParticle(particleParameters, xOrig, yOrig, zOrig, velocityXOrig, velocityYOrig, velocityZOrig);
+			world.addParticle(ParticleEffect, xOrig, yOrig, zOrig, velocityXOrig, velocityYOrig, velocityZOrig);
 		}
 	}
 }

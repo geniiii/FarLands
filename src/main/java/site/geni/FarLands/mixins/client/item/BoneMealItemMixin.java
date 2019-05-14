@@ -2,7 +2,8 @@ package site.geni.FarLands.mixins.client.item;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BoneMealItem;
-import net.minecraft.particle.ParticleParameters;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -37,7 +38,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
+			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V",
 			shift = At.Shift.BEFORE
 		),
 		method = "playEffects",
@@ -53,7 +54,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 	 * Adds particles created by bone meal using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
 	 * @param iWorld             {@link IWorld} of the item
-	 * @param particleParameters {@link ParticleParameters} to use when adding particle
+	 * @param ParticleEffect {@link ParticleEffect} to use when adding particle
 	 * @param xOrig              The particle's original X position
 	 * @param yOrig              The particle's original Y position
 	 * @param zOrig              The particle's original Z position
@@ -65,11 +66,11 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
 		method = "playEffects"
 	)
-	private static void addParticlesProperly(IWorld iWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
+	private static void addParticlesProperly(IWorld iWorld, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
 		if (FarLands.getConfig().fixParticlesEntities) {
 			final double x = pos.getX() + random.nextDouble();
 			final double y = pos.getY() + random.nextDouble();

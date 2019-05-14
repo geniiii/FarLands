@@ -1,7 +1,7 @@
 package site.geni.FarLands.mixins.client.world;
 
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.ParticleParameters;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +24,7 @@ public abstract class ClientWorldMixin extends WorldMixin {
 	private static int z;
 
 	@Shadow
-	public abstract void addParticle(ParticleParameters particleParameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ);
+	public abstract void addParticle(ParticleEffect ParticleEffect, double x, double y, double z, double velocityX, double velocityY, double velocityZ);
 
 	/**
 	 * Adds particles created by barrier blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
@@ -61,11 +61,11 @@ public abstract class ClientWorldMixin extends WorldMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/client/world/ClientWorld;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+			target = "Lnet/minecraft/client/world/ClientWorld;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
 		method = "randomBlockDisplayTick"
 	)
-	private void addParticlesProperly(ClientWorld clientWorld, ParticleParameters particleParameters, double xOrig, double yOrig, double zOrig, double velocityX, double velocityZ, double velocityY) {
+	private void addParticlesProperly(ClientWorld clientWorld, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityX, double velocityZ, double velocityY) {
 		if (FarLands.getConfig().fixParticlesEntities) {
 			this.addParticle(ParticleTypes.BARRIER, x + 0.5D, y + 0.5D, z + 0.5D, velocityX, velocityY, velocityZ);
 		} else {

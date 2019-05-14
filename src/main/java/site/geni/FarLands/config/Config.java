@@ -1,7 +1,7 @@
 package site.geni.FarLands.config;
 
+import blue.endless.jankson.Comment;
 import io.github.cottonmc.cotton.config.annotations.ConfigFile;
-import io.github.cottonmc.repackage.blue.endless.jankson.Comment;
 
 @ConfigFile(name = "FarLands")
 public class Config {

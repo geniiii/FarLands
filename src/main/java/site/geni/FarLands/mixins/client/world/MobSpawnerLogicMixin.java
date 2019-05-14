@@ -41,7 +41,7 @@ public abstract class MobSpawnerLogicMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V",
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V",
 			ordinal = 0
 		),
 		method = "update",

@@ -2,7 +2,7 @@ package site.geni.FarLands.mixins.client.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RepeaterBlock;
-import net.minecraft.particle.DustParticleParameters;
+import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.state.property.IntegerProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -37,7 +37,7 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleParameters;DDDDDD)V"
+			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
 		method = "randomDisplayTick",
 		cancellable = true
@@ -58,7 +58,7 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 			double offsetX = (double) (float_1 * (float) direction.getOffsetX());
 			double offsetZ = (double) (float_1 * (float) direction.getOffsetZ());
 
-			world.addParticle(DustParticleParameters.RED, x + offsetX, y, z + offsetZ, 0.0D, 0.0D, 0.0D);
+			world.addParticle(DustParticleEffect.RED, x + offsetX, y, z + offsetZ, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();
 		}

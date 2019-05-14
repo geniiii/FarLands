@@ -17,26 +17,18 @@ public class EstimateListEntry extends StringListEntry {
 			case GLFW_KEY_UP:
 			case GLFW_KEY_DOWN:
 				return true;
+			default:
+				return false;
 		}
-
-		return false;
 	}
 
 	@Override
 	public boolean charTyped(char character, int charCode) {
-		if (EstimateListEntry.handlePress(charCode)) {
-			return true;
-		}
-
-		return super.charTyped(character, charCode);
+		return EstimateListEntry.handlePress(charCode) || super.charTyped(character, charCode);
 	}
 
 	@Override
 	public boolean keyPressed(int charCode, int int_1, int int_2) {
-		if (EstimateListEntry.handlePress(charCode)) {
-			return true;
-		}
-
-		return super.keyPressed(charCode, int_1, int_2);
+		return EstimateListEntry.handlePress(charCode) || super.keyPressed(charCode, int_1, int_2);
 	}
 }

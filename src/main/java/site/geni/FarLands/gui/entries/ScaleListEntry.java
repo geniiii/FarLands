@@ -9,7 +9,8 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.util.Pair;
 import site.geni.FarLands.FarLands;
 import site.geni.FarLands.config.Config;
-import site.geni.FarLands.util.Locations;
+import site.geni.FarLands.util.Location;
+import site.geni.FarLands.util.LocationHelper;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -32,7 +33,7 @@ public class ScaleListEntry extends DoubleListEntry {
 	 */
 	@SuppressWarnings("deprecation")
 	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config config) {
-		Locations.update(config);
+		LocationHelper.updateAll(config);
 
 		for (Pair<String, Object> option : category.getOptions()) {
 			if (option.getRight() instanceof SubCategoryListEntry) {
@@ -48,19 +49,19 @@ public class ScaleListEntry extends DoubleListEntry {
 
 					switch (entryName) {
 						case "config.farlands.estimatedPosition":
-							entryWidget.setText(Locations.getFarLands().getText());
+							entryWidget.setText(Location.FAR_LANDS.getText());
 
 							break;
 						case "config.farlands.estimatedFartherPosition":
-							entryWidget.setText(Locations.getFartherLands().getText());
+							entryWidget.setText(Location.FARTHER_LANDS.getText());
 
 							break;
 						case "config.farlands.estimatedFarthererPosition":
-							entryWidget.setText(Locations.getFarthererLands().getText());
+							entryWidget.setText(Location.FARTHERER_LANDS.getText());
 
 							break;
 						case "config.farlands.estimatedFarthestPosition":
-							entryWidget.setText(Locations.getFarthestLands().getText());
+							entryWidget.setText(Location.FARTHEST_LANDS.getText());
 
 							break;
 					}

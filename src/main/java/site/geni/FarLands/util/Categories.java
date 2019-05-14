@@ -7,7 +7,7 @@ import me.shedaniel.cloth.gui.entries.DoubleListEntry;
 import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
 import me.shedaniel.cloth.gui.entries.TextListEntry;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.text.TextFormat;
+import net.minecraft.ChatFormat;
 import site.geni.FarLands.FarLands;
 import site.geni.FarLands.gui.entries.EstimateListEntry;
 import site.geni.FarLands.gui.entries.OutsideWorldListEntry;
@@ -59,7 +59,7 @@ public class Categories {
 			// Adds the warning in the "World" category
 			world.addOption(new TextListEntry(
 				"",
-				TextFormat.RED + I18n.translate("config.farlands.category.world.warning")
+				ChatFormat.RED + I18n.translate("config.farlands.category.world.warning")
 			));
 
 			// Adds the option for setting the coordinate scale
@@ -113,25 +113,25 @@ public class Categories {
 				// Adds the estimate for the Far Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedPosition",
-					Locations.getFarLands().getText()
+					Location.FAR_LANDS.getText()
 				),
 
 				// Adds the estimate for the Farther Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFartherPosition",
-					Locations.getFartherLands().getText()
+					Location.FARTHER_LANDS.getText()
 				),
 
 				// Adds the estimate for the Fartherer Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFarthererPosition",
-					Locations.getFarthererLands().getText()
+					Location.FARTHERER_LANDS.getText()
 				),
 
 				// Adds the estimate for the Farthest Lands' location
 				new EstimateListEntry(
 					"config.farlands.estimatedFarthestPosition",
-					Locations.getFarthestLands().getText()
+					Location.FARTHEST_LANDS.getText()
 				)
 			);
 
@@ -204,13 +204,13 @@ public class Categories {
 			// Add particles to tooltip
 			particleTooltip.add(I18n.translate("config.farlands.fixParticlesEntities.tooltip.description"));
 			for (final String particle : PARTICLES) {
-				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description." + particle));
+				particleTooltip.add(ChatFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description." + particle));
 			}
 
 			// Add entities to tooltip
 			particleTooltip.add(I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities"));
 			for (final String entity : ENTITIES) {
-				particleTooltip.add(TextFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities." + entity));
+				particleTooltip.add(ChatFormat.GREEN + I18n.translate("config.farlands.fixParticlesEntities.tooltip.description.entities." + entity));
 			}
 
 			return particleTooltip.toArray(new String[0]);
@@ -225,7 +225,7 @@ public class Categories {
 		private static void createExperimentalSubCategory(ConfigScreenBuilder.CategoryBuilder fixes) {
 			// "Fixes" category's "Experimental" sub-category's entries
 			List<ClothConfigScreen.AbstractListEntry> experimentalEntries = Arrays.asList(
-				// Warning message (16733525 is TextFormat.RED's color)
+				// Warning message (16733525 is ChatFormat.RED's color)
 				new TextListEntry("",
 					I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning"),
 					16733525
@@ -240,8 +240,8 @@ public class Categories {
 					bool -> FarLands.getConfig().fixLighting = bool,
 					() -> Optional.of(new String[]{
 						I18n.translate("config.farlands.fixLighting.tooltip.description"),
-						TextFormat.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
-						TextFormat.RED + I18n.translate("config.farlands.fixLighting.tooltip.world")
+						ChatFormat.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
+						ChatFormat.RED + I18n.translate("config.farlands.fixLighting.tooltip.world")
 					})
 				),
 

@@ -8,6 +8,7 @@ import net.minecraft.client.gui.ingame.ChatScreen;
 import net.minecraft.server.command.CommandSource;
 import site.geni.FarLands.gui.CustomizeFarLandsScreen;
 
+@SuppressWarnings("unused")
 public class FarLandsCommands implements ClientCommandPlugin {
 	/**
 	 * Registers the "/farlands" command, opens the configuration screen on execution
