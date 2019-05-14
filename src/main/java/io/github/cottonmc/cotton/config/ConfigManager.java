@@ -22,15 +22,11 @@ public class ConfigManager {
 		return Jankson.builder()
 			.registerTypeAdapter(ItemStack.class, MinecraftSerializers::getItemStack)
 			.registerPrimitiveTypeAdapter(ItemStack.class, MinecraftSerializers::getItemStackPrimitive)
-			.registerSerializer(ItemStack.class, (t, marshaller) -> {
-				return MinecraftSerializers.saveItemStack(t);
-			})
+			.registerSerializer(ItemStack.class, (t, marshaller) -> MinecraftSerializers.saveItemStack(t))
 
 			.registerTypeAdapter(BlockState.class, MinecraftSerializers::getBlockState)
 			.registerPrimitiveTypeAdapter(BlockState.class, MinecraftSerializers::getBlockStatePrimitive)
-			.registerSerializer(BlockState.class, (t, marshaller) -> {
-				return MinecraftSerializers.saveBlockState(t);
-			})
+			.registerSerializer(BlockState.class, (t, marshaller) -> MinecraftSerializers.saveBlockState(t))
 
 			.build();
 	}

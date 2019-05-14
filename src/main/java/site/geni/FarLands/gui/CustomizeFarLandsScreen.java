@@ -14,6 +14,7 @@ public class CustomizeFarLandsScreen {
 	 *
 	 * @param parent The parent {@link Screen}
 	 * @return The mod's {@link ClothConfigScreen}
+	 * @author geni
 	 */
 	public static ClothConfigScreen createConfigScreen(Screen parent) {
 		final ConfigScreenBuilder builder = ConfigScreenBuilder.create(parent, I18n.translate("config.farlands.title"), null);
@@ -31,6 +32,7 @@ public class CustomizeFarLandsScreen {
 	 * Creates and opens the mod's {@link ClothConfigScreen}
 	 *
 	 * @param parent The parent {@link Screen}
+	 * @author geni
 	 */
 	public static void createAndOpenConfigScreen(Screen parent) {
 		MinecraftClient.getInstance().openScreen(createConfigScreen(parent));

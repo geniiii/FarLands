@@ -17,7 +17,7 @@ public abstract class ChatScreenMixin extends ScreenMixin {
 	 * @param charcode Character code of the pressed key
 	 * @param int_2    ?
 	 * @param int_3    ?
-	 * @param cir      {@link CallbackInfoReturnable<Boolean>} required by {@link Inject}
+	 * @param cir      {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @author geni
 	 */
 	@Inject(

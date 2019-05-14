@@ -100,7 +100,7 @@ public abstract class ChunkSectionPosMixin {
 
 
 	/**
-	 * Coordinates -> light storage index
+	 * Coordinates to light storage index
 	 *
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form

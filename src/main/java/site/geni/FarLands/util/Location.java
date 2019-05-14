@@ -63,6 +63,7 @@ public enum Location {
 	 * Gets the adequate text for this {@link Location}
 	 *
 	 * @return A {@link String} which is either {@link #INVALID} or this {@link Location}'s value
+	 * @author geni
 	 */
 	public String getText() {
 		return this.isValid() ? "±" + this.value : INVALID;
@@ -70,6 +71,7 @@ public enum Location {
 
 	/**
 	 * @return Whether this location is valid or not
+	 * @author geni
 	 */
 	public boolean isValid() {
 		return this.value >= 0 && this.value != Long.MAX_VALUE && (this.dependsOn == null || this.dependsOn.isValid());
@@ -77,6 +79,7 @@ public enum Location {
 
 	/**
 	 * @return This {@link Location}'s {@link #value}
+	 * @author geni
 	 */
 	public long getValue() {
 		return this.value;
@@ -86,6 +89,7 @@ public enum Location {
 	 * Updates the {@link Location}'s {@link #value}
 	 *
 	 * @param config The {@link Config} to take values from
+	 * @author geni
 	 */
 	public void update(Config config) {
 		this.updateFunction.apply(config);
