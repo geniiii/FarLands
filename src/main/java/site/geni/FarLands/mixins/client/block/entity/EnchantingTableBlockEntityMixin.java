@@ -10,7 +10,7 @@ import site.geni.FarLands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntity.class)
-abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
+abstract class EnchantingTableBlockEntityMixin {
 	private static PlayerEntity playerEntity;
 
 	/**
@@ -54,7 +54,7 @@ abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 	)
 	private double setX(double orig) {
 		if (FarLands.getConfig().fixParticlesEntities) {
-			return playerEntity.x - (this.pos.getX() + 0.5D);
+			return playerEntity.x - (((BlockEntityMixin)this).getPos().getX() + 0.5D);
 		}
 
 		return orig;
@@ -78,7 +78,7 @@ abstract class EnchantingTableBlockEntityMixin extends BlockEntityMixin {
 	)
 	private double setZ(double orig) {
 		if (FarLands.getConfig().fixParticlesEntities) {
-			return playerEntity.z - (this.pos.getZ() + 0.5D);
+			return playerEntity.z - (((BlockEntityMixin)this).getPos().getZ() + 0.5D);
 		}
 
 		return orig;

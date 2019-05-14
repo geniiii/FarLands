@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @SuppressWarnings("unused")
 @Mixin(ChatScreen.class)
-public abstract class ChatScreenMixin extends ScreenMixin {
+public abstract class ChatScreenMixin {
 	/**
 	 * Do not close the chat screen if the current screen is an instance of a Cloth config screen, as commands are executed before the chat processes pressed keys. <br>
 	 * Without this, the config screen is closed before it can draw any frames.
@@ -29,7 +29,7 @@ public abstract class ChatScreenMixin extends ScreenMixin {
 		cancellable = true
 	)
 	private void dontCloseIfGuiOpen(int charcode, int int_2, int int_3, CallbackInfoReturnable<Boolean> cir) {
-		if (this.minecraft.currentScreen instanceof ClothConfigScreen) {
+		if (((ScreenMixin) this).getMinecraft().currentScreen instanceof ClothConfigScreen) {
 			cir.setReturnValue(true);
 		}
 	}

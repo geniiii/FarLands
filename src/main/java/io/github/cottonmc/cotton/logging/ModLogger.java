@@ -9,7 +9,7 @@ public class ModLogger {
 	private Logger log;
 
 	private String prefix;
-	Ansi prefixFormat = new Ansi(Ansi.SANE);
+	private Ansi prefixFormat = new Ansi(Ansi.SANE);
 
 	public ModLogger(Class clazz) {
 		this(clazz.getSimpleName());
@@ -17,10 +17,6 @@ public class ModLogger {
 
 	public ModLogger(String name) {
 		this(name, "");
-	}
-
-	public ModLogger(Class clazz, String prefix) {
-		this(clazz.getSimpleName(), prefix);
 	}
 
 	public ModLogger(String name, String prefix) {

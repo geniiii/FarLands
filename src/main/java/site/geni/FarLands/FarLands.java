@@ -8,7 +8,7 @@ import site.geni.FarLands.config.Config;
 @SuppressWarnings("unused")
 public class FarLands implements ModInitializer {
 	private static final Config CONFIG = ConfigManager.loadConfig(Config.class);
-	private static final ModLogger LOGGER = new ModLogger("farlands", "FarLands");
+	private static final ModLogger LOGGER = new ModLogger(FarLands.class);
 
 	@Override
 	public void onInitialize() {

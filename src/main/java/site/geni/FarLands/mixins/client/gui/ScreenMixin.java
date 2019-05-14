@@ -4,10 +4,11 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Screen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
 @SuppressWarnings("unused")
 @Mixin(Screen.class)
-public abstract class ScreenMixin {
-	@Shadow
-	protected MinecraftClient minecraft;
+public interface ScreenMixin {
+	@Accessor
+	MinecraftClient getMinecraft();
 }

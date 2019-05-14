@@ -6,8 +6,6 @@ import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.impl.SyntaxError;
 import io.github.cottonmc.cotton.config.annotations.ConfigFile;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemStack;
 import site.geni.FarLands.FarLands;
 
 import java.io.File;
@@ -18,17 +16,8 @@ public class ConfigManager {
 
 	private static final String CONFIG_FILE_EXTENSION = ".json5";
 
-	public static Jankson getBaseJankson() {
-		return Jankson.builder()
-			.registerTypeAdapter(ItemStack.class, MinecraftSerializers::getItemStack)
-			.registerPrimitiveTypeAdapter(ItemStack.class, MinecraftSerializers::getItemStackPrimitive)
-			.registerSerializer(ItemStack.class, (t, marshaller) -> MinecraftSerializers.saveItemStack(t))
-
-			.registerTypeAdapter(BlockState.class, MinecraftSerializers::getBlockState)
-			.registerPrimitiveTypeAdapter(BlockState.class, MinecraftSerializers::getBlockStatePrimitive)
-			.registerSerializer(BlockState.class, (t, marshaller) -> MinecraftSerializers.saveBlockState(t))
-
-			.build();
+	private static Jankson getBaseJankson() {
+		return Jankson.builder().build();
 	}
 
 
@@ -48,7 +37,7 @@ public class ConfigManager {
 		return loadConfig(clazz, configName);
 	}
 
-	public static <T> T loadConfig(Class<T> clazz, String configName) {
+	private static <T> T loadConfig(Class<T> clazz, String configName) {
 		return loadConfig(clazz, configName, getBaseJankson());
 	}
 
@@ -59,7 +48,7 @@ public class ConfigManager {
 	 * @param configName The name of the config file
 	 * @return A new config Object containing all our options from the config file
 	 */
-	public static <T> T loadConfig(Class<T> clazz, String configName, Jankson jankson) {
+	private static <T> T loadConfig(Class<T> clazz, String configName, Jankson jankson) {
 		try {
 			File file = new File((FabricLoader.getInstance()).getConfigDirectory().toString() + "/" + configName + CONFIG_FILE_EXTENSION);
 
@@ -127,7 +116,7 @@ public class ConfigManager {
 		saveConfig(object, configName);
 	}
 
-	public static void saveConfig(Object object, String configName) {
+	private static void saveConfig(Object object, String configName) {
 		saveConfig(object, configName, getBaseJankson());
 	}
 
@@ -137,15 +126,16 @@ public class ConfigManager {
 	 * @param object     The Config we want to save
 	 * @param configName The filename of our config.
 	 */
-	public static void saveConfig(Object object, String configName, Jankson jankson) {
+	private static void saveConfig(Object object, String configName, Jankson jankson) {
 		JsonElement json = jankson.toJson(object);
 		String result = json.toJson(true, true);
 
 
 		try {
 			File file = new File((FabricLoader.getInstance()).getConfigDirectory().toString() + "/" + configName + CONFIG_FILE_EXTENSION);
-			if (!file.exists())
+			if (!file.exists()) {
 				file.createNewFile();
+			}
 
 			FileOutputStream out = new FileOutputStream(file, false);
 
