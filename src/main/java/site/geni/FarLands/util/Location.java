@@ -23,9 +23,9 @@ public enum Location {
 		FARTHERER_LANDS
 	);
 
-	public static final Location[] LOCATIONS = new Location[]{FAR_LANDS, FARTHER_LANDS, FARTHERER_LANDS, FARTHEST_LANDS};
-
 	private static final String INVALID = ChatFormat.RED + I18n.translate("config.farlands.invalid");
+
+	public static final Location[] LOCATIONS = new Location[]{FAR_LANDS, FARTHER_LANDS, FARTHERER_LANDS, FARTHEST_LANDS};
 
 	protected long value;
 
@@ -92,6 +92,6 @@ public enum Location {
 	 * @author geni
 	 */
 	public void update(Config config) {
-		this.updateFunction.apply(config);
+		this.value = this.updateFunction.apply(config);
 	}
 }

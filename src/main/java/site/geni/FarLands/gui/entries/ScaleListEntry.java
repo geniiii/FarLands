@@ -1,51 +1,68 @@
 package site.geni.FarLands.gui.entries;
 
-import me.shedaniel.cloth.api.ConfigScreenBuilder;
-import me.shedaniel.cloth.gui.entries.DoubleListEntry;
-import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
-import me.shedaniel.cloth.gui.entries.TextFieldListEntry;
-import net.minecraft.client.gui.Element;
+import me.shedaniel.clothconfig2.api.ConfigCategory;
+import me.shedaniel.clothconfig2.gui.entries.DoubleListEntry;
+import me.shedaniel.clothconfig2.gui.entries.TextFieldListEntry;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.util.Pair;
 import site.geni.FarLands.FarLands;
 import site.geni.FarLands.config.Config;
+import site.geni.FarLands.util.Categories;
 import site.geni.FarLands.util.Location;
 import site.geni.FarLands.util.LocationHelper;
 
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ScaleListEntry extends DoubleListEntry {
-	private final ConfigScreenBuilder.CategoryBuilder category;
-
-	public ScaleListEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigScreenBuilder.CategoryBuilder category) {
+	public ScaleListEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigCategory category) {
 		super(fieldName, value, resetButtonKey, defaultValue, saveConsumer);
-
-		this.category = category;
 	}
 
 	/**
 	 * Updates the estimates in the "World" category
 	 *
-	 * @param category {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder} to take the options from
 	 * @param config   {@link Config} to use
 	 */
-	@SuppressWarnings("deprecation")
-	private static void updateOptions(ConfigScreenBuilder.CategoryBuilder category, Config config) {
+	private static void updateOptions(Config config) {
 		LocationHelper.updateAll(config);
 
-		for (Pair<String, Object> option : category.getOptions()) {
-			if (option.getRight() instanceof SubCategoryListEntry) {
-				final List<? extends Element> entries = ((SubCategoryListEntry) option.getRight()).children();
+		if (Categories.World.FAR_LANDS_ESTIMATE != null) {
+			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FAR_LANDS_ESTIMATE).children().get(0);
 
-				for (final Element entry : entries) {
-					if (!(entry instanceof TextFieldListEntry)) {
+			entryWidget.setText(Location.FAR_LANDS.getText());
+		}
+
+		if (Categories.World.FARTHER_LANDS_ESTIMATE != null) {
+			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHER_LANDS_ESTIMATE).children().get(0);
+
+			entryWidget.setText(Location.FARTHER_LANDS.getText());
+		}
+
+		if (Categories.World.FARTHERER_LANDS_ESTIMATE != null) {
+			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHERER_LANDS_ESTIMATE).children().get(0);
+
+			entryWidget.setText(Location.FARTHERER_LANDS.getText());
+		}
+
+		if (Categories.World.FARTHEST_LANDS_ESTIMATE != null) {
+			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHEST_LANDS_ESTIMATE).children().get(0);
+
+			entryWidget.setText(Location.FARTHEST_LANDS.getText());
+		}
+
+		/*for (Object object : category.getEntries()) {
+			final AbstractConfigEntry entry = (AbstractConfigEntry) object;
+
+			if (entry instanceof SubCategoryListEntry) {
+				final List<? extends Element> elements = ((SubCategoryListEntry) entry).children();
+
+				for (final Element element : elements) {
+					if (!(element instanceof TextFieldListEntry)) {
 						continue;
 					}
 
-					final String entryName = ((TextFieldListEntry) entry).getFieldName();
-					final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) entry).children().get(0);
+					final String entryName = ((TextFieldListEntry) element).getFieldName();
+					final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
 
 					switch (entryName) {
 						case "config.farlands.estimatedPosition":
@@ -70,7 +87,7 @@ public class ScaleListEntry extends DoubleListEntry {
 					entryWidget.method_1870();
 				}
 			}
-		}
+		}*/
 	}
 
 	@Override
@@ -85,7 +102,7 @@ public class ScaleListEntry extends DoubleListEntry {
 
 	private boolean updateScales() {
 		try {
-			final double scale = this.getObject();
+			final double scale = this.getValue();
 
 			final Config config = FarLands.getConfig();
 			switch (this.getFieldName()) {
@@ -97,7 +114,7 @@ public class ScaleListEntry extends DoubleListEntry {
 					break;
 			}
 
-			ScaleListEntry.updateOptions(this.category, config);
+			ScaleListEntry.updateOptions(config);
 
 			return true;
 		} catch (ArithmeticException | NumberFormatException ignored) {

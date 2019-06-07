@@ -1,6 +1,5 @@
 plugins {
     id 'fabric-loom' version '0.2.2-SNAPSHOT'
-    id 'com.github.johnrengelman.shadow' version '5.0.0'
 }
 
 
@@ -33,27 +32,18 @@ dependencies {
     modCompile "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
     include "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
 
-    modCompile "cloth-config:ClothConfig:${project.clothconfig_version}"
-    include "cloth-config:ClothConfig:${project.clothconfig_version}"
+    modCompile "cloth-config:ClothConfig2:${project.clothconfig_version}"
+    include "cloth-config:ClothConfig2:${project.clothconfig_version}"
 
     modCompile "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
     include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
 
     modCompile "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
 
-    shadow("blue.endless:jankson:1.1.2") { transitive = false }
+    modCompile("blue.endless:jankson:1.1.2") { transitive = false }
+    include "blue.endless:jankson:1.1.2"
+
     compileOnly("com.google.code.findbugs:jsr305:3.0.2") { transitive = false }
-}
-
-shadowJar {
-    relocate 'blue.endless.jankson', 'site.geni.FarLands.repackage.blue.endless.jankson';
-    classifier = "shadow"
-    configurations = [project.configurations.shadow]
-}
-
-remapJar {
-    dependsOn shadowJar
-    jar = shadowJar.archivePath
 }
 
 processResources {

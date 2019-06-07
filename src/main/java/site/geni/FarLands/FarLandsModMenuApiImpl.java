@@ -1,7 +1,7 @@
 package site.geni.FarLands;
 
 import io.github.prospector.modmenu.api.ModMenuApi;
-import net.minecraft.client.gui.Screen;
+import net.minecraft.client.gui.screen.Screen;
 import site.geni.FarLands.gui.CustomizeFarLandsScreen;
 
 import java.util.function.Function;

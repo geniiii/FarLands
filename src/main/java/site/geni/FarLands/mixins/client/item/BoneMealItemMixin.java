@@ -3,7 +3,6 @@ package site.geni.FarLands.mixins.client.item;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -41,7 +40,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V",
 			shift = At.Shift.BEFORE
 		),
-		method = "playEffects",
+		method = "createParticles",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
@@ -53,14 +52,14 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 	/**
 	 * Adds particles created by bone meal using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
-	 * @param iWorld             {@link IWorld} of the item
+	 * @param iWorld         {@link IWorld} of the item
 	 * @param ParticleEffect {@link ParticleEffect} to use when adding particle
-	 * @param xOrig              The particle's original X position
-	 * @param yOrig              The particle's original Y position
-	 * @param zOrig              The particle's original Z position
-	 * @param velocityX          The particle's X velocity
-	 * @param velocityY          The particle's Y velocity
-	 * @param velocityZ          The particle's Z velocity
+	 * @param xOrig          The particle's original X position
+	 * @param yOrig          The particle's original Y position
+	 * @param zOrig          The particle's original Z position
+	 * @param velocityX      The particle's X velocity
+	 * @param velocityY      The particle's Y velocity
+	 * @param velocityZ      The particle's Z velocity
 	 * @author geni
 	 */
 	@Redirect(
@@ -68,13 +67,13 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 			value = "INVOKE",
 			target = "Lnet/minecraft/world/IWorld;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
 		),
-		method = "playEffects"
+		method = "createParticles"
 	)
 	private static void addParticlesProperly(IWorld iWorld, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
 		if (FarLands.getConfig().fixParticlesEntities) {
-			final double x = pos.getX() + random.nextDouble();
-			final double y = pos.getY() + random.nextDouble();
-			final double z = pos.getZ() + random.nextDouble();
+			final double x = pos.getX() + RANDOM.nextDouble();
+			final double y = pos.getY() + RANDOM.nextDouble();
+			final double z = pos.getZ() + RANDOM.nextDouble();
 
 			iWorld.addParticle(ParticleTypes.HAPPY_VILLAGER, x, y, z, velocityX, velocityY, velocityZ);
 		} else {

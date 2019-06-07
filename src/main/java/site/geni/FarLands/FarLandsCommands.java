@@ -4,7 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import io.github.cottonmc.clientcommands.ArgumentBuilders;
 import io.github.cottonmc.clientcommands.ClientCommandPlugin;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.ingame.ChatScreen;
+import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.server.command.CommandSource;
 import site.geni.FarLands.gui.CustomizeFarLandsScreen;
 

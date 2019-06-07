@@ -1,7 +1,7 @@
 package site.geni.FarLands.mixins.client.gui;
 
-import me.shedaniel.cloth.gui.ClothConfigScreen;
-import net.minecraft.client.gui.ingame.ChatScreen;
+import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
+import net.minecraft.client.gui.screen.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,7 +23,7 @@ public abstract class ChatScreenMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/client/MinecraftClient;openScreen(Lnet/minecraft/client/gui/Screen;)V"
+			target = "Lnet/minecraft/client/MinecraftClient;openScreen(Lnet/minecraft/client/gui/screen/Screen;)V"
 		),
 		method = "keyPressed",
 		cancellable = true

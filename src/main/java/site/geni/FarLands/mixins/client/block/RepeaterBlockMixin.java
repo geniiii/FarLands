@@ -3,7 +3,7 @@ package site.geni.FarLands.mixins.client.block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RepeaterBlock;
 import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.state.property.IntegerProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -22,7 +22,7 @@ import java.util.Random;
 public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 	@Shadow
 	@Final
-	public static IntegerProperty DELAY;
+	public static IntProperty DELAY;
 
 	/**
 	 * Adds particles created by repeater blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions

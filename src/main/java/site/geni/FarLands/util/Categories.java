@@ -1,11 +1,8 @@
 package site.geni.FarLands.util;
 
-import me.shedaniel.cloth.api.ConfigScreenBuilder;
-import me.shedaniel.cloth.gui.ClothConfigScreen;
-import me.shedaniel.cloth.gui.entries.BooleanListEntry;
-import me.shedaniel.cloth.gui.entries.DoubleListEntry;
-import me.shedaniel.cloth.gui.entries.SubCategoryListEntry;
-import me.shedaniel.cloth.gui.entries.TextListEntry;
+import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
+import me.shedaniel.clothconfig2.api.ConfigCategory;
+import me.shedaniel.clothconfig2.gui.entries.*;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.ChatFormat;
 import site.geni.FarLands.FarLands;
@@ -23,12 +20,12 @@ public class Categories {
 		/**
 		 * Creates all options of the "General" category
 		 *
-		 * @param general The "General" category's {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder}
+		 * @param general The "General" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigScreenBuilder.CategoryBuilder general) {
+		public static void createCategory(ConfigCategory general) {
 			// Adds the option for enabling the Far Lands
-			general.addOption(new BooleanListEntry(
+			general.addEntry(new BooleanListEntry(
 				"config.farlands.farLandsEnabled",
 				FarLands.getConfig().farLandsEnabled,
 				"text.cloth.reset_value",
@@ -37,7 +34,7 @@ public class Categories {
 			));
 
 			// Adds the option for killing entities in the Far Lands
-			general.addOption(new BooleanListEntry(
+			general.addEntry(new BooleanListEntry(
 				"config.farlands.killEntities",
 				FarLands.getConfig().killFallingBlockEntitiesInFarLands,
 				"text.cloth.reset_value",
@@ -49,21 +46,26 @@ public class Categories {
 
 
 	public static class World {
+		public static EstimateListEntry FAR_LANDS_ESTIMATE;
+		public static EstimateListEntry FARTHER_LANDS_ESTIMATE;
+		public static EstimateListEntry FARTHERER_LANDS_ESTIMATE;
+		public static EstimateListEntry FARTHEST_LANDS_ESTIMATE;
+
 		/**
 		 * Creates all options of the "World" category
 		 *
-		 * @param world The "World" category's {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder}
+		 * @param world The "World" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigScreenBuilder.CategoryBuilder world) {
+		public static void createCategory(ConfigCategory world) {
 			// Adds the warning in the "World" category
-			world.addOption(new TextListEntry(
+			world.addEntry(new TextListEntry(
 				"",
 				ChatFormat.RED + I18n.translate("config.farlands.category.world.warning")
 			));
 
 			// Adds the option for setting the coordinate scale
-			world.addOption(new ScaleListEntry(
+			world.addEntry(new ScaleListEntry(
 				"config.farlands.coordinateScale",
 				FarLands.getConfig().coordinateScale,
 				"text.cloth.reset_value",
@@ -73,7 +75,7 @@ public class Categories {
 			));
 
 			// Adds the option for setting the coordinate scale multiplier
-			world.addOption(new ScaleListEntry(
+			world.addEntry(new ScaleListEntry(
 				"config.farlands.coordinateScaleMultiplier",
 				FarLands.getConfig().coordinateScaleMultiplier,
 				"text.cloth.reset_value",
@@ -83,7 +85,7 @@ public class Categories {
 			));
 
 			// Adds the option for setting the height scale
-			world.addOption(new DoubleListEntry(
+			world.addEntry(new DoubleListEntry(
 				"config.farlands.heightScale",
 				FarLands.getConfig().heightScale,
 				"text.cloth.reset_value",
@@ -92,7 +94,7 @@ public class Categories {
 			));
 
 			// Adds the option for setting the height scale multiplier
-			world.addOption(new DoubleListEntry(
+			world.addEntry(new DoubleListEntry(
 				"config.farlands.heightScaleMultiplier",
 				FarLands.getConfig().heightScaleMultiplier,
 				"text.cloth.reset_value",
@@ -104,39 +106,39 @@ public class Categories {
 		}
 
 		/**
-		 * @param world The "World" category's {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder}
+		 * @param world The "World" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		private static void createEstimatesSubCategory(ConfigScreenBuilder.CategoryBuilder world) {
+		private static void createEstimatesSubCategory(ConfigCategory world) {
 			// This sub-category's entries
-			List<ClothConfigScreen.AbstractListEntry> entries = Arrays.asList(
+			List<AbstractConfigListEntry> entries = Arrays.asList(
 				// Adds the estimate for the Far Lands' location
-				new EstimateListEntry(
+				FAR_LANDS_ESTIMATE = new EstimateListEntry(
 					"config.farlands.estimatedPosition",
 					Location.FAR_LANDS.getText()
 				),
 
 				// Adds the estimate for the Farther Lands' location
-				new EstimateListEntry(
+				FARTHER_LANDS_ESTIMATE = new EstimateListEntry(
 					"config.farlands.estimatedFartherPosition",
 					Location.FARTHER_LANDS.getText()
 				),
 
 				// Adds the estimate for the Fartherer Lands' location
-				new EstimateListEntry(
+				FARTHERER_LANDS_ESTIMATE = new EstimateListEntry(
 					"config.farlands.estimatedFarthererPosition",
 					Location.FARTHERER_LANDS.getText()
 				),
 
 				// Adds the estimate for the Farthest Lands' location
-				new EstimateListEntry(
+				FARTHEST_LANDS_ESTIMATE = new EstimateListEntry(
 					"config.farlands.estimatedFarthestPosition",
 					Location.FARTHEST_LANDS.getText()
 				)
 			);
 
 			// Adds the "Estimates" sub-category to the "World" category
-			world.addOption(new SubCategoryListEntry(
+			world.addEntry(new SubCategoryListEntry(
 				"config.farlands.category.world.subcategory.estimates",
 				entries,
 				true
@@ -160,12 +162,12 @@ public class Categories {
 		/**
 		 * Creates all options and sub-categories of the "Fixes" category
 		 *
-		 * @param fixes The "Fixes" category's {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder}
+		 * @param fixes The "Fixes" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigScreenBuilder.CategoryBuilder fixes) {
+		public static void createCategory(ConfigCategory fixes) {
 			// Adds the option for fixing ore generation
-			fixes.addOption(new BooleanListEntry(
+			fixes.addEntry(new BooleanListEntry(
 				"config.farlands.fixOreGeneration",
 				FarLands.getConfig().fixOreGeneration,
 				"text.cloth.reset_value",
@@ -177,7 +179,7 @@ public class Categories {
 			));
 
 			// Adds the option for fixing particles/entities
-			fixes.addOption(new BooleanListEntry(
+			fixes.addEntry(new BooleanListEntry(
 				"config.farlands.fixParticlesEntities",
 				FarLands.getConfig().fixParticlesEntities,
 				"text.cloth.reset_value",
@@ -219,12 +221,12 @@ public class Categories {
 		/**
 		 * Creates all options of the "Fixes" category's "Experimental" sub-category and adds it
 		 *
-		 * @param fixes The "Fixes" {@link me.shedaniel.cloth.api.ConfigScreenBuilder.CategoryBuilder}
+		 * @param fixes The "Fixes" {@link ConfigCategory}
 		 * @author geni
 		 */
-		private static void createExperimentalSubCategory(ConfigScreenBuilder.CategoryBuilder fixes) {
+		private static void createExperimentalSubCategory(ConfigCategory fixes) {
 			// "Fixes" category's "Experimental" sub-category's entries
-			List<ClothConfigScreen.AbstractListEntry> experimentalEntries = Arrays.asList(
+			List<AbstractConfigListEntry> experimentalEntries = Arrays.asList(
 				// Warning message (16733525 is ChatFormat.RED's color)
 				new TextListEntry("",
 					I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning"),
@@ -259,7 +261,7 @@ public class Categories {
 			);
 
 			// Adds the "Experimental" sub-category to the "Fixes" category
-			fixes.addOption(new SubCategoryListEntry(
+			fixes.addEntry(new SubCategoryListEntry(
 				"config.farlands.category.fixes.subcategory.experimental",
 				experimentalEntries,
 				false

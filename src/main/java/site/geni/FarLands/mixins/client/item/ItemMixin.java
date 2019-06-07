@@ -16,5 +16,5 @@ public abstract class ItemMixin {
 	 */
 	@Shadow
 	@Final
-	protected static Random random;
+	protected static Random RANDOM;
 }

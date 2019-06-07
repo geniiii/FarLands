@@ -1,6 +1,6 @@
 package site.geni.FarLands.gui.entries;
 
-import me.shedaniel.cloth.gui.entries.StringListEntry;
+import me.shedaniel.clothconfig2.gui.entries.StringListEntry;
 
 import static org.lwjgl.glfw.GLFW.*;
 

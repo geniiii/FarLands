@@ -19,6 +19,10 @@ public class FarLands implements ModInitializer {
 		return CONFIG;
 	}
 
+	public static void saveConfig() {
+		ConfigManager.saveConfig(CONFIG);
+	}
+
 	public static ModLogger getLogger() {
 		return LOGGER;
 	}

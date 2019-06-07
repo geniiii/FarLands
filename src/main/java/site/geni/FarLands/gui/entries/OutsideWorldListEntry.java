@@ -1,6 +1,6 @@
 package site.geni.FarLands.gui.entries;
 
-import me.shedaniel.cloth.gui.entries.BooleanListEntry;
+import me.shedaniel.clothconfig2.gui.entries.BooleanListEntry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
 
