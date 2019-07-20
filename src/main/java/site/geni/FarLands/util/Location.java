@@ -1,7 +1,7 @@
 package site.geni.FarLands.util;
 
-import net.minecraft.ChatFormat;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.util.Formatting;
 import site.geni.FarLands.FarLands;
 import site.geni.FarLands.config.Config;
 
@@ -23,7 +23,7 @@ public enum Location {
 		FARTHERER_LANDS
 	);
 
-	private static final String INVALID = ChatFormat.RED + I18n.translate("config.farlands.invalid");
+	private static final String INVALID = Formatting.RED + I18n.translate("config.farlands.invalid");
 
 	public static final Location[] LOCATIONS = new Location[]{FAR_LANDS, FARTHER_LANDS, FARTHERER_LANDS, FARTHEST_LANDS};
 

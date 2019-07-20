@@ -7,6 +7,9 @@
 		"authors": [
 				"geni"
 		],
+		"contributors": [
+				"raphydaphy"
+		],
 		"contact": {
 				"homepage": "https://polgarian.life",
 				"sources": "https://github.com/polgaria/FarLands",
@@ -29,11 +32,13 @@
 		"mixins": [
 				"farlands.mixins.json"
 		],
-		"requires": {
+		"depends": {
 				"fabricloader": ">=0.4.0",
 				"fabric-resource-loader-v0": "*",
-				"cloth-config": ">=0.2.1.14",
-				"cotton": ">=0.6.6",
-				"cotton-client-commands": ">=0.3.1"
+				"cloth-config2": ">=0.4",
+				"cotton-client-commands": ">=0.4.2"
+		},
+		"suggested": {
+				"modmenu": "*"
 		}
 }

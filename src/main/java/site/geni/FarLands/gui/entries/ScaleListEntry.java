@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ScaleListEntry extends DoubleListEntry {
+	@Deprecated
 	public ScaleListEntry(String fieldName, Double value, String resetButtonKey, Supplier<Double> defaultValue, Consumer<Double> saveConsumer, ConfigCategory category) {
 		super(fieldName, value, resetButtonKey, defaultValue, saveConsumer);
 	}
@@ -26,68 +27,34 @@ public class ScaleListEntry extends DoubleListEntry {
 	private static void updateOptions(Config config) {
 		LocationHelper.updateAll(config);
 
+		// method_1870 moves the cursor back to the start in order to avoid cutting off text
 		if (Categories.World.FAR_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FAR_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FAR_LANDS.getText());
+			entryWidget.method_1870();
 		}
 
 		if (Categories.World.FARTHER_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHER_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHER_LANDS.getText());
+			entryWidget.method_1870();
 		}
 
 		if (Categories.World.FARTHERER_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHERER_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHERER_LANDS.getText());
+			entryWidget.method_1870();
 		}
 
 		if (Categories.World.FARTHEST_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHEST_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHEST_LANDS.getText());
+			entryWidget.method_1870();
 		}
-
-		/*for (Object object : category.getEntries()) {
-			final AbstractConfigEntry entry = (AbstractConfigEntry) object;
-
-			if (entry instanceof SubCategoryListEntry) {
-				final List<? extends Element> elements = ((SubCategoryListEntry) entry).children();
-
-				for (final Element element : elements) {
-					if (!(element instanceof TextFieldListEntry)) {
-						continue;
-					}
-
-					final String entryName = ((TextFieldListEntry) element).getFieldName();
-					final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) element).children().get(0);
-
-					switch (entryName) {
-						case "config.farlands.estimatedPosition":
-							entryWidget.setText(Location.FAR_LANDS.getText());
-
-							break;
-						case "config.farlands.estimatedFartherPosition":
-							entryWidget.setText(Location.FARTHER_LANDS.getText());
-
-							break;
-						case "config.farlands.estimatedFarthererPosition":
-							entryWidget.setText(Location.FARTHERER_LANDS.getText());
-
-							break;
-						case "config.farlands.estimatedFarthestPosition":
-							entryWidget.setText(Location.FARTHEST_LANDS.getText());
-
-							break;
-					}
-
-					// Moves cursor back to the start in order to avoid cutting off text
-					entryWidget.method_1870();
-				}
-			}
-		}*/
 	}
 
 	@Override

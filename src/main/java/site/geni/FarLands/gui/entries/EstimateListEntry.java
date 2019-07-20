@@ -5,7 +5,7 @@ import me.shedaniel.clothconfig2.gui.entries.StringListEntry;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class EstimateListEntry extends StringListEntry {
-
+	@Deprecated
 	public EstimateListEntry(String fieldName, String value) {
 		super(fieldName, value, null);
 	}

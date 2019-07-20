@@ -7,7 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BoundingBox;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.SpawnHelper;
@@ -108,11 +108,11 @@ public abstract class SpawnHelperMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/entity/EntityType;createSimpleBoundingBox(DDD)Lnet/minecraft/util/math/BoundingBox;"
+			target = "Lnet/minecraft/entity/EntityType;createSimpleBoundingBox(DDD)Lnet/minecraft/util/math/Box;"
 		),
 		method = "spawnEntitiesInChunk"
 	)
-	private static BoundingBox createSimpleBoundingBoxProperly(EntityType entityType, double origX, double y, double origZ) {
+	private static Box createSimpleBoundingBoxProperly(EntityType entityType, double origX, double y, double origZ) {
 		return FarLands.getConfig().fixMobSpawning ? entityType.createSimpleBoundingBox(x, y, z) : entityType.createSimpleBoundingBox(origX, y, origZ);
 	}
 

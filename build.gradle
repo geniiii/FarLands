@@ -21,6 +21,7 @@ repositories {
         name "CottonMC"
         url "http://server.bbkr.space:8081/artifactory/libs-snapshot"
     }
+	jcenter()
 }
 
 dependencies {
@@ -32,8 +33,8 @@ dependencies {
     modCompile "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
     include "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
 
-    modCompile "cloth-config:ClothConfig2:${project.clothconfig_version}"
-    include "cloth-config:ClothConfig2:${project.clothconfig_version}"
+    modCompile "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
+    include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
 
     modCompile "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
     include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
