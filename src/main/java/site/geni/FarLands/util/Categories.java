@@ -157,7 +157,7 @@ public class Categories {
 			// Adds the "Estimates" sub-category to the "World" category
 			final SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(
 				"text.cloth-config.reset_value",
-				"config.farlands.category.fixes.subcategory.estimates"
+				"config.farlands.category.world.subcategory.estimates"
 			);
 			subCategoryBuilder.addAll(entries);
 			subCategoryBuilder.setExpended(true);
