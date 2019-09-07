@@ -2,6 +2,7 @@ package site.geni.FarLands.mixins.client.block.entity;
 
 import net.minecraft.block.entity.EnchantingTableBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,10 +15,11 @@ abstract class EnchantingTableBlockEntityMixin {
 	private static PlayerEntity playerEntity;
 
 	/**
-	 * Sets {@code playerEntity} to the {@link PlayerEntity} close to the {@link EnchantingTableBlockEntity}
+	 * Sets {@code playerEntity} to the {@link PlayerEntity} close to the {@link EnchantingTableBlockEntity} <br>
+	 * Finds the closest player using {@link Double} for positions instead of {@link Float} in order to have it detect the player more precisely
 	 *
 	 * @param orig Original {@link PlayerEntity}
-	 * @return {@code orig}
+	 * @return Depending on the mod's configuration, either {@code orig} or a more precisely located player
 	 * @author geni
 	 * @see EnchantingTableBlockEntity#tick
 	 */
@@ -31,6 +33,9 @@ abstract class EnchantingTableBlockEntityMixin {
 	)
 	private PlayerEntity setPlayerEntity(PlayerEntity orig) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
+			final BlockPos pos = ((BlockEntityMixin) this).getPos();
+
+			orig = (((BlockEntityMixin)this).getWorld().getClosestPlayer(pos.getX(), pos.getY(), pos.getZ()));
 			playerEntity = orig;
 		}
 
