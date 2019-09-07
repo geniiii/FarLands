@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(class_4538.class)
-public abstract class Unmapped4538Mixin {
+public interface Unmapped4538Mixin {
 	/**
 	 * Gets top block inside the ground in sample up to X/Z: {@link Integer#MIN_VALUE} instead of -3.0E7
 	 *
@@ -20,7 +20,7 @@ public abstract class Unmapped4538Mixin {
 		),
 		method = "method_22346"
 	)
-	private static int getTopUpToNegativeIntegerMaxValueXZ(int original) {
+	default int getTopUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
 	}
 
@@ -37,7 +37,7 @@ public abstract class Unmapped4538Mixin {
 		),
 		method = "method_22346"
 	)
-	private static int getTopUpToPositiveIntegerMaxValueXZ(int original) {
+	default int getTopUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 }

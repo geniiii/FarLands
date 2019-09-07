@@ -8,10 +8,10 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
+import site.geni.FarLands.config.Config;
 
 @SuppressWarnings("unused")
-@Mixin(BlockPos.class)
+@Mixin(value = BlockPos.class)
 public abstract class BlockPosMixin {
 	@Shadow
 	@Final
@@ -62,13 +62,12 @@ public abstract class BlockPosMixin {
 	@SuppressWarnings("UnresolvedMixinReference")
 	@Inject(
 		at = @At(
-			"HEAD"
+			"RETURN"
 		),
-		method = "<clinit>",
-		cancellable = true
+		method = "<clinit>"
 	)
 	private static void overwriteBits(CallbackInfo ci) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
+		if (new Config().load().fixLighting.getValue()) {
 			SIZE_BITS_X = 27;
 			SIZE_BITS_Z = SIZE_BITS_X; // 27
 			SIZE_BITS_Y = 64 - SIZE_BITS_X - SIZE_BITS_Z; // 10
@@ -77,8 +76,6 @@ public abstract class BlockPosMixin {
 			BITS_Z = (1L << SIZE_BITS_Z) - 1L; // 0x7FFFFFF
 			BIT_SHIFT_Z = SIZE_BITS_Y; // 10
 			BIT_SHIFT_X = SIZE_BITS_Y + SIZE_BITS_Z; // 37
-
-			ci.cancel();
 		}
 	}
 }

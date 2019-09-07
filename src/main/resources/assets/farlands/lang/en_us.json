@@ -9,10 +9,10 @@
   "config.farlands.category.world.subcategory.estimates": "Estimates",
 
   "config.farlands.farLandsEnabled": "Enable Far Lands",
-		"config.farlands.killEntities": "Kill falling block entities in Far Lands",
+	"config.farlands.killEntities": "Kill falling block entities in Far Lands",
 
-		"config.farlands.farLandsEnabled.tooltip": "Whether or not the Far Lands should generate",
-		"config.farlands.killEntities.tooltip": "Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands",
+	"config.farlands.farLandsEnabled.tooltip": "Whether or not the Far Lands should generate.",
+	"config.farlands.killEntities.tooltip": "Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands.",
 
   "config.farlands.fixOreGeneration": "Fix ore generation",
   "config.farlands.fixParticlesEntities": "Fix particles and entities",
@@ -24,9 +24,9 @@
 
   "config.farlands.fixLighting.tooltip.description": "Fixes lighting issues up to X/Z: ±2^26 / ±67108864.",
   "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server, nor load an existing world with it enabled.",
-		"config.farlands.fixLighting.tooltip.world": "This option cannot be toggled while in a world!",
+	"config.farlands.fixLighting.tooltip.world": "This option cannot be toggled while in a world!",
 
-		"config.farlands.fixParticlesEntities.comment": "Fixes precision loss with various entities and particles.",
+	"config.farlands.fixParticlesEntities.tooltip": "Fixes precision loss with various entities and particles.",
   "config.farlands.fixParticlesEntities.tooltip.description": "This fixes precision loss with the following particles:",
   "config.farlands.fixParticlesEntities.tooltip.description.end_portal": "End Portal particles",
   "config.farlands.fixParticlesEntities.tooltip.description.falling_block": "Sand/Soul Sand/Gravel particles",
@@ -48,15 +48,14 @@
   "config.farlands.invalid": "Invalid!",
 
   "config.farlands.coordinateScale": "Coordinate scale",
-  "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
-  "config.farlands.heightScale": "Height scale",
+	"config.farlands.heightScale": "Height scale",
+	"config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",
 
-
-		"config.farlands.coordinateScale.tooltip": "The world's coordinate scale",
-		"config.farlands.coordinateScaleMultiplier.tooltip": "The coordinate scale multiplier (coordinate scale * multiplier)",
-		"config.farlands.heightScale.tooltip": "The world's height scale",
-		"config.farlands.heightScaleMultiplier.tooltip": "The height scale multiplier (height scale * multiplier)",
+	"config.farlands.coordinateScale.tooltip": "The world's coordinate scale.",
+	"config.farlands.heightScale.tooltip": "The world's height scale.",
+	"config.farlands.coordinateScaleMultiplier.tooltip": "The coordinate scale multiplier (coordinate scale * multiplier).",
+	"config.farlands.heightScaleMultiplier.tooltip": "The height scale multiplier (height scale * multiplier).",
 
   "config.farlands.estimatedPosition": "Estimated Far Lands X/Z",
   "config.farlands.estimatedFartherPosition": "Estimated Farther Lands X/Z",

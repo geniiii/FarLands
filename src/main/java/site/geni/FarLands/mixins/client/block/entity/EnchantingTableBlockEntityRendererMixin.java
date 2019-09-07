@@ -15,18 +15,11 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import site.geni.FarLands.FarLands;
 
-@SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntityRenderer.class)
 abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRenderer<EnchantingTableBlockEntity> {
-	@Shadow
-	@Final
-	private static Identifier BOOK_TEX;
 	private static double x;
 	private static double y;
 	private static double z;
-	@Shadow
-	@Final
-	private BookModel book;
 
 	/**
 	 * Sets X/Y/Z to {@link EnchantingTableBlockEntity}'s X/Y/Z (relative to the enchanting table) (?)

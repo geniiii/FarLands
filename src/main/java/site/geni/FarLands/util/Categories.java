@@ -86,6 +86,7 @@ public class Categories {
 					world
 				).setDefaultValue(FarLands.getConfig().coordinateScale.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScale.setValue(scale))
+					.setTooltip(I18n.translate("config.farlands.coordinateScale.tooltip"))
 					.build()
 			);
 
@@ -98,6 +99,7 @@ public class Categories {
 					world
 				).setDefaultValue(FarLands.getConfig().coordinateScaleMultiplier.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScaleMultiplier.setValue(scale))
+					.setTooltip(I18n.translate("config.farlands.coordinateScaleMultiplier.tooltip"))
 					.build()
 			);
 
@@ -109,6 +111,7 @@ public class Categories {
 					FarLands.getConfig().heightScale.getValue()
 				).setDefaultValue(FarLands.getConfig().heightScale.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().heightScale.setValue(scale))
+					.setTooltip(I18n.translate("config.farlands.heightScale.tooltip"))
 					.build()
 			);
 
@@ -120,6 +123,7 @@ public class Categories {
 					FarLands.getConfig().heightScaleMultiplier.getValue()
 				).setDefaultValue(FarLands.getConfig().heightScaleMultiplier.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().heightScaleMultiplier.setValue(scale))
+					.setTooltip(I18n.translate("config.farlands.heightScaleMultiplier.tooltip"))
 					.build()
 			);
 
@@ -250,11 +254,11 @@ public class Categories {
 		private static void createExperimentalSubCategory(ConfigCategory fixes) {
 			// "Fixes" category's "Experimental" sub-category's entries
 			List<AbstractConfigListEntry> experimentalEntries = Arrays.asList(
-				// Warning message (16733525 is ChatFormat.RED's color)
+				// Warning message (0xff5555 is Formatting.RED's color)
 				new TextDescriptionBuilder("",
 					"",
 					I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning")
-				).setColor(16733525)
+				).setColor(0xff5555)
 					.build(),
 
 				// Lighting
@@ -266,8 +270,7 @@ public class Categories {
 					I18n.translate("config.farlands.fixLighting.tooltip.description"),
 					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
 					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.world")
-				)
-					.setDefaultValue(FarLands.getConfig().fixLighting.getDefaultValue())
+				).setDefaultValue(FarLands.getConfig().fixLighting.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().fixLighting.setValue(bool))
 					.build(),
 
