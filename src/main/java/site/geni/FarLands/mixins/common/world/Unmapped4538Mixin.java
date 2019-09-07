@@ -20,7 +20,7 @@ public interface Unmapped4538Mixin {
 		),
 		method = "method_22346"
 	)
-	default int getTopUpToNegativeIntegerMaxValueXZ(int original) {
+	static int getTopUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
 	}
 
@@ -37,7 +37,7 @@ public interface Unmapped4538Mixin {
 		),
 		method = "method_22346"
 	)
-	default int getTopUpToPositiveIntegerMaxValueXZ(int original) {
+	static int getTopUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 }

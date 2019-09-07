@@ -54,7 +54,7 @@ public abstract class BlockPosMixin {
 	private static long BITS_Z;
 
 	/**
-	 * Overwrites bit masks, bit shifts and bit sizes of coordinates depending on the mod's configuration
+	 * Overwrites bit masks, bit shifts and amount of bits of each coordinate depending on the mod's configuration
 	 *
 	 * @param ci {@link CallbackInfo} required for {@link Inject}
 	 * @author geni
