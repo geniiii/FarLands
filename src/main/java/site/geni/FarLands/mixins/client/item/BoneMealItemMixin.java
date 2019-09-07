@@ -44,7 +44,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private static void setVariables(IWorld iWorld, BlockPos blockPos, int unknown, CallbackInfo ci, BlockState blockState, int forInt, double velocityX, double velocityY, double velocityZ) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			pos = blockPos;
 		}
 	}
@@ -70,7 +70,7 @@ public abstract class BoneMealItemMixin extends ItemMixin {
 		method = "createParticles"
 	)
 	private static void addParticlesProperly(IWorld iWorld, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityX, double velocityY, double velocityZ) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final double x = pos.getX() + RANDOM.nextDouble();
 			final double y = pos.getY() + RANDOM.nextDouble();
 			final double z = pos.getZ() + RANDOM.nextDouble();

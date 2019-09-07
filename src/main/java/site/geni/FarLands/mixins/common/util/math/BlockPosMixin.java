@@ -68,7 +68,7 @@ public abstract class BlockPosMixin {
 		cancellable = true
 	)
 	private static void overwriteBits(CallbackInfo ci) {
-		if (FarLands.getConfig().fixLighting) {
+		if (FarLands.getConfig().fixLighting.getValue()) {
 			SIZE_BITS_X = 27;
 			SIZE_BITS_Z = SIZE_BITS_X; // 27
 			SIZE_BITS_Y = 64 - SIZE_BITS_X - SIZE_BITS_Z; // 10

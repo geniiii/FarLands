@@ -48,7 +48,7 @@ public abstract class MobSpawnerLogicMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final BlockPos blockPos = this.getPos();
 			final World world = this.getWorld();
 

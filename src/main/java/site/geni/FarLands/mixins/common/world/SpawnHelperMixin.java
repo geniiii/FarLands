@@ -60,13 +60,13 @@ public abstract class SpawnHelperMixin {
 	@Inject(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
+			target = "Lnet/minecraft/server/world/ServerWorld;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
 		),
 		method = "spawnEntitiesInChunk",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private static void setXZ(EntityCategory entityCategory, World world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable blockPosMutable, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
-		if (FarLands.getConfig().fixMobSpawning) {
+		if (FarLands.getConfig().fixMobSpawning.getValue()) {
 			x = mobX + 0.5D;
 			z = mobZ + 0.5D;
 		}
@@ -75,12 +75,12 @@ public abstract class SpawnHelperMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
+			target = "Lnet/minecraft/server/world/ServerWorld;getClosestPlayer(DDD)Lnet/minecraft/entity/player/PlayerEntity;"
 		),
 		method = "spawnEntitiesInChunk"
 	)
 	private static PlayerEntity getPlayerEntityClosestToCoordinatesProperly(World world, double origX, double y, double origZ) {
-		return FarLands.getConfig().fixMobSpawning ? world.getClosestPlayer(x, y, z) : world.getClosestPlayer(origX, y, origZ);
+		return FarLands.getConfig().fixMobSpawning.getValue() ? world.getClosestPlayer(x, y, z) : world.getClosestPlayer(origX, y, origZ);
 	}
 
 	@Redirect(
@@ -91,7 +91,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk"
 	)
 	private static double getPlayerSquaredDistanceToProperly(PlayerEntity playerEntity, double origX, double y, double origZ) {
-		return FarLands.getConfig().fixMobSpawning ? playerEntity.squaredDistanceTo(x, y, z) : playerEntity.squaredDistanceTo(origX, y, origZ);
+		return FarLands.getConfig().fixMobSpawning.getValue() ? playerEntity.squaredDistanceTo(x, y, z) : playerEntity.squaredDistanceTo(origX, y, origZ);
 	}
 
 	@Redirect(
@@ -102,7 +102,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk"
 	)
 	private static boolean isWithinDistanceProperly(BlockPos blockPos, Position position, double distance) {
-		return FarLands.getConfig().fixMobSpawning ? blockPos.isWithinDistance(new Vec3d(x, position.getY(), z), distance) : blockPos.isWithinDistance(position, distance);
+		return FarLands.getConfig().fixMobSpawning.getValue() ? blockPos.isWithinDistance(new Vec3d(x, position.getY(), z), distance) : blockPos.isWithinDistance(position, distance);
 	}
 
 	@Redirect(
@@ -113,7 +113,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk"
 	)
 	private static Box createSimpleBoundingBoxProperly(EntityType entityType, double origX, double y, double origZ) {
-		return FarLands.getConfig().fixMobSpawning ? entityType.createSimpleBoundingBox(x, y, z) : entityType.createSimpleBoundingBox(origX, y, origZ);
+		return FarLands.getConfig().fixMobSpawning.getValue() ? entityType.createSimpleBoundingBox(x, y, z) : entityType.createSimpleBoundingBox(origX, y, origZ);
 	}
 
 	@Redirect(
@@ -124,7 +124,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk"
 	)
 	private static void setPositionAndAnglesProperly(MobEntity mobEntity, double origX, double y, double origZ, float yaw, float pitch) {
-		if (FarLands.getConfig().fixMobSpawning) {
+		if (FarLands.getConfig().fixMobSpawning.getValue()) {
 			mobEntity.setPositionAndAngles(x, y, z, yaw, pitch);
 		} else {
 			mobEntity.setPositionAndAngles(origX, y, origZ, yaw, pitch);

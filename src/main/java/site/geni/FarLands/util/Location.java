@@ -9,14 +9,14 @@ import java.util.function.Function;
 
 public enum Location {
 	FAR_LANDS(
-		config -> (long) (Integer.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4))
+		config -> (long) (Integer.MAX_VALUE / ((config.coordinateScale.getValue() * config.coordinateScaleMultiplier.getValue()) / 4))
 	),
 	FARTHER_LANDS(
 		config -> FAR_LANDS.getValue() * 80,
 		FAR_LANDS
 	),
 	FARTHERER_LANDS(
-		config -> (long) (Long.MAX_VALUE / ((config.coordinateScale * config.coordinateScaleMultiplier) / 4))
+		config -> (long) (Long.MAX_VALUE / ((config.coordinateScale.getValue() * config.coordinateScaleMultiplier.getValue()) / 4))
 	),
 	FARTHEST_LANDS(
 		config -> FARTHERER_LANDS.getValue() * 80,

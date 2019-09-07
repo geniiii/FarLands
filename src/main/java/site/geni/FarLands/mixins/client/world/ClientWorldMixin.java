@@ -51,7 +51,7 @@ public abstract class ClientWorldMixin extends WorldMixin {
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
 	private void setXYZ(int x, int y, int z, int maxOffset, Random random, boolean ifHoldingBarrierBlock, BlockPos.Mutable blockPos, CallbackInfo ci, int xRandom, int yRandom, int zRandom) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			ClientWorldMixin.x = xRandom;
 			ClientWorldMixin.y = yRandom;
 			ClientWorldMixin.z = zRandom;
@@ -66,7 +66,7 @@ public abstract class ClientWorldMixin extends WorldMixin {
 		method = "randomBlockDisplayTick"
 	)
 	private void addParticlesProperly(ClientWorld clientWorld, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityX, double velocityZ, double velocityY) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			this.addParticle(ParticleTypes.BARRIER, x + 0.5D, y + 0.5D, z + 0.5D, velocityX, velocityY, velocityZ);
 		} else {
 			this.addParticle(ParticleTypes.BARRIER, xOrig, yOrig, zOrig, velocityX, velocityY, velocityZ);

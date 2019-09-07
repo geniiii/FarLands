@@ -27,33 +27,32 @@ public class ScaleListEntry extends DoubleListEntry {
 	private static void updateOptions(Config config) {
 		LocationHelper.updateAll(config);
 
-		// method_1870 moves the cursor back to the start in order to avoid cutting off text
 		if (Categories.World.FAR_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FAR_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FAR_LANDS.getText());
-			entryWidget.method_1870();
+			entryWidget.setCursorToStart();
 		}
 
 		if (Categories.World.FARTHER_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHER_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHER_LANDS.getText());
-			entryWidget.method_1870();
+			entryWidget.setCursorToStart();
 		}
 
 		if (Categories.World.FARTHERER_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHERER_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHERER_LANDS.getText());
-			entryWidget.method_1870();
+			entryWidget.setCursorToStart();
 		}
 
 		if (Categories.World.FARTHEST_LANDS_ESTIMATE != null) {
 			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHEST_LANDS_ESTIMATE).children().get(0);
 
 			entryWidget.setText(Location.FARTHEST_LANDS.getText());
-			entryWidget.method_1870();
+			entryWidget.setCursorToStart();
 		}
 	}
 
@@ -74,10 +73,10 @@ public class ScaleListEntry extends DoubleListEntry {
 			final Config config = FarLands.getConfig();
 			switch (this.getFieldName()) {
 				case "config.farlands.coordinateScale":
-					config.coordinateScale = scale;
+					config.coordinateScale.setValue(scale);
 					break;
 				case "config.farlands.coordinateScaleMultiplier":
-					config.coordinateScaleMultiplier = scale;
+					config.coordinateScaleMultiplier.setValue(scale);
 					break;
 			}
 

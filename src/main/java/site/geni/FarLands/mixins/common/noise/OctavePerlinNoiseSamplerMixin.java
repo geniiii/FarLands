@@ -27,6 +27,6 @@ public abstract class OctavePerlinNoiseSamplerMixin {
 		method = "sample(DDDDDZ)D"
 	)
 	private double dontMaintainPrecision(double coordinate) {
-		return FarLands.getConfig().farLandsEnabled ? coordinate : maintainPrecision(coordinate);
+		return FarLands.getConfig().farLandsEnabled.getValue() ? coordinate : maintainPrecision(coordinate);
 	}
 }

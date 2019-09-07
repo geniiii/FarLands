@@ -43,7 +43,7 @@ public abstract class RepeaterBlockMixin extends HorizontalFacingBlockMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			Direction direction = blockState.get(FACING);
 			final double x = (blockPos.getX() + 0.5D) + ((double) random.nextFloat() - 0.5D) * 0.2D;
 			final double y = (blockPos.getY() + 0.4D) + ((double) random.nextFloat() - 0.5D) * 0.2D;

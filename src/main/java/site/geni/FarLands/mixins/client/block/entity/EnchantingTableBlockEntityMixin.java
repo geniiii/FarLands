@@ -30,7 +30,7 @@ abstract class EnchantingTableBlockEntityMixin {
 		method = "tick"
 	)
 	private PlayerEntity setPlayerEntity(PlayerEntity orig) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			playerEntity = orig;
 		}
 
@@ -53,7 +53,7 @@ abstract class EnchantingTableBlockEntityMixin {
 		method = "tick"
 	)
 	private double setX(double orig) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			return playerEntity.x - (((BlockEntityMixin)this).getPos().getX() + 0.5D);
 		}
 
@@ -77,7 +77,7 @@ abstract class EnchantingTableBlockEntityMixin {
 		method = "tick"
 	)
 	private double setZ(double orig) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			return playerEntity.z - (((BlockEntityMixin)this).getPos().getZ() + 0.5D);
 		}
 

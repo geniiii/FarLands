@@ -18,6 +18,7 @@
 		"common.world.gen.feature.OreFeatureMixin",
 		"common.block.TntBlockMixin",
 		"common.world.SpawnHelperMixin",
+	  "common.world.Unmapped4358Mixin",
 		"server.MinecraftServerMixin",
 		"server.player.ServerPlayNetworkHandlerMixin",
 		"server.player.ServerPlayerEntityMixin"

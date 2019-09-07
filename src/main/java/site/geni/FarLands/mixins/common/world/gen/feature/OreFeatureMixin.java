@@ -35,7 +35,7 @@ public abstract class OreFeatureMixin {
 		cancellable = true
 	)
 	private void generateOresProperly(IWorld iWorld, ChunkGenerator<? extends ChunkGeneratorConfig> chunkGenerator, Random random, BlockPos blockPos, OreFeatureConfig oreFeatureConfig, CallbackInfoReturnable<Boolean> cir, float float_1, float float_2, int int_1, double double_1, double double_2, double double_3, double double_4, int int_2, double double_5, double double_6, int int_3, int int_4, int int_5, int int_6, int int_7, int int_8, int int_9) {
-		if (FarLands.getConfig().fixOreGeneration && FarLands.getConfig().farLandsEnabled) {
+		if (FarLands.getConfig().fixOreGeneration.getValue() && FarLands.getConfig().farLandsEnabled.getValue()) {
 			double_1 = blockPos.getX() + (double) (MathHelper.sin(float_1) * float_2);
 			double_2 = blockPos.getX() - (double) (MathHelper.sin(float_1) * float_2);
 			double_3 = blockPos.getZ() + (double) (MathHelper.cos(float_1) * float_2);

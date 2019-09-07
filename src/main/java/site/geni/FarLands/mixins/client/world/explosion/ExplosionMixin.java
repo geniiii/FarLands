@@ -35,7 +35,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private BlockPos setBlockPos(BlockPos orig) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			blockPos = orig;
 		}
 
@@ -59,7 +59,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setX(double original) {
-		return FarLands.getConfig().fixParticlesEntities ? blockPos.getX() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities.getValue() ? blockPos.getX() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setY(double original) {
-		return FarLands.getConfig().fixParticlesEntities ? blockPos.getY() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities.getValue() ? blockPos.getY() + (double) this.world.random.nextFloat() : original;
 	}
 
 	/**
@@ -101,6 +101,6 @@ public abstract class ExplosionMixin {
 		method = "affectWorld"
 	)
 	private double setZ(double original) {
-		return FarLands.getConfig().fixParticlesEntities ? blockPos.getZ() + (double) this.world.random.nextFloat() : original;
+		return FarLands.getConfig().fixParticlesEntities.getValue() ? blockPos.getZ() + (double) this.world.random.nextFloat() : original;
 	}
 }

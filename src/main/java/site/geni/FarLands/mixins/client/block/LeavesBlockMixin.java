@@ -35,7 +35,7 @@ public abstract class LeavesBlockMixin {
 		cancellable = true
 	)
 	private void addRainParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final double x = blockPos.getX() + (double) random.nextFloat();
 			final double y = blockPos.getY() - 0.05D;
 			final double z = blockPos.getZ() + (double) random.nextFloat();

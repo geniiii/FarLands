@@ -35,7 +35,7 @@ public abstract class TntBlockMixin {
 		cancellable = true
 	)
 	private static void primeTntProperly(World world, BlockPos blockPos, LivingEntity livingEntity, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final TntEntity primedTntEntity = new TntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, livingEntity);
 
 			world.spawnEntity(primedTntEntity);
@@ -63,7 +63,7 @@ public abstract class TntBlockMixin {
 		cancellable = true
 	)
 	private void primeTntPrimedByExplosionProperly(World world, BlockPos blockPos, Explosion explosion, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final TntEntity primedTntEntity = new TntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, explosion.getCausingEntity());
 			primedTntEntity.setFuse((short) (world.random.nextInt(primedTntEntity.getFuseTimer() / 4) + primedTntEntity.getFuseTimer() / 8));
 

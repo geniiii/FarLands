@@ -24,7 +24,7 @@ public abstract class OverworldChunkGeneratorMixin {
 		method = "sampleNoiseColumn"
 	)
 	private static double setCoordinateScale(double original) {
-		return FarLands.getConfig().coordinateScale * FarLands.getConfig().coordinateScaleMultiplier;
+		return FarLands.getConfig().coordinateScale.getValue() * FarLands.getConfig().coordinateScaleMultiplier.getValue();
 	}
 
 	/**
@@ -42,6 +42,6 @@ public abstract class OverworldChunkGeneratorMixin {
 		method = "sampleNoiseColumn"
 	)
 	private static double setHeightScale(double original) {
-		return FarLands.getConfig().heightScale * FarLands.getConfig().heightScaleMultiplier;
+		return FarLands.getConfig().heightScale.getValue() * FarLands.getConfig().heightScaleMultiplier.getValue();
 	}
 }

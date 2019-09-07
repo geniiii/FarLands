@@ -37,7 +37,7 @@ public abstract class LavaFluidMixin {
 		cancellable = true
 	)
 	private void addParticlesProperly(World world, BlockPos blockPos, FluidState fluidState, Random random, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 
 			double x = blockPos.getX() + (double) random.nextFloat();
 			double y = blockPos.getY() + 1;

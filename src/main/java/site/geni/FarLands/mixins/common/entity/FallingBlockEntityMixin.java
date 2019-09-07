@@ -24,7 +24,7 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 		method = "tick"
 	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
-		if (FarLands.getConfig().killFallingBlockEntitiesInFarLands &&
+		if (FarLands.getConfig().killFallingBlockEntitiesInFarLands.getValue() &&
 			(this.x >= Location.FAR_LANDS.getValue()
 				|| this.x <= -Location.FAR_LANDS.getValue()
 				|| this.z >= Location.FAR_LANDS.getValue()

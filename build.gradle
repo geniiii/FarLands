@@ -35,10 +35,10 @@ dependencies {
     modImplementation "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
     include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
 
-    modImplementation "io.github.prospector.modmenu:ModMenu:${modmenu_version}"
+    modImplementation "io.github.prospector:modmenu:${modmenu_version}"
 
-    modImplementation("blue.endless:jankson:1.1.2") { transitive = false }
-    include "blue.endless:jankson:1.1.2"
+    modImplementation "me.zeroeightsix:fiber:${project.fiber_version}"
+	include "me.zeroeightsix:fiber:${project.fiber_version}"
 
     compileOnly("com.google.code.findbugs:jsr305:3.0.2") { transitive = false }
 }

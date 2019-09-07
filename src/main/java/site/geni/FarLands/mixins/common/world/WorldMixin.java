@@ -43,7 +43,7 @@ public abstract class WorldMixin {
 		constant = @Constant(
 			intValue = -30000000
 		),
-		method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z"
+		method = "isValid"
 	)
 	private static int validUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
@@ -60,7 +60,7 @@ public abstract class WorldMixin {
 		constant = @Constant(
 			intValue = 30000000
 		),
-		method = "isValid(Lnet/minecraft/util/math/BlockPos;)Z"
+		method = "isValid"
 	)
 	private static int validUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
@@ -76,7 +76,7 @@ public abstract class WorldMixin {
 		constant = @Constant(
 			intValue = -30000000
 		),
-		method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I"
+		method = "getLightLevel"
 	)
 	private static int getLightLevelUpToNegativeIntegerMaxValueXZ(int original) {
 		return Integer.MIN_VALUE;
@@ -92,43 +92,9 @@ public abstract class WorldMixin {
 		constant = @Constant(
 			intValue = 30000000
 		),
-		method = "getLightLevel(Lnet/minecraft/util/math/BlockPos;I)I"
+		method = "getLightLevel"
 	)
 	private static int getLightLevelUpToPositiveIntegerMaxValueXZ(int original) {
-		return Integer.MAX_VALUE;
-	}
-
-	/**
-	 * Gets top block inside the ground in sample up to X/Z: {@link Integer#MIN_VALUE} instead of -3.0E7
-	 *
-	 * @param original Original integer of -30000000
-	 * @return {@link Integer#MIN_VALUE}
-	 * @author geni
-	 */
-	@ModifyConstant(
-		constant = @Constant(
-			intValue = -30000000
-		),
-		method = "getTop"
-	)
-	private static int getTopUpToNegativeIntegerMaxValueXZ(int original) {
-		return Integer.MIN_VALUE;
-	}
-
-	/**
-	 * Gets top block inside the ground in sample up to X/Z: {@link Integer#MAX_VALUE} instead of 3.0E7
-	 *
-	 * @param original Original integer of 30000000
-	 * @return {@link Integer#MAX_VALUE}
-	 * @author geni
-	 */
-	@ModifyConstant(
-		constant = @Constant(
-			intValue = 30000000
-		),
-		method = "getTop"
-	)
-	private static int getTopUpToPositiveIntegerMaxValueXZ(int original) {
 		return Integer.MAX_VALUE;
 	}
 

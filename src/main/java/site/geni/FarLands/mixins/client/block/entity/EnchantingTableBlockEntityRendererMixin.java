@@ -47,7 +47,7 @@ abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRender
 		method = "method_3571"
 	)
 	private void setXYZ(EnchantingTableBlockEntity enchantingTableBlockEntity, double x, double y, double z, float float_1, int int_1, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			EnchantingTableBlockEntityRendererMixin.x = x;
 			EnchantingTableBlockEntityRendererMixin.y = y;
 			EnchantingTableBlockEntityRendererMixin.z = z;
@@ -65,13 +65,13 @@ abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRender
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lcom/mojang/blaze3d/platform/GlStateManager;translatef(FFF)V",
+			target = "Lcom/mojang/blaze3d/systems/RenderSystem;translatef(FFF)V",
 			ordinal = 0
 		),
 		method = "method_3571"
 	)
 	private void renderBookProperly(float origX, float origY, float origZ) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			GlStateManager.translated(x + 0.5D, y + 0.75D, z + 0.5D);
 		} else {
 			GlStateManager.translatef(origX, origY, origZ);

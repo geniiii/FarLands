@@ -38,7 +38,7 @@ public abstract class PortalBlockMixin {
 		method = "randomDisplayTick"
 	)
 	private void setVariables(BlockState blockState, World world, BlockPos blockPos, Random worldRandom, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			random = worldRandom;
 			pos = blockPos;
 		}
@@ -65,7 +65,7 @@ public abstract class PortalBlockMixin {
 		method = "randomDisplayTick"
 	)
 	private void addParticlesProperly(World world, ParticleEffect ParticleEffect, double xOrig, double yOrig, double zOrig, double velocityXOrig, double velocityYOrig, double velocityZOrig) {
-		if (FarLands.getConfig().fixParticlesEntities) {
+		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			double x = pos.getX() + (double) random.nextFloat();
 			final double y = pos.getY() + (double) random.nextFloat();
 			double z = pos.getZ() + (double) random.nextFloat();

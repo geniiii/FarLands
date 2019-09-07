@@ -2,11 +2,13 @@ package site.geni.FarLands.util;
 
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
-import me.shedaniel.clothconfig2.impl.builders.*;
+import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
+import me.shedaniel.clothconfig2.impl.builders.DoubleFieldBuilder;
+import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
+import me.shedaniel.clothconfig2.impl.builders.TextDescriptionBuilder;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.util.Formatting;
 import site.geni.FarLands.FarLands;
-import site.geni.FarLands.config.Config;
 import site.geni.FarLands.gui.entries.EstimateListEntry;
 import site.geni.FarLands.gui.entries.builders.EstimateFieldBuilder;
 import site.geni.FarLands.gui.entries.builders.OutsideWorldFieldBuilder;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("ConstantConditions")
 public class Categories {
 	public static class General {
 		/**
@@ -30,9 +33,9 @@ public class Categories {
 				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.farLandsEnabled",
-					FarLands.getConfig().farLandsEnabled
-				).setDefaultValue(new Config().farLandsEnabled)
-					.setSaveConsumer(bool -> FarLands.getConfig().farLandsEnabled = bool)
+					FarLands.getConfig().farLandsEnabled.getValue()
+				).setDefaultValue(FarLands.getConfig().farLandsEnabled.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().farLandsEnabled.setValue(bool))
 					.build()
 			);
 
@@ -41,9 +44,10 @@ public class Categories {
 				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.killEntities",
-					FarLands.getConfig().killFallingBlockEntitiesInFarLands
-				).setDefaultValue(new Config().killFallingBlockEntitiesInFarLands)
-					.setSaveConsumer(bool -> FarLands.getConfig().killFallingBlockEntitiesInFarLands = bool)
+					FarLands.getConfig().killFallingBlockEntitiesInFarLands.getValue()
+				).setDefaultValue(FarLands.getConfig().killFallingBlockEntitiesInFarLands.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().killFallingBlockEntitiesInFarLands.setValue(bool))
+					.setTooltip(I18n.translate("config.farlands.killEntities.tooltip"))
 					.build()
 			);
 		}
@@ -69,7 +73,7 @@ public class Categories {
 					"",
 					"",
 					I18n.translate("config.farlands.category.world.warning")
-				).setColor(16733525)
+				).setColor(0xff5555)
 					.build()
 			);
 
@@ -78,10 +82,10 @@ public class Categories {
 				new ScaleFieldBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.coordinateScale",
-					FarLands.getConfig().coordinateScale,
+					FarLands.getConfig().coordinateScale.getValue(),
 					world
-				).setDefaultValue(new Config().coordinateScale)
-					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScale = scale)
+				).setDefaultValue(FarLands.getConfig().coordinateScale.getDefaultValue())
+					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScale.setValue(scale))
 					.build()
 			);
 
@@ -90,10 +94,10 @@ public class Categories {
 				new ScaleFieldBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.coordinateScaleMultiplier",
-					FarLands.getConfig().coordinateScaleMultiplier,
+					FarLands.getConfig().coordinateScaleMultiplier.getValue(),
 					world
-				).setDefaultValue(new Config().coordinateScaleMultiplier)
-					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScaleMultiplier = scale)
+				).setDefaultValue(FarLands.getConfig().coordinateScaleMultiplier.getDefaultValue())
+					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScaleMultiplier.setValue(scale))
 					.build()
 			);
 
@@ -102,9 +106,9 @@ public class Categories {
 				new DoubleFieldBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.heightScale",
-					FarLands.getConfig().heightScale
-				).setDefaultValue(new Config().heightScale)
-					.setSaveConsumer(scale -> FarLands.getConfig().heightScale = scale)
+					FarLands.getConfig().heightScale.getValue()
+				).setDefaultValue(FarLands.getConfig().heightScale.getDefaultValue())
+					.setSaveConsumer(scale -> FarLands.getConfig().heightScale.setValue(scale))
 					.build()
 			);
 
@@ -113,9 +117,9 @@ public class Categories {
 				new DoubleFieldBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.heightScaleMultiplier",
-					FarLands.getConfig().heightScaleMultiplier
-				).setDefaultValue(new Config().heightScaleMultiplier)
-					.setSaveConsumer(scale -> FarLands.getConfig().heightScaleMultiplier = scale)
+					FarLands.getConfig().heightScaleMultiplier.getValue()
+				).setDefaultValue(FarLands.getConfig().heightScaleMultiplier.getDefaultValue())
+					.setSaveConsumer(scale -> FarLands.getConfig().heightScaleMultiplier.setValue(scale))
 					.build()
 			);
 
@@ -190,9 +194,9 @@ public class Categories {
 				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.fixOreGeneration",
-					FarLands.getConfig().fixOreGeneration
-				).setDefaultValue(new Config().fixOreGeneration)
-					.setSaveConsumer(bool -> FarLands.getConfig().fixOreGeneration = bool)
+					FarLands.getConfig().fixOreGeneration.getValue()
+				).setDefaultValue(FarLands.getConfig().fixOreGeneration.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().fixOreGeneration.setValue(bool))
 					.setTooltip(I18n.translate("config.farlands.fixOreGeneration.tooltip"))
 					.build()
 			);
@@ -202,9 +206,9 @@ public class Categories {
 				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.fixParticlesEntities",
-					FarLands.getConfig().fixParticlesEntities
-				).setDefaultValue(new Config().fixParticlesEntities)
-					.setSaveConsumer(bool -> FarLands.getConfig().fixParticlesEntities = bool)
+					FarLands.getConfig().fixParticlesEntities.getValue()
+				).setDefaultValue(FarLands.getConfig().fixParticlesEntities.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().fixParticlesEntities.setValue(bool))
 					.setTooltip(Fixes.createParticlesTooltip())
 					.build()
 			);
@@ -257,24 +261,24 @@ public class Categories {
 				new OutsideWorldFieldBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.fixLighting",
-					FarLands.getConfig().fixLighting
+					FarLands.getConfig().fixLighting.getValue()
 				).setTooltip(
 					I18n.translate("config.farlands.fixLighting.tooltip.description"),
 					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
 					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.world")
 				)
-					.setDefaultValue(new Config().fixLighting)
-					.setSaveConsumer(bool -> FarLands.getConfig().fixLighting = bool)
+					.setDefaultValue(FarLands.getConfig().fixLighting.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().fixLighting.setValue(bool))
 					.build(),
 
 				// Mob spawning
 				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.fixMobSpawning",
-					FarLands.getConfig().fixMobSpawning
+					FarLands.getConfig().fixMobSpawning.getValue()
 				).setTooltip(I18n.translate("config.farlands.fixMobSpawning.tooltip"))
-					.setSaveConsumer(bool -> FarLands.getConfig().fixMobSpawning = bool)
-					.setDefaultValue(new Config().fixMobSpawning)
+					.setSaveConsumer(bool -> FarLands.getConfig().fixMobSpawning.setValue(bool))
+					.setDefaultValue(FarLands.getConfig().fixMobSpawning.getDefaultValue())
 					.build()
 			);
 
