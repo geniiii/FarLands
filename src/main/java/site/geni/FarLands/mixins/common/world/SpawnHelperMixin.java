@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Position;
@@ -33,7 +34,7 @@ public abstract class SpawnHelperMixin {
 	 * Sets {@link #x} and {@link #z} to the mob to be spawned's X and Z position, respectively
 	 *
 	 * @param entityCategory   The {@link EntityCategory} of the mobs to be spawned
-	 * @param world            The world in which the chunk in which the mobs are to be spawned is
+	 * @param world      The world in which the chunk in which the mobs are to be spawned is
 	 * @param worldChunk       The chunk in which the mobs are to be spawned
 	 * @param spawnPos         {@code world}'s spawn position
 	 * @param ci               {@link CallbackInfo} required by {@link Inject}
@@ -65,7 +66,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
-	private static void setXZ(EntityCategory entityCategory, World world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable blockPosMutable, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
+	private static void setXZ(EntityCategory entityCategory, ServerWorld world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable blockPosMutable, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
 		if (FarLands.getConfig().fixMobSpawning.getValue()) {
 			x = mobX + 0.5D;
 			z = mobZ + 0.5D;
@@ -79,7 +80,7 @@ public abstract class SpawnHelperMixin {
 		),
 		method = "spawnEntitiesInChunk"
 	)
-	private static PlayerEntity getPlayerEntityClosestToCoordinatesProperly(World world, double origX, double y, double origZ) {
+	private static PlayerEntity getPlayerEntityClosestToCoordinatesProperly(ServerWorld world, double origX, double y, double origZ) {
 		return FarLands.getConfig().fixMobSpawning.getValue() ? world.getClosestPlayer(x, y, z) : world.getClosestPlayer(origX, y, origZ);
 	}
 
