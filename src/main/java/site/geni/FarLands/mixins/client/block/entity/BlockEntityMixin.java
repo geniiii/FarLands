@@ -15,6 +15,7 @@ public interface BlockEntityMixin {
 	 *
 	 * @see EnchantingTableBlockEntityMixin#setX
 	 * @see EnchantingTableBlockEntityMixin#setZ
+	 * @return {@link BlockEntity}'s {@link BlockPos}
 	 */
 	@Accessor
 	BlockPos getPos();

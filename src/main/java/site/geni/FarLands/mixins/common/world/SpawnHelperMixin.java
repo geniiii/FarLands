@@ -12,7 +12,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.SpawnHelper;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.WorldChunk;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -34,7 +33,7 @@ public abstract class SpawnHelperMixin {
 	 * Sets {@link #x} and {@link #z} to the mob to be spawned's X and Z position, respectively
 	 *
 	 * @param entityCategory   The {@link EntityCategory} of the mobs to be spawned
-	 * @param world      The world in which the chunk in which the mobs are to be spawned is
+	 * @param world            The world in which the chunk in which the mobs are to be spawned is
 	 * @param worldChunk       The chunk in which the mobs are to be spawned
 	 * @param spawnPos         {@code world}'s spawn position
 	 * @param ci               {@link CallbackInfo} required by {@link Inject}
@@ -45,6 +44,7 @@ public abstract class SpawnHelperMixin {
 	 * @param mobGroupY        The Y position at which the mob group starts
 	 * @param mobGroupZ        The Z position at which the mob group starts
 	 * @param blockState       The block at {@code spawnPos}'s {@link BlockState}
+	 * @param mobPos           The {@link BlockPos} where the mob is to be spawned (?)
 	 * @param mobGroupsSpawned The amount of mob groups spawned in the chunk
 	 * @param mobX             The mob's X position
 	 * @param mobZ             The mob's Z position
@@ -66,7 +66,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
-	private static void setXZ(EntityCategory entityCategory, ServerWorld world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable blockPosMutable, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
+	private static void setXZ(EntityCategory entityCategory, ServerWorld world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable mobPos, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
 		if (FarLands.getConfig().fixMobSpawning.getValue()) {
 			x = mobX + 0.5D;
 			z = mobZ + 0.5D;

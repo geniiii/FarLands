@@ -33,7 +33,8 @@ public class ModLogger {
 	}
 
 	/**
-	 * Use this method if you want to add custom color or formating to the log prefix.
+	 * Use this method if you want to add custom color or formatting to the log prefix.
+	 * @param format Formatting to be used.
 	 */
 	public void setPrefixFormat(Ansi format) {
 		this.prefixFormat = format;

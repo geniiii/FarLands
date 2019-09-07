@@ -83,7 +83,8 @@ public abstract class ExplosionMixin {
 	}
 
 	/**
-	 * Sets the Z position of the explosion particles using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise spawn positions
+	 * Sets the Z position of the explosion particles using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise spawn positions <br>
+	 * The GETFIELD opcode ({@link Opcodes#GETFIELD}) this injection is targeting should be the ordinal 3 as of 19w36a.
 	 *
 	 * @param original Original Z position of the explosion particle
 	 * @return Depending on the configuration of the mod, either proper position or original position
