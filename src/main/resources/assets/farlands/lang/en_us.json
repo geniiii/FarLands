@@ -17,7 +17,7 @@
   "config.farlands.fixOreGeneration": "Fix ore generation",
   "config.farlands.fixParticlesEntities": "Fix particles and entities",
   "config.farlands.fixLighting": "Partially fix lighting",
-  "config.farlands.fixMobSpawning": "Partially fix mob spawning",
+  "config.farlands.fixMobSpawning": "Fix mob spawning",
 
   "config.farlands.category.world.warning": "These options are global! They will affect any chunks generated with this mod enabled, you have been warned!",
   "config.farlands.category.fixes.subcategory.experimental.warning": "These options are experimental! They could break your world or cause any given set of problems, you have been warned!",
@@ -42,8 +42,8 @@
   "config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
   "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book",
 
-  "config.farlands.fixOreGeneration.tooltip": "Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other at far X/Z positions.",
-  "config.farlands.fixMobSpawning.tooltip": "Fixes precision loss with mob spawning, however mobs still don't spawn past the default world border.",
+  "config.farlands.fixOreGeneration.tooltip": "Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other.",
+  "config.farlands.fixMobSpawning.tooltip": "Fixes precision loss with mob spawning.",
 
   "config.farlands.invalid": "Invalid!",
 

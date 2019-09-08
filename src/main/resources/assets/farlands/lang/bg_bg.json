@@ -17,7 +17,7 @@
 	"config.farlands.fixOreGeneration": "Поправи генерацията на руди",
 	"config.farlands.fixParticlesEntities": "Поправи частици/същества",
 	"config.farlands.fixLighting": "Частично поправи светлина",
-	"config.farlands.fixMobSpawning": "Частично поправи разпространяването на чудовища",
+	"config.farlands.fixMobSpawning": "Поправи разпространяването на чудовища",
 
 	"config.farlands.category.world.warning": "Тези настройки са глобални! Те ще засегнат всички chunk-ове генерирани с този мод включен, Вие сте предупредени!",
 	"config.farlands.category.fixes.subcategory.experimental.warning": "Тези опции са експериментални! Те могат да развалят света Ви или да предизвикат какъвто и да е брой проблеми, Вие сте предупредени!",
@@ -41,8 +41,8 @@
 	"config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
 	"config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Книгата на Enchanting Table",
 
-	"config.farlands.fixOreGeneration.tooltip": "Поправя загубата на прецизност при генерирането на руди, предизвиквайки ги винаги да бъдат на 2^n блокове разстояние от едни други при далечни X/Z позиции",
-	"config.farlands.fixMobSpawning.tooltip": "Поправя загубата на прецизност при разпространяването на чудовища, но чудовищата не се разпространяват след стандартния диаметър на границата на света.",
+	"config.farlands.fixOreGeneration.tooltip": "Поправя загубата на прецизност при генерирането на руди, предизвиквайки ги винаги да бъдат на 2^n блокове разстояние от едни други.",
+	"config.farlands.fixMobSpawning.tooltip": "Поправя загубата на прецизност при разпространяването на чудовища.",
 
 	"config.farlands.invalid": "Невалидно!",
 
