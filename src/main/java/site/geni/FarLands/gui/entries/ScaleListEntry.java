@@ -1,14 +1,14 @@
-package site.geni.FarLands.gui.entries;
+package site.geni.farlands.gui.entries;
 
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.gui.entries.DoubleListEntry;
 import me.shedaniel.clothconfig2.gui.entries.TextFieldListEntry;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.config.Config;
-import site.geni.FarLands.util.Categories;
-import site.geni.FarLands.util.Location;
-import site.geni.FarLands.util.LocationHelper;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.config.Config;
+import site.geni.farlands.gui.Categories;
+import site.geni.farlands.util.Location;
+import site.geni.farlands.util.LocationHelper;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

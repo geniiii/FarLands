@@ -9,50 +9,55 @@
 	"config.farlands.category.world.subcategory.estimates": "Преценки",
 
 	"config.farlands.farLandsEnabled": "Включи Far Lands",
-	"config.farlands.killEntities": "Убии падащи блокове в Far Lands",
+	"config.farlands.killEntities": "Унищожи падащи блокове в Far Lands",
+
+	"config.farlands.farLandsEnabled.tooltip": "Дали Far Lands да бъдат генерирани.",
+	"config.farlands.killEntities.tooltip": "Дали падащи блокове (като пясък, чакъл, т.н...) да бъдат унищожени ако се намират в Far Lands.",
 
 	"config.farlands.fixOreGeneration": "Поправи генерацията на руди",
-	"config.farlands.fixParticles": "Поправи частици/същества",
+	"config.farlands.fixParticlesEntities": "Поправи частици/същества",
 	"config.farlands.fixLighting": "Частично поправи светлина",
 	"config.farlands.fixMobSpawning": "Частично поправи разпространяването на чудовища",
 
-	"config.farlands.category.world.warning": "Тези настройки са глобални! Те ще засегнат всички чънк-ове генерирани с този мод включен, Вие сте предупредени!",
+	"config.farlands.category.world.warning": "Тези настройки са глобални! Те ще засегнат всички chunk-ове генерирани с този мод включен, Вие сте предупредени!",
 	"config.farlands.category.fixes.subcategory.experimental.warning": "Тези опции са експериментални! Те могат да развалят света Ви или да предизвикат какъвто и да е брой проблеми, Вие сте предупредени!",
 
-	"config.farlands.fixLighting.tooltip.description": "Това поправя проблеми със светлината до X/Z: ±2^26 / ±67108864.",
-	"config.farlands.fixLighting.tooltip.warning": "Не е препоръчано да се включва в сървъри.",
-	"config.farlands.fixLighting.tooltip.world": "Тази настройка не може да бъде променена докато сте в свят!",
+	"config.farlands.fixLighting.tooltip.description": "Поправя проблеми със светлината до X/Z: ±2^26 / ±67108864.",
+	"config.farlands.fixLighting.tooltip.warning": "Не е препоръчано да се включва в сървъри, нито да се зареди вече съществуващ свят докато е включено.",
+	"config.farlands.fixLighting.tooltip.restart": "Промяната на тази настройка няма никакъв ефект докато играта не е рестартирана.",
 
-	"config.farlands.fixParticles.tooltip.description": "Това поправя загубата на прецизност с тези частици:",
-	"config.farlands.fixParticles.tooltip.description.end_portal": "End портални частици",
-	"config.farlands.fixParticles.tooltip.description.falling_block": "Sand/Soul Sand/Gravel частици",
-	"config.farlands.fixParticles.tooltip.description.leaves": "Water частици, капещи от листа",
-	"config.farlands.fixParticles.tooltip.description.mycelium": "Mycelium частици",
-	"config.farlands.fixParticles.tooltip.description.repeater": "Redstone Repeater частици",
-	"config.farlands.fixParticles.tooltip.description.nether_portal": "Nether портални частици",
-	"config.farlands.fixParticles.tooltip.description.lava": "Лава частици",
-	"config.farlands.fixParticles.tooltip.description.water": "Водни частици",
-	"config.farlands.fixParticles.tooltip.description.tnt": "TNT частици",
+	"config.farlands.fixParticlesEntities.tooltip.description": "Поправя загубата на прецизност с тези частици:",
+	"config.farlands.fixParticlesEntities.tooltip.description.end_portal": "End портални частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.falling_block": "Sand/Soul Sand/Gravel частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water частици, капещи от листа",
+	"config.farlands.fixParticlesEntities.tooltip.description.mycelium": "Mycelium частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.nether_portal": "Nether портални частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.lava": "Лава частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.water": "Водни частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.tnt": "TNT частици",
 
-	"config.farlands.fixParticles.tooltip.description.entities": "Това поправя загубата на прецизност с тези същества:",
-	"config.farlands.fixParticles.tooltip.description.entities.tnt": "TNT",
-	"config.farlands.fixParticles.tooltip.description.entities.enchanting_table": "Книгата на Enchanting Table",
+	"config.farlands.fixParticlesEntities.tooltip.description.entities": "Поправя загубата на прецизност с тези същества:",
+	"config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
+	"config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Книгата на Enchanting Table",
 
-	"config.farlands.fixOreGeneration.tooltip": "Това поправя загубата на прецизност при генерирането на руди, предизвиквайки ги винаги да бъдат на X блокове разстояние от едни други при далечни X/Z позиции",
-	"config.farlands.fixMobSpawning.tooltip": "Това поправя загубата на прецизност при разпространяването на чудовища, но чудовищата не се разпространяват след стандартния диаметър на границата на света.",
+	"config.farlands.fixOreGeneration.tooltip": "Поправя загубата на прецизност при генерирането на руди, предизвиквайки ги винаги да бъдат на 2^n блокове разстояние от едни други при далечни X/Z позиции",
+	"config.farlands.fixMobSpawning.tooltip": "Поправя загубата на прецизност при разпространяването на чудовища, но чудовищата не се разпространяват след стандартния диаметър на границата на света.",
 
 	"config.farlands.invalid": "Невалидно!",
 
 	"config.farlands.coordinateScale": "Координатна скала",
-	"config.farlands.coordinateScaleMultiplier": "Умножител на координатната скала",
 	"config.farlands.heightScale": "Скала на височина",
+	"config.farlands.coordinateScaleMultiplier": "Умножител на координатната скала",
 	"config.farlands.heightScaleMultiplier": "Умножител на скалата на височината",
+
+	"config.farlands.coordinateScale.tooltip": "Координатната скала на света.",
+	"config.farlands.heightScale.tooltip": "Скалата на височината на света.",
+	"config.farlands.coordinateScaleMultiplier.tooltip": "Умножителят на координатната скала. (скала * умножител)",
+	"config.farlands.heightScaleMultiplier.tooltip": "Умножителят на скалата на височината. (скала * умножител)",
 
 	"config.farlands.estimatedPosition": "Преценени Far Lands X/Z",
 	"config.farlands.estimatedFartherPosition": "Преценени Farther Lands X/Z",
 	"config.farlands.estimatedFarthererPosition": "Преценени Fartherer Lands X/Z",
-	"config.farlands.estimatedFarthestPosition": "Преценени Farthest Lands X/Z",
-
-
-	"config.farlands.customize": "Персонализирай FarLands"
+	"config.farlands.estimatedFarthestPosition": "Преценени Farthest Lands X/Z"
 }

@@ -1,4 +1,4 @@
-package site.geni.FarLands;
+package site.geni.farlands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import io.github.cottonmc.clientcommands.ArgumentBuilders;
@@ -6,7 +6,7 @@ import io.github.cottonmc.clientcommands.ClientCommandPlugin;
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
-import site.geni.FarLands.gui.CustomizeFarLandsScreen;
+import site.geni.farlands.gui.CustomizeFarLandsScreen;
 
 @SuppressWarnings("unused")
 public class FarLandsCommands implements ClientCommandPlugin {

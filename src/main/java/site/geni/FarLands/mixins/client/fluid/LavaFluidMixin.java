@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.fluid;
+package site.geni.farlands.mixins.client.fluid;
 
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.LavaFluid;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 import java.util.Random;
 

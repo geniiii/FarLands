@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.block;
+package site.geni.farlands.mixins.client.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RepeaterBlock;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 import java.util.Random;
 

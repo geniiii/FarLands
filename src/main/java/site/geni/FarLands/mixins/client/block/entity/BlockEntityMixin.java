@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.block.entity;
+package site.geni.farlands.mixins.client.block.entity;
 
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;

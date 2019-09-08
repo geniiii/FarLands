@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.world.gen.feature;
+package site.geni.farlands.mixins.common.world.gen.feature;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 import java.util.Random;
 

@@ -1,8 +1,8 @@
-package site.geni.FarLands;
+package site.geni.farlands;
 
 import io.github.cottonmc.cotton.logging.ModLogger;
 import net.fabricmc.api.ModInitializer;
-import site.geni.FarLands.config.Config;
+import site.geni.farlands.config.Config;
 
 @SuppressWarnings("unused")
 public class FarLands implements ModInitializer {

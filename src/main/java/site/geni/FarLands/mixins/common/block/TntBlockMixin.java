@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.block;
+package site.geni.farlands.mixins.common.block;
 
 import net.minecraft.block.TntBlock;
 import net.minecraft.entity.LivingEntity;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(TntBlock.class)

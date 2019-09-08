@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.util.math;
+package site.geni.farlands.mixins.common.util.math;
 
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Final;
@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.config.Config;
+import site.geni.farlands.config.Config;
 
 @SuppressWarnings("unused")
 @Mixin(value = BlockPos.class)

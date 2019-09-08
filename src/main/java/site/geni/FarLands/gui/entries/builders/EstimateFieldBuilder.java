@@ -1,7 +1,7 @@
-package site.geni.FarLands.gui.entries.builders;
+package site.geni.farlands.gui.entries.builders;
 
 import me.shedaniel.clothconfig2.impl.builders.FieldBuilder;
-import site.geni.FarLands.gui.entries.EstimateListEntry;
+import site.geni.farlands.gui.entries.EstimateListEntry;
 
 public class EstimateFieldBuilder extends FieldBuilder<String, EstimateListEntry> {
 	private String value;

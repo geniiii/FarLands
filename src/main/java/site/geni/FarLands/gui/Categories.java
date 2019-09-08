@@ -1,4 +1,4 @@
-package site.geni.FarLands.util;
+package site.geni.farlands.gui;
 
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -8,11 +8,11 @@ import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import me.shedaniel.clothconfig2.impl.builders.TextDescriptionBuilder;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.util.Formatting;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.gui.entries.EstimateListEntry;
-import site.geni.FarLands.gui.entries.builders.EstimateFieldBuilder;
-import site.geni.FarLands.gui.entries.builders.OutsideWorldFieldBuilder;
-import site.geni.FarLands.gui.entries.builders.ScaleFieldBuilder;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.gui.entries.EstimateListEntry;
+import site.geni.farlands.gui.entries.builders.EstimateFieldBuilder;
+import site.geni.farlands.gui.entries.builders.ScaleFieldBuilder;
+import site.geni.farlands.util.Location;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,14 +20,14 @@ import java.util.List;
 
 @SuppressWarnings("ConstantConditions")
 public class Categories {
-	public static class General {
+	static class General {
 		/**
 		 * Creates all options of the "General" category
 		 *
 		 * @param general The "General" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigCategory general) {
+		static void createCategory(ConfigCategory general) {
 			// Adds the option for enabling the Far Lands
 			general.addEntry(
 				new BooleanToggleBuilder(
@@ -66,7 +66,7 @@ public class Categories {
 		 * @param world The "World" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigCategory world) {
+		static void createCategory(ConfigCategory world) {
 			// Adds the warning in the "World" category
 			world.addEntry(
 				new TextDescriptionBuilder(
@@ -174,7 +174,7 @@ public class Categories {
 	}
 
 
-	public static class Fixes {
+	static class Fixes {
 		// All particles fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
 		private static final String[] PARTICLES = new String[]{
 			"water", "lava", "tnt", "end_portal", "falling_block", "mycelium", "leaves", "repeater", "nether_portal"
@@ -192,7 +192,7 @@ public class Categories {
 		 * @param fixes The "Fixes" category's {@link ConfigCategory}
 		 * @author geni
 		 */
-		public static void createCategory(ConfigCategory fixes) {
+		static void createCategory(ConfigCategory fixes) {
 			// Adds the option for fixing ore generation
 			fixes.addEntry(
 				new BooleanToggleBuilder(
@@ -262,14 +262,14 @@ public class Categories {
 					.build(),
 
 				// Lighting
-				new OutsideWorldFieldBuilder(
+				new BooleanToggleBuilder(
 					"text.cloth.reset_value",
 					"config.farlands.fixLighting",
 					FarLands.getConfig().fixLighting.getValue()
 				).setTooltip(
 					I18n.translate("config.farlands.fixLighting.tooltip.description"),
 					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
-					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.world")
+					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.restart")
 				).setDefaultValue(FarLands.getConfig().fixLighting.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().fixLighting.setValue(bool))
 					.build(),

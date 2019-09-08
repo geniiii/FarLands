@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.item;
+package site.geni.farlands.mixins.client.item;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BoneMealItem;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 
 @SuppressWarnings("unused")

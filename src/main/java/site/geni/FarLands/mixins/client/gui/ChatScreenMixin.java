@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.gui;
+package site.geni.farlands.mixins.client.gui;
 
 import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
 import net.minecraft.client.gui.screen.ChatScreen;

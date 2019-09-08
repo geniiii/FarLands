@@ -1,6 +1,7 @@
-package site.geni.FarLands.util;
+package site.geni.farlands.util;
 
-import site.geni.FarLands.config.Config;
+
+import site.geni.farlands.config.Config;
 
 public class LocationHelper {
 

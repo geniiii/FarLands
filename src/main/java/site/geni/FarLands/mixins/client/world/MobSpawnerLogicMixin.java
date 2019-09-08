@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.world;
+package site.geni.farlands.mixins.client.world;
 
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.config.Config;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.config.Config;
 
 @SuppressWarnings("unused")
 @Mixin(MobSpawnerLogic.class)

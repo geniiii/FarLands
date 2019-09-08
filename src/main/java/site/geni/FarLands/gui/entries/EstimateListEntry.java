@@ -1,4 +1,4 @@
-package site.geni.FarLands.gui.entries;
+package site.geni.farlands.gui.entries;
 
 import me.shedaniel.clothconfig2.gui.entries.StringListEntry;
 

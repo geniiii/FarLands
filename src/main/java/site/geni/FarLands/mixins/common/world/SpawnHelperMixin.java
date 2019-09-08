@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.world;
+package site.geni.farlands.mixins.common.world;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityCategory;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(SpawnHelper.class)

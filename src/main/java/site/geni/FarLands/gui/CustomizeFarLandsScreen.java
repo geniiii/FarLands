@@ -1,12 +1,11 @@
-package site.geni.FarLands.gui;
+package site.geni.farlands.gui;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.util.Categories;
+import site.geni.farlands.FarLands;
 
 public class CustomizeFarLandsScreen {
 	/**

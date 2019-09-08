@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.gui;
+package site.geni.farlands.mixins.client.gui;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;

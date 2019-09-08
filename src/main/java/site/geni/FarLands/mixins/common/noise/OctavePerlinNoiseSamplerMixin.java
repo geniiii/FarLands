@@ -1,10 +1,10 @@
-package site.geni.FarLands.mixins.common.noise;
+package site.geni.farlands.mixins.common.noise;
 
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 import static net.minecraft.util.math.noise.OctavePerlinNoiseSampler.maintainPrecision;
 

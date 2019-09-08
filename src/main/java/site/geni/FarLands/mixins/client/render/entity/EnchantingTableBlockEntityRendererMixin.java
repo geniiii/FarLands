@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.render.entity;
+package site.geni.farlands.mixins.client.render.entity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.block.entity.EnchantingTableBlockEntity;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @Mixin(EnchantingTableBlockEntityRenderer.class)
 abstract class EnchantingTableBlockEntityRendererMixin extends BlockEntityRenderer<EnchantingTableBlockEntity> {

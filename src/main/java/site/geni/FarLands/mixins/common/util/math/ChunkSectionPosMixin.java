@@ -1,11 +1,11 @@
-package site.geni.FarLands.mixins.common.util.math;
+package site.geni.farlands.mixins.common.util.math;
 
 import net.minecraft.util.math.ChunkSectionPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(ChunkSectionPos.class)

@@ -1,4 +1,4 @@
-package site.geni.FarLands.config;
+package site.geni.farlands.config;
 
 import me.zeroeightsix.fiber.JanksonSettings;
 import me.zeroeightsix.fiber.exception.FiberException;
@@ -6,7 +6,6 @@ import me.zeroeightsix.fiber.tree.ConfigNode;
 import me.zeroeightsix.fiber.tree.ConfigValue;
 import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
-import site.geni.FarLands.FarLands;
 
 import java.io.File;
 import java.io.IOException;

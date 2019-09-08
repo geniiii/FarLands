@@ -1,12 +1,12 @@
-package site.geni.FarLands.mixins.common.entity;
+package site.geni.farlands.mixins.common.entity;
 
 import net.minecraft.entity.FallingBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.util.Location;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.util.Location;
 
 @SuppressWarnings("unused")
 @Mixin(FallingBlockEntity.class)

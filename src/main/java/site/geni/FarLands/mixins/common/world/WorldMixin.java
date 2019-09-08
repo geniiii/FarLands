@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.world;
+package site.geni.farlands.mixins.common.world;
 
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.World;

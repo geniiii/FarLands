@@ -1,9 +1,9 @@
-package site.geni.FarLands.util;
+package site.geni.farlands.util;
 
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.util.Formatting;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.config.Config;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.config.Config;
 
 import java.util.function.Function;
 

@@ -20,22 +20,23 @@
 		"environment": "*",
 		"entrypoints": {
 				"main": [
-						"site.geni.FarLands.FarLands"
+						"site.geni.farlands.FarLands"
 				],
 				"modmenu": [
-						"site.geni.FarLands.FarLandsModMenuApiImpl"
+						"site.geni.farlands.FarLandsModMenuApiImpl"
 				],
 				"cotton-client-commands": [
-						"site.geni.FarLands.FarLandsCommands"
+						"site.geni.farlands.FarLandsCommands"
 				]
 		},
 		"mixins": [
 				"farlands.mixins.json"
 		],
 		"depends": {
-				"fabricloader": ">=0.4.0",
-				"fabric-resource-loader-v0": "*",
-				"cloth-config2": ">=0.4",
+				"minecraft": ">=1.15-alpha.19.36.a",
+				"fabricloader": ">=0.6.1",
+				"fabric-resource-loader-v0": ">=0.1.3",
+				"cloth-config2": ">=1.1.1",
 				"cotton-client-commands": ">=0.4.2"
 		},
 		"suggested": {

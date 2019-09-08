@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.world;
+package site.geni.farlands.mixins.common.world;
 
 import net.minecraft.class_4538;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,10 +1,10 @@
-package site.geni.FarLands.mixins.common.generators;
+package site.geni.farlands.mixins.common.generators;
 
 import net.minecraft.world.gen.chunk.CavesChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(CavesChunkGenerator.class)

@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.common.entity;
+package site.geni.farlands.mixins.common.entity;
 
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;

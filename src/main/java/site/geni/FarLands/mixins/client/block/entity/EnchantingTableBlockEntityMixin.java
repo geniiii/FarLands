@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.block.entity;
+package site.geni.farlands.mixins.client.block.entity;
 
 import net.minecraft.block.entity.EnchantingTableBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -7,7 +7,7 @@ import org.spongepowered.asm.lib.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import site.geni.FarLands.FarLands;
+import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(EnchantingTableBlockEntity.class)

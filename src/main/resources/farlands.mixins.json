@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "site.geni.FarLands.mixins",
+	"package": "site.geni.farlands.mixins",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"common.world.WorldMixin",

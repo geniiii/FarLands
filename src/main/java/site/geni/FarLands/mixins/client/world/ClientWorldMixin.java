@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.world;
+package site.geni.farlands.mixins.client.world;
 
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.ParticleEffect;
@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import site.geni.FarLands.FarLands;
-import site.geni.FarLands.mixins.common.world.WorldMixin;
+import site.geni.farlands.FarLands;
+import site.geni.farlands.mixins.common.world.WorldMixin;
 
 import java.util.Random;
 

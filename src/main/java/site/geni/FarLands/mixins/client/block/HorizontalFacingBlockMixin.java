@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.block;
+package site.geni.farlands.mixins.client.block;
 
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.state.property.DirectionProperty;

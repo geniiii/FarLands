@@ -1,4 +1,4 @@
-package site.geni.FarLands.mixins.client.item;
+package site.geni.farlands.mixins.client.item;
 
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Final;
