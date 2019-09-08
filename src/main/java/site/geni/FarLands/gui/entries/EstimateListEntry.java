@@ -22,6 +22,11 @@ public class EstimateListEntry extends StringListEntry {
 		}
 	}
 
+	public void update(final String text) {
+		this.textFieldWidget.setText(text);
+		this.textFieldWidget.setCursorToStart();
+	}
+
 	@Override
 	public boolean charTyped(char character, int charCode) {
 		return EstimateListEntry.handlePress(charCode) || super.charTyped(character, charCode);

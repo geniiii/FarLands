@@ -2,8 +2,6 @@ package site.geni.farlands.gui.entries;
 
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.gui.entries.DoubleListEntry;
-import me.shedaniel.clothconfig2.gui.entries.TextFieldListEntry;
-import net.minecraft.client.gui.widget.TextFieldWidget;
 import site.geni.farlands.FarLands;
 import site.geni.farlands.config.Config;
 import site.geni.farlands.gui.Categories;
@@ -22,37 +20,20 @@ public class ScaleListEntry extends DoubleListEntry {
 	/**
 	 * Updates the estimates in the "World" category
 	 *
-	 * @param config   {@link Config} to use
+	 * @param config {@link Config} to use
 	 */
 	private static void updateOptions(Config config) {
 		LocationHelper.updateAll(config);
 
-		if (Categories.World.FAR_LANDS_ESTIMATE != null) {
-			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FAR_LANDS_ESTIMATE).children().get(0);
-
-			entryWidget.setText(Location.FAR_LANDS.getText());
-			entryWidget.setCursorToStart();
-		}
-
-		if (Categories.World.FARTHER_LANDS_ESTIMATE != null) {
-			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHER_LANDS_ESTIMATE).children().get(0);
-
-			entryWidget.setText(Location.FARTHER_LANDS.getText());
-			entryWidget.setCursorToStart();
-		}
-
-		if (Categories.World.FARTHERER_LANDS_ESTIMATE != null) {
-			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHERER_LANDS_ESTIMATE).children().get(0);
-
-			entryWidget.setText(Location.FARTHERER_LANDS.getText());
-			entryWidget.setCursorToStart();
-		}
-
-		if (Categories.World.FARTHEST_LANDS_ESTIMATE != null) {
-			final TextFieldWidget entryWidget = (TextFieldWidget) ((TextFieldListEntry) Categories.World.FARTHEST_LANDS_ESTIMATE).children().get(0);
-
-			entryWidget.setText(Location.FARTHEST_LANDS.getText());
-			entryWidget.setCursorToStart();
+		if (Categories.World.FAR_LANDS_ESTIMATE != null &&
+			Categories.World.FARTHER_LANDS_ESTIMATE != null &&
+			Categories.World.FARTHERER_LANDS_ESTIMATE != null &&
+			Categories.World.FARTHEST_LANDS_ESTIMATE != null
+		) {
+			Categories.World.FAR_LANDS_ESTIMATE.update(Location.FAR_LANDS.getText());
+			Categories.World.FARTHER_LANDS_ESTIMATE.update(Location.FARTHER_LANDS.getText());
+			Categories.World.FARTHERER_LANDS_ESTIMATE.update(Location.FARTHERER_LANDS.getText());
+			Categories.World.FARTHERER_LANDS_ESTIMATE.update(Location.FARTHERER_LANDS.getText());
 		}
 	}
 
