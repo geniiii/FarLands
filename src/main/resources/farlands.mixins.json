@@ -42,7 +42,7 @@
 		"client.gui.ChatScreenMixin",
 		"client.block.entity.BlockEntityMixin",
 		"client.block.entity.EnchantingTableBlockEntityMixin",
-		"client.block.entity.EnchantingTableBlockEntityRendererMixin"
+		"client.render.entity.EnchantingTableBlockEntityRendererMixin"
 	],
 	"minVersion": "0.7.11",
 	"injectors": {
