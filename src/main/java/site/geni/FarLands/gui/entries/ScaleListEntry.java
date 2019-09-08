@@ -33,7 +33,7 @@ public class ScaleListEntry extends DoubleListEntry {
 			Categories.World.FAR_LANDS_ESTIMATE.update(Location.FAR_LANDS.getText());
 			Categories.World.FARTHER_LANDS_ESTIMATE.update(Location.FARTHER_LANDS.getText());
 			Categories.World.FARTHERER_LANDS_ESTIMATE.update(Location.FARTHERER_LANDS.getText());
-			Categories.World.FARTHERER_LANDS_ESTIMATE.update(Location.FARTHERER_LANDS.getText());
+			Categories.World.FARTHEST_LANDS_ESTIMATE.update(Location.FARTHEST_LANDS.getText());
 		}
 	}
 

@@ -66,6 +66,9 @@ public enum Location {
 	 * @author geni
 	 */
 	public String getText() {
+		if (this.value == 0 && this.isValid()) { // we don't want the "±" in there if it's 0, do we now?
+			return String.valueOf(this.value);
+		}
 		return this.isValid() ? "±" + this.value : INVALID;
 	}
 
