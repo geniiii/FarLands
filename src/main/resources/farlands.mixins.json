@@ -11,6 +11,7 @@
 		"common.generators.CavesChunkGeneratorMixin",
 		"common.generators.OverworldChunkGeneratorMixin",
 		"common.generators.SurfaceChunkGeneratorMixin",
+		"common.generators.FloatingIslandsChunkGeneratorMixin",
 		"common.noise.OctavePerlinNoiseSamplerMixin",
 		"common.player.PlayerEntityMixin",
 		"common.util.math.BlockPosMixin",
