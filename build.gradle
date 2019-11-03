@@ -17,7 +17,7 @@ repositories {
         name "CottonMC"
         url "http://server.bbkr.space:8081/artifactory/libs-snapshot"
     }
-	jcenter()
+    jcenter()
 }
 
 dependencies {
@@ -78,4 +78,5 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 jar {
     from "LICENSE"
+    from "LICENSE-FIBER"
 }
