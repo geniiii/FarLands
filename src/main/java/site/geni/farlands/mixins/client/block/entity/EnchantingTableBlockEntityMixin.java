@@ -18,8 +18,8 @@ abstract class EnchantingTableBlockEntityMixin {
 	 * Sets {@code playerEntity} to the {@link PlayerEntity} close to the {@link EnchantingTableBlockEntity} <br>
 	 * Finds the closest player using {@link Double} for positions instead of {@link Float} in order to have it detect the player more precisely
 	 *
-	 * @param orig Original {@link PlayerEntity}
-	 * @return Depending on the mod's configuration, either {@code orig} or a more precisely located player
+	 * @param original Original {@link PlayerEntity}
+	 * @return Depending on the mod's configuration, either {@code original} or a more precisely located player
 	 * @author geni
 	 * @see EnchantingTableBlockEntity#tick
 	 */
@@ -27,25 +27,26 @@ abstract class EnchantingTableBlockEntityMixin {
 		at = @At(
 			value = "JUMP",
 			opcode = Opcodes.IFNULL,
-			ordinal = 0
+			ordinal = 0,
+			shift = At.Shift.BEFORE
 		),
 		method = "tick"
 	)
-	private PlayerEntity setPlayerEntity(PlayerEntity orig) {
+	private PlayerEntity setPlayerEntity(PlayerEntity original) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
 			final BlockPos pos = ((BlockEntityMixin) this).getPos();
 
-			orig = (((BlockEntityMixin)this).getWorld().getClosestPlayer(pos.getX(), pos.getY(), pos.getZ()));
-			playerEntity = orig;
+			original = (((BlockEntityMixin) this).getWorld().getClosestPlayer(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 3.0D, false));
+			playerEntity = original;
 		}
 
-		return orig;
+		return original;
 	}
 
 	/**
-	 * Sets the X position of the book (relative to the enchanting table?) using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise render positions
+	 * Gets X distance to player using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise render positions
 	 *
-	 * @param orig Original X position of the book (relative to the enchanting table?)
+	 * @param original Original X distance to player
 	 * @return Depending on the configuration of the mod, either proper position or original position
 	 * @author geni
 	 */
@@ -57,35 +58,34 @@ abstract class EnchantingTableBlockEntityMixin {
 		),
 		method = "tick"
 	)
-	private double setX(double orig) {
+	private double setX(double original) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
-			return playerEntity.x - (((BlockEntityMixin)this).getPos().getX() + 0.5D);
+			return playerEntity.getX() - (((BlockEntityMixin) this).getPos().getX() + 0.5D);
 		}
 
-		return orig;
+		return original;
 	}
 
 	/**
-	 * Sets the Z position of the book (relative to the enchanting table?) using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise render positions
+	 * Gets Z distance to player using {@link Double} instead of {@link Float} (casted to {@link Double}) in order to have precise render positions
 	 *
-	 * @param orig Original Z position of the book (relative to the enchanting table?)
+	 * @param original Original Z distance to player
 	 * @return Depending on the configuration of the mod, either proper position or original position
 	 * @author geni
 	 */
 	@ModifyVariable(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/util/math/MathHelper;atan2(DD)D",
-			ordinal = 0
+			target = "Lnet/minecraft/util/math/MathHelper;atan2(DD)D"
 		),
-		index = 2,
+		ordinal = 1,
 		method = "tick"
 	)
-	private double setZ(double orig) {
+	private double setZ(double original) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
-			return playerEntity.z - (((BlockEntityMixin)this).getPos().getZ() + 0.5D);
+			return playerEntity.getZ() - (((BlockEntityMixin) this).getPos().getZ() + 0.5D);
 		}
 
-		return orig;
+		return original;
 	}
 }
