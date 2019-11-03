@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"common.world.WorldMixin",
+    "common.world.WorldViewMixin",
 		"common.commands.ForceLoadCommandMixin",
 		"common.commands.WorldBorderCommandMixin",
 		"common.entity.EntityMixin",
@@ -19,7 +20,6 @@
 		"common.world.gen.feature.OreFeatureMixin",
 		"common.block.TntBlockMixin",
 		"common.world.SpawnHelperMixin",
-	  "common.world.Unmapped4538Mixin",
 		"server.MinecraftServerMixin",
 		"server.player.ServerPlayNetworkHandlerMixin",
 		"server.player.ServerPlayerEntityMixin"
