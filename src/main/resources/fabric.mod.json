@@ -1,45 +1,45 @@
 {
-		"schemaVersion": 1,
-		"id": "farlands",
-		"version": "${version}",
-		"name": "FarLands",
-		"description": "Brings back the far lands",
-		"authors": [
-				"geni"
+	"schemaVersion": 1,
+	"id": "farlands",
+	"version": "${version}",
+	"name": "FarLands",
+	"description": "Brings back the far lands",
+	"authors": [
+		"geni"
+	],
+	"contributors": [
+		"raphydaphy"
+	],
+	"contact": {
+		"homepage": "https://polgarian.life",
+		"sources": "https://github.com/polgaria/FarLands",
+		"issues": "https://github.com/polgaria/FarLands/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/farlands/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"site.geni.farlands.FarLands"
 		],
-		"contributors": [
-				"raphydaphy"
+		"modmenu": [
+			"site.geni.farlands.FarLandsModMenuApiImpl"
 		],
-		"contact": {
-				"homepage": "https://polgarian.life",
-				"sources": "https://github.com/polgaria/FarLands",
-				"issues": "https://github.com/polgaria/FarLands/issues"
-		},
-		"license": "MIT",
-		"icon": "assets/farlands/icon.png",
-		"environment": "*",
-		"entrypoints": {
-				"main": [
-						"site.geni.farlands.FarLands"
-				],
-				"modmenu": [
-						"site.geni.farlands.FarLandsModMenuApiImpl"
-				],
-				"cotton-client-commands": [
-						"site.geni.farlands.FarLandsCommands"
-				]
-		},
-		"mixins": [
-				"farlands.mixins.json"
-		],
-		"depends": {
-				"minecraft": ">=1.15-alpha.19.36.a",
-				"fabricloader": ">=0.6.1",
-				"fabric-resource-loader-v0": ">=0.1.3",
-				"cloth-config2": ">=1.1.1",
-				"cotton-client-commands": ">=0.4.2"
-		},
-		"suggested": {
-				"modmenu": "*"
-		}
+		"cotton-client-commands": [
+			"site.geni.farlands.FarLandsCommands"
+		]
+	},
+	"mixins": [
+		"farlands.mixins.json"
+	],
+	"depends": {
+		"minecraft": ">=1.15-alpha.19.44.a",
+		"fabricloader": ">=0.6.3",
+		"fabric-resource-loader-v0": ">=0.1.6",
+		"cloth-config2": ">=2.3.1-unstable",
+		"cotton-client-commands": ">=0.4.2"
+	},
+	"suggested": {
+		"modmenu": "*"
+	}
 }
