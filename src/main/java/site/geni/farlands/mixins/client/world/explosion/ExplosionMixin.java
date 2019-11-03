@@ -22,8 +22,8 @@ public abstract class ExplosionMixin {
 	/**
 	 * Sets {@link #blockPos} to the block which triggered the explosion's {@link BlockPos}
 	 *
-	 * @param orig {@link BlockPos} of the block which triggered the explosion
-	 * @return {@code orig}
+	 * @param original {@link BlockPos} of the block which triggered the explosion
+	 * @return {@code original}
 	 * @author geni
 	 */
 	@ModifyVariable(
@@ -34,12 +34,12 @@ public abstract class ExplosionMixin {
 		),
 		method = "affectWorld"
 	)
-	private BlockPos setBlockPos(BlockPos orig) {
+	private BlockPos setBlockPos(BlockPos original) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
-			blockPos = orig;
+			blockPos = original;
 		}
 
-		return orig;
+		return original;
 	}
 
 	/**

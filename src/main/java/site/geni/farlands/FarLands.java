@@ -9,11 +9,6 @@ public class FarLands implements ModInitializer {
 	private static final Config CONFIG = new Config().load();
 	private static final ModLogger LOGGER = new ModLogger(FarLands.class);
 
-	@Override
-	public void onInitialize() {
-		LOGGER.info("[FarLands] Initialized");
-	}
-
 	public static Config getConfig() {
 		return CONFIG;
 	}
@@ -24,5 +19,10 @@ public class FarLands implements ModInitializer {
 
 	public static ModLogger getLogger() {
 		return LOGGER;
+	}
+
+	@Override
+	public void onInitialize() {
+		LOGGER.info("[FarLands] Initialized");
 	}
 }
