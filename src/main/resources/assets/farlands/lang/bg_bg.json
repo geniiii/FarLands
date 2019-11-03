@@ -32,6 +32,7 @@
 	"config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water частици, капещи от листа",
 	"config.farlands.fixParticlesEntities.tooltip.description.mycelium": "Mycelium частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.brewing_stand": "Brewing Stand частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.nether_portal": "Nether портални частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.lava": "Лава частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.water": "Водни частици",

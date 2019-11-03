@@ -10,7 +10,7 @@ import site.geni.farlands.FarLands;
 @Mixin(FloatingIslandsChunkGenerator.class)
 public abstract class FloatingIslandsChunkGeneratorMixin {
 	/**
-	 * Sets Buffet's Floating Islands chunk generator type's coordinate scale to the one set in the mod's configuration
+	 * Sets Buffet's Floating Islands'/The End's chunk generator type's coordinate scale to the one set in the mod's configuration
 	 *
 	 * @param original Original double value of 1368.824
 	 * @return Coordinate scale as set in the mod's configuration
@@ -28,7 +28,7 @@ public abstract class FloatingIslandsChunkGeneratorMixin {
 	}
 
 	/**
-	 * Sets Buffet's Floating Islands chunk generator type's height scale to the one set in the mod's configuration
+	 * Sets Buffet's Floating Islands'/The End's chunk generator type's height scale to the one set in the mod's configuration
 	 *
 	 * @param original Original double value of 684.412
 	 * @return Height scale as set in the mod's configuration
@@ -43,5 +43,22 @@ public abstract class FloatingIslandsChunkGeneratorMixin {
 	)
 	private static double setHeightScale(double original) {
 		return FarLands.getConfig().heightScale.getValue() * FarLands.getConfig().heightScaleMultiplier.getValue();
+	}
+
+	/**
+	 * Sets Buffet's Floating Islands'/The End's chunk generator type's maximum Y to 256, depending on the mod's configuration
+	 *
+	 * @param original Original integer value of 128
+	 * @return Either 256 or the default of 128, depending on the mod's configuration
+	 * @author geni
+	 */
+	@ModifyConstant(
+		constant = @Constant(
+			intValue = 128
+		),
+		method = "<init>"
+	)
+	private static int setMaxY(int original) {
+		return FarLands.getConfig().raiseEndHeightLimit.getValue() ? 256 : original;
 	}
 }

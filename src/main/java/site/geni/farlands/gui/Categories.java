@@ -127,6 +127,30 @@ public class Categories {
 					.build()
 			);
 
+			// Adds the option for raising the Nether's height limit to 256
+			world.addEntry(
+				new BooleanToggleBuilder(
+					"text.cloth.reset_value",
+					"config.farlands.raiseNetherHeightLimit",
+					FarLands.getConfig().raiseNetherHeightLimit.getValue()
+				).setDefaultValue(FarLands.getConfig().raiseNetherHeightLimit.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().raiseNetherHeightLimit.setValue(bool))
+					.setTooltip(I18n.translate("config.farlands.raiseNetherHeightLimit.tooltip"))
+					.build()
+			);
+
+			// Adds the option for raising the End's height limit to 256
+			world.addEntry(
+				new BooleanToggleBuilder(
+					"text.cloth.reset_value",
+					"config.farlands.raiseEndHeightLimit",
+					FarLands.getConfig().raiseEndHeightLimit.getValue()
+				).setDefaultValue(FarLands.getConfig().raiseEndHeightLimit.getDefaultValue())
+					.setSaveConsumer(bool -> FarLands.getConfig().raiseEndHeightLimit.setValue(bool))
+					.setTooltip(I18n.translate("config.farlands.raiseEndHeightLimit.tooltip"))
+					.build()
+			);
+
 			World.createEstimatesSubCategory(world);
 		}
 
@@ -177,7 +201,7 @@ public class Categories {
 	static class Fixes {
 		// All particles fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
 		private static final String[] PARTICLES = new String[]{
-			"water", "lava", "tnt", "end_portal", "falling_block", "mycelium", "leaves", "repeater", "nether_portal"
+			"water", "lava", "tnt", "end_portal", "falling_block", "mycelium", "leaves", "repeater", "nether_portal", "brewing_stand"
 		};
 
 		// All entities fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
@@ -253,7 +277,7 @@ public class Categories {
 		 */
 		private static void createExperimentalSubCategory(ConfigCategory fixes) {
 			// "Fixes" category's "Experimental" sub-category's entries
-			List<AbstractConfigListEntry> experimentalEntries = Arrays.asList(
+			final List<AbstractConfigListEntry> experimentalEntries = Arrays.asList(
 				// Warning message (0xff5555 is Formatting.RED's color)
 				new TextDescriptionBuilder("",
 					"",

@@ -17,7 +17,7 @@ import java.util.Random;
 @Mixin(EndPortalBlock.class)
 public abstract class EndPortalBlockMixin {
 	/**
-	 * Adds particles created by mob spawners using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 * Adds particles created by the end portal using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
 	 * @param ci         {@link CallbackInfo} required for {@link Inject}
 	 * @param blockState {@link BlockState} of the block

@@ -9,10 +9,10 @@
   "config.farlands.category.world.subcategory.estimates": "Estimates",
 
   "config.farlands.farLandsEnabled": "Enable Far Lands",
-	"config.farlands.killEntities": "Kill falling block entities in Far Lands",
+  "config.farlands.killEntities": "Kill falling block entities in Far Lands",
 
-	"config.farlands.farLandsEnabled.tooltip": "Whether or not the Far Lands should generate.",
-	"config.farlands.killEntities.tooltip": "Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands.",
+  "config.farlands.farLandsEnabled.tooltip": "Whether or not the Far Lands should generate.",
+  "config.farlands.killEntities.tooltip": "Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands.",
 
   "config.farlands.fixOreGeneration": "Fix ore generation",
   "config.farlands.fixParticlesEntities": "Fix particles and entities",
@@ -24,15 +24,16 @@
 
   "config.farlands.fixLighting.tooltip.description": "Fixes lighting issues up to X/Z: ±2^26 / ±67108864.",
   "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server, nor load an existing world with it enabled.",
-	"config.farlands.fixLighting.tooltip.restart": "Changing this option has no effect until the game is restarted.",
+  "config.farlands.fixLighting.tooltip.restart": "Changing this option has no effect until the game is restarted.",
 
-	"config.farlands.fixParticlesEntities.tooltip": "Fixes precision loss with various entities and particles.",
+  "config.farlands.fixParticlesEntities.tooltip": "Fixes precision loss with various entities and particles.",
   "config.farlands.fixParticlesEntities.tooltip.description": "This fixes precision loss with the following particles:",
   "config.farlands.fixParticlesEntities.tooltip.description.end_portal": "End Portal particles",
   "config.farlands.fixParticlesEntities.tooltip.description.falling_block": "Sand/Soul Sand/Gravel particles",
   "config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water particles dripping from leaves",
   "config.farlands.fixParticlesEntities.tooltip.description.mycelium": "Mycelium particles",
   "config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater particles",
+  "config.farlands.fixParticlesEntities.tooltip.description.brewing_stand": "Brewing stand particles",
   "config.farlands.fixParticlesEntities.tooltip.description.nether_portal": "Nether Portal particles",
   "config.farlands.fixParticlesEntities.tooltip.description.lava": "Lava particles",
   "config.farlands.fixParticlesEntities.tooltip.description.water": "Water particles",
@@ -40,7 +41,7 @@
 
   "config.farlands.fixParticlesEntities.tooltip.description.entities": "This fixes precision loss with the following entities:",
   "config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
-  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book",
+  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book (Partially, as its angle isn't fixed) ",
 
   "config.farlands.fixOreGeneration.tooltip": "Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other.",
   "config.farlands.fixMobSpawning.tooltip": "Fixes precision loss with mob spawning.",
@@ -48,14 +49,18 @@
   "config.farlands.invalid": "Invalid!",
 
   "config.farlands.coordinateScale": "Coordinate scale",
-	"config.farlands.heightScale": "Height scale",
-	"config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
+  "config.farlands.heightScale": "Height scale",
+  "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",
+  "config.farlands.raiseNetherHeightLimit": "Raise The Nether's height limit",
+  "config.farlands.raiseEndHeightLimit": "Raise The End's height limit",
 
-	"config.farlands.coordinateScale.tooltip": "The world's coordinate scale.",
-	"config.farlands.heightScale.tooltip": "The world's height scale.",
-	"config.farlands.coordinateScaleMultiplier.tooltip": "The coordinate scale multiplier (coordinate scale * multiplier).",
-	"config.farlands.heightScaleMultiplier.tooltip": "The height scale multiplier (height scale * multiplier).",
+  "config.farlands.coordinateScale.tooltip": "The world's coordinate scale.",
+  "config.farlands.heightScale.tooltip": "The world's height scale.",
+  "config.farlands.coordinateScaleMultiplier.tooltip": "The coordinate scale multiplier (coordinate scale * multiplier).",
+  "config.farlands.heightScaleMultiplier.tooltip": "The height scale multiplier (height scale * multiplier).",
+  "config.farlands.raiseNetherHeightLimit.tooltip": "Raises The Nether's height limit to 256.",
+  "config.farlands.raiseEndHeightLimit.tooltip": "Raises The End's height limit to 256.",
 
   "config.farlands.estimatedPosition": "Estimated Far Lands X/Z",
   "config.farlands.estimatedFartherPosition": "Estimated Farther Lands X/Z",
