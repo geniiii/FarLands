@@ -47,10 +47,10 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "unpackLongX",
+		method = "getX",
 		cancellable = true
 	)
-	private static void unpackLongXFixed(long coords, CallbackInfoReturnable<Integer> cir) {
+	private static void getXFixed(long coords, CallbackInfoReturnable<Integer> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
 			cir.setReturnValue((int) (coords >> 41));
 		}
@@ -68,10 +68,10 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "unpackLongY",
+		method = "getY",
 		cancellable = true
 	)
-	private static void unpackLongYFixed(long coords, CallbackInfoReturnable<Integer> cir) {
+	private static void getYFixed(long coords, CallbackInfoReturnable<Integer> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
 			cir.setReturnValue((int) (coords << 48 >> 48));
 		}
@@ -89,10 +89,10 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "unpackLongZ",
+		method = "getZ",
 		cancellable = true
 	)
-	private static void unpackLongZFixed(long coords, CallbackInfoReturnable<Integer> cir) {
+	private static void getZFixed(long coords, CallbackInfoReturnable<Integer> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
 			cir.setReturnValue((int) (coords << 23 >> 41));
 		}
@@ -100,7 +100,7 @@ public abstract class ChunkSectionPosMixin {
 
 
 	/**
-	 * Coordinates to light storage index
+	 * Coordinates with Z set to 0
 	 *
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
@@ -111,10 +111,10 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "toLightStorageIndex",
+		method = "withZeroZ",
 		cancellable = true
 	)
-	private static void toLightStorageIndexFixed(long coords, CallbackInfoReturnable<Long> cir) {
+	private static void withZeroZFixed(long coords, CallbackInfoReturnable<Long> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
 			cir.setReturnValue(coords & -0x40000L);
 		}
