@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import site.geni.farlands.config.Config;
 
 @SuppressWarnings("unused")
-@Mixin(value = BlockPos.class)
+@Mixin(BlockPos.class)
 public abstract class BlockPosMixin {
 	@Shadow
 	@Final

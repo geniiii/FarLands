@@ -23,7 +23,7 @@ public abstract class OreFeatureMixin {
 	@Shadow
 	protected abstract boolean generateVeinPart(IWorld iWorld_1, Random random_1, OreFeatureConfig oreFeatureConfig_1, double double_1, double double_2, double double_3, double double_4, double double_5, double double_6, int int_1, int int_2, int int_3, int int_4, int int_5);
 
-	/* TODO: clean up later, this is just a PoC for now */
+	// TODO: clean up later, this is just a PoC for now
 	@Inject(
 		at = @At(
 			value = "INVOKE",

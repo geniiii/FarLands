@@ -2,7 +2,6 @@ package site.geni.farlands.gui.entries.builders;
 
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.impl.builders.FieldBuilder;
-import me.shedaniel.clothconfig2.impl.builders.TextFieldBuilder;
 import site.geni.farlands.gui.entries.ScaleListEntry;
 
 import java.util.Objects;

@@ -47,14 +47,14 @@ public abstract class PortalBlockMixin {
 	/**
 	 * Adds particles created by Nether portal blocks using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
-	 * @param world              {@link World} of the block
+	 * @param world          {@link World} of the block
 	 * @param ParticleEffect {@link ParticleEffect} to use when adding particle
-	 * @param xOrig              The particle's original X position
-	 * @param yOrig              The particle's original Y position
-	 * @param zOrig              The particle's original Z position
-	 * @param velocityXOrig      The particle's original X velocity
-	 * @param velocityYOrig      The particle's original Y velocity
-	 * @param velocityZOrig      The particle's original Z velocity
+	 * @param xOrig          The particle's original X position
+	 * @param yOrig          The particle's original Y position
+	 * @param zOrig          The particle's original Z position
+	 * @param velocityXOrig  The particle's original X velocity
+	 * @param velocityYOrig  The particle's original Y velocity
+	 * @param velocityZOrig  The particle's original Z velocity
 	 * @author geni
 	 */
 	@Redirect(

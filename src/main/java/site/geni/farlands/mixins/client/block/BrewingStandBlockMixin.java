@@ -1,7 +1,7 @@
 package site.geni.farlands.mixins.client.block;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.EndPortalBlock;
+import net.minecraft.block.BrewingStandBlock;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -13,11 +13,10 @@ import site.geni.farlands.FarLands;
 
 import java.util.Random;
 
-@SuppressWarnings("unused")
-@Mixin(EndPortalBlock.class)
-public abstract class EndPortalBlockMixin {
+@Mixin(BrewingStandBlock.class)
+public abstract class BrewingStandBlockMixin {
 	/**
-	 * Adds particles created by the end portal using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
+	 * Adds particles created by brewing stands using {@link Double} for positions instead of {@link Float} in order to have precise particle positions
 	 *
 	 * @param ci         {@link CallbackInfo} required for {@link Inject}
 	 * @param blockState {@link BlockState} of the block
@@ -28,18 +27,16 @@ public abstract class EndPortalBlockMixin {
 	 */
 	@Inject(
 		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V"
+			value = "HEAD"
 		),
 		method = "randomDisplayTick",
 		cancellable = true
 	)
-	private void addParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
+	private void spawnParticlesProperly(BlockState blockState, World world, BlockPos blockPos, Random random, CallbackInfo ci) {
 		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
-			final double x = blockPos.getX() + (double) random.nextFloat();
-			final double y = blockPos.getY() + 0.08D;
-			final double z = blockPos.getZ() + (double) random.nextFloat();
-
+			final double x = blockPos.getX() + 0.4D + random.nextFloat() * 0.2D;
+			final double y = blockPos.getY() + 0.7D + random.nextFloat() * 0.3D;
+			final double z = blockPos.getZ() + 0.4D + random.nextFloat() * 0.2D;
 			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
 
 			ci.cancel();

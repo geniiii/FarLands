@@ -22,7 +22,7 @@ public class EstimateListEntry extends StringListEntry {
 		}
 	}
 
-	public void update(final String text) {
+	void update(final String text) {
 		this.textFieldWidget.setText(text);
 		this.textFieldWidget.setCursorToStart();
 	}

@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import site.geni.farlands.FarLands;
 
 import java.util.Random;
 import java.util.function.BiFunction;
@@ -52,7 +53,7 @@ public abstract class WorldMixin {
 	/**
 	 * Make anything up to X/Z: {@link Integer#MAX_VALUE} a valid position
 	 *
-	 * @param original Original integer of 30000000
+	 * @param original Original integer value of 30000000
 	 * @return {@link Integer#MAX_VALUE}
 	 * @author geni
 	 */
@@ -67,35 +68,20 @@ public abstract class WorldMixin {
 	}
 
 	/**
-	 * Gets light level of given position up to X/Z: {@link Integer#MIN_VALUE} instead of -3.0E7
+	 * Sets the effective height to 256, depending on the mod's configuration
 	 *
-	 * @param original Original integer of -30000000
-	 * @return {@link Integer#MIN_VALUE}
+	 * @param original Original integer value of 128
+	 * @return Either 256 or the default of 128, depending on the mod's configuration
+	 * @author geni
 	 */
 	@ModifyConstant(
 		constant = @Constant(
-			intValue = -30000000
+			intValue = 128
 		),
-		method = "getLightLevel"
+		method = "getEffectiveHeight"
 	)
-	private static int getLightLevelUpToNegativeIntegerMaxValueXZ(int original) {
-		return Integer.MIN_VALUE;
-	}
-
-	/**
-	 * Gets light level of given position up to X/Z: {@link Integer#MAX_VALUE} instead of 3.0E7
-	 *
-	 * @param original Original integer of 30000000
-	 * @return {@link Integer#MAX_VALUE}
-	 */
-	@ModifyConstant(
-		constant = @Constant(
-			intValue = 30000000
-		),
-		method = "getLightLevel"
-	)
-	private static int getLightLevelUpToPositiveIntegerMaxValueXZ(int original) {
-		return Integer.MAX_VALUE;
+	private static int getEffectiveHeightNew(int original) {
+		return FarLands.getConfig().raiseNetherHeightLimit.getValue() ? 256 : original;
 	}
 
 	@Shadow
@@ -117,7 +103,7 @@ public abstract class WorldMixin {
 	 * @param dimensionType   World's {@link DimensionType}
 	 * @param biFunction      {@link BiFunction} used for creating a {@link ChunkManager}
 	 * @param profiler        World's {@link Profiler}
-	 * @param isClient        If the world is a {@link net.minecraft.client.world.ClientWorld} or a {@link net.minecraft.server.world.ServerWorld}
+	 * @param isClient        Whether the world is a {@link net.minecraft.client.world.ClientWorld} or a {@link net.minecraft.server.world.ServerWorld}
 	 * @param ci              {@link CallbackInfo} required for {@link Inject}
 	 * @author geni
 	 */
