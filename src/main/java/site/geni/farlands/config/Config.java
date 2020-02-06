@@ -10,6 +10,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Config {
 	private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "FarLands.json5");
@@ -19,68 +20,68 @@ public class Config {
 	private Node general;
 	// General
 	public ConfigValue<Boolean> farLandsEnabled = ConfigValue.builder(Boolean.class)
-		.withParent(general)
 		.withDefaultValue(true)
 		.withComment("Whether or not the Far Lands should generate.")
 		.withName("farLandsEnabled")
+		.withParent(general)
 		.build();
 	public ConfigValue<Boolean> killFallingBlockEntitiesInFarLands = ConfigValue.builder(Boolean.class)
-		.withParent(general)
 		.withDefaultValue(false)
 		.withComment("Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands.")
 		.withName("killFallingBlockEntitiesInFarLands")
+		.withParent(general)
 		.build();
 	private Node fixes;
 	// Fixes
 	public ConfigValue<Boolean> fixOreGeneration = ConfigValue.builder(Boolean.class)
-		.withParent(fixes)
 		.withDefaultValue(true)
 		.withComment("Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other at far X/Z positions.")
 		.withName("fixOreGeneration")
+		.withParent(general)
 		.build();
 	public ConfigValue<Boolean> fixParticlesEntities = ConfigValue.builder(Boolean.class)
-		.withParent(fixes)
 		.withDefaultValue(true)
 		.withComment("Fixes precision loss with various particles and entities.")
 		.withName("fixParticlesEntities")
+		.withParent(fixes)
 		.build();
 	public ConfigValue<Boolean> fixLighting = ConfigValue.builder(Boolean.class)
-		.withParent(fixes)
 		.withDefaultValue(false)
 		.withComment("Fixes lighting up to X/Z: ±2^26, causes issues with existing worlds and multiplayer servers.")
 		.withName("fixLighting")
+		.withParent(fixes)
 		.build();
 	public ConfigValue<Boolean> fixMobSpawning = ConfigValue.builder(Boolean.class)
-		.withParent(fixes)
 		.withDefaultValue(false)
 		.withComment("Fixes precision loss with mob spawning, however mobs still don't spawn past the default world border.")
 		.withName("fixMobSpawning")
+		.withParent(fixes)
 		.build();
 	private Node world;
 	// World
 	public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
-		.withParent(world)
 		.withDefaultValue(684.4119873046875)
 		.withComment("The world's coordinate scale.")
 		.withName("coordinateScale")
+		.withParent(world)
 		.build();
 	public ConfigValue<Double> heightScale = ConfigValue.builder(Double.class)
-		.withParent(world)
 		.withDefaultValue(684.4119873046875)
 		.withComment("The world's height scale.")
 		.withName("heightScale")
+		.withParent(world)
 		.build();
 	public ConfigValue<Double> coordinateScaleMultiplier = ConfigValue.builder(Double.class)
-		.withParent(world)
 		.withDefaultValue(1D)
 		.withComment("The coordinate scale multiplier (coordinate scale * multiplier).")
 		.withName("coordinateScaleMultiplier")
+		.withParent(world)
 		.build();
 	public ConfigValue<Double> heightScaleMultiplier = ConfigValue.builder(Double.class)
-		.withParent(world)
 		.withDefaultValue(1D)
 		.withComment("The height scale multiplier (height scale * multiplier).")
 		.withName("heightScaleMultiplier")
+		.withParent(world)
 		.build();
 
 	{
@@ -91,10 +92,6 @@ public class Config {
 		} catch (FiberException e) {
 			e.printStackTrace();
 		}
-	}
-
-
-	public Config() {
 	}
 
 	public void save() {
