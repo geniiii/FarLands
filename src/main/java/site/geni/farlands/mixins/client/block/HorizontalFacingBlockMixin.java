@@ -6,7 +6,6 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@SuppressWarnings("unused")
 @Mixin(HorizontalFacingBlock.class)
 public abstract class HorizontalFacingBlockMixin {
 	@Shadow

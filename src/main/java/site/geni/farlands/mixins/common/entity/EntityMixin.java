@@ -11,9 +11,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
 	@Shadow
-	public double x;
+	public abstract double getZ();
+
 	@Shadow
-	public double z;
+	public abstract double getX();
 
 	/**
 	 * Clamps entity positions to -{@link Double#MAX_VALUE} instead of -3.0E7
@@ -26,7 +27,7 @@ public abstract class EntityMixin {
 		constant = @Constant(
 			doubleValue = -3.0E7D
 		),
-		method = "setPositionAnglesAndUpdate(DDDFF)V"
+		method = "updatePositionAndAngles(DDDFF)V"
 	)
 	private static double clampPositionToNegativeDoubleMaxValueXZ(double original) {
 		return -Double.MAX_VALUE;
@@ -43,7 +44,7 @@ public abstract class EntityMixin {
 		constant = @Constant(
 			doubleValue = 3.0E7D
 		),
-		method = "setPositionAnglesAndUpdate(DDDFF)V"
+		method = "updatePositionAndAngles(DDDFF)V"
 	)
 	private static double clampPositionToPositiveDoubleMaxValueXZ(double original) {
 		return Double.MAX_VALUE;

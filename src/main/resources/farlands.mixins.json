@@ -30,15 +30,9 @@
     "server.player.ServerPlayerEntityMixin"
   ],
   "client": [
-    "client.block.PortalBlockMixin",
     "client.block.LeavesBlockMixin",
-    "client.block.EndPortalBlockMixin",
-    "client.block.EndGatewayBlockMixin",
     "client.block.RepeaterBlockMixin",
-    "client.block.BrewingStandBlockMixin",
     "client.block.HorizontalFacingBlockMixin",
-    "client.block.FallingBlockMixin",
-    "client.block.MyceliumBlockMixin",
     "client.block.entity.BlockEntityMixin",
     "client.block.entity.EnchantingTableBlockEntityMixin",
     "client.fluid.WaterFluidMixin",
@@ -46,7 +40,6 @@
     "client.item.ItemMixin",
     "client.item.BoneMealItemMixin",
     "client.world.MobSpawnerLogicMixin",
-    "client.world.explosion.ExplosionMixin",
     "client.world.ClientWorldMixin",
     "client.gui.ScreenMixin",
     "client.gui.ChatScreenMixin"

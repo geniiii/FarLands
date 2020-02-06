@@ -28,16 +28,12 @@
 
   "config.farlands.fixParticlesEntities.tooltip": "Fixes precision loss with various entities and particles.",
   "config.farlands.fixParticlesEntities.tooltip.description": "This fixes precision loss with the following particles:",
-  "config.farlands.fixParticlesEntities.tooltip.description.end_portal": "End Portal particles",
-  "config.farlands.fixParticlesEntities.tooltip.description.falling_block": "Sand/Soul Sand/Gravel particles",
   "config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water particles dripping from leaves",
-  "config.farlands.fixParticlesEntities.tooltip.description.mycelium": "Mycelium particles",
   "config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater particles",
-  "config.farlands.fixParticlesEntities.tooltip.description.brewing_stand": "Brewing stand particles",
-  "config.farlands.fixParticlesEntities.tooltip.description.nether_portal": "Nether Portal particles",
   "config.farlands.fixParticlesEntities.tooltip.description.lava": "Lava particles",
   "config.farlands.fixParticlesEntities.tooltip.description.water": "Water particles",
   "config.farlands.fixParticlesEntities.tooltip.description.tnt": "TNT particles",
+	"config.farlands.fixParticlesEntities.tooltip.description.bone_meal": "Bone Meal particles",
 
   "config.farlands.fixParticlesEntities.tooltip.description.entities": "This fixes precision loss with the following entities:",
   "config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",

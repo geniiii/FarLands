@@ -19,7 +19,7 @@ public abstract class HellFireDecoratorMixin {
 		constant = @Constant(
 			intValue = 120
 		),
-		method = "method_15947"
+		method = "getPositions"
 	)
 	private static int setHeightLimit(int original) {
 		return FarLands.getConfig().raiseNetherHeightLimit.getValue() ? 248 : original;

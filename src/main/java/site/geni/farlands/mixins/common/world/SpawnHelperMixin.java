@@ -43,7 +43,6 @@ public abstract class SpawnHelperMixin {
 	 * @param mobGroupX        The X position at which the mob group starts
 	 * @param mobGroupY        The Y position at which the mob group starts
 	 * @param mobGroupZ        The Z position at which the mob group starts
-	 * @param blockState       The block at {@code spawnPos}'s {@link BlockState}
 	 * @param mobPos           The {@link BlockPos} where the mob is to be spawned (?)
 	 * @param mobGroupsSpawned The amount of mob groups spawned in the chunk
 	 * @param mobX             The mob's X position
@@ -66,7 +65,7 @@ public abstract class SpawnHelperMixin {
 		method = "spawnEntitiesInChunk",
 		locals = LocalCapture.CAPTURE_FAILHARD
 	)
-	private static void setXZ(EntityCategory entityCategory, ServerWorld world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockState blockState, BlockPos.Mutable mobPos, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
+	private static void setXZ(EntityCategory entityCategory, ServerWorld world, WorldChunk worldChunk, BlockPos spawnPos, CallbackInfo ci, ChunkGenerator chunkGenerator, int mobsSpawned, BlockPos mobGroupBlockPos, int mobGroupX, int mobGroupY, int mobGroupZ, BlockPos.Mutable mobPos, int mobGroupsSpawned, int mobX, int mobZ, int unknown_1, Biome.SpawnEntry biomeSpawnEntry, EntityData mobEntityData, int mobGroupSize, int unknown_2, int unknown_3, float mobXF, float mobZF) {
 		if (FarLands.getConfig().fixMobSpawning.getValue()) {
 			x = mobX + 0.5D;
 			z = mobZ + 0.5D;
@@ -120,15 +119,15 @@ public abstract class SpawnHelperMixin {
 	@Redirect(
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/entity/mob/MobEntity;setPositionAndAngles(DDDFF)V"
+			target = "Lnet/minecraft/entity/mob/MobEntity;refreshPositionAndAngles(DDDFF)V"
 		),
 		method = "spawnEntitiesInChunk"
 	)
 	private static void setPositionAndAnglesProperly(MobEntity mobEntity, double origX, double y, double origZ, float yaw, float pitch) {
 		if (FarLands.getConfig().fixMobSpawning.getValue()) {
-			mobEntity.setPositionAndAngles(x, y, z, yaw, pitch);
+			mobEntity.refreshPositionAndAngles(x, y, z, yaw, pitch);
 		} else {
-			mobEntity.setPositionAndAngles(origX, y, origZ, yaw, pitch);
+			mobEntity.refreshPositionAndAngles(origX, y, origZ, yaw, pitch);
 		}
 	}
 }

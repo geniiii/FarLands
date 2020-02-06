@@ -19,7 +19,7 @@ public abstract class NetherSurfaceBuilderMixin {
 		constant = @Constant(
 			intValue = 127
 		),
-		method = "method_15300"
+		method = "generate"
 	)
 	private static int setHeightLimit(int original) {
 		return FarLands.getConfig().raiseNetherHeightLimit.getValue() ? 255 : original;

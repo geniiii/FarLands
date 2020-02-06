@@ -25,10 +25,10 @@ public abstract class FallingBlockEntityMixin extends EntityMixin {
 	)
 	private void killFallingBlockEntities(CallbackInfo ci) {
 		if (FarLands.getConfig().killFallingBlockEntitiesInFarLands.getValue() &&
-			(this.x >= Location.FAR_LANDS.getValue()
-				|| this.x <= -Location.FAR_LANDS.getValue()
-				|| this.z >= Location.FAR_LANDS.getValue()
-				|| this.z <= -Location.FAR_LANDS.getValue())) {
+			(this.getX() >= Location.FAR_LANDS.getValue()
+				|| this.getX() <= -Location.FAR_LANDS.getValue()
+				|| this.getZ() >= Location.FAR_LANDS.getValue()
+				|| this.getZ() <= -Location.FAR_LANDS.getValue())) {
 			this.remove();
 		}
 	}

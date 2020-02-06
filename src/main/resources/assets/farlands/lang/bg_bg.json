@@ -26,19 +26,15 @@
 	"config.farlands.fixLighting.tooltip.warning": "Не е препоръчано да се включва в сървъри, нито да се зареди вече съществуващ свят докато е включено.",
 	"config.farlands.fixLighting.tooltip.restart": "Промяната на тази настройка няма никакъв ефект докато играта не е рестартирана.",
 
-	"config.farlands.fixParticlesEntities.tooltip.description": "Поправя загубата на прецизност с тези частици:",
-	"config.farlands.fixParticlesEntities.tooltip.description.end_portal": "End портални частици",
-	"config.farlands.fixParticlesEntities.tooltip.description.falling_block": "Sand/Soul Sand/Gravel частици",
+	"config.farlands.fixParticlesEntities.tooltip.description": "Поправя загубата на прецизност при тези частици:",
 	"config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water частици, капещи от листа",
-	"config.farlands.fixParticlesEntities.tooltip.description.mycelium": "Mycelium частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater частици",
-	"config.farlands.fixParticlesEntities.tooltip.description.brewing_stand": "Brewing Stand частици",
-	"config.farlands.fixParticlesEntities.tooltip.description.nether_portal": "Nether портални частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.lava": "Лава частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.water": "Водни частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.tnt": "TNT частици",
+	"config.farlands.fixParticlesEntities.tooltip.description.bone_meal": "Bone Meal частици",
 
-	"config.farlands.fixParticlesEntities.tooltip.description.entities": "Поправя загубата на прецизност с тези същества:",
+	"config.farlands.fixParticlesEntities.tooltip.description.entities": "Поправя загубата на прецизност при тези същества:",
 	"config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
 	"config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Книгата на Enchanting Table",
 

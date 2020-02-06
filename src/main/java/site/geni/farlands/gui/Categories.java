@@ -192,7 +192,7 @@ public class Categories {
 				"config.farlands.category.world.subcategory.estimates"
 			);
 			subCategoryBuilder.addAll(entries);
-			subCategoryBuilder.setExpended(true);
+			subCategoryBuilder.setExpanded(true);
 			world.addEntry(subCategoryBuilder.build());
 		}
 	}
@@ -201,7 +201,7 @@ public class Categories {
 	static class Fixes {
 		// All particles fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
 		private static final String[] PARTICLES = new String[]{
-			"water", "lava", "tnt", "end_portal", "falling_block", "mycelium", "leaves", "repeater", "nether_portal", "brewing_stand"
+			"water", "lava", "tnt", "leaves", "repeater", "bone_meal"
 		};
 
 		// All entities fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
