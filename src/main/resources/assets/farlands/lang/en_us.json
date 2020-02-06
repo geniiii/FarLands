@@ -48,15 +48,11 @@
   "config.farlands.heightScale": "Height scale",
   "config.farlands.coordinateScaleMultiplier": "Coordinate scale multiplier",
   "config.farlands.heightScaleMultiplier": "Height scale multiplier",
-  "config.farlands.raiseNetherHeightLimit": "Raise The Nether's height limit",
-  "config.farlands.raiseEndHeightLimit": "Raise The End's height limit",
 
   "config.farlands.coordinateScale.tooltip": "The world's coordinate scale.",
   "config.farlands.heightScale.tooltip": "The world's height scale.",
   "config.farlands.coordinateScaleMultiplier.tooltip": "The coordinate scale multiplier (coordinate scale * multiplier).",
   "config.farlands.heightScaleMultiplier.tooltip": "The height scale multiplier (height scale * multiplier).",
-  "config.farlands.raiseNetherHeightLimit.tooltip": "Raises The Nether's height limit to 256.",
-  "config.farlands.raiseEndHeightLimit.tooltip": "Raises The End's height limit to 256.",
 
   "config.farlands.estimatedPosition": "Estimated Far Lands X/Z",
   "config.farlands.estimatedFartherPosition": "Estimated Farther Lands X/Z",

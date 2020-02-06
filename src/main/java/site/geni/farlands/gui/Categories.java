@@ -127,30 +127,6 @@ public class Categories {
 					.build()
 			);
 
-			// Adds the option for raising the Nether's height limit to 256
-			world.addEntry(
-				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.raiseNetherHeightLimit",
-					FarLands.getConfig().raiseNetherHeightLimit.getValue()
-				).setDefaultValue(FarLands.getConfig().raiseNetherHeightLimit.getDefaultValue())
-					.setSaveConsumer(bool -> FarLands.getConfig().raiseNetherHeightLimit.setValue(bool))
-					.setTooltip(I18n.translate("config.farlands.raiseNetherHeightLimit.tooltip"))
-					.build()
-			);
-
-			// Adds the option for raising the End's height limit to 256
-			world.addEntry(
-				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.raiseEndHeightLimit",
-					FarLands.getConfig().raiseEndHeightLimit.getValue()
-				).setDefaultValue(FarLands.getConfig().raiseEndHeightLimit.getDefaultValue())
-					.setSaveConsumer(bool -> FarLands.getConfig().raiseEndHeightLimit.setValue(bool))
-					.setTooltip(I18n.translate("config.farlands.raiseEndHeightLimit.tooltip"))
-					.build()
-			);
-
 			World.createEstimatesSubCategory(world);
 		}
 

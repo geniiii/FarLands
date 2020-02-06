@@ -82,18 +82,6 @@ public class Config {
 		.withComment("The height scale multiplier (height scale * multiplier).")
 		.withName("heightScaleMultiplier")
 		.build();
-	public ConfigValue<Boolean> raiseNetherHeightLimit = ConfigValue.builder(Boolean.class)
-		.withParent(world)
-		.withDefaultValue(false)
-		.withComment("Raises the Nether height limit to 256.")
-		.withName("raiseNetherHeightLimit")
-		.build();
-	public ConfigValue<Boolean> raiseEndHeightLimit = ConfigValue.builder(Boolean.class)
-		.withParent(world)
-		.withDefaultValue(false)
-		.withComment("Raises the End height limit to 256.")
-		.withName("raiseEndHeightLimit")
-		.build();
 
 	{
 		try {

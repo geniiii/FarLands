@@ -1,6 +1,7 @@
 package site.geni.farlands.mixins.client.gui;
 
 import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,7 +30,7 @@ public abstract class ChatScreenMixin {
 		cancellable = true
 	)
 	private void dontCloseIfGuiOpen(int charcode, int int_2, int int_3, CallbackInfoReturnable<Boolean> cir) {
-		if (((ScreenMixin) this).getMinecraft().currentScreen instanceof ClothConfigScreen) {
+		if (MinecraftClient.getInstance().currentScreen instanceof ClothConfigScreen) {
 			cir.setReturnValue(true);
 		}
 	}

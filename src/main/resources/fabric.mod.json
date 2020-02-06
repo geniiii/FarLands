@@ -3,7 +3,7 @@
 	"id": "farlands",
 	"version": "${version}",
 	"name": "FarLands",
-	"description": "Brings back the far lands",
+	"description": "Brings back the Far Lands",
 	"authors": [
 		"geni"
 	],
@@ -33,10 +33,10 @@
 		"farlands.mixins.json"
 	],
 	"depends": {
-		"minecraft": ">=1.15-alpha.19.44.a",
-		"fabricloader": ">=0.6.3",
+		"minecraft": ">=1.15.2",
+		"fabricloader": ">=0.7.2",
 		"fabric-resource-loader-v0": ">=0.1.6",
-		"cloth-config2": ">=2.3.1-unstable",
+		"cloth-config2": ">=2.9.3",
 		"cotton-client-commands": ">=0.4.2"
 	},
 	"suggested": {

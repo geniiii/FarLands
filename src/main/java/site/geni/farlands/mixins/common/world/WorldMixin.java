@@ -67,23 +67,6 @@ public abstract class WorldMixin {
 		return Integer.MAX_VALUE;
 	}
 
-	/**
-	 * Sets the effective height to 256, depending on the mod's configuration
-	 *
-	 * @param original Original integer value of 128
-	 * @return Either 256 or the default of 128, depending on the mod's configuration
-	 * @author geni
-	 */
-	@ModifyConstant(
-		constant = @Constant(
-			intValue = 128
-		),
-		method = "getEffectiveHeight"
-	)
-	private static int getEffectiveHeightNew(int original) {
-		return FarLands.getConfig().raiseNetherHeightLimit.getValue() ? 256 : original;
-	}
-
 	@Shadow
 	public abstract WorldBorder getWorldBorder();
 
