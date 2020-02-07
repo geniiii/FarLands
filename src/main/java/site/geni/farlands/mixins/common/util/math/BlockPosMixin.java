@@ -1,5 +1,6 @@
 package site.geni.farlands.mixins.common.util.math;
 
+import me.zeroeightsix.fiber.exception.FiberException;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -66,7 +67,7 @@ public abstract class BlockPosMixin {
 		),
 		method = "<clinit>"
 	)
-	private static void overwriteBits(CallbackInfo ci) {
+	private static void overwriteBits(CallbackInfo ci) throws FiberException {
 		if (new Config().load().fixLighting.getValue()) {
 			SIZE_BITS_X = 27;
 			SIZE_BITS_Z = SIZE_BITS_X; // 27

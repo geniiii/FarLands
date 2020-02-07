@@ -1,12 +1,22 @@
 package site.geni.farlands;
 
 import io.github.cottonmc.cotton.logging.ModLogger;
+import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.ModInitializer;
 import site.geni.farlands.config.Config;
 
 @SuppressWarnings("unused")
 public class FarLands implements ModInitializer {
-	private static final Config CONFIG = new Config().load();
+	private static Config CONFIG;
+
+	static {
+		try {
+			CONFIG = new Config().load();
+		} catch (FiberException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private static final ModLogger LOGGER = new ModLogger(FarLands.class);
 
 	public static Config getConfig() {
