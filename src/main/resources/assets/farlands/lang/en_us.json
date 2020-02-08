@@ -9,10 +9,10 @@
   "config.farlands.category.world.subcategory.estimates": "Estimates",
 
   "config.farlands.farLandsEnabled": "Enable Far Lands",
-  "config.farlands.killEntities": "Kill falling block entities in Far Lands",
+  "config.farlands.killEntities": "Kill falling block entities in the Far Lands",
 
   "config.farlands.farLandsEnabled.tooltip": "Whether or not the Far Lands should generate.",
-  "config.farlands.killEntities.tooltip": "Whether or not falling block entities (such as sand, gravel, etc...) should be killed when spawned in the Far Lands.",
+  "config.farlands.killEntities.tooltip": "Whether or not falling block entities (e.g. sand, gravel...) should be killed when spawned in the Far Lands.",
 
   "config.farlands.fixOreGeneration": "Fix ore generation",
   "config.farlands.fixParticlesEntities": "Fix particles and entities",
@@ -24,7 +24,7 @@
 
   "config.farlands.fixLighting.tooltip.description": "Fixes lighting issues up to X/Z: ±2^26 / ±67108864.",
   "config.farlands.fixLighting.tooltip.warning": "It is not recommended to enable this option on a server, nor load an existing world with it enabled.",
-  "config.farlands.fixLighting.tooltip.restart": "Changing this option has no effect until the game is restarted.",
+  "config.farlands.fixLighting.tooltip.restart": "Restart your game after applying this fix, otherwise the server may eventually crash.",
 
   "config.farlands.fixParticlesEntities.tooltip": "Fixes precision loss with various entities and particles.",
   "config.farlands.fixParticlesEntities.tooltip.description": "This fixes precision loss with the following particles:",
@@ -37,7 +37,7 @@
 
   "config.farlands.fixParticlesEntities.tooltip.description.entities": "This fixes precision loss with the following entities:",
   "config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
-  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book (Partially, as its angle isn't fixed) ",
+  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book (partially, as its angle isn't fixed) ",
 
   "config.farlands.fixOreGeneration.tooltip": "Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other.",
   "config.farlands.fixMobSpawning.tooltip": "Fixes precision loss with mob spawning.",
