@@ -18,34 +18,6 @@ import site.geni.farlands.FarLands;
 @Mixin(TntBlock.class)
 public abstract class TntBlockMixin {
 	/**
-	 * Spawns primed TNT (primed by an entity) using {@link Double} for positions instead of {@link Float} in order to have precise spawn and sound positions
-	 *
-	 * @param ci           {@link CallbackInfo} required for {@link Inject}
-	 * @param world        {@link World} of the block
-	 * @param blockPos     {@link BlockPos} of the block
-	 * @param livingEntity {@link LivingEntity} that caused the TNT to be primed
-	 * @author geni
-	 */
-	@Inject(
-		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/entity/TntEntity;<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/entity/LivingEntity;)V"
-		),
-		method = "primeTnt(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/LivingEntity;)V",
-		cancellable = true
-	)
-	private static void primeTntProperly(World world, BlockPos blockPos, LivingEntity livingEntity, CallbackInfo ci) {
-		if (FarLands.getConfig().fixParticlesEntities.getValue()) {
-			final TntEntity primedTntEntity = new TntEntity(world, blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() + 0.5D, livingEntity);
-
-			world.spawnEntity(primedTntEntity);
-			world.playSound(null, primedTntEntity.getX(), primedTntEntity.getY(), primedTntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
-
-			ci.cancel();
-		}
-	}
-
-	/**
 	 * Spawns primed TNT (primed by an explosion) using {@link Double} for positions instead of {@link Float} in order to have precise spawn and sound positions
 	 *
 	 * @param ci        {@link CallbackInfo} required for {@link Inject}

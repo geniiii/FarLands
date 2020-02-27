@@ -30,11 +30,9 @@
     "client.block.HorizontalFacingBlockMixin",
     "client.block.entity.BlockEntityMixin",
     "client.block.entity.EnchantingTableBlockEntityMixin",
-    "client.fluid.WaterFluidMixin",
     "client.fluid.LavaFluidMixin",
     "client.item.ItemMixin",
     "client.item.BoneMealItemMixin",
-    "client.world.MobSpawnerLogicMixin",
     "client.world.ClientWorldMixin",
     "client.gui.ChatScreenMixin"
   ],
