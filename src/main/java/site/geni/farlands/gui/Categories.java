@@ -177,7 +177,7 @@ public class Categories {
 	static class Fixes {
 		// All particles fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip
 		private static final String[] PARTICLES = new String[]{
-			"water", "lava", "tnt", "leaves", "repeater", "bone_meal"
+			"lava", "leaves", "repeater", "bone_meal"
 		};
 
 		// All entities fixed by the "Fix Particles/Entities" option, ready for usage in its tooltip

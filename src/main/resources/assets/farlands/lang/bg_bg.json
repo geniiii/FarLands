@@ -30,8 +30,6 @@
 	"config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water частици, капещи от листа",
 	"config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.lava": "Лава частици",
-	"config.farlands.fixParticlesEntities.tooltip.description.water": "Водни частици",
-	"config.farlands.fixParticlesEntities.tooltip.description.tnt": "TNT частици",
 	"config.farlands.fixParticlesEntities.tooltip.description.bone_meal": "Bone Meal частици",
 
 	"config.farlands.fixParticlesEntities.tooltip.description.entities": "Поправя загубата на прецизност при тези същества:",

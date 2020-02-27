@@ -31,8 +31,6 @@
   "config.farlands.fixParticlesEntities.tooltip.description.leaves": "Water particles dripping from leaves",
   "config.farlands.fixParticlesEntities.tooltip.description.repeater": "Redstone Repeater particles",
   "config.farlands.fixParticlesEntities.tooltip.description.lava": "Lava particles",
-  "config.farlands.fixParticlesEntities.tooltip.description.water": "Water particles",
-  "config.farlands.fixParticlesEntities.tooltip.description.tnt": "TNT particles",
 	"config.farlands.fixParticlesEntities.tooltip.description.bone_meal": "Bone Meal particles",
 
   "config.farlands.fixParticlesEntities.tooltip.description.entities": "This fixes precision loss with the following entities:",
