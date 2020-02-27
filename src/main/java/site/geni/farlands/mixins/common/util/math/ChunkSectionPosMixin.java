@@ -30,8 +30,8 @@ public abstract class ChunkSectionPosMixin {
 	)
 	private static void asLongFixed(int x, int y, int z, CallbackInfoReturnable<Long> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
-		}			cir.setReturnValue((((long) x & 0x7FFFFFL) << 41 | ((long) y & 0x3FFFFL) | ((long) z & 0x7FFFFFL) << 18));
-
+			cir.setReturnValue((((long) x & 0x7FFFFFL) << 41 | ((long) y & 0x3FFFFL) | ((long) z & 0x7FFFFFL) << 18));
+		}
 	}
 
 
