@@ -37,7 +37,7 @@
 
   "config.farlands.fixParticlesEntities.tooltip.description.entities": "This fixes precision loss with the following entities:",
   "config.farlands.fixParticlesEntities.tooltip.description.entities.tnt": "TNT",
-  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book (partially, as its angle isn't fixed) ",
+  "config.farlands.fixParticlesEntities.tooltip.description.entities.enchanting_table": "Enchanting Table book",
 
   "config.farlands.fixOreGeneration.tooltip": "Fixes precision loss with ore generation, which was causing ores to be always 2^n blocks apart from each other.",
   "config.farlands.fixMobSpawning.tooltip": "Fixes precision loss with mob spawning.",
