@@ -78,15 +78,15 @@ public final class Ansi {
 
 	public Ansi(String... codes) {
 		this.codes = codes;
-		String _codes_str = "";
+		StringBuilder _codes = new StringBuilder();
 		for (String code : codes) {
-			_codes_str += code;
+			_codes.append(code);
 		}
-		codes_str = _codes_str;
+		codes_str = _codes.toString();
 	}
 
 	public Ansi and(Ansi other) {
-		List<String> both = new ArrayList<String>();
+		List<String> both = new ArrayList<>();
 		Collections.addAll(both, codes);
 		Collections.addAll(both, other.codes);
 		return new Ansi(both.toArray(new String[]{}));

@@ -1,10 +1,9 @@
 package site.geni.farlands;
 
+import io.github.prospector.modmenu.api.ConfigScreenFactory;
 import io.github.prospector.modmenu.api.ModMenuApi;
 import net.minecraft.client.gui.screen.Screen;
 import site.geni.farlands.gui.CustomizeFarLandsScreen;
-
-import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public class FarLandsModMenuApiImpl implements ModMenuApi {
@@ -14,7 +13,7 @@ public class FarLandsModMenuApiImpl implements ModMenuApi {
 	}
 
 	@Override
-	public Function<Screen, ? extends Screen> getConfigScreenFactory() {
+	public ConfigScreenFactory<Screen> getModConfigScreenFactory() {
 		return CustomizeFarLandsScreen::createConfigScreen;
 	}
 }

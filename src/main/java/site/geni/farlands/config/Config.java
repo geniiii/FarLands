@@ -14,7 +14,7 @@ import java.nio.file.Files;
 public class Config {
 	private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "FarLands.json5");
 
-	private ConfigNode root = new ConfigNode();
+	final private ConfigNode root = new ConfigNode();
 
 	private Node general = root.fork("general");
 	// General
