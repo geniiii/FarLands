@@ -1,15 +1,19 @@
 package site.geni.farlands.mixins.common.entity;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import site.geni.farlands.mixins.server.entity.FallingBlockEntityMixin;
 
 @SuppressWarnings("unused")
 @Mixin(Entity.class)
 public abstract class EntityMixin {
+	@Shadow public World world;
+
 	@Shadow
 	public abstract double getZ();
 

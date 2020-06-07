@@ -5,6 +5,7 @@ import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.TranslatableText;
 import site.geni.farlands.FarLands;
 
 public class CustomizeFarLandsScreen {
@@ -18,12 +19,11 @@ public class CustomizeFarLandsScreen {
 	public static Screen createConfigScreen(Screen parent) {
 		final ConfigBuilder builder = ConfigBuilder.create()
 			.setParentScreen(parent)
-			.setTitle(I18n.translate("config.farlands.title"))
+			.setTitle(new TranslatableText("config.farlands.title"))
 			.setSavingRunnable(FarLands::saveConfig);
 
-		Categories.General.createCategory(builder.getOrCreateCategory("config.farlands.category.general"));
-		Categories.Fixes.createCategory(builder.getOrCreateCategory("config.farlands.category.fixes"));
-		Categories.World.createCategory(builder.getOrCreateCategory("config.farlands.category.world"));
+		Categories.General.createCategory(builder.getOrCreateCategory(new TranslatableText("config.farlands.category.general")));
+		Categories.Fixes.createCategory(builder.getOrCreateCategory(new TranslatableText("config.farlands.category.fixes")));
 
 		return builder.build();
 	}

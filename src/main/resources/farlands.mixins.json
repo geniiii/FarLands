@@ -5,37 +5,25 @@
   "mixins": [
     "common.world.WorldMixin",
     "common.world.WorldViewMixin",
-    "common.generators.CavesChunkGeneratorMixin",
-    "common.generators.OverworldChunkGeneratorMixin",
+    "common.generators.SurfaceChunkGeneratorAccessorMixin",
     "common.generators.SurfaceChunkGeneratorMixin",
-    "common.generators.FloatingIslandsChunkGeneratorMixin",
     "common.world.gen.feature.OreFeatureMixin",
     "common.commands.ForceLoadCommandMixin",
     "common.commands.WorldBorderCommandMixin",
     "common.entity.EntityMixin",
-    "common.entity.FallingBlockEntityMixin",
     "common.noise.OctavePerlinNoiseSamplerMixin",
     "common.player.PlayerEntityMixin",
     "common.util.math.BlockPosMixin",
     "common.util.math.ChunkSectionPosMixin",
-    "common.block.TntBlockMixin",
-    "common.world.SpawnHelperMixin",
     "server.MinecraftServerMixin",
     "server.player.ServerPlayNetworkHandlerMixin",
-    "server.player.ServerPlayerEntityMixin"
+    "server.player.ServerPlayerEntityMixin",
+    "server.entity.FallingBlockEntityMixin"
   ],
   "client": [
-    "client.block.LeavesBlockMixin",
-    "client.block.RepeaterBlockMixin",
-    "client.block.HorizontalFacingBlockMixin",
-    "client.block.entity.BlockEntityMixin",
-    "client.block.entity.EnchantingTableBlockEntityMixin",
-    "client.fluid.LavaFluidMixin",
-    "client.item.ItemMixin",
-    "client.item.BoneMealItemMixin",
-    "client.world.ClientWorldMixin",
     "client.gui.ChatScreenMixin"
   ],
+  "plugin": "site.geni.farlands.mixins.FarLandsMixinPlugin",
   "minVersion": "0.7.11",
   "injectors": {
     "defaultRequire": 1

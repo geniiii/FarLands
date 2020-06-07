@@ -26,6 +26,6 @@ public abstract class SurfaceChunkGeneratorMixin {
 		method = "sampleNoise"
 	)
 	private double dontMaintainPrecision(double coordinate) {
-		return FarLands.getConfig().farLandsEnabled.getValue() ? coordinate : maintainPrecision(coordinate);
+		return FarLands.getConfig().general.farLandsEnabled ? coordinate : maintainPrecision(coordinate);
 	}
 }
