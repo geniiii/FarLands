@@ -5,14 +5,11 @@ import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import me.shedaniel.clothconfig2.impl.builders.TextDescriptionBuilder;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.Style;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import site.geni.farlands.FarLands;
 
-import java.text.Format;
 import java.util.Arrays;
 import java.util.List;
 

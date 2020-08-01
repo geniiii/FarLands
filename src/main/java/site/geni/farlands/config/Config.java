@@ -4,9 +4,9 @@ import io.github.fablabsmc.fablabs.api.fiber.v1.annotation.AnnotatedSettings;
 import io.github.fablabsmc.fablabs.api.fiber.v1.annotation.Setting;
 import io.github.fablabsmc.fablabs.api.fiber.v1.annotation.Settings;
 import io.github.fablabsmc.fablabs.api.fiber.v1.exception.FiberException;
+import io.github.fablabsmc.fablabs.api.fiber.v1.serialization.FiberSerialization;
 import io.github.fablabsmc.fablabs.api.fiber.v1.serialization.JanksonValueSerializer;
 import io.github.fablabsmc.fablabs.api.fiber.v1.tree.ConfigTree;
-import io.github.fablabsmc.fablabs.api.fiber.v1.serialization.FiberSerialization;
 import net.fabricmc.loader.api.FabricLoader;
 import site.geni.farlands.FarLands;
 

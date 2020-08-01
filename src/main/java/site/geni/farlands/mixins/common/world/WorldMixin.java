@@ -57,7 +57,8 @@ public abstract class WorldMixin {
 	@Shadow
 	public abstract WorldBorder getWorldBorder();
 
-	@Shadow public abstract WorldProperties getLevelProperties();
+	@Shadow
+	public abstract WorldProperties getLevelProperties();
 
 	/**
 	 * Sets world border maximum radius to {@link Integer#MAX_VALUE} and size to {@link Double#MAX_VALUE}
