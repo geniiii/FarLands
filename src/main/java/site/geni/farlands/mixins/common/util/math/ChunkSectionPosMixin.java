@@ -5,15 +5,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import site.geni.farlands.FarLands;
 
 @SuppressWarnings("unused")
 @Mixin(ChunkSectionPos.class)
 public abstract class ChunkSectionPosMixin {
 
 	/**
-	 * Converts X/Y/Z from integer form to a single long <br>
-	 * Returns X/Y/Z combined in one long
+	 * Packs X/Y/Z into a single long <br>
+	 * Returns X/Y/Z packed into one long
 	 *
 	 * @param cir {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param x   X coordinate
@@ -29,9 +28,7 @@ public abstract class ChunkSectionPosMixin {
 		cancellable = true
 	)
 	private static void asLongFixed(int x, int y, int z, CallbackInfoReturnable<Long> cir) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
-			cir.setReturnValue((((long) x & 0x7FFFFFL) << 41 | ((long) y & 0x3FFFFL) | ((long) z & 0x7FFFFFL) << 18));
-		}
+		cir.setReturnValue((((long) x & 0x7FFFFFL) << 41 | ((long) y & 0x3FFFFL) | ((long) z & 0x7FFFFFL) << 18));
 	}
 
 
@@ -47,13 +44,11 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getX",
+		method = "unpackX",
 		cancellable = true
 	)
 	private static void getXFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
-			cir.setReturnValue((int) (coords >> 41));
-		}
+		cir.setReturnValue((int) (coords >> 41));
 	}
 
 	/**
@@ -68,13 +63,11 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getY",
+		method = "unpackY",
 		cancellable = true
 	)
 	private static void getYFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
-			cir.setReturnValue((int) (coords << 48 >> 48));
-		}
+		cir.setReturnValue((int) (coords << 48 >> 48));
 	}
 
 	/**
@@ -89,18 +82,16 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getZ",
+		method = "unpackZ",
 		cancellable = true
 	)
 	private static void getZFixed(long coords, CallbackInfoReturnable<Integer> cir) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
-			cir.setReturnValue((int) (coords << 23 >> 41));
-		}
+		cir.setReturnValue((int) (coords << 23 >> 41));
 	}
 
 
 	/**
-	 * Coordinates with Z set to 0
+	 * Coordinates with Y set to 0
 	 *
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
@@ -111,13 +102,11 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "withZeroZ",
+		method = "withZeroY",
 		cancellable = true
 	)
-	private static void withZeroZFixed(long coords, CallbackInfoReturnable<Long> cir) {
-		if (FarLands.getConfig().fixLighting.getValue()) {
-			cir.setReturnValue(coords & -0x40000L);
-		}
+	private static void withZeroYFixed(long coords, CallbackInfoReturnable<Long> cir) {
+		cir.setReturnValue(coords & -0x40000L);
 	}
 
 }

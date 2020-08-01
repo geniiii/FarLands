@@ -12,11 +12,7 @@ public class ModLogger {
 	private Ansi prefixFormat = new Ansi(Ansi.SANE);
 
 	public ModLogger(Class clazz) {
-		this(clazz.getSimpleName());
-	}
-
-	public ModLogger(String name) {
-		this(name, "");
+		this(clazz.getSimpleName(), clazz.getSimpleName());
 	}
 
 	public ModLogger(String name, String prefix) {

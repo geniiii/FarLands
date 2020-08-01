@@ -11,9 +11,9 @@
 		"raphydaphy", "muzikbike"
 	],
 	"contact": {
-		"homepage": "https://polgarian.life",
-		"sources": "https://github.com/polgaria/FarLands",
-		"issues": "https://github.com/polgaria/FarLands/issues"
+		"homepage": "https://github.com/geniiii/FarLands",
+		"sources": "https://github.com/geniiii/FarLands",
+		"issues": "https://github.com/geniiii/FarLands/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/farlands/icon.png",
@@ -33,11 +33,11 @@
 		"farlands.mixins.json"
 	],
 	"depends": {
-		"minecraft": ">=1.16-alpha.20.9.a",
-		"fabricloader": ">=0.7.8",
-		"fabric-resource-loader-v0": ">=0.1.6",
-		"cloth-config2": ">=2.9.3",
-		"cotton-client-commands": ">=0.4.2"
+		"minecraft": ">=1.16.2-beta.1",
+		"fabricloader": ">=0.9.0",
+		"fabric-resource-loader-v0": ">=0.2.8",
+		"cloth-config2": ">=4.7.0-unstable",
+		"cotton-client-commands": ">=1.0.1"
 	},
 	"suggested": {
 		"modmenu": "*"

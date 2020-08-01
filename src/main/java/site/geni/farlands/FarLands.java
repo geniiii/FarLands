@@ -1,7 +1,6 @@
 package site.geni.farlands;
 
 import io.github.cottonmc.cotton.logging.ModLogger;
-import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.ModInitializer;
 import site.geni.farlands.config.Config;
 
@@ -10,17 +9,15 @@ public class FarLands implements ModInitializer {
 	private static Config CONFIG;
 
 	static {
-		try {
-			CONFIG = new Config().load();
-		} catch (FiberException e) {
-			e.printStackTrace();
-		}
+		CONFIG = new Config();
+		CONFIG.load();
+		CONFIG.save();
 	}
 
 	private static final ModLogger LOGGER = new ModLogger(FarLands.class);
 
-	public static Config getConfig() {
-		return CONFIG;
+	public static Config.Pojo getConfig() {
+		return CONFIG.getPojo();
 	}
 
 	public static void saveConfig() {
@@ -33,6 +30,6 @@ public class FarLands implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("[FarLands] Initialized");
+		LOGGER.info("Initialized");
 	}
 }
