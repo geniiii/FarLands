@@ -47,7 +47,7 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getX",
+		method = "unpackX",
 		cancellable = true
 	)
 	private static void getXFixed(long coords, CallbackInfoReturnable<Integer> cir) {
@@ -68,7 +68,7 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getY",
+		method = "unpackY",
 		cancellable = true
 	)
 	private static void getYFixed(long coords, CallbackInfoReturnable<Integer> cir) {
@@ -89,7 +89,7 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "getZ",
+		method = "unpackZ",
 		cancellable = true
 	)
 	private static void getZFixed(long coords, CallbackInfoReturnable<Integer> cir) {
@@ -100,7 +100,7 @@ public abstract class ChunkSectionPosMixin {
 
 
 	/**
-	 * Coordinates with Z set to 0
+	 * Coordinates with Y set to 0
 	 *
 	 * @param cir    {@link CallbackInfoReturnable} required by {@link Inject}
 	 * @param coords Coordinates in long form
@@ -111,10 +111,10 @@ public abstract class ChunkSectionPosMixin {
 		at = @At(
 			value = "HEAD"
 		),
-		method = "withZeroZ",
+		method = "withZeroY",
 		cancellable = true
 	)
-	private static void withZeroZFixed(long coords, CallbackInfoReturnable<Long> cir) {
+	private static void withZeroYFixed(long coords, CallbackInfoReturnable<Long> cir) {
 		if (FarLands.getConfig().fixLighting.getValue()) {
 			cir.setReturnValue(coords & -0x40000L);
 		}

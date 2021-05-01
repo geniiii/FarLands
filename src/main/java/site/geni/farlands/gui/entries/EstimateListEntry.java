@@ -1,13 +1,15 @@
 package site.geni.farlands.gui.entries;
 
 import me.shedaniel.clothconfig2.gui.entries.StringListEntry;
+import net.minecraft.text.Text;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class EstimateListEntry extends StringListEntry {
+
 	@Deprecated
-	public EstimateListEntry(String fieldName, String value) {
-		super(fieldName, value, null);
+	public EstimateListEntry(Text fieldName, String value) {
+		super(fieldName, value, Text.of("text.cloth.reset_value"), null, null);
 	}
 
 	private static boolean handlePress(int charCode) {

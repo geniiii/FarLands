@@ -15,9 +15,17 @@ minecraft {
 repositories {
     maven {
         name "CottonMC"
-        url "http://server.bbkr.space:8081/artifactory/libs-snapshot"
+        url "https://server.bbkr.space/artifactory/libs-release"
+    }
+    maven { url 'https://maven.terraformersmc.com/releases/com/terraformersmc/modmenu/' }
+    maven { url 'https://maven.shedaniel.me' }
+    maven {
+        name = 'JitPack'
+        url = 'https://jitpack.io'
     }
     jcenter()
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -26,19 +34,19 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
-    include "net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("me.shedaniel.cloth:config-2:${project.clothconfig_version}") { transitive = false }
-    include "me.shedaniel.cloth:config-2:${project.clothconfig_version}"
-
-    modImplementation "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
-    include "io.github.cottonmc:cotton-client-commands:${clientcommands_version}"
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    include "me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}"
 
     modImplementation "me.zeroeightsix:fiber:${project.fiber_version}"
     include "me.zeroeightsix:fiber:${project.fiber_version}"
 
-    modImplementation("io.github.prospector:modmenu:${modmenu_version}") { transitive = false }
+    modImplementation("io.github.prospector:modmenu:${modmenu_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     compileOnly("com.google.code.findbugs:jsr305:3.0.2") { transitive = false }
 }

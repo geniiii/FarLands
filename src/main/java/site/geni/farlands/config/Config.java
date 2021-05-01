@@ -16,7 +16,7 @@ public class Config {
 
 	final private ConfigNode root = new ConfigNode();
 
-	private Node general = root.fork("general");
+	private final Node general = root.fork("general");
 	// General
 	public ConfigValue<Boolean> farLandsEnabled = ConfigValue.builder(Boolean.class)
 		.withName("farLandsEnabled")
@@ -30,7 +30,7 @@ public class Config {
 		.withDefaultValue(false)
 		.withParent(general)
 		.build();
-	private Node fixes = root.fork("fixes");
+	private final Node fixes = root.fork("fixes");
 	// Fixes
 	public ConfigValue<Boolean> fixOreGeneration = ConfigValue.builder(Boolean.class)
 		.withName("fixOreGeneration")
@@ -56,7 +56,7 @@ public class Config {
 		.withDefaultValue(false)
 		.withParent(fixes)
 		.build();
-	private Node world = root.fork("world");
+	private final Node world = root.fork("world");
 	// World
 	public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
 		.withName("coordinateScale")
