@@ -24,20 +24,16 @@
 		],
 		"modmenu": [
 			"site.geni.farlands.FarLandsModMenuApiImpl"
-		],
-		"cotton-client-commands": [
-			"site.geni.farlands.FarLandsCommands"
 		]
 	},
 	"mixins": [
 		"farlands.mixins.json"
 	],
 	"depends": {
-		"minecraft": ">=1.16-alpha.20.9.a",
+		"minecraft": ">=1.16.4",
 		"fabricloader": ">=0.7.8",
-		"fabric-resource-loader-v0": ">=0.1.6",
-		"cloth-config2": ">=2.9.3",
-		"cotton-client-commands": ">=0.4.2"
+		"fabric-resource-loader-v0": ">=0.4.2",
+		"cloth-config2": ">=2.9.3"
 	},
 	"suggested": {
 		"modmenu": "*"

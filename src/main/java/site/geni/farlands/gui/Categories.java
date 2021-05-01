@@ -7,6 +7,7 @@ import me.shedaniel.clothconfig2.impl.builders.DoubleFieldBuilder;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import me.shedaniel.clothconfig2.impl.builders.TextDescriptionBuilder;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import site.geni.farlands.FarLands;
 import site.geni.farlands.gui.entries.EstimateListEntry;
@@ -31,8 +32,8 @@ public class Categories {
 			// Adds the option for enabling the Far Lands
 			general.addEntry(
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.farLandsEnabled",
+					Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.farLandsEnabled"),
 					FarLands.getConfig().farLandsEnabled.getValue()
 				).setDefaultValue(FarLands.getConfig().farLandsEnabled.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().farLandsEnabled.setValue(bool))
@@ -42,12 +43,12 @@ public class Categories {
 			// Adds the option for killing entities in the Far Lands
 			general.addEntry(
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.killEntities",
+						Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.killEntities"),
 					FarLands.getConfig().killFallingBlockEntitiesInFarLands.getValue()
 				).setDefaultValue(FarLands.getConfig().killFallingBlockEntitiesInFarLands.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().killFallingBlockEntitiesInFarLands.setValue(bool))
-					.setTooltip(I18n.translate("config.farlands.killEntities.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.killEntities.tooltip")))
 					.build()
 			);
 		}
@@ -70,9 +71,9 @@ public class Categories {
 			// Adds the warning in the "World" category
 			world.addEntry(
 				new TextDescriptionBuilder(
-					"",
-					"",
-					I18n.translate("config.farlands.category.world.warning")
+						Text.of(""),
+						Text.of(""),
+					Text.of(I18n.translate("config.farlands.category.world.warning"))
 				).setColor(0xff5555)
 					.build()
 			);
@@ -86,7 +87,7 @@ public class Categories {
 					world
 				).setDefaultValue(FarLands.getConfig().coordinateScale.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScale.setValue(scale))
-					.setTooltip(I18n.translate("config.farlands.coordinateScale.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.coordinateScale.tooltip")))
 					.build()
 			);
 
@@ -99,31 +100,31 @@ public class Categories {
 					world
 				).setDefaultValue(FarLands.getConfig().coordinateScaleMultiplier.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().coordinateScaleMultiplier.setValue(scale))
-					.setTooltip(I18n.translate("config.farlands.coordinateScaleMultiplier.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.coordinateScaleMultiplier.tooltip")))
 					.build()
 			);
 
 			// Adds the option for setting the height scale
 			world.addEntry(
 				new DoubleFieldBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.heightScale",
+						Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.heightScale"),
 					FarLands.getConfig().heightScale.getValue()
 				).setDefaultValue(FarLands.getConfig().heightScale.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().heightScale.setValue(scale))
-					.setTooltip(I18n.translate("config.farlands.heightScale.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.heightScale.tooltip")))
 					.build()
 			);
 
 			// Adds the option for setting the height scale multiplier
 			world.addEntry(
 				new DoubleFieldBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.heightScaleMultiplier",
+						Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.heightScaleMultiplier"),
 					FarLands.getConfig().heightScaleMultiplier.getValue()
 				).setDefaultValue(FarLands.getConfig().heightScaleMultiplier.getDefaultValue())
 					.setSaveConsumer(scale -> FarLands.getConfig().heightScaleMultiplier.setValue(scale))
-					.setTooltip(I18n.translate("config.farlands.heightScaleMultiplier.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.heightScaleMultiplier.tooltip")))
 					.build()
 			);
 
@@ -164,8 +165,8 @@ public class Categories {
 
 			// Adds the "Estimates" sub-category to the "World" category
 			final SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(
-				"text.cloth-config.reset_value",
-				"config.farlands.category.world.subcategory.estimates"
+					Text.of("text.cloth-config.reset_value"),
+					Text.of("config.farlands.category.world.subcategory.estimates")
 			);
 			subCategoryBuilder.addAll(entries);
 			subCategoryBuilder.setExpanded(true);
@@ -196,24 +197,23 @@ public class Categories {
 			// Adds the option for fixing ore generation
 			fixes.addEntry(
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.fixOreGeneration",
+						Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.fixOreGeneration"),
 					FarLands.getConfig().fixOreGeneration.getValue()
 				).setDefaultValue(FarLands.getConfig().fixOreGeneration.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().fixOreGeneration.setValue(bool))
-					.setTooltip(I18n.translate("config.farlands.fixOreGeneration.tooltip"))
+					.setTooltip(Text.of(I18n.translate("config.farlands.fixOreGeneration.tooltip")))
 					.build()
 			);
-
 			// Adds the option for fixing particles/entities
 			fixes.addEntry(
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.fixParticlesEntities",
+						Text.of("text.cloth.reset_value"),
+								Text.of("config.farlands.fixParticlesEntities"),
 					FarLands.getConfig().fixParticlesEntities.getValue()
 				).setDefaultValue(FarLands.getConfig().fixParticlesEntities.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().fixParticlesEntities.setValue(bool))
-					.setTooltip(Fixes.createParticlesTooltip())
+					.setTooltip(Text.of(Arrays.toString(Fixes.createParticlesTooltip())))
 					.build()
 			);
 
@@ -255,31 +255,31 @@ public class Categories {
 			// "Fixes" category's "Experimental" sub-category's entries
 			final List<AbstractConfigListEntry> experimentalEntries = Arrays.asList(
 				// Warning message (0xff5555 is Formatting.RED's color)
-				new TextDescriptionBuilder("",
-					"",
-					I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning")
+				new TextDescriptionBuilder(Text.of(""),
+						Text.of(""),
+						Text.of(I18n.translate("config.farlands.category.fixes.subcategory.experimental.warning"))
 				).setColor(0xff5555)
 					.build(),
 
 				// Lighting
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.fixLighting",
+						Text.of("text.cloth.reset_value"),
+								Text.of("config.farlands.fixLighting"),
 					FarLands.getConfig().fixLighting.getValue()
 				).setTooltip(
-					I18n.translate("config.farlands.fixLighting.tooltip.description"),
-					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning"),
-					Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.restart")
+						Text.of(I18n.translate("config.farlands.fixLighting.tooltip.description")),
+						Text.of(Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.warning")),
+						Text.of(Formatting.RED + I18n.translate("config.farlands.fixLighting.tooltip.restart"))
 				).setDefaultValue(FarLands.getConfig().fixLighting.getDefaultValue())
 					.setSaveConsumer(bool -> FarLands.getConfig().fixLighting.setValue(bool))
 					.build(),
 
 				// Mob spawning
 				new BooleanToggleBuilder(
-					"text.cloth.reset_value",
-					"config.farlands.fixMobSpawning",
+						Text.of("text.cloth.reset_value"),
+						Text.of("config.farlands.fixMobSpawning"),
 					FarLands.getConfig().fixMobSpawning.getValue()
-				).setTooltip(I18n.translate("config.farlands.fixMobSpawning.tooltip"))
+				).setTooltip(Text.of(I18n.translate("config.farlands.fixMobSpawning.tooltip")))
 					.setSaveConsumer(bool -> FarLands.getConfig().fixMobSpawning.setValue(bool))
 					.setDefaultValue(FarLands.getConfig().fixMobSpawning.getDefaultValue())
 					.build()
@@ -287,8 +287,8 @@ public class Categories {
 
 			// Adds the "Experimental" sub-category to the "Fixes" category
 			final SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(
-				"text.cloth-config.reset_value",
-				"config.farlands.category.fixes.subcategory.experimental"
+					Text.of("text.cloth-config.reset_value"),
+							Text.of("config.farlands.category.fixes.subcategory.experimental")
 			);
 			subCategoryBuilder.addAll(experimentalEntries);
 			fixes.addEntry(subCategoryBuilder.build());

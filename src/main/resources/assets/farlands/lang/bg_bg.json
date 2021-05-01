@@ -54,5 +54,6 @@
 	"config.farlands.estimatedPosition": "Преценени Far Lands X/Z",
 	"config.farlands.estimatedFartherPosition": "Преценени Farther Lands X/Z",
 	"config.farlands.estimatedFarthererPosition": "Преценени Fartherer Lands X/Z",
-	"config.farlands.estimatedFarthestPosition": "Преценени Farthest Lands X/Z"
+	"config.farlands.estimatedFarthestPosition": "Преценени Farthest Lands X/Z",
+	"config.farlands.fixParticlesEntities.tooltip": "Ремонти Загуба на прецизност с различни предмети и частици."
 }

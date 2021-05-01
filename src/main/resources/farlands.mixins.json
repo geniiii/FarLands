@@ -5,10 +5,7 @@
   "mixins": [
     "common.world.WorldMixin",
     "common.world.WorldViewMixin",
-    "common.generators.CavesChunkGeneratorMixin",
-    "common.generators.OverworldChunkGeneratorMixin",
-    "common.generators.SurfaceChunkGeneratorMixin",
-    "common.generators.FloatingIslandsChunkGeneratorMixin",
+    "common.generators.NoiseChunkGeneratorMixin",
     "common.world.gen.feature.OreFeatureMixin",
     "common.commands.ForceLoadCommandMixin",
     "common.commands.WorldBorderCommandMixin",
@@ -19,10 +16,8 @@
     "common.util.math.BlockPosMixin",
     "common.util.math.ChunkSectionPosMixin",
     "common.block.TntBlockMixin",
-    "common.world.SpawnHelperMixin",
     "server.MinecraftServerMixin",
-    "server.player.ServerPlayNetworkHandlerMixin",
-    "server.player.ServerPlayerEntityMixin"
+    "server.player.ServerPlayNetworkHandlerMixin"
   ],
   "client": [
     "client.block.LeavesBlockMixin",
